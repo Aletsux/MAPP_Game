@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
 
-    private static int crystals = 980;
+    private static int crystals = 0;
     public Text crystalAmount;
-    private static int clickMultiplier = 1;
+    private static int clickIncrease = 1;
     //private static string suffix = "";
 
     void Start()
     {
-        
+        UpdateUI();
     }
     void Update()
     {
@@ -21,24 +21,33 @@ public class GameController : MonoBehaviour
     }
 
 
-    public int getCrystals()
+    public int GetCrystals()
     {
         return crystals;
     }
 
-    public void clickCrystal()
+    public void ClickCrystal()
     {
-        crystals += (1 * clickMultiplier); // add crystals
+        crystals += (1 * clickIncrease); // add crystals
         //setSuffix();
-        updateUI(); // update amount in UI
+        UpdateUI(); // update amount in UI
+        ClickIncrease();
     }
 
-    private void updateUI()
+    private void UpdateUI()
     {
         crystalAmount.text = crystals + "" /*suffix*/;
     }
 
-    //private string setSuffix()
+    public void ClickIncrease()
+    {
+        int toAdd = 1;
+        if (clickIncrease % 10 == 0) // every 10 upgrades
+            toAdd = 5;  // the player gets a bonus
+        clickIncrease += toAdd;
+    }
+
+    //private string FormatCrystalAmount() // should convert from 1000 to 1k and so on
     //{
     //    if (getCrystals() < 1000)
     //        suffix = "";
@@ -48,4 +57,12 @@ public class GameController : MonoBehaviour
     //        suffix = "m";
     //    return suffix;
     //}
+
+    public void DecreaseCrystals(int cost) // to buy
+    {
+        crystals -= cost;
+        UpdateUI();
+    }
+
+
 }
