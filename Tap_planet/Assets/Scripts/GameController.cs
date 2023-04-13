@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
 
-    private static int crystals = 0;
+    private static int crystals;
     public Text crystalAmount;
     private static int clickIncrease = 1;
     //private static string suffix = "";
