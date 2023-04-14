@@ -15,7 +15,7 @@ public class StoreScript : MonoBehaviour
     public GameObject powerupTabButton;
     public GameObject powerupTab;
     [Space]
-    public GameObject planetTabButton;
+    //public GameObject planetTabButton;
     public GameObject planetTab;
 
 
