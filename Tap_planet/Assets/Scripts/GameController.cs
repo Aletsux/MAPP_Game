@@ -11,23 +11,21 @@ public class GameController : MonoBehaviour
     private static int clickIncrease = 1;
     //private static string suffix = "";
 
-
-    public Button PowerUpClicker; //knapp i affär som ska aktivera powerup när man klickar
-    [SerializeField] private float timeBeforeReset; // hur många sekunder som powerup ska hålla på
+    [SerializeField] int tpuCost = 1; //tpu = timedPowerUp
+    [SerializeField] private float tpuTimeBeforeReset; // hur många sekunder som powerup ska hålla på
+    [SerializeField] public int tpuAddClicksBy;
     private bool isUsingPowerUp = false;
+    private int saveCurrentClick; //saves how many clicks the player has before their limited timed powerUp
     private float timer = 0f;
-    [SerializeField] private int addClicksBy;
-    private static int defaultClick = 1;
 
-    [SerializeField] int costToBuyPowerUp;
+    [SerializeField] public int permCost;//perm = permanent, så att om spelaren köper kommer de alltid ha extra klicks
 
 
 
     void Start()
     {
         UpdateUI();
-
-        PowerUpClicker.onClick.AddListener(TimedPowerUp);
+        
     }
 
     void Update()
@@ -35,7 +33,7 @@ public class GameController : MonoBehaviour
         if(isUsingPowerUp == true)
         {
             timer += Time.deltaTime;
-            if(timer >= timeBeforeReset)
+            if(timer >= tpuTimeBeforeReset)
             {
                 timer = 0f;
                 isUsingPowerUp = false;
@@ -58,10 +56,6 @@ public class GameController : MonoBehaviour
         //setSuffix();
         UpdateUI(); // update amount in UI
 
-
-
-
-        //ClickIncrease();
     }
 
     private void UpdateUI()
@@ -71,10 +65,16 @@ public class GameController : MonoBehaviour
 
     public void ClickIncrease()
     {
-        int toAdd = 1;
-        if (clickIncrease % 10 == 0) // every 10 upgrades
-            toAdd = 5;  // the player gets a bonus
-        clickIncrease += toAdd;
+
+        if(crystals >= permCost)
+        {
+            DecreaseCrystals(permCost); // kostar pengar för denna
+
+            int toAdd = 1;
+            if (clickIncrease % 10 == 0) // every 10 upgrades varje gång klikcar på knapp i store
+                toAdd = 5;  // the player gets a bonus
+            clickIncrease += toAdd;
+        }
     }
 
     //private string FormatCrystalAmount() // should convert from 1000 to 1k and so on
@@ -95,21 +95,26 @@ public class GameController : MonoBehaviour
     }
 
 
+
+
     public void TimedPowerUp() // göra en individs klick starkare i några sekunder
     {
-        if(isUsingPowerUp == false && crystals >= costToBuyPowerUp)
+        if(isUsingPowerUp == false && crystals >= tpuCost)
         {
             isUsingPowerUp = true;
-            clickIncrease += addClicksBy;
 
-            DecreaseCrystals(costToBuyPowerUp);
+            saveCurrentClick = clickIncrease;
+
+            clickIncrease += tpuAddClicksBy;
+
+            DecreaseCrystals(tpuCost);
 
         }
     }
 
     public void ResetClickIncrease() // sätt tillbaka klick till default
     {
-        clickIncrease = defaultClick;
+        clickIncrease = saveCurrentClick;
     }
 
 
