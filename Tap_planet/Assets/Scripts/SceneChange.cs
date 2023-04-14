@@ -14,3 +14,6 @@ public class SceneChange : MonoBehaviour
         SceneManager.LoadScene("Game");
     }
 }
+
+//om vi ville ha en utscrollande meny istället för en ändrad scen, kan man ha menyn under själva spelet och sedan ha
+//ett osynligt objekt som åker ut som man sätter till en child. då åker den ovanför spelskärmen och sen?? eller jag vet inte 
