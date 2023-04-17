@@ -167,16 +167,11 @@ public class GameController : MonoBehaviour
         TPUText.text = "TPU: " + TPUAmount;
     }
 
-    private int GetTPUAmount()
-    {
-        return TPUAmount;
-    }
-
     private void SaveGame()
     {
         PlayerPrefs.SetInt("crystals", GetCrystals());
         PlayerPrefs.SetInt("clickIncrease", ReturnClickIncrease());
-        PlayerPrefs.SetInt("tpu", GetTPUAmount());
+        PlayerPrefs.SetInt("tpu", TPUAmount);
     }
 
     private void LoadGame()
