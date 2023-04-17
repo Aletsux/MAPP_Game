@@ -68,17 +68,15 @@ public class GameController : MonoBehaviour
 
     public void ClickIncrease()
     {
-
         if(crystals >= permCost)
         {
-            DecreaseCrystals(permCost); // kostar pengar för denna
-
             int toAdd = 1;
             if (clickIncrease % 10 == 0) // every 10 upgrades varje gång klickar på knapp i store
                 toAdd = 5;  // the player gets a bonus
             clickIncrease += toAdd;
         }
     }
+
     public int ReturnClickIncrease()
     {
         return clickIncrease;

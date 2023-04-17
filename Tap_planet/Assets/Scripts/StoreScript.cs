@@ -37,7 +37,7 @@ public class StoreScript : MonoBehaviour
         if (displayUIMessage) // bool set to true in DisplayMessage()
         {
             timer += Time.deltaTime;
-            if (timer >= 2)
+            if (timer >= timeToDisplay)
             {
                 timer = 0f;
                 UIText.gameObject.SetActive(false);
@@ -77,8 +77,8 @@ public class StoreScript : MonoBehaviour
         {
             if (gameController.GetCrystals() >= gameController.GetTpuCost()) // checks bank balance       
             {
-                gameController.DecreaseCrystals(gameController.GetTpuCost()); // reduces money in bank
                 gameController.AddTPUAmount(); // adds 1 to tpuAmount
+                gameController.DecreaseCrystals(gameController.GetTpuCost()); // reduces money in bank
                 DisplayMessage("Timed boost purchased!"); // displays message
             }
             else
@@ -90,8 +90,8 @@ public class StoreScript : MonoBehaviour
         {
             if (gameController.GetCrystals() >= gameController.GetPermCost())
             {
-                gameController.DecreaseCrystals(gameController.GetPermCost());
                 gameController.ClickIncrease();
+                gameController.DecreaseCrystals(gameController.GetPermCost());
                 DisplayMessage("Your clicks now give you " + gameController.ReturnClickIncrease() + " crystals!");
             }
             else
