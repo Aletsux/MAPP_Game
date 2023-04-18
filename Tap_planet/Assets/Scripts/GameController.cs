@@ -30,14 +30,11 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        LoadGame();
-        UpdateUI();
         DisableTPU(); //om spelaren inte har någon timed powerup
     }
 
     void Update()
     {
-        SaveGame();
         if (isUsingPowerUp == true)
         {
             timer += Time.deltaTime;
@@ -165,6 +162,7 @@ public class GameController : MonoBehaviour
     private void UpdateTPU() //om spelaren inte har någon timed powerup
     {
         TPUText.text = "TPU: " + TPUAmount;
+        DisableTPU();
     }
 
     private void SaveGame()
@@ -179,5 +177,19 @@ public class GameController : MonoBehaviour
         crystals = PlayerPrefs.GetInt("crystals");
         clickIncrease = PlayerPrefs.GetInt("clickIncrease");
         TPUAmount = PlayerPrefs.GetInt("tpu");
+        UpdateTPU();
+        UpdateUI();
+    }
+
+    void OnApplicationFocus(bool focus)
+    {
+        if (focus)
+        {
+            LoadGame();
+        }
+        else
+        {
+            SaveGame();
+        }
     }
 }
