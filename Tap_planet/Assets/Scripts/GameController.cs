@@ -1,7 +1,5 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,40 +27,10 @@ public class GameController : MonoBehaviour
     public Text TPUText;
     private int TPUAmount = 0;
 
-    //Accessories
-    public List<GameObject> accessoryObjects = new List<GameObject>(); //accessoarobjekt ska manuellt sättas som inaktiva!
-    public List<Button> accessoryButtons;
-
 
     void Start()
     {
-        UpdateUI();
         DisableTPU(); //om spelaren inte har någon timed powerup
-
-        //PlayerPrefs.DeleteAll(); //Till för testning av Accessories - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
-        for (int i = 0; i < accessoryObjects.Count; i++)
-        {
-            if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 1)
-            {
-                accessoryObjects[i].SetActive(true);
-                SetAccessoryButtonLabel(i, "Unequip");
-
-                for (int j = 0; j < accessoryObjects.Count; j++)
-                {
-                    if (j != i && PlayerPrefs.GetInt("AccessoryPurchased_" + j) == 1)
-                    {
-                        accessoryObjects[j].SetActive(false);
-                        SetAccessoryButtonLabel(j, "Equip");
-                    }
-                    else if (j != i && PlayerPrefs.GetInt("AccessoryPurchased_" + j) == 0)
-                    {
-                        accessoryObjects[j].SetActive(false);
-                        SetAccessoryButtonLabel(j, "Buy");
-                    }
-                }
-            }
-        }
-
     }
 
     void Update()
@@ -70,11 +38,11 @@ public class GameController : MonoBehaviour
         if (isUsingPowerUp == true)
         {
             timer += Time.deltaTime;
-            if (timer >= tpuTimeBeforeReset)
+            if(timer >= tpuTimeBeforeReset)
             {
                 timer = 0f;
                 isUsingPowerUp = false;
-                ResetClickIncrease();
+                ResetClickIncrease();    
             }
         }
     }
@@ -99,15 +67,13 @@ public class GameController : MonoBehaviour
 
     public void ClickIncrease()
     {
-        if (crystals >= permCost)
-
-            if (crystals >= permCost)
-            {
-                int toAdd = 1;
-                if (clickIncrease % 10 == 0) // every 10 upgrades varje gång klickar på knapp i store
-                    toAdd = 5;  // the player gets a bonus
-                clickIncrease += toAdd;
-            }
+        if(crystals >= permCost)
+        {
+            int toAdd = 1;
+            if (clickIncrease % 10 == 0) // every 10 upgrades varje gång klickar på knapp i store
+                toAdd = 5;  // the player gets a bonus
+            clickIncrease += toAdd;
+        }
     }
 
     public int ReturnClickIncrease()
@@ -131,16 +97,18 @@ public class GameController : MonoBehaviour
         crystals -= cost;
         UpdateUI();
     }
-    public void TimedPowerUp() // göra en individs klick starkare i några sekunder
+
+    private void TimedPowerUp() // göra en individs klick starkare i några sekunder
     {
-        if (isUsingPowerUp == false && crystals >= tpuCost)
+        if(isUsingPowerUp == false)
         {
             isUsingPowerUp = true;
+
             saveCurrentClick = clickIncrease;
+
             clickIncrease += tpuAddClicksBy;
         }
     }
-
 
     public void ResetClickIncrease() // sätt tillbaka klick till default
     {
@@ -158,7 +126,7 @@ public class GameController : MonoBehaviour
                 UpdateTPU();
                 print("Timed PowerUp activated!");
             }
-
+            
             if (TPUAmount == 0)
                 TPU.SetActive(false);
         }
@@ -223,88 +191,5 @@ public class GameController : MonoBehaviour
         {
             SaveGame();
         }
-    }
-
-    public void EquipAccessory(int index) //anropas vid klick av accessories-köpknapp
-    {
-        bool hasPurchased = PlayerPrefs.GetInt("AccessoryPurchased_" + index, 0) == 1;
-
-        if (!hasPurchased)
-        {
-            PurchaseAccessory(index);
-        }
-
-        accessoryButtons[index].onClick.RemoveAllListeners();
-        accessoryButtons[index].onClick.AddListener(() =>
-        {
-            ToggleAccessory(index);
-        });
-    }
-
-    private void PurchaseAccessory(int index)
-    {
-        int cost = 1;
-        DecreaseCrystals(cost);
-        PlayerPrefs.SetInt("AccessoryPurchased_" + index, 1);
-        PlayerPrefs.Save();
-        SetAccessoryButtonLabel(index, "Equip");
-    }
-
-    private void ToggleAccessory(int index)
-    {
-        bool isEquipped = accessoryObjects[index].activeSelf; //om accessoar-gameobjectet är aktiverat
-        //PlayerPrefs.SetInt("AccessoryEquipped_" + index, 1);
-        //PlayerPrefs.SetInt("AccessoryEquipped_" + index, isEquipped ? 0 : 1);
-        //PlayerPrefs.Save();
-
-        if (isEquipped)
-        {
-            accessoryObjects[index].SetActive(false);
-            SetAccessoryButtonLabel(index, "Equip");
-            //isEquipped = false;
-            PlayerPrefs.SetInt("AccessoryEquipped_" + index, 0);
-            PlayerPrefs.Save();
-
-            for (int i = 0; i < accessoryObjects.Count; i++)
-            {
-                if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1)
-                {
-                    accessoryObjects[i].SetActive(false);
-                    SetAccessoryButtonLabel(i, "Equip");
-                }
-                else if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
-                {
-                    accessoryObjects[i].SetActive(false);
-                    SetAccessoryButtonLabel(i, "Buy");
-                }
-            }
-        }
-        else
-        {
-            accessoryObjects[index].SetActive(true);
-            SetAccessoryButtonLabel(index, "Unequip");
-            //isEquipped = true;
-            PlayerPrefs.SetInt("AccessoryEquipped_" + index, 1);
-            PlayerPrefs.Save();
-
-            for (int i = 0; i < accessoryObjects.Count; i++)
-            {
-                if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1)
-                {
-                    accessoryObjects[i].SetActive(false);
-                    SetAccessoryButtonLabel(i, "Equip");
-                }
-                else if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
-                {
-                    accessoryObjects[i].SetActive(false);
-                    SetAccessoryButtonLabel(i, "Buy");
-                }
-            }
-        }
-    }
-
-    private void SetAccessoryButtonLabel(int index, string label)
-    {
-        accessoryButtons[index].GetComponentInChildren<Text>().text = label;
     }
 }
