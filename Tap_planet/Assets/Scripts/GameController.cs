@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class GameController : MonoBehaviour
 {
@@ -101,6 +102,11 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private void DoIdleOnStart(int secondsPassed)
+    {
+        crystals += secondsPassed;
+    }
+
     public int ReturnClickIncrease()
     {
         return clickIncrease;
@@ -195,6 +201,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("crystals", GetCrystals());
         PlayerPrefs.SetInt("clickIncrease", ReturnClickIncrease());
         PlayerPrefs.SetInt("tpu", TPUAmount);
+        PlayerPrefs.SetString("quitTime", System.DateTime.Now.ToBinary().ToString());
     }
 
     private void LoadGame()
@@ -204,6 +211,17 @@ public class GameController : MonoBehaviour
         TPUAmount = PlayerPrefs.GetInt("tpu");
         UpdateTPU();
         UpdateUI();
+        DoIdleOnStart(calculateSecondsSinceQuit());
+
+    }
+
+    private int calculateSecondsSinceQuit()
+    {
+        DateTime currentDate = System.DateTime.Now; //Store the current time
+        long temp = Convert.ToInt64(PlayerPrefs.GetString("quitTime")); //Grab the old time from the player prefs as a long
+        DateTime quitTime = DateTime.FromBinary(temp); //Convert the old time from binary to a DataTime variable
+        TimeSpan difference = currentDate.Subtract(quitTime); //Use the Subtract method and store the result as a timespan variable
+        return (int)difference.TotalSeconds; // return the difference as an int
     }
 
     void OnApplicationFocus(bool focus)
