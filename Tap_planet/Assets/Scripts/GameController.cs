@@ -20,29 +20,56 @@ public class GameController : MonoBehaviour
 
     [SerializeField] public int permCost;//perm = permanent, så att om spelaren köper kommer de alltid ha extra klicks
 
+    [SerializeField] public int idleCost;//the cost for the idle click powerup
+    public float clicksPerSecond = 1f;
+    private bool isUsingIdleClicker = false;
+    private int numPerSec = 1;
+    private int theNextUpdate = 1;
+    
+
+
 
 
     void Start()
     {
         UpdateUI();
-        
+
     }
 
     void Update()
     {
-        if(isUsingPowerUp == true)
+        if (isUsingPowerUp == true)
         {
             timer += Time.deltaTime;
-            if(timer >= tpuTimeBeforeReset)
+            if (timer >= tpuTimeBeforeReset)
             {
                 timer = 0f;
                 isUsingPowerUp = false;
-                ResetClickIncrease();    
+                ResetClickIncrease();
             }
         }
+
+
+
+        if (isUsingIdleClicker)
+        {
+            //om uppdateringen har skett
+            if (Time.time >= theNextUpdate)
+                //Time.time är the beginning of this frame
+            {
+                //ändra theNextUpdate (current second+1)
+                //alltså lägg till en sekund så att den väntar
+                //den väntar tills att uppdate
+                theNextUpdate = Mathf.FloorToInt(Time.time) + 1;
+
+                //Det som ska ske varje sekund
+                IdleClickPowerUp();
+            }
+        }
+
+
     }
 
-    
 
 
     public int GetCrystals()
@@ -60,13 +87,14 @@ public class GameController : MonoBehaviour
 
     private void UpdateUI()
     {
-        crystalAmount.text = crystals + "" /*suffix*/;
+        crystalAmount.text = crystals + ""/*suffix*/;
+
     }
 
     public void ClickIncrease()
     {
 
-        if(crystals >= permCost)
+        if (crystals >= permCost)
         {
             DecreaseCrystals(permCost); // kostar pengar för denna
 
@@ -94,12 +122,9 @@ public class GameController : MonoBehaviour
         UpdateUI();
     }
 
-
-
-
     public void TimedPowerUp() // göra en individs klick starkare i några sekunder
     {
-        if(isUsingPowerUp == false && crystals >= tpuCost)
+        if (isUsingPowerUp == false && crystals >= tpuCost)
         {
             isUsingPowerUp = true;
 
@@ -112,12 +137,34 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void ResetClickIncrease() // sätt tillbaka klick till default
+    public void ResetClickIncrease() // sätt tillbaka klick till det man hade tidigare
     {
         clickIncrease = saveCurrentClick;
     }
 
 
+
+    //Kanske lägga till att det blir fler klick per sekund när man betarar för fler
+    // och ett textfönster som visar upp hur många man får per sek
+    
+    public void BuyIdle()
+    {// just nu kan man bara köpa en annars dras det bara av mer när man köper igen utan någon sorts belöning
+        if (crystals >= idleCost && isUsingIdleClicker == false) 
+        {
+            isUsingIdleClicker = true;
+            DecreaseCrystals(idleCost);
+            IdleClickPowerUp();
+        }
+    }
+
+    //sätt inte decrease här utan ny metod annars dras det av varje sekund och man får inget.
+    public void IdleClickPowerUp()
+    {
+        crystals += numPerSec;
+        crystalAmount.text = crystals + ""/*suffix*/;
+    }
+
+  
 
 
 }
