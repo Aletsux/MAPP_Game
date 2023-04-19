@@ -29,6 +29,15 @@ public class GameController : MonoBehaviour
     private int TPUAmount = 0;
 
 
+    [SerializeField] public int idleCost;//the cost for the idle click powerup
+    public float clicksPerSecond = 1f;
+    private bool isUsingIdleClicker = false;
+    private int numPerSec = 1;
+    private int theNextUpdate = 1;
+
+
+
+
     void Start()
     {
         DisableTPU(); //om spelaren inte har någon timed powerup
@@ -44,6 +53,22 @@ public class GameController : MonoBehaviour
                 timer = 0f;
                 isUsingPowerUp = false;
                 ResetClickIncrease();    
+            }
+        }
+
+        if (isUsingIdleClicker)
+        {
+            //om uppdateringen har skett
+            if (Time.time >= theNextUpdate)
+            //Time.time är the beginning of this frame
+            {
+                //ändra theNextUpdate (current second+1)
+                //alltså lägg till en sekund så att den väntar
+                //den väntar tills att uppdate
+                theNextUpdate = Mathf.FloorToInt(Time.time) + 1;
+
+                //Det som ska ske varje sekund
+                IdleClickPowerUp();
             }
         }
     }
@@ -209,5 +234,23 @@ public class GameController : MonoBehaviour
         {
             SaveGame();
         }
+    }
+
+
+    public void BuyIdle()
+    {// just nu kan man bara köpa en annars dras det bara av mer när man köper igen utan någon sorts belöning
+        if (crystals >= idleCost && isUsingIdleClicker == false)
+        {
+            isUsingIdleClicker = true;
+            DecreaseCrystals(idleCost);
+            //IdleClickPowerUp();
+        }
+    }
+
+    //sätt inte decrease här utan ny metod annars dras det av varje sekund och man får inget.
+    public void IdleClickPowerUp()
+    {
+        crystals += numPerSec;
+        crystalAmount.text = crystals + ""/*suffix*/;
     }
 }
