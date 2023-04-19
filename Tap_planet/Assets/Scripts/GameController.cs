@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour
     {
         DisableTPU(); //om spelaren inte har någon timed powerup
 
-        //PlayerPrefs.DeleteAll(); //Till för testning av Accessories - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
+        PlayerPrefs.DeleteAll(); //Till för testning av Accessories - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
         for (int i = 0; i < accessoryObjects.Count; i++)
         {
             if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 1)
