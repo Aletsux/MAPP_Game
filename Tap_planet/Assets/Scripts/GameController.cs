@@ -216,8 +216,15 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("clickIncrease", ReturnClickIncrease());
         PlayerPrefs.SetInt("tpu", TPUAmount);
         PlayerPrefs.SetString("quitTime", System.DateTime.Now.ToBinary().ToString());
-
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(isUsingIdleClicker));
+    }
+
+    private void ResetForBuild()
+    {
+        PlayerPrefs.SetInt("crystals", 0);
+        PlayerPrefs.SetInt("clickIncrease", 1);
+        PlayerPrefs.SetInt("tpu", 0);
+        PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(false));
     }
 
     private void LoadGame()
@@ -225,12 +232,10 @@ public class GameController : MonoBehaviour
         crystals = PlayerPrefs.GetInt("crystals");
         clickIncrease = PlayerPrefs.GetInt("clickIncrease");
         TPUAmount = PlayerPrefs.GetInt("tpu");
+        isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
         UpdateTPU();
         UpdateUI();
         LoadIdleClicks(calculateSecondsSinceQuit());
-
-        isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
-
     }
 
     private int calculateSecondsSinceQuit()
@@ -251,6 +256,7 @@ public class GameController : MonoBehaviour
         else
         {
             SaveGame();
+            //ResetForBuild();
         }
     }
 
@@ -303,8 +309,5 @@ public class GameController : MonoBehaviour
             crystals += saveCrystals;
             crystalAmount.text = crystals + "" /*suffix*/;
         }
-        
-
-
     }
 }
