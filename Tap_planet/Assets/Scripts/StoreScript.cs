@@ -105,16 +105,19 @@ public class StoreScript : MonoBehaviour
             {
                 if (gameController.IsIdleTrue() == false)
                 {
-                    gameController.BuyIdle();
+                    
                     DisplayMessage("You will now recieve " + gameController.ReturnClicksPerSec() + " crystal per minute!");
                 }
-                else
+                else if(gameController.IsIdleLvlTrue())
                 {
-                    DisplayMessage("You will now recieve " + gameController.ReturnClicksPerSec() + " crystal per " + gameController.ReturnSecBeforeClick() + " seconds");
+
+                    DisplayMessage("You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every " + (gameController.ReturnSecBeforeClick()) + " seconds");
                 }
-                
+
+
+                gameController.BuyIdle();
                 gameController.DecreaseCrystals(gameController.GetIdleCost());
-                
+
             }
             else
             {

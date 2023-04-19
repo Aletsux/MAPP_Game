@@ -34,11 +34,15 @@ public class GameController : MonoBehaviour
     private bool isUsingIdleClicker = false;
     private int numPerSec = 1;
     private int theNextUpdate = 1;
-    private int secBeforeIdleClick = 1;
+    public int secBeforeIdleClick = 75;
 
     private int saveIfUsingIdle = 0;
-    private bool isAtLevelOne = false;
-    private bool saveIdle;
+    private int saveIfLvlOne = 0;
+    private bool isAtLevel = false;
+    private int numPerTime = 1;
+
+    private int nextUpdate = 1;
+    public int lvlCounter = 5;
 
 
 
@@ -69,21 +73,24 @@ public class GameController : MonoBehaviour
                 //ändra theNextUpdate (current second+1)
                 //alltså lägg till en sekund så att den väntar
                 //den väntar tills att uppdate
+                Debug.Log("crystal: " + 1);
                 theNextUpdate = Mathf.FloorToInt(Time.time) + secBeforeIdleClick;
 
                 //Det som ska ske varje sekund
-                IdleClickPowerUp();
+                IdleClickSecApart();
             }
+        }
 
-            if (isAtLevelOne)
+        if (isAtLevel)//varje sekund
+        {
+            if (Time.time >= nextUpdate)
             {
-                if (Time.time >= theNextUpdate)
-                {
-                    theNextUpdate = Mathf.FloorToInt(Time.time) + 1;
-                    IdleClickPowerUp();
-                }
-            }
+                
+                nextUpdate = Mathf.FloorToInt(Time.time) + 1;
+                IdleClickPowerUp();
 
+                Debug.Log("crystal: " + 1);
+            }
         }
     }
 
@@ -114,11 +121,6 @@ public class GameController : MonoBehaviour
                 toAdd = 5;  // the player gets a bonus
             clickIncrease += toAdd;
         }
-    }
-
-    private void DoIdleOnStart(int secondsPassed)
-    {
-        crystals += secondsPassed;
     }
 
     public int ReturnClickIncrease()
@@ -218,6 +220,10 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetString("quitTime", System.DateTime.Now.ToBinary().ToString());
 
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(isUsingIdleClicker));
+        PlayerPrefs.SetInt("saveIfLvlOne", Convert.ToInt32(isAtLevel));
+        PlayerPrefs.SetInt("numPerSec", ReturnClicksPerSec());
+        PlayerPrefs.SetInt("secBeforeIdleClick", ReturnSecBeforeClick());
+        PlayerPrefs.SetInt("lvlCounter", ReturnTimesToLvlUp()); 
     }
 
     private void LoadGame()
@@ -227,9 +233,15 @@ public class GameController : MonoBehaviour
         TPUAmount = PlayerPrefs.GetInt("tpu");
         UpdateTPU();
         UpdateUI();
-        LoadIdleClicks(calculateSecondsSinceQuit());
 
         isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
+        isAtLevel = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfLvlOne"));
+        numPerSec = PlayerPrefs.GetInt("numPerSec");
+        secBeforeIdleClick = PlayerPrefs.GetInt("secBeforeIdleClick");
+        lvlCounter = PlayerPrefs.GetInt("lvlCounter");
+
+        LoadIdleClicks(calculateSecondsSinceQuit());
+
 
     }
 
@@ -263,20 +275,60 @@ public class GameController : MonoBehaviour
 
     public void UpdateIdleLevel()
     {
+        //level up it adds cost with 2%
+        //
+        if (isAtLevel == false || lvlCounter > 0)
+        {
+            double higherCost = idleCost * 1.02;
+            idleCost += (int)higherCost;
+            lvlCounter -= 1;
+            Debug.Log("Lvl: " + lvlCounter);
 
+            secBeforeIdleClick -= 15;
+        }
+
+        if (lvlCounter == 0)
+        {
+            isAtLevel = true;
+            lvlCounter = 4;
+            Debug.Log("Lvl: " + lvlCounter);
+
+            secBeforeIdleClick = 60;
+            numPerSec += 1;
+
+        }
+        Debug.Log("sec" + secBeforeIdleClick);
     }
+
+    
+    
 
     public bool IsIdleTrue()
     {
         return isUsingIdleClicker;
     }
 
-    //sätt inte decrease här utan ny metod annars dras det av varje sekund och man får inget.
+    public bool IsIdleLvlTrue()
+    {
+        return isAtLevel;
+    }
+
+
+    //varje sekund
     public void IdleClickPowerUp()
     {
         crystals += numPerSec;
         crystalAmount.text = crystals + ""/*suffix*/;
+        
     }
+    //några sekunder mellan uppdatering
+    public void IdleClickSecApart()
+    {
+        crystals += numPerTime;
+        crystalAmount.text = crystals + ""/*suffix*/;
+    }
+
+
 
 
     public int GetIdleCost()
@@ -289,22 +341,53 @@ public class GameController : MonoBehaviour
         return numPerSec;
     }
 
+    public int ReturnClickPerTime()
+    {
+        return numPerTime;
+    }
+
     public int ReturnSecBeforeClick()
     {
         return secBeforeIdleClick;
     }
+
+    public int ReturnTimesToLvlUp()
+    {
+        return lvlCounter;
+    }
+
     
 
     private void LoadIdleClicks(int secondsPassed)
     {
-        int saveCrystals = secondsPassed;
-        if (isUsingIdleClicker)
+        if (isAtLevel) //varje sek
         {
-            crystals += saveCrystals;
-            crystalAmount.text = crystals + "" /*suffix*/;
+            if (numPerSec == 1)
+            {
+                crystals += secondsPassed;
+                crystalAmount.text = crystals + ""/*suffix*/;
+            }
+            else if(numPerSec > 1)
+            {
+                int result = secondsPassed * numPerSec;
+                crystals += result;
+                crystalAmount.text = crystals + ""/*suffix*/;
+            }           
         }
-        
 
+        if (isUsingIdleClicker)//längre väntetid
+        {
+            if(numPerTime > 0)
+            {
+                double dResult = secondsPassed / secBeforeIdleClick;
+                int result = (int)dResult;
+                crystals += result;
+                crystalAmount.text = crystals + ""/*suffix*/;
+            }
+
+
+            
+        }
 
     }
 }

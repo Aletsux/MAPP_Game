@@ -611,6 +611,8 @@ MonoBehaviour:
   TPUText: {fileID: 1033135185}
   idleCost: 1
   clicksPerSecond: 1
+  secBeforeIdleClick: 75
+  lvlCounter: 5
 --- !u!4 &205055366
 Transform:
   m_ObjectHideFlags: 0
@@ -2525,7 +2527,7 @@ GameObject:
   - component: {fileID: 616267258}
   - component: {fileID: 616267257}
   m_Layer: 5
-  m_Name: permButton (1)
+  m_Name: IdleButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
