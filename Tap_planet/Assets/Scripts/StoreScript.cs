@@ -100,7 +100,27 @@ public class StoreScript : MonoBehaviour
             }
         }
         else if (powerUpName.Equals("IdlePower")) {
-            gameController.BuyIdle();
+
+            if(gameController.GetCrystals() >= gameController.GetIdleCost())
+            {
+                if (gameController.IsIdleTrue() == false)
+                {
+                    gameController.BuyIdle();
+                    DisplayMessage("You will now recieve " + gameController.ReturnClicksPerSec() + " crystal per minute!");
+                }
+                else
+                {
+                    DisplayMessage("You will now recieve " + gameController.ReturnClicksPerSec() + " crystal per " + gameController.ReturnSecBeforeClick() + " seconds");
+                }
+                
+                gameController.DecreaseCrystals(gameController.GetIdleCost());
+                
+            }
+            else
+            {
+                DisplayMessage("Not Enough Crystals!");
+            }
+            
         }
         else
         {
