@@ -34,7 +34,11 @@ public class GameController : MonoBehaviour
     private bool isUsingIdleClicker = false;
     private int numPerSec = 1;
     private int theNextUpdate = 1;
+    private int secBeforeIdleClick = 1;
 
+    private int saveIfUsingIdle = 0;
+    private bool isAtLevelOne = false;
+    private bool saveIdle;
 
 
 
@@ -65,11 +69,21 @@ public class GameController : MonoBehaviour
                 //ändra theNextUpdate (current second+1)
                 //alltså lägg till en sekund så att den väntar
                 //den väntar tills att uppdate
-                theNextUpdate = Mathf.FloorToInt(Time.time) + 1;
+                theNextUpdate = Mathf.FloorToInt(Time.time) + secBeforeIdleClick;
 
                 //Det som ska ske varje sekund
                 IdleClickPowerUp();
             }
+
+            if (isAtLevelOne)
+            {
+                if (Time.time >= theNextUpdate)
+                {
+                    theNextUpdate = Mathf.FloorToInt(Time.time) + 1;
+                    IdleClickPowerUp();
+                }
+            }
+
         }
     }
 
@@ -202,6 +216,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("clickIncrease", ReturnClickIncrease());
         PlayerPrefs.SetInt("tpu", TPUAmount);
         PlayerPrefs.SetString("quitTime", System.DateTime.Now.ToBinary().ToString());
+
+        PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(isUsingIdleClicker));
     }
 
     private void LoadGame()
@@ -211,7 +227,9 @@ public class GameController : MonoBehaviour
         TPUAmount = PlayerPrefs.GetInt("tpu");
         UpdateTPU();
         UpdateUI();
-        DoIdleOnStart(calculateSecondsSinceQuit());
+        LoadIdleClicks(calculateSecondsSinceQuit());
+
+        isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
 
     }
 
@@ -238,13 +256,19 @@ public class GameController : MonoBehaviour
 
 
     public void BuyIdle()
-    {// just nu kan man bara köpa en annars dras det bara av mer när man köper igen utan någon sorts belöning
-        if (crystals >= idleCost && isUsingIdleClicker == false)
-        {
-            isUsingIdleClicker = true;
-            DecreaseCrystals(idleCost);
-            //IdleClickPowerUp();
-        }
+    {
+        isUsingIdleClicker = true;
+        UpdateIdleLevel();
+    }
+
+    public void UpdateIdleLevel()
+    {
+
+    }
+
+    public bool IsIdleTrue()
+    {
+        return isUsingIdleClicker;
     }
 
     //sätt inte decrease här utan ny metod annars dras det av varje sekund och man får inget.
@@ -252,5 +276,35 @@ public class GameController : MonoBehaviour
     {
         crystals += numPerSec;
         crystalAmount.text = crystals + ""/*suffix*/;
+    }
+
+
+    public int GetIdleCost()
+    {
+        return idleCost;
+    }
+
+    public int ReturnClicksPerSec()
+    {
+        return numPerSec;
+    }
+
+    public int ReturnSecBeforeClick()
+    {
+        return secBeforeIdleClick;
+    }
+    
+
+    private void LoadIdleClicks(int secondsPassed)
+    {
+        int saveCrystals = secondsPassed;
+        if (isUsingIdleClicker)
+        {
+            crystals += saveCrystals;
+            crystalAmount.text = crystals + "" /*suffix*/;
+        }
+        
+
+
     }
 }
