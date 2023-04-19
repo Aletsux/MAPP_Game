@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
     [SerializeField] public int idleCost;//the cost for the idle click powerup
     public float clicksPerSecond = 1f;
     private bool isUsingIdleClicker = false;
-    private int numPerSec = 1;
+    private int numPerSec = 0;
     private int theNextUpdate = 1;
     public int secBeforeIdleClick = 75;
 
