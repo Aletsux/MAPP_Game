@@ -99,6 +99,9 @@ public class StoreScript : MonoBehaviour
                 DisplayMessage("Not Enough Crystals!");
             }
         }
+        else if (powerUpName.Equals("IdlePower")) {
+            gameController.BuyIdle();
+        }
         else
         {
             DisplayMessage("Error: No such item found!");
