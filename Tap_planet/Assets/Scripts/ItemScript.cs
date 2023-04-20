@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.UI;
+using TMPro;
 
 public class ItemScript : MonoBehaviour
 {
-    private Image sprite ;
-    public String name;
-    private Text title;
-    private Text desciption;
+    public Sprite sprite;
+    public String itemName;
+    public String desciption;
 
     void Start()
     {
@@ -17,13 +17,18 @@ public class ItemScript : MonoBehaviour
     }
 
 
-    public Image ReturnImage()
+    public Sprite ReturnImage()
     {
         return sprite;
     }
 
     public String ReturnName()
     {
-        return name;
+        return itemName;
+    }
+
+    public String ReturnDescription()
+    {
+        return desciption;
     }
 }
