@@ -11,6 +11,7 @@ public class RaidEnemyMovement : MonoBehaviour
     private bool isHoming;
     public bool isMoving;
     public bool timeToMove = false;
+    public bool enemyCleared = false;
 
     [SerializeField] private GameObject planet;
 
@@ -31,7 +32,7 @@ public class RaidEnemyMovement : MonoBehaviour
     void Update()
     {
         //When planet has landed in its place and raid begins, start moving downwards at speed speed.
-        if (raidMovement.raidBegins && !isHoming)
+        if (raidMovement.raidBegins && !isHoming && timeToMove)
         {
             isMoving = true;   
             float step = speed * Time.deltaTime;
@@ -57,6 +58,7 @@ public class RaidEnemyMovement : MonoBehaviour
         if (collision.tag == "PlanetTrigger")
         {
             planetState.totalRaidDamage++;
+            gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
         }
     }
 }
