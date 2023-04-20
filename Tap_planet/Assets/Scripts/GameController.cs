@@ -520,7 +520,6 @@ public class GameController : MonoBehaviour
     private void PurchaseAccessory(int index)
     {
         DecreaseStardust(accessoryCosts[index]);
-        Debug.Log(accessoryCosts[index]);
         PlayerPrefs.SetInt("AccessoryPurchased_" + index, 1);
         PlayerPrefs.Save();
         SetAccessoryButtonLabel(index, "Equip");
