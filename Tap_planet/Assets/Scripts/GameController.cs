@@ -47,6 +47,8 @@ public class GameController : MonoBehaviour
     //Accessoar
     public List<GameObject> accessoryObjects = new List<GameObject>();
     public List<Button> accessoryButtons;
+    public List<int> accessoryCosts= new List<int>();
+    
     private int saveIfUsingIdle = 0;
     private int saveIfLvlOne = 0;
     private bool isAtLevel = false;
@@ -61,7 +63,7 @@ public class GameController : MonoBehaviour
     {
         DisableTPU(); //om spelaren inte har någon timed powerup
 
-        //PlayerPrefs.DeleteAll(); //Till för testning av Accessories - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
+        PlayerPrefs.DeleteAll(); //Till för testning av Accessories - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
         for (int i = 0; i < accessoryObjects.Count; i++)
         {
             if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 1)
@@ -79,7 +81,7 @@ public class GameController : MonoBehaviour
             else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
             {
                 accessoryObjects[i].SetActive(false);
-                SetAccessoryButtonLabel(i, "Buy");
+                SetAccessoryButtonLabel(i, accessoryCosts[i].ToString() + "SD");
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
                 PlayerPrefs.Save();
             }
@@ -490,11 +492,11 @@ public class GameController : MonoBehaviour
 
     public void EquipAccessory(int index) //anropas vid klick av accessories-köpknapp
     {
-        if (index >= accessoryObjects.Count)
-        {
-            Debug.LogError("Invalid index: " + index);
-            return;
-        }
+        //if (index >= accessoryObjects.Count)
+        //{
+        //    Debug.LogError("Invalid index: " + index);
+        //    return;
+        //}
 
         bool hasPurchased = PlayerPrefs.GetInt("AccessoryPurchased_" + index, 0) == 1;
 
@@ -509,8 +511,8 @@ public class GameController : MonoBehaviour
 
     private void PurchaseAccessory(int index)
     {
-        int cost = 1;
-        DecreaseCrystals(cost);
+        DecreaseStardust(accessoryCosts[index]);
+        Debug.Log(accessoryCosts[index]);
         PlayerPrefs.SetInt("AccessoryPurchased_" + index, 1);
         PlayerPrefs.Save();
         SetAccessoryButtonLabel(index, "Equip");
@@ -518,14 +520,14 @@ public class GameController : MonoBehaviour
 
     private void ToggleAccessory(int index) //ifall accessoaren är aktiverad inaktiveras den och vice versa
     {
-        if (index >= accessoryObjects.Count)
-        {
-            Debug.LogError("Invalid index: " + index);
-            return;
-        }
+        //if (index >= accessoryObjects.Count)
+        //{
+        //    Debug.LogError("Invalid index: " + index);
+        //    return;
+        //}
 
         bool isEquipped = accessoryObjects[index].activeSelf; //om accessoar-gameobjectet är aktiverat
-        Debug.Log(index);
+        //Debug.Log(index);
 
         //sätter för den klickade knappen
         if (isEquipped)
@@ -555,7 +557,7 @@ public class GameController : MonoBehaviour
             else if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
             {
                 accessoryObjects[i].SetActive(false);
-                SetAccessoryButtonLabel(i, "Buy");
+                SetAccessoryButtonLabel(i, accessoryCosts[i].ToString() + "SD");
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
                 PlayerPrefs.Save();
             }

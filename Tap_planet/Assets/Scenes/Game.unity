@@ -543,6 +543,7 @@ MonoBehaviour:
   accessoryButtons:
   - {fileID: 1764331472}
   - {fileID: 1764331471}
+  accessoryCosts: 6400000032000000
   lvlCounter: 5
 --- !u!4 &205055366
 Transform:
@@ -6362,9 +6363,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.99902344
       objectReference: {fileID: 0}
+    - target: {fileID: 6458594102525437065, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: m_Text
+      value: Party Hat Accessory
+      objectReference: {fileID: 0}
     - target: {fileID: 6560345483136558791, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_Name
       value: PartyHatButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7347432230191919266, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: m_Text
+      value: Test Accessory
       objectReference: {fileID: 0}
     - target: {fileID: 7448352109363147500, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_Name
