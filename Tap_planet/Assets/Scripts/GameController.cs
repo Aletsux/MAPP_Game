@@ -178,13 +178,16 @@ public class GameController : MonoBehaviour
     public void ClickStardust()
     {
         int rng = rnd.Next(1, 100);
+        bool endMethod = false;
         for (int i = 1; i <= stardustMinerLevel; i++)
         {
             if (rng == i)
             {
-                stardust += stardustMinerLevel;
-                return;
+                endMethod = true;
+                AddStardust(rng);
             }
+            if (endMethod)
+                return;
         }
         UpdateStardust();
     }
@@ -192,6 +195,11 @@ public class GameController : MonoBehaviour
     public int GetStardust()
     {
         return stardust;
+    }
+
+    public void AddStardust(int toAdd)
+    {
+        stardust += toAdd;
     }
 
     public void IncreaseStardustMinerLevel()
