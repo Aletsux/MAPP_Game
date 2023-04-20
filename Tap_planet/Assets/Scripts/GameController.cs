@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Reflection;
+using Random = System.Random;
 
 public class GameController : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class GameController : MonoBehaviour
     private int crystals;
     public Text crystalAmount;
     private int clickIncrease = 1;
+
+    private int stardust;
+    public Text stardustAmount;
+    private int stardustMinerLevel;
+    private static Random rnd = new Random();
+
     //private static string suffix = "";
 
     [SerializeField] int tpuCost = 1; //tpu = timedPowerUp
@@ -83,6 +90,7 @@ public class GameController : MonoBehaviour
                 EquipAccessory(i);
             });
         }
+
     }
 
     void Update()
@@ -137,11 +145,16 @@ public class GameController : MonoBehaviour
     {
         crystals += (1 * clickIncrease); // add crystals
         //setSuffix();
-        UpdateUI(); // update amount in UI
-
+        UpdateCrystals(); // update amount in UI
     }
 
-    private void UpdateUI()
+    public void DecreaseCrystals(int cost) // for example: to buy
+    {
+        crystals -= cost;
+        UpdateCrystals();
+    }
+
+    private void UpdateCrystals()
     {
         crystalAmount.text = crystals + "" /*suffix*/;
     }
@@ -162,6 +175,46 @@ public class GameController : MonoBehaviour
         return clickIncrease;
     }
 
+    public void ClickStardust()
+    {
+        int rng = rnd.Next(1, 100);
+        for (int i = 1; i <= stardustMinerLevel; i++)
+        {
+            if (rng == i)
+            {
+                stardust += stardustMinerLevel;
+                return;
+            }
+        }
+        UpdateStardust();
+    }
+
+    public int GetStardust()
+    {
+        return stardust;
+    }
+
+    public void IncreaseStardustMinerLevel()
+    {
+        stardustMinerLevel += 1;
+    }
+
+    public void DecreaseStardust(int cost) // for example: to buy
+    {
+        stardust -= cost;
+        UpdateStardust();
+    }
+
+    public int GetStardustMinerLevel()
+    {
+        return stardustMinerLevel;
+    }
+
+    private void UpdateStardust()
+    {
+        stardustAmount.text = stardust + "" /*suffix*/;
+    }
+
     //private string FormatCrystalAmount() // should convert from 1000 to 1k and so on
     //{
     //    if (getCrystals() < 1000)
@@ -173,11 +226,6 @@ public class GameController : MonoBehaviour
     //    return suffix;
     //}
 
-    public void DecreaseCrystals(int cost) // for example: to buy
-    {
-        crystals -= cost;
-        UpdateUI();
-    }
 
     private void TimedPowerUp() // göra en individs klick starkare i några sekunder
     {
@@ -250,6 +298,8 @@ public class GameController : MonoBehaviour
     {
         PlayerPrefs.SetInt("crystals", GetCrystals());
         PlayerPrefs.SetInt("clickIncrease", ReturnClickIncrease());
+        PlayerPrefs.SetInt("stardust", stardust);
+        PlayerPrefs.SetInt("stardustMinerLevel", GetStardustMinerLevel());
         PlayerPrefs.SetInt("tpu", TPUAmount);
         PlayerPrefs.SetString("quitTime", System.DateTime.Now.ToBinary().ToString());
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(isUsingIdleClicker));
@@ -263,8 +313,15 @@ public class GameController : MonoBehaviour
     {
         PlayerPrefs.SetInt("crystals", 0);
         PlayerPrefs.SetInt("clickIncrease", 1);
+        PlayerPrefs.SetInt("stardust", 200000);
+        PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(false));
+
+        PlayerPrefs.SetInt("saveIfLvlOne", Convert.ToInt32(false));
+        PlayerPrefs.SetInt("numPerSec", 0);
+        PlayerPrefs.SetInt("secBeforeIdleClick", 75);
+        PlayerPrefs.SetInt("lvlCounter", 5);
     }
 
     private void LoadGame()
@@ -273,8 +330,8 @@ public class GameController : MonoBehaviour
         clickIncrease = PlayerPrefs.GetInt("clickIncrease");
         TPUAmount = PlayerPrefs.GetInt("tpu");
         isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
-        UpdateTPU();
-        UpdateUI();
+        stardust = PlayerPrefs.GetInt("stardust");
+        stardustMinerLevel = PlayerPrefs.GetInt("stardustMinerLevel");
 
         isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
         isAtLevel = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfLvlOne"));
@@ -283,8 +340,9 @@ public class GameController : MonoBehaviour
         lvlCounter = PlayerPrefs.GetInt("lvlCounter");
 
         LoadIdleClicks(calculateSecondsSinceQuit());
-
-
+        UpdateTPU();
+        UpdateCrystals();
+        UpdateStardust();
     }
 
     private int calculateSecondsSinceQuit()
@@ -305,7 +363,7 @@ public class GameController : MonoBehaviour
         else
         {
             SaveGame();
-            //ResetForBuild();
+            ResetForBuild();
         }
     }
 
@@ -427,11 +485,7 @@ public class GameController : MonoBehaviour
                 crystals += result;
                 crystalAmount.text = crystals + ""/*suffix*/;
             }
-
-
-            
         }
-
     }
 
     public void EquipAccessory(int index) //anropas vid klick av accessories-köpknapp
