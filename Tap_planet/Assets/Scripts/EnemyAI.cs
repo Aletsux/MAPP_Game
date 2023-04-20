@@ -20,19 +20,26 @@ public class EnemyAI : MonoBehaviour
         //Mst kolla om den finns / redan åkt.
         //InScene
 
-        for (int i = 0; i < enemyList.Length; i++)
-        {
-            int random = Random.Range(0, enemyList.Length);
+        int number = Random.Range(0, enemyList.Length);
+
+        enemyList[number].GetComponent<RaidEnemyMovement>().timeToMove = true;
 
 
-            if (enemyList[random] != null && !enemyList[random].GetComponent<RaidEnemyMovement>().timeToMove) 
-            {
-                enemyList[random].GetComponent<RaidEnemyMovement>().timeToMove = true;
-                Debug.Log(enemyList[random]);
-            }
-        }
+
 
         //int number = Random.Range(0, enemyList.Length ); 
     }
 
+
+            //for (int i = 0; i<enemyList.Length; i++)
+        
+            //int random = Random.Range(0, enemyList.Length);
+
+
+            //if (enemyList[random] != null && !enemyList[random].GetComponent<RaidEnemyMovement>().timeToMove) 
+            
+              //  enemyList[random].GetComponent<RaidEnemyMovement>().timeToMove = true;
+                //Debug.Log(enemyList[random]);
+            
+        
 }
