@@ -9,6 +9,8 @@ public class RaidEnemyMovement : MonoBehaviour
     public float newSpeed;
 
     private bool isHoming;
+    public bool isMoving;
+    public bool timeToMove = false;
 
     [SerializeField] private GameObject planet;
 
@@ -31,6 +33,7 @@ public class RaidEnemyMovement : MonoBehaviour
         //When planet has landed in its place and raid begins, start moving downwards at speed speed.
         if (raidMovement.raidBegins && !isHoming)
         {
+            isMoving = true;   
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, -transform.position.y), step);
         }
