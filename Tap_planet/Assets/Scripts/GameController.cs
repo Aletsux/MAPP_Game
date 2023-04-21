@@ -8,7 +8,6 @@ using Random = System.Random;
 
 public class GameController : MonoBehaviour
 {
-
     private int crystals;
     public Text crystalAmount;
     private int clickIncrease = 1;
@@ -47,8 +46,13 @@ public class GameController : MonoBehaviour
     //Accessoar
     public List<GameObject> accessoryObjects = new List<GameObject>();
     public List<Button> accessoryButtons;
-    public List<int> accessoryCosts= new List<int>();
-    
+    public List<int> accessoryCosts = new List<int>();
+
+    //Planeter
+    public List<GameObject> planetObjects = new List<GameObject>();
+    public List<Button> planetButtons;
+    public List<int> planetCosts = new List<int>();
+
     private int saveIfUsingIdle = 0;
     private int saveIfLvlOne = 0;
     private bool isAtLevel = false;
@@ -57,31 +61,30 @@ public class GameController : MonoBehaviour
     private int nextUpdate = 1;
     public int lvlCounter = 5;
 
-
-
     void Start()
     {
         DisableTPU(); //om spelaren inte har någon timed powerup
 
-        //PlayerPrefs.DeleteAll(); //Till för testning av Accessories - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
+        //Accessoarer
+        PlayerPrefs.DeleteAll(); //Till för testning av Accessories - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
         for (int i = 0; i < accessoryObjects.Count; i++)
         {
             if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 1)
             {
                 accessoryObjects[i].SetActive(true);
-                SetAccessoryButtonLabel(i, "Unequip");
+                SetButtonLabel(accessoryButtons, i, "Unequip");
             }
             else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1)
             {
                 accessoryObjects[i].SetActive(false);
-                SetAccessoryButtonLabel(i, "Equip");
+                SetButtonLabel(accessoryButtons, i, "Equip");
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
                 PlayerPrefs.Save();
             }
             else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
             {
                 accessoryObjects[i].SetActive(false);
-                SetAccessoryButtonLabel(i, accessoryCosts[i].ToString() + "SD");
+                SetButtonLabel(accessoryButtons, i, accessoryCosts[i].ToString() + "SD");
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
                 PlayerPrefs.Save();
             }
@@ -93,6 +96,33 @@ public class GameController : MonoBehaviour
             });
         }
 
+        //Planeter
+        for (int i = 0; i < planetObjects.Count; i++)
+        {
+            if (PlayerPrefs.GetInt("PlanetEquipped_" + i) == 1)
+            {
+                planetObjects[i].SetActive(true);
+                SetButtonLabel(planetButtons, i, "Equipped");
+                planetButtons[i].interactable = false;
+            }
+            else if (PlayerPrefs.GetInt("PlanetEquipped_" + i) == 0 && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 1)
+            {
+                planetObjects[i].SetActive(false);
+                SetButtonLabel(planetButtons, i, "");
+                planetButtons[i].interactable = false;
+            } else if (PlayerPrefs.GetInt("PlanetEquipped_" + i) == 0 && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 0)
+            {
+                planetObjects[i].SetActive(false);
+                SetButtonLabel(planetButtons, i, planetCosts[i].ToString() + "SD");
+                planetButtons[i].interactable = true;
+            }
+
+            planetButtons[i].onClick.RemoveAllListeners();
+            planetButtons[i].onClick.AddListener(() =>
+            {
+                EquipPlanet(i);
+            });
+        }
     }
 
     void Update()
@@ -129,7 +159,7 @@ public class GameController : MonoBehaviour
         {
             if (Time.time >= nextUpdate)
             {
-                
+
                 nextUpdate = Mathf.FloorToInt(Time.time) + 1;
                 IdleClickPowerUp();
 
@@ -316,7 +346,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("saveIfLvlOne", Convert.ToInt32(isAtLevel));
         PlayerPrefs.SetInt("numPerSec", ReturnClicksPerSec());
         PlayerPrefs.SetInt("secBeforeIdleClick", ReturnSecBeforeClick());
-        PlayerPrefs.SetInt("lvlCounter", ReturnTimesToLvlUp()); 
+        PlayerPrefs.SetInt("lvlCounter", ReturnTimesToLvlUp());
     }
 
     private void ResetForBuild()
@@ -411,8 +441,8 @@ public class GameController : MonoBehaviour
         Debug.Log("sec" + secBeforeIdleClick);
     }
 
-    
-    
+
+
 
     public bool IsIdleTrue()
     {
@@ -430,7 +460,7 @@ public class GameController : MonoBehaviour
     {
         crystals += numPerSec;
         crystalAmount.text = crystals + ""/*suffix*/;
-        
+
     }
     //några sekunder mellan uppdatering
     public void IdleClickSecApart()
@@ -438,9 +468,6 @@ public class GameController : MonoBehaviour
         crystals += numPerTime;
         crystalAmount.text = crystals + ""/*suffix*/;
     }
-
-
-
 
     public int GetIdleCost()
     {
@@ -467,8 +494,6 @@ public class GameController : MonoBehaviour
         return lvlCounter;
     }
 
-    
-
     private void LoadIdleClicks(int secondsPassed)
     {
         if (isAtLevel) //varje sek
@@ -478,17 +503,17 @@ public class GameController : MonoBehaviour
                 crystals += secondsPassed;
                 crystalAmount.text = crystals + ""/*suffix*/;
             }
-            else if(numPerSec > 1)
+            else if (numPerSec > 1)
             {
                 int result = secondsPassed * numPerSec;
                 crystals += result;
                 crystalAmount.text = crystals + ""/*suffix*/;
-            }           
+            }
         }
 
         if (isUsingIdleClicker)//längre väntetid
         {
-            if(numPerTime > 0)
+            if (numPerTime > 0)
             {
                 double dResult = secondsPassed / secBeforeIdleClick;
                 int result = (int)dResult;
@@ -511,7 +536,8 @@ public class GameController : MonoBehaviour
         if (!hasPurchased)
         {
             PurchaseAccessory(index);
-        } else
+        }
+        else
         {
             ToggleAccessory(index);
         }
@@ -522,7 +548,7 @@ public class GameController : MonoBehaviour
         DecreaseStardust(accessoryCosts[index]);
         PlayerPrefs.SetInt("AccessoryPurchased_" + index, 1);
         PlayerPrefs.Save();
-        SetAccessoryButtonLabel(index, "Equip");
+        SetButtonLabel(accessoryButtons, index, "Equip");
     }
 
     private void ToggleAccessory(int index) //ifall accessoaren är aktiverad inaktiveras den och vice versa
@@ -540,14 +566,14 @@ public class GameController : MonoBehaviour
         if (isEquipped)
         {
             accessoryObjects[index].SetActive(false);
-            SetAccessoryButtonLabel(index, "Equip");
+            SetButtonLabel(accessoryButtons, index, "Equip");
             PlayerPrefs.SetInt("AccessoryEquipped_" + index, 0);
             PlayerPrefs.Save();
         }
         else
         {
             accessoryObjects[index].SetActive(true);
-            SetAccessoryButtonLabel(index, "Unequip");
+            SetButtonLabel(accessoryButtons, index, "Unequip");
             PlayerPrefs.SetInt("AccessoryEquipped_" + index, 1);
             PlayerPrefs.Save();
         }
@@ -557,22 +583,50 @@ public class GameController : MonoBehaviour
             if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1)
             {
                 accessoryObjects[i].SetActive(false);
-                SetAccessoryButtonLabel(i, "Equip");
+                SetButtonLabel(accessoryButtons, i, "Equip");
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
                 PlayerPrefs.Save();
             }
             else if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
             {
                 accessoryObjects[i].SetActive(false);
-                SetAccessoryButtonLabel(i, accessoryCosts[i].ToString() + "SD");
+                SetButtonLabel(accessoryButtons, i, accessoryCosts[i].ToString() + "SD");
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
                 PlayerPrefs.Save();
             }
         }
     }
 
-    private void SetAccessoryButtonLabel(int index, string label)
+    private void SetButtonLabel(List<Button> buttons, int index, string label)
     {
-        accessoryButtons[index].GetComponentInChildren<Text>().text = label;
+        buttons[index].GetComponentInChildren<Text>().text = label;
+    }
+
+    public void EquipPlanet(int index)
+    {
+        DecreaseStardust(planetCosts[index]);
+        PlayerPrefs.SetInt("PlanetPurchased_" + index, 1);
+        PlayerPrefs.Save();
+        SetButtonLabel(planetButtons, index, "Equipped");
+        planetButtons[index].interactable = false;
+        planetObjects[index].SetActive(true);
+        PlayerPrefs.SetInt("PlanetEquipped_" + index, 1);
+        PlayerPrefs.Save();
+
+        for (int i = 0; i < planetObjects.Count; i++)
+        {
+            if (i != index && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1) //ifall man tidigare haft planeten
+            {
+                planetObjects[i].SetActive(false);
+                SetButtonLabel(planetButtons, i, "");
+                planetButtons[i].interactable = false;
+            }
+            else if (i != index && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 0)
+            {
+                planetObjects[i].SetActive(false);
+                SetButtonLabel(planetButtons, i, planetCosts[i].ToString() + "SD");
+                planetButtons[i].interactable = true;
+            }
+        }
     }
 }
