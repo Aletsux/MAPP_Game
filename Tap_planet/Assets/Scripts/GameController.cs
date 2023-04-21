@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using System.Reflection;
+using Random = System.Random;
 
 public class GameController : MonoBehaviour
 {
@@ -11,6 +12,12 @@ public class GameController : MonoBehaviour
     private int crystals;
     public Text crystalAmount;
     private int clickIncrease = 1;
+
+    private int stardust;
+    public Text stardustAmount;
+    private int stardustMinerLevel;
+    private static Random rnd = new Random();
+
     //private static string suffix = "";
 
     [SerializeField] int tpuCost = 1; //tpu = timedPowerUp
@@ -40,6 +47,8 @@ public class GameController : MonoBehaviour
     //Accessoar
     public List<GameObject> accessoryObjects = new List<GameObject>();
     public List<Button> accessoryButtons;
+    public List<int> accessoryCosts= new List<int>();
+    
     private int saveIfUsingIdle = 0;
     private int saveIfLvlOne = 0;
     private bool isAtLevel = false;
@@ -72,7 +81,7 @@ public class GameController : MonoBehaviour
             else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
             {
                 accessoryObjects[i].SetActive(false);
-                SetAccessoryButtonLabel(i, "Buy");
+                SetAccessoryButtonLabel(i, accessoryCosts[i].ToString() + "SD");
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
                 PlayerPrefs.Save();
             }
@@ -83,6 +92,7 @@ public class GameController : MonoBehaviour
                 EquipAccessory(i);
             });
         }
+
     }
 
     void Update()
@@ -137,11 +147,16 @@ public class GameController : MonoBehaviour
     {
         crystals += (1 * clickIncrease); // add crystals
         //setSuffix();
-        UpdateUI(); // update amount in UI
-
+        UpdateCrystals(); // update amount in UI
     }
 
-    private void UpdateUI()
+    public void DecreaseCrystals(int cost) // for example: to buy
+    {
+        crystals -= cost;
+        UpdateCrystals();
+    }
+
+    private void UpdateCrystals()
     {
         crystalAmount.text = crystals + "" /*suffix*/;
     }
@@ -162,6 +177,54 @@ public class GameController : MonoBehaviour
         return clickIncrease;
     }
 
+    public void ClickStardust()
+    {
+        int rng = rnd.Next(1, 100);
+        bool endMethod = false;
+        for (int i = 1; i <= stardustMinerLevel; i++)
+        {
+            if (rng == i)
+            {
+                endMethod = true;
+                AddStardust(rng);
+            }
+            if (endMethod)
+                return;
+        }
+        UpdateStardust();
+    }
+
+    public int GetStardust()
+    {
+        return stardust;
+    }
+
+    public void AddStardust(int toAdd)
+    {
+        stardust += toAdd;
+    }
+
+    public void IncreaseStardustMinerLevel()
+    {
+        stardustMinerLevel += 1;
+    }
+
+    public void DecreaseStardust(int cost) // for example: to buy
+    {
+        stardust -= cost;
+        UpdateStardust();
+    }
+
+    public int GetStardustMinerLevel()
+    {
+        return stardustMinerLevel;
+    }
+
+    private void UpdateStardust()
+    {
+        stardustAmount.text = stardust + "" /*suffix*/;
+    }
+
     //private string FormatCrystalAmount() // should convert from 1000 to 1k and so on
     //{
     //    if (getCrystals() < 1000)
@@ -173,11 +236,6 @@ public class GameController : MonoBehaviour
     //    return suffix;
     //}
 
-    public void DecreaseCrystals(int cost) // for example: to buy
-    {
-        crystals -= cost;
-        UpdateUI();
-    }
 
     private void TimedPowerUp() // göra en individs klick starkare i några sekunder
     {
@@ -250,6 +308,8 @@ public class GameController : MonoBehaviour
     {
         PlayerPrefs.SetInt("crystals", GetCrystals());
         PlayerPrefs.SetInt("clickIncrease", ReturnClickIncrease());
+        PlayerPrefs.SetInt("stardust", stardust);
+        PlayerPrefs.SetInt("stardustMinerLevel", GetStardustMinerLevel());
         PlayerPrefs.SetInt("tpu", TPUAmount);
         PlayerPrefs.SetString("quitTime", System.DateTime.Now.ToBinary().ToString());
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(isUsingIdleClicker));
@@ -263,8 +323,15 @@ public class GameController : MonoBehaviour
     {
         PlayerPrefs.SetInt("crystals", 0);
         PlayerPrefs.SetInt("clickIncrease", 1);
+        PlayerPrefs.SetInt("stardust", 200000);
+        PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(false));
+
+        PlayerPrefs.SetInt("saveIfLvlOne", Convert.ToInt32(false));
+        PlayerPrefs.SetInt("numPerSec", 0);
+        PlayerPrefs.SetInt("secBeforeIdleClick", 75);
+        PlayerPrefs.SetInt("lvlCounter", 5);
     }
 
     private void LoadGame()
@@ -273,8 +340,8 @@ public class GameController : MonoBehaviour
         clickIncrease = PlayerPrefs.GetInt("clickIncrease");
         TPUAmount = PlayerPrefs.GetInt("tpu");
         isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
-        UpdateTPU();
-        UpdateUI();
+        stardust = PlayerPrefs.GetInt("stardust");
+        stardustMinerLevel = PlayerPrefs.GetInt("stardustMinerLevel");
 
         isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
         isAtLevel = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfLvlOne"));
@@ -283,8 +350,9 @@ public class GameController : MonoBehaviour
         lvlCounter = PlayerPrefs.GetInt("lvlCounter");
 
         LoadIdleClicks(calculateSecondsSinceQuit());
-
-
+        UpdateTPU();
+        UpdateCrystals();
+        UpdateStardust();
     }
 
     private int calculateSecondsSinceQuit()
@@ -305,7 +373,7 @@ public class GameController : MonoBehaviour
         else
         {
             SaveGame();
-            //ResetForBuild();
+            ResetForBuild();
         }
     }
 
@@ -427,20 +495,16 @@ public class GameController : MonoBehaviour
                 crystals += result;
                 crystalAmount.text = crystals + ""/*suffix*/;
             }
-
-
-            
         }
-
     }
 
     public void EquipAccessory(int index) //anropas vid klick av accessories-köpknapp
     {
-        if (index >= accessoryObjects.Count)
-        {
-            Debug.LogError("Invalid index: " + index);
-            return;
-        }
+        //if (index >= accessoryObjects.Count)
+        //{
+        //    Debug.LogError("Invalid index: " + index);
+        //    return;
+        //}
 
         bool hasPurchased = PlayerPrefs.GetInt("AccessoryPurchased_" + index, 0) == 1;
 
@@ -455,8 +519,7 @@ public class GameController : MonoBehaviour
 
     private void PurchaseAccessory(int index)
     {
-        int cost = 1;
-        DecreaseCrystals(cost);
+        DecreaseStardust(accessoryCosts[index]);
         PlayerPrefs.SetInt("AccessoryPurchased_" + index, 1);
         PlayerPrefs.Save();
         SetAccessoryButtonLabel(index, "Equip");
@@ -464,14 +527,14 @@ public class GameController : MonoBehaviour
 
     private void ToggleAccessory(int index) //ifall accessoaren är aktiverad inaktiveras den och vice versa
     {
-        if (index >= accessoryObjects.Count)
-        {
-            Debug.LogError("Invalid index: " + index);
-            return;
-        }
+        //if (index >= accessoryObjects.Count)
+        //{
+        //    Debug.LogError("Invalid index: " + index);
+        //    return;
+        //}
 
         bool isEquipped = accessoryObjects[index].activeSelf; //om accessoar-gameobjectet är aktiverat
-        Debug.Log(index);
+        //Debug.Log(index);
 
         //sätter för den klickade knappen
         if (isEquipped)
@@ -501,7 +564,7 @@ public class GameController : MonoBehaviour
             else if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
             {
                 accessoryObjects[i].SetActive(false);
-                SetAccessoryButtonLabel(i, "Buy");
+                SetAccessoryButtonLabel(i, accessoryCosts[i].ToString() + "SD");
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
                 PlayerPrefs.Save();
             }

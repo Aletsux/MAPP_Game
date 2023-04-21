@@ -71,7 +71,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 027925798a8a56d45b3a2cf65fe5b0e2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -95,6 +95,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 400
   newSpeed: 1400
+  isMoving: 0
+  timeToMove: 0
+  enemyCleared: 0
   planet: {fileID: 0}
   raidMovement: {fileID: 0}
   planetState: {fileID: 0}
@@ -151,7 +154,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1

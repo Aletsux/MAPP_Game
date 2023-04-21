@@ -54,6 +54,7 @@ public class StoreScript : MonoBehaviour
     public void CloseStore()
     {
         gameObject.SetActive(false);
+        ResetTimer();
     }
 
     public void CloseTabsExcept(string tab) // different buttons send different arguments
@@ -124,6 +125,24 @@ public class StoreScript : MonoBehaviour
                 DisplayMessage("Not Enough Crystals!");
             }
             
+        }
+        else if (powerUpName.Equals("stardustMiner"))
+        {
+            int cost = (gameController.GetStardustMinerLevel() == 0) ? 250 : gameController.GetStardustMinerLevel() * 100;
+            if (gameController.GetStardustMinerLevel() == 20)
+            {
+                DisplayMessage("No more upgrades!");
+            }
+            else if (gameController.GetStardust() >= cost)
+            {
+                gameController.IncreaseStardustMinerLevel();
+                gameController.DecreaseStardust(cost);
+                DisplayMessage(gameController.GetStardustMinerLevel() + "% chance to find stardust!" );
+            }
+            else
+            {
+                DisplayMessage("Not Enough Stardust!");
+            }
         }
         else
         {
