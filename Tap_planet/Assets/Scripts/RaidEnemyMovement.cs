@@ -11,6 +11,7 @@ public class RaidEnemyMovement : MonoBehaviour
     private bool isHoming;
     public bool isMoving;
     public bool timeToMove = false;
+    public bool enemyCleared = false;
 
     [SerializeField] private GameObject planet;
 
@@ -24,21 +25,21 @@ public class RaidEnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lateralPosition = gameObject.transform.position.x;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         //When planet has landed in its place and raid begins, start moving downwards at speed speed.
-        if (raidMovement.raidBegins && !isHoming)
+        if (raidMovement.raidBegins && timeToMove)
         {
             isMoving = true;   
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, -transform.position.y), step);
         }
         //When ship has passed Trigger 1, start moving towards planet at speed newSpeed.
-        if (isHoming)
+        if (isHoming && raidMovement.raidBegins)
         {
             float newStep = newSpeed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, planet.transform.position, newStep);
@@ -57,6 +58,7 @@ public class RaidEnemyMovement : MonoBehaviour
         if (collision.tag == "PlanetTrigger")
         {
             planetState.totalRaidDamage++;
+            gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
         }
     }
 }
