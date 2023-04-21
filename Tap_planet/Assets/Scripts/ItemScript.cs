@@ -10,7 +10,6 @@ public class ItemScript : MonoBehaviour
     public Sprite sprite;
     public String itemName;
     public String desciption;
-    public String price;
 
     void Start()
     {
@@ -32,11 +31,4 @@ public class ItemScript : MonoBehaviour
     {
         return desciption;
     }
-
-    public String ReturnPrice()
-    {
-        return price;
-    }
-
-
 }
