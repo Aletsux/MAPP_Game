@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class RaidEnemyMovement : MonoBehaviour
 {
-
+    //Default speed value = 400;
     public float speed;
+    //Default newSpeed value = 1400;
     public float newSpeed;
 
     private bool isHoming;
@@ -13,12 +14,17 @@ public class RaidEnemyMovement : MonoBehaviour
     public bool timeToMove = false;
     public bool enemyCleared = false;
 
+    public float frequency = 20f;
+    public float magnitude = 0.5f;
+
     [SerializeField] private GameObject planet;
 
     public PlanetRaidMovement raidMovement;
     public PlanetState planetState;
 
     private float lateralPosition;
+
+    
 
     //private Vector3 downTarget = new Vector3(0, 0, 0);
 
@@ -41,8 +47,9 @@ public class RaidEnemyMovement : MonoBehaviour
         //When ship has passed Trigger 1, start moving towards planet at speed newSpeed.
         if (isHoming && raidMovement.raidBegins)
         {
-            float newStep = newSpeed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, planet.transform.position, newStep);
+           /*  float newStep = newSpeed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, planet.transform.position, newStep); */
+            homingMovement();
         }
     }
 
@@ -60,5 +67,12 @@ public class RaidEnemyMovement : MonoBehaviour
             planetState.totalRaidDamage++;
             gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
         }
+    }
+
+    private void homingMovement() {
+        float newStep = newSpeed * Time.deltaTime;
+        Vector3 pos = Vector3.MoveTowards(transform.position, planet.transform.position, newStep);
+        transform.position = pos + transform.right * Mathf.Sin(Time.time * frequency) * magnitude;
+        
     }
 }
