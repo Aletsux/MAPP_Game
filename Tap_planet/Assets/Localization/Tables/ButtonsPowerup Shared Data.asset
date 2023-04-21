@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: ButtonsPowerup Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: ButtonsPowerup
+  m_TableCollectionNameGuidString: 832e64808a807ae4e99a8e115f592566
+  m_Entries:
+  - m_Id: 5649457152
+    m_Key: Button 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32123904000
+    m_Key: Button 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44161556480
+    m_Key: Button 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 75149074432
+    m_Key: Button 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 87685849088
+    m_Key: Button 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 103066361856
+    m_Key: Button 6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 118362988544
+    m_Key: Button 7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 131705069568
+    m_Key: Button 8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 144791298048
+    m_Key: Button 9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 159106457600
+    m_Key: Button 10
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6221936676466065415
+  references:
+    version: 2
+    RefIds:
+    - rid: 6221936676466065415
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1682076241323
