@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 61063968}
   - component: {fileID: 61063970}
   - component: {fileID: 61063969}
+  - component: {fileID: 61063971}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -198,8 +199,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -260, y: 0}
-  m_SizeDelta: {x: 520, y: 1920}
+  m_AnchoredPosition: {x: -260, y: 136}
+  m_SizeDelta: {x: 520, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &61063969
 MonoBehaviour:
@@ -239,6 +240,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61063967}
   m_CullTransparentMesh: 1
+--- !u!114 &61063971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61063967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9104c65f41d6ae478d6ceb57afa5df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuButton: {fileID: 1366449472}
+  exitButton: {fileID: 849885105}
 --- !u!1 &65791545
 GameObject:
   m_ObjectHideFlags: 0
@@ -1822,7 +1837,6 @@ GameObject:
   - component: {fileID: 687961533}
   - component: {fileID: 687961535}
   - component: {fileID: 687961534}
-  - component: {fileID: 687961536}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -1848,7 +1862,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -323.2}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 520, y: 1080}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &687961534
@@ -1889,20 +1903,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687961532}
   m_CullTransparentMesh: 1
---- !u!114 &687961536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687961532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9104c65f41d6ae478d6ceb57afa5df1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuButton: {fileID: 1366449472}
-  exitButton: {fileID: 849885105}
 --- !u!1 &713305061
 GameObject:
   m_ObjectHideFlags: 0
@@ -3615,7 +3615,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 687961536}
+      - m_Target: {fileID: 61063971}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
         m_MethodName: onExitClick
         m_Mode: 1
@@ -4973,7 +4973,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 687961536}
+      - m_Target: {fileID: 61063971}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
         m_MethodName: toggleMenu
         m_Mode: 1
@@ -5263,7 +5263,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 687961536}
+      - m_Target: {fileID: 61063971}
         m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
         m_MethodName: onMuteClick
         m_Mode: 1
