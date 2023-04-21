@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlanetRaidMovement : MonoBehaviour
 {
+    //Added reference to enemy Ai to trigger enemies - Alex
+    public GameObject enemyAi;
     public Transform target;
+    //Original speed = 850
     public float speed;
 
     //public bool isRaidActive = false;
@@ -15,6 +18,7 @@ public class PlanetRaidMovement : MonoBehaviour
     void Start()
     {
         //gameObject.transform.position = new Vector3(0, -1100, 0);
+        
 
     }
 
@@ -37,6 +41,10 @@ public class PlanetRaidMovement : MonoBehaviour
         if (planetInPosition)
         {
             raidBegins = true;
+
+            //Added function to let button initate raid
+            enemyAi.GetComponent<EnemyAI>().startLaunching();
+
         }
 
     }
