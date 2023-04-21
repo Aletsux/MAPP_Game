@@ -7,8 +7,11 @@ public class PlanetRaidMovement : MonoBehaviour
     public Transform target;
     public float speed;
 
-    public bool isRaidActive = false;
+    //public bool isRaidActive = false;
     public bool raidBegins = false;
+    public bool planetInPosition = false;
+
+    public EnemyAI enemyAI;
 
     // Start is called before the first frame update
     void Start()
@@ -21,20 +24,23 @@ public class PlanetRaidMovement : MonoBehaviour
     void Update()
     {
 
-        if (isRaidActive)
-        {
-            float step = speed * Time.deltaTime;
-            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
-        }
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
         if (transform.position == target.position)
         {
-            raidBegins = true;
+            planetInPosition = true;
         }
+
     }
 
     public void beginRaid()
     {
-        raidBegins = true;
+        if (planetInPosition)
+        {
+            raidBegins = true;
+
+        }
+
     }
 }
