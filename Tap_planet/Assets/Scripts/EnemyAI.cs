@@ -8,6 +8,9 @@ public class EnemyAI : MonoBehaviour
 
     public GameObject[] enemyList;
 
+    private bool isListEmpty = false;
+    private int nullCounter = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,15 +23,30 @@ public class EnemyAI : MonoBehaviour
         //Mst kolla om den finns / redan åkt.
         //InScene
 
-        int number = Random.Range(0, enemyList.Length);
+        for (int i = 0; i < enemyList.Length; i++)
+        {
+            nullCounter++;
+        }
 
-        enemyList[number].GetComponent<RaidEnemyMovement>().timeToMove = true;
+        while (enemyList.Length > 0) 
+        {
+            int i = Random.Range(0, enemyList.Length);
+
+            enemyList[i].GetComponent<RaidEnemyMovement>().timeToMove = true;
+            enemyList[i] = null;
+            Debug.Log(enemyList[i].GetComponent<RaidEnemyMovement>().timeToMove);
+
+
+        }
 
 
 
-
-        //int number = Random.Range(0, enemyList.Length ); 
+        } 
     }
+        //int number = Random.Range(0, enemyList.Length);
+
+        //this.enemyList[number].GetComponent<RaidEnemyMovement>().timeToMove = true;
+
 
 
             //for (int i = 0; i<enemyList.Length; i++)
@@ -41,5 +59,4 @@ public class EnemyAI : MonoBehaviour
               //  enemyList[random].GetComponent<RaidEnemyMovement>().timeToMove = true;
                 //Debug.Log(enemyList[random]);
             
-        
-}
+     
