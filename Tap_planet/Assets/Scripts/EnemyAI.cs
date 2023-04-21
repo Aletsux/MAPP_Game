@@ -15,10 +15,12 @@ public class EnemyAI : MonoBehaviour
 
     public Button startButton;
 
-    private float waitTime = 2f;
+    private float waitTime = 0.1f;
     private float timer = 0.0f;
 
     static int initialLength;
+
+    int attackIndex = 0;
 
 
 
@@ -39,8 +41,8 @@ void Update()
 
         if(timer > waitTime)
         {
-            beginEnemyAI();
-            timer = timer - (waitTime + 0.7f);
+            beginEnemyAttack();
+            timer = timer - (waitTime + 0.5f);
         }
 
         bool isEmpty = !enemyList.Any();
@@ -48,6 +50,14 @@ void Update()
         {
             isListEmpty = true;
         }
+
+    }
+
+    public void beginEnemyAttack()
+    {
+        enemyList[attackIndex].GetComponent<RaidEnemyMovement>().timeToMove = true;
+        attackIndex++;
+
 
     }
 
