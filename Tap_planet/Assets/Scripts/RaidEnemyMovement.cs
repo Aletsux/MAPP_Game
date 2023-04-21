@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml;
 using UnityEngine;
 
 public class RaidEnemyMovement : MonoBehaviour
@@ -18,8 +17,6 @@ public class RaidEnemyMovement : MonoBehaviour
 
     public PlanetRaidMovement raidMovement;
     public PlanetState planetState;
-
-    public GameObject raidState;
 
     private float lateralPosition;
 
@@ -62,7 +59,6 @@ public class RaidEnemyMovement : MonoBehaviour
         {
             planetState.totalRaidDamage++;
             gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
-            raidState.GetComponent<RaidState>().enemiesMissed++;
         }
     }
 }
