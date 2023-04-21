@@ -10,48 +10,52 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
-  m_Name: UI Text_en
+  m_Name: ButtonsUpgrade_en
   m_EditorClassIdentifier: 
   m_LocaleId:
     m_Code: en
-  m_SharedData: {fileID: 11400000, guid: 72cd68759e8994e1189811c7a00059cb, type: 2}
+  m_SharedData: {fileID: 11400000, guid: 77aee3e122e366245b95a297682e032b, type: 2}
   m_Metadata:
     m_Items: []
   m_TableData:
-  - m_Id: 364655927296
-    m_Localized: UIMessage (for now)
+  - m_Id: 5762703360
+    m_Localized: Stardust Miner
     m_Metadata:
       m_Items: []
-  - m_Id: 312534967771136
-    m_Localized: Accessories
+  - m_Id: 26386096128
+    m_Localized: Name of "item"
     m_Metadata:
       m_Items: []
-  - m_Id: 312667272896512
-    m_Localized: Close
+  - m_Id: 42420920320
+    m_Localized: Name of "item"
     m_Metadata:
       m_Items: []
-  - m_Id: 312789390057472
-    m_Localized: Planets
+  - m_Id: 57465888768
+    m_Localized: Name of "item"
     m_Metadata:
       m_Items: []
-  - m_Id: 312887343833088
-    m_Localized: Powerup
+  - m_Id: 68161363968
+    m_Localized: Name of "item"
     m_Metadata:
       m_Items: []
-  - m_Id: 313008123011072
-    m_Localized: Store
+  - m_Id: 80777830400
+    m_Localized: Name of "item"
     m_Metadata:
       m_Items: []
-  - m_Id: 313077563908096
-    m_Localized: Upgrades
+  - m_Id: 95390785536
+    m_Localized: Name of "item"
     m_Metadata:
       m_Items: []
-  - m_Id: 313183461695488
-    m_Localized: Exit
+  - m_Id: 112184778752
+    m_Localized: Name of "item"
     m_Metadata:
       m_Items: []
-  - m_Id: 314179499843584
-    m_Localized: Mute
+  - m_Id: 133466677248
+    m_Localized: Name of "item"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 150784958464
+    m_Localized: Name of "item"
     m_Metadata:
       m_Items: []
   references:
