@@ -93,11 +93,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605242af577f72148a34590897ba5e12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 400
-  newSpeed: 1400
+  speed: 200
+  newSpeed: 400
   isMoving: 0
   timeToMove: 0
   enemyCleared: 0
+  frequency: 5
+  magnitude: 3
   planet: {fileID: 0}
   raidMovement: {fileID: 0}
   planetState: {fileID: 0}
