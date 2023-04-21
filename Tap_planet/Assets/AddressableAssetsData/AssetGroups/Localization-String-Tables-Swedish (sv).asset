@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-String-Tables-Swedish (sv)
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-String-Tables-Swedish (sv)
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 317f432c17b5741b8a896195206368fc
+  m_SerializeEntries:
+  - m_GUID: 7eca44053332746fba33734c9407b195
+    m_Address: UI Text_sv
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-sv
+    - Preload
+  - m_GUID: f46d65a0be41ad449bcc8a87ef9fbb22
+    m_Address: ButtonsPlanet_sv
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-sv
+    - Preload
+  - m_GUID: 82057211090957d4aba4339f4230e883
+    m_Address: ButtonsPowerup_sv
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-sv
+    - Preload
+  - m_GUID: 08703f3a731b9424dbb75cbb00bcd8be
+    m_Address: ButtonsAccessories_sv
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-sv
+    - Preload
+  - m_GUID: ca4a9e6f1909f024ea63f0cccaaf8a01
+    m_Address: ButtonsUpgrade_sv
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-sv
+    - Preload
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: edb0fb4b9d2b140c7afce06ef691ea8b, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d3a3c060f31f04a1e96c9f24108f9153, type: 2}
+    - {fileID: 11400000, guid: b2814d9f8973e4147a7394978e11cd26, type: 2}
