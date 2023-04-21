@@ -11,7 +11,8 @@ public class DescriptionScript : MonoBehaviour
     public TMP_Text description;
     public TMP_Text price;
 
-   
+
+    
 
     public void GetAllInformation(ItemScript item)
     {
@@ -21,12 +22,8 @@ public class DescriptionScript : MonoBehaviour
         price.text = item.ReturnPrice();
     }
 
-    private void Update()
-    {
-        //GetAllInformation(ItemScript item);
-    }
 
-   
+
 
 
 }
