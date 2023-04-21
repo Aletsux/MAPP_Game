@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class RaidEnemyKillable : MonoBehaviour
 {
-
-    public GameObject raidState;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +27,5 @@ public class RaidEnemyKillable : MonoBehaviour
     {
         gameObject.SetActive(false);
         gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
-        raidState.GetComponent<RaidState>().enemiesKilled++;
     }
 }
