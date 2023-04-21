@@ -64,9 +64,9 @@ public class GameController : MonoBehaviour
     void Start()
     {
         DisableTPU(); //om spelaren inte har någon timed powerup
+        //PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
 
         //Accessoarer
-        PlayerPrefs.DeleteAll(); //Till för testning av Accessories - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
         for (int i = 0; i < accessoryObjects.Count; i++)
         {
             if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 1)
@@ -97,20 +97,30 @@ public class GameController : MonoBehaviour
         }
 
         //Planeter
+        //Startplaneten sätts aktiv från början - denna sparas ej i playerPrefs.SetInt(PlanetEquipped_0) (kommer säga 0)
+        planetObjects[0].SetActive(true);
+        SetButtonLabel(planetButtons, 0, "Equipped");
+        planetButtons[0].interactable = false;
+        PlayerPrefs.SetInt("PlanetPurchased_" + 0, 1);
+        PlayerPrefs.Save();
+
         for (int i = 0; i < planetObjects.Count; i++)
         {
-            if (PlayerPrefs.GetInt("PlanetEquipped_" + i) == 1)
+            if (PlayerPrefs.GetInt("PlanetEquipped_" + i) == 1) //ifall man har ngn annan planet än startplaneten
             {
                 planetObjects[i].SetActive(true);
                 SetButtonLabel(planetButtons, i, "Equipped");
                 planetButtons[i].interactable = false;
+                planetObjects[0].SetActive(false); //Inaktivera startplaneten
+                SetButtonLabel(planetButtons, 0, ""); //Inaktivera startplanetens knapp
             }
-            else if (PlayerPrefs.GetInt("PlanetEquipped_" + i) == 0 && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 1)
+            else if (i != 0 && PlayerPrefs.GetInt("PlanetEquipped_" + i) == 0 && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 1)
             {
                 planetObjects[i].SetActive(false);
                 SetButtonLabel(planetButtons, i, "");
                 planetButtons[i].interactable = false;
-            } else if (PlayerPrefs.GetInt("PlanetEquipped_" + i) == 0 && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 0)
+
+            } else if (i != 0 && PlayerPrefs.GetInt("PlanetEquipped_" + i) == 0 && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 0)
             {
                 planetObjects[i].SetActive(false);
                 SetButtonLabel(planetButtons, i, planetCosts[i].ToString() + "SD");
@@ -604,9 +614,23 @@ public class GameController : MonoBehaviour
 
     public void EquipPlanet(int index)
     {
+        if(PlayerPrefs.GetInt("PlanetPurchased_" + index) == 0)
+        {
+            purchasePlanet(index);
+        }
+
+        togglePlanet(index);
+    }
+
+    private void purchasePlanet(int index)
+    {
         DecreaseStardust(planetCosts[index]);
         PlayerPrefs.SetInt("PlanetPurchased_" + index, 1);
         PlayerPrefs.Save();
+    }
+
+    private void togglePlanet(int index)
+    {
         SetButtonLabel(planetButtons, index, "Equipped");
         planetButtons[index].interactable = false;
         planetObjects[index].SetActive(true);
@@ -615,17 +639,21 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < planetObjects.Count; i++)
         {
-            if (i != index && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1) //ifall man tidigare haft planeten
+            if (i != index && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 1) //ifall man tidigare haft planeten
             {
                 planetObjects[i].SetActive(false);
                 SetButtonLabel(planetButtons, i, "");
                 planetButtons[i].interactable = false;
+                PlayerPrefs.SetInt("PlanetEquipped_" + index, 0);
+                PlayerPrefs.Save();
             }
-            else if (i != index && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 0)
+            else if (i != index && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 0)
             {
                 planetObjects[i].SetActive(false);
                 SetButtonLabel(planetButtons, i, planetCosts[i].ToString() + "SD");
                 planetButtons[i].interactable = true;
+                PlayerPrefs.SetInt("PlanetEquipped_" + index, 0);
+                PlayerPrefs.Save();
             }
         }
     }
