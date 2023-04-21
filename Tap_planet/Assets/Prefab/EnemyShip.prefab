@@ -101,7 +101,6 @@ MonoBehaviour:
   planet: {fileID: 0}
   raidMovement: {fileID: 0}
   planetState: {fileID: 0}
-  raidState: {fileID: 0}
 --- !u!114 &8910365622598826358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +113,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c145f55fda61c4484163121a70b61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raidState: {fileID: 0}
 --- !u!61 &8910365622598826356
 BoxCollider2D:
   m_ObjectHideFlags: 0

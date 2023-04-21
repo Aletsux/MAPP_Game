@@ -11,8 +11,6 @@ public class PlanetRaidMovement : MonoBehaviour
     public bool raidBegins = false;
     public bool planetInPosition = false;
 
-    public EnemyAI enemyAI;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +37,6 @@ public class PlanetRaidMovement : MonoBehaviour
         if (planetInPosition)
         {
             raidBegins = true;
-
         }
 
     }
