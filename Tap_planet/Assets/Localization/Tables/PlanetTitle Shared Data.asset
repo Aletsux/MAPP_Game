@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: PlanetTitle Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: PlanetTitle
+  m_TableCollectionNameGuidString: 5050a3c16d7ca495686a201bbb42a67a
+  m_Entries:
+  - m_Id: 7171203072
+    m_Key: Button 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14364434432
+    m_Key: Button 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18227388416
+    m_Key: Button 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23310884864
+    m_Key: Button 4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27870093312
+    m_Key: Button 5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31783378944
+    m_Key: Button 6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34564202496
+    m_Key: Button 7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36745240576
+    m_Key: Button 8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 38775283712
+    m_Key: Button 9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 40868241408
+    m_Key: Button 10
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3759417677276512267
+  references:
+    version: 2
+    RefIds:
+    - rid: 3759417677276512267
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1682191123165

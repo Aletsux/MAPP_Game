@@ -12,6 +12,7 @@ public class DescriptionScript : MonoBehaviour
 
     public void GetAllInformation(ItemScript item)
     {
+        //itemName.text = item.ReturnTMPName();
         itemName.text = item.ReturnName();
         description.text = item.ReturnDescription();
         sprite.sprite = item.ReturnImage();

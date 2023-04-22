@@ -9,7 +9,10 @@ public class ItemScript : MonoBehaviour
 {
     public Sprite sprite;
     public String itemName;
-    public String desciption;
+    public String description;
+
+    //public TMP_Text description;
+    //public TMP_Text testText;
 
     void Start()
     {
@@ -27,8 +30,13 @@ public class ItemScript : MonoBehaviour
         return itemName;
     }
 
+    //public String ReturnTMPName() {
+      //  String strText = testText.text;
+       // return strText;
+    //}
+
     public String ReturnDescription()
     {
-        return desciption;
+        return description;
     }
 }
