@@ -14,12 +14,6 @@ public class ItemScript : MonoBehaviour
     //public TMP_Text description;
     //public TMP_Text testText;
 
-    void Start()
-    {
-        
-    }
-
-
     public Sprite ReturnImage()
     {
         return sprite;
