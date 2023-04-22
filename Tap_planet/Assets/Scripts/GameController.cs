@@ -653,4 +653,15 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
+    public float ReturnTPUTimeBeforeReset()
+    {
+        return tpuTimeBeforeReset;
+    }
+
+    public int ReturnTPUAddClicksBy()
+    {
+        return tpuAddClicksBy;
+    }
+    //
 }
