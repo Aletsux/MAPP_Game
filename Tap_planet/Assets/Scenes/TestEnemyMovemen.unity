@@ -7500,6 +7500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAi: {fileID: 1397023895}
   target: {fileID: 2061935842}
+  triggerAi: {fileID: 900713548}
   speed: 400
   raidBegins: 0
   planetInPosition: 0
@@ -9156,6 +9157,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1764616458}
     m_Modifications:
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1951503397}
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: destroyEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: RaidEnemyKillable, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
       propertyPath: m_Name
       value: EnemyShip (18)
@@ -9344,6 +9365,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
   m_PrefabInstance: {fileID: 1936495750}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1951503397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+  m_PrefabInstance: {fileID: 1936495750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951503392}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c145f55fda61c4484163121a70b61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1954362280
 GameObject:
   m_ObjectHideFlags: 0
@@ -9794,6 +9826,10 @@ PrefabInstance:
       propertyPath: raidMovement
       value: 
       objectReference: {fileID: 1500350633}
+    - target: {fileID: 8910365622598826356, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &2039076230

@@ -13,13 +13,14 @@ public class EnemyAI : MonoBehaviour
     private bool launch = false;
     private int shipCount;
 
-    private float minDelay = 0.3f;
-    private float maxDelay = 1f;
+    private float minDelay = 1f;
+    private float maxDelay = 2f;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //Set default value for amount of ships
+        shipCount = 10;
     }
 
     // Update is called once per frame
@@ -28,11 +29,12 @@ public class EnemyAI : MonoBehaviour
         //Mst kolla om den finns / redan �kt.
         //InScene
 
-        trackShips();
+        //trackShipCount();
 
-        //Using nullCounter to track number of elements in realtime
+
         if (launch && shipCount > 0)
         {
+            Debug.Log("Start!");
             //launchEnemies();
             StartCoroutine(launchWithDelay());
         }
@@ -44,11 +46,9 @@ public class EnemyAI : MonoBehaviour
         Debug.Log("LAUNCH!");
         launch = true;
     }
-
+/* 
     public void launchEnemies()
-    {
-
-        while (shipCount > 0)
+    {        while (shipCount > 0)
         {
             int i = Random.Range(0, enemyList.Length);
             Debug.Log("ShipNr " + i);
@@ -58,47 +58,27 @@ public class EnemyAI : MonoBehaviour
 
             Debug.Log(enemyList[i].GetComponent<RaidEnemyMovement>().timeToMove);
 
-
         }
-    }
+    } */
 
     IEnumerator launchWithDelay()
     {
         int j = Random.Range(0, enemyList.Length);
-        float delay = Random.Range(minDelay, maxDelay);
-        yield return new WaitForSeconds(delay);
+
         Debug.Log("ShipNr " + j);
 
         if (enemyList[j] != null)
         {
             enemyList[j].GetComponent<RaidEnemyMovement>().timeToMove = true;
             enemyList[j] = null;
+            shipCount--;
         }
+        float delay = Random.Range(minDelay, maxDelay);
+        yield return new WaitForSeconds(delay);
 
     }
 
-    private int trackShips()
-    {
-        for (int i = 0; i < enemyList.Length; i++)
-        {
-            if (enemyList[i] == null)
-            {
-                GameObject[] newEnemyList = new GameObject[enemyList.Length - 1];
-                int index = 0;
-                for (int j = 0; j < enemyList.Length; j++)
-                {
-                    if (j != i && enemyList[j] != null)
-                    {
-                        newEnemyList[index] = enemyList[j];
-                        index++;
-                    }
-                }
-                enemyList = newEnemyList;
-            }
-        }
-        shipCount = enemyList.Length;
-        return shipCount;
-    }
+
 
 }
 //int number = Random.Range(0, enemyList.Length);

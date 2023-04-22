@@ -25,6 +25,7 @@ public class RaidEnemyKillable : MonoBehaviour
 
     public void destroyEnemy()
     {
+        Debug.Log("Hit");
         gameObject.SetActive(false);
         gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
     }

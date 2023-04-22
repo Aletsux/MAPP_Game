@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class RaidEnemyMovement : MonoBehaviour
 {
-    //Default speed value = 400;
+    //Default speed value = 200;
     public float speed;
-    //Default newSpeed value = 1400;
+    //Default newSpeed value = 400;
     public float newSpeed;
 
     private bool isHoming;
@@ -14,8 +14,8 @@ public class RaidEnemyMovement : MonoBehaviour
     public bool timeToMove = false;
     public bool enemyCleared = false;
 
-    public float frequency = 20f;
-    public float magnitude = 0.5f;
+    public float frequency = 5f;
+    public float magnitude = 3f;
 
     [SerializeField] private GameObject planet;
 
@@ -62,10 +62,12 @@ public class RaidEnemyMovement : MonoBehaviour
             isHoming = true;
         }
 
+        //Destroy ship on collison
         if (collision.tag == "PlanetTrigger")
         {
             planetState.totalRaidDamage++;
             gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
+            Destroy(gameObject);
         }
     }
 
