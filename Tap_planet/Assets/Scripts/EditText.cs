@@ -23,6 +23,8 @@ public class EditText : MonoBehaviour
     private float timeToShow = 1f;
     private int count = 0;
 
+    private int costPerm;
+
 
 
 
@@ -35,14 +37,16 @@ public class EditText : MonoBehaviour
 
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
         ChangeTextIdle();
         ChangeWhenBoughtIdle();
 
-        //ChangeTextPerm();
-        ChangeWhenBoughtPerm();
+        ChangeTextPerm();
+        //ChangeWhenBoughtPerm();
 
         ChangeTextTemp();
         ChangeWhenBoughtTemp();
@@ -87,7 +91,15 @@ public class EditText : MonoBehaviour
         timer = 0f;
     }
 
-    public void ChangeTextIdle()
+    private int UpdatePermCost()
+    {
+        double higherCost = gameController.GetPermCost() * 1.2;
+        costPerm += (int)higherCost;
+
+        return costPerm;
+    }
+
+    public void ChangeTextIdle()// när spelaren trycker på blå knapp inte köp ska det reflektera
     {
         if (gameController.IsIdleTrue() == false && buyPressed == false)
         {
@@ -103,7 +115,7 @@ public class EditText : MonoBehaviour
         }
     }
 
-    public void ChangeWhenBoughtIdle()
+    public void ChangeWhenBoughtIdle()// när spelaren köper ska den veta hur mycket de får nu och vad det nya priset är
     {
         buyPressed = true;
         if (buyPressed && gameController.IsIdleTrue() == false)
@@ -135,10 +147,10 @@ public class EditText : MonoBehaviour
         }
     }
 
-    //public void ChangeTextPerm()
-    //{
-    //    permButton.GetComponent<ItemScript>().desciption = "Your clicks will increased by 1 crystal with each purchase! Every 10 purchase will add 5.";        
-    //}
+    public void ChangeTextPerm()
+    {
+        permButton.GetComponent<ItemScript>().price = "Price: " + gameController.GetPermCost() + " crystals.";
+    }
 
     public void ChangeWhenBoughtPerm()
     {
@@ -146,6 +158,10 @@ public class EditText : MonoBehaviour
         if (buyPressed)
         {
             permPurchaseButn.GetComponent<ItemScript>().desciption = "Your clicks will now give you " + (gameController.ReturnClickIncrease()+1) + " crystals!";
+            
+            permPurchaseButn.GetComponent<ItemScript>().price = "Price: " + gameController.GetPermCost() + " crystals.";
+
+            //Debug.Log(gameController.GetPermCost());
         }
     }
 

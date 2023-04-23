@@ -211,6 +211,13 @@ public class GameController : MonoBehaviour
             if (clickIncrease % 10 == 0) // every 10 upgrades varje gång klickar på knapp i store
                 toAdd = 5;  // the player gets a bonus
             clickIncrease += toAdd;
+
+            //permCost
+            //double higherCost = idleCost * 1.02; // lägger till 2% på kostnad
+            //idleCost += (int)higherCost;
+
+            double higherCost = permCost * 1.2;
+            permCost += (int)higherCost;
         }
     }
 
@@ -432,7 +439,7 @@ public class GameController : MonoBehaviour
         //
         if (isAtLevel == false || lvlCounter > 0)
         {
-            double higherCost = idleCost * 1.02;
+            double higherCost = idleCost * 1.02; // lägger till 2% på kostnad
             idleCost += (int)higherCost;
             lvlCounter -= 1;
             Debug.Log("Lvl: " + lvlCounter);
