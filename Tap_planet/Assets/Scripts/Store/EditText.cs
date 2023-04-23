@@ -21,7 +21,7 @@ public class EditText : MonoBehaviour
     private bool buyPressed = false;
     private float timer = 0f;
     private float timeToShow = 1f;
-    private int count = 0;
+    //private int count = 0;
 
     private int costPerm;
 
@@ -157,7 +157,7 @@ public class EditText : MonoBehaviour
         buyPressed = true;
         if (buyPressed)
         {
-            permPurchaseButn.GetComponent<ItemScript>().desciption = "Your clicks will now give you " + (gameController.ReturnClickIncrease()+1) + " crystals!";
+            permPurchaseButn.GetComponent<ItemScript>().desciption = "Your clicks will now give you " + (GameController.ReturnClickIncrease()+1) + " crystals!";
             
             permPurchaseButn.GetComponent<ItemScript>().price = "Price: " + gameController.GetPermCost() + " crystals.";
 

@@ -13,6 +13,10 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+    public void LoadRaid()
+    {
+        SceneManager.LoadScene("RaidTest");
+    }
 }
 
 //om vi ville ha en utscrollande meny istället för en ändrad scen, kan man ha menyn under själva spelet och sedan ha

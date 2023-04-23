@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class PlanetState : MonoBehaviour
 {
-    public int totalRaidDamage;
+    public static int totalRaidDamage;
 
     public Text damageCounter;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        totalRaidDamage = 0;
     }
 
     // Update is called once per frame

@@ -19,7 +19,7 @@ public class StoreScript : MonoBehaviour
     [Space]
     public Text UIText;
     [Space]
-    [SerializeField] int tpuCost = 1; //tpu = timedPowerUp
+    //[SerializeField] int tpuCost = 1; //tpu = timedPowerUp
     [Space]
     private float timer; //counts up until it reaches timeToDisplay
     private float timeToDisplay = 2; // time to display message
@@ -76,10 +76,10 @@ public class StoreScript : MonoBehaviour
     {
         if (powerUpName.Equals("tpu")) // if tpu
         {
-            if (gameController.GetCrystals() >= gameController.GetTpuCost()) // checks bank balance       
+            if (GameController.GetCrystals() >= gameController.GetTpuCost()) // checks bank balance       
             {
                 gameController.AddTPUAmount(); // adds 1 to tpuAmount
-                gameController.DecreaseCrystals(gameController.GetTpuCost()); // reduces money in bank
+                GameController.DecreaseCrystals(gameController.GetTpuCost()); // reduces money in bank
                 DisplayMessage("Timed boost purchased!"); // displays message
             }
             else
@@ -89,11 +89,11 @@ public class StoreScript : MonoBehaviour
         }
         else if (powerUpName.Equals("permanentClickPowerUp"))
         {
-            if (gameController.GetCrystals() >= gameController.GetPermCost())
+            if (GameController.GetCrystals() >= gameController.GetPermCost())
             {
                 gameController.ClickIncrease();
-                gameController.DecreaseCrystals(gameController.GetPermCost());
-                DisplayMessage("Your clicks now give you " + gameController.ReturnClickIncrease() + " crystals!");
+                GameController.DecreaseCrystals(gameController.GetPermCost());
+                DisplayMessage("Your clicks now give you " + GameController.ReturnClickIncrease() + " crystals!");
             }
             else
             {
@@ -102,7 +102,7 @@ public class StoreScript : MonoBehaviour
         }
         else if (powerUpName.Equals("IdlePower")) {
 
-            if(gameController.GetCrystals() >= gameController.GetIdleCost())
+            if(GameController.GetCrystals() >= gameController.GetIdleCost())
             {
                 if (gameController.IsIdleTrue() == false)
                 {
@@ -117,7 +117,7 @@ public class StoreScript : MonoBehaviour
 
 
                 gameController.BuyIdle();
-                gameController.DecreaseCrystals(gameController.GetIdleCost());
+                GameController.DecreaseCrystals(gameController.GetIdleCost());
 
             }
             else
@@ -128,16 +128,16 @@ public class StoreScript : MonoBehaviour
         }
         else if (powerUpName.Equals("stardustMiner"))
         {
-            int cost = (gameController.GetStardustMinerLevel() == 0) ? 250 : gameController.GetStardustMinerLevel() * 100;
-            if (gameController.GetStardustMinerLevel() == 20)
+            int cost = (GameController.GetStardustMinerLevel() == 0) ? 250 : GameController.GetStardustMinerLevel() * 100;
+            if (GameController.GetStardustMinerLevel() == 20)
             {
                 DisplayMessage("No more upgrades!");
             }
-            else if (gameController.GetStardust() >= cost)
+            else if (GameController.GetStardust() >= cost)
             {
                 gameController.IncreaseStardustMinerLevel();
-                gameController.DecreaseStardust(cost);
-                DisplayMessage(gameController.GetStardustMinerLevel() + "% chance to find stardust!" );
+                GameController.DecreaseStardust(cost);
+                DisplayMessage(GameController.GetStardustMinerLevel() + "% chance to find stardust!" );
             }
             else
             {
