@@ -6,24 +6,22 @@ using UnityEngine.UI;
 
 public class EditText : MonoBehaviour
 {
-
-    //GameObject canvas;
-    //GameObject storePanel;
-    //GameObject powerUpTab;
-    //GameObject scroll;
-    //GameObject panel;
     public GameObject idleButton;
     public GameObject idlePurchaseButn;
-
-
-
+    [Space]
+    public GameObject permButton;
+    public GameObject permPurchaseButn;
+    [Space]
+    public GameObject tempButton;
+    public GameObject tempPurchaseButn;
+    [Space]
     public GameObject GC;
     private GameController gameController;
 
-    private bool buyPressed;
-
+    private bool buyPressed = false;
     private float timer = 0f;
     private float timeToShow = 1f;
+    private int count = 0;
 
 
 
@@ -41,9 +39,17 @@ public class EditText : MonoBehaviour
     void Update()
     {
         ChangeTextIdle();
-        ChangeWhenBought();
+        ChangeWhenBoughtIdle();
 
-        if (buyPressed) // bool set to true in DisplayMessage()
+        //ChangeTextPerm();
+        ChangeWhenBoughtPerm();
+
+        ChangeTextTemp();
+        ChangeWhenBoughtTemp();
+
+
+
+        if (buyPressed) 
         {
             timer += Time.deltaTime;
             if (timer >= timeToShow)
@@ -76,13 +82,16 @@ public class EditText : MonoBehaviour
     //    purchaseButton = button.transform.GetChild(2).gameObject;
     //}
 
+    private void ResetTimer()
+    {
+        timer = 0f;
+    }
+
     public void ChangeTextIdle()
     {
         if (gameController.IsIdleTrue() == false && buyPressed == false)
         {
             idleButton.GetComponent<ItemScript>().desciption = "Get 1 crystal each 60 sec! Every upgrade will decrease time 15 seconds.";
-
-
         }
         else if (gameController.IsIdleTrue() && gameController.IsIdleLvlTrue() == false && buyPressed == false)
         {
@@ -92,10 +101,9 @@ public class EditText : MonoBehaviour
         {
             idleButton.GetComponent<ItemScript>().desciption = "You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every " + (gameController.ReturnSecBeforeClick()) + " seconds";
         }
-
     }
 
-    public void ChangeWhenBought()
+    public void ChangeWhenBoughtIdle()
     {
         buyPressed = true;
         if (buyPressed && gameController.IsIdleTrue() == false)
@@ -106,11 +114,11 @@ public class EditText : MonoBehaviour
         {
             if (gameController.ReturnTimesToLvlUp() == 1)
             {
-                idlePurchaseButn.GetComponent<ItemScript>().desciption = "15 seconds have been subtraced, you now recieve 1 crystal each second.";
+                idlePurchaseButn.GetComponent<ItemScript>().desciption = "15 seconds have been subtraced, you now recieve 1 crystal each second and 1 every 60 seconds.";
             }
             else
             {
-                idlePurchaseButn.GetComponent<ItemScript>().desciption = "15 seconds have been subtraced, you now recieve 1 crystal each " + (gameController.ReturnSecBeforeClick() - 15);
+                idlePurchaseButn.GetComponent<ItemScript>().desciption = "15 seconds have been subtraced, you now recieve 1 crystal each " + (gameController.ReturnSecBeforeClick() - 15) +  " seconds.";
             }
 
         }
@@ -118,21 +126,41 @@ public class EditText : MonoBehaviour
         {
             if (gameController.ReturnTimesToLvlUp() == 1)
             {
-                idlePurchaseButn.GetComponent<ItemScript>().desciption = "15 seconds have been subtraced, you now recieve " + (gameController.ReturnClicksPerSec() + 1) + " per second.";
+                idlePurchaseButn.GetComponent<ItemScript>().desciption = "15 seconds have been subtraced, you now recieve " + (gameController.ReturnClicksPerSec() + 1) + " per second and 1 per 60 seconds.";
             }
             else
             {
-                idlePurchaseButn.GetComponent<ItemScript>().desciption = "15 seconds have been subtraced, you now recieve " + gameController.ReturnClicksPerSec() + " crystal each second and 1 per " + (gameController.ReturnSecBeforeClick() - 15);
+                idlePurchaseButn.GetComponent<ItemScript>().desciption = "15 seconds have been subtraced, you now recieve " + gameController.ReturnClicksPerSec() + " crystal each second and 1 per " + (gameController.ReturnSecBeforeClick() - 15) + " seconds." ;
             }
         }
-
-
     }
 
-    private void ResetTimer()
+    //public void ChangeTextPerm()
+    //{
+    //    permButton.GetComponent<ItemScript>().desciption = "Your clicks will increased by 1 crystal with each purchase! Every 10 purchase will add 5.";        
+    //}
+
+    public void ChangeWhenBoughtPerm()
     {
-        timer = 0f;
+        buyPressed = true;
+        if (buyPressed)
+        {
+            permPurchaseButn.GetComponent<ItemScript>().desciption = "Your clicks will now give you " + (gameController.ReturnClickIncrease()+1) + " crystals!";
+        }
     }
 
+    public void ChangeTextTemp()
+    {
+        tempButton.GetComponent<ItemScript>().desciption = "Your clicks will be boosted with " + gameController.ReturnTPUAddClicksBy() + " for " + gameController.ReturnTPUTimeBeforeReset() + " seconds.";
+    }
+
+    public void ChangeWhenBoughtTemp()
+    {
+        buyPressed = true;
+        if (buyPressed)
+            tempPurchaseButn.GetComponent<ItemScript>().desciption = "Your time boost will have to be activated. Go back into the game and press the activation button.";
+    }
+
+    
 
 }
