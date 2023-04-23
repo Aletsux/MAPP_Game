@@ -28,5 +28,6 @@ public class RaidEnemyKillable : MonoBehaviour
         Debug.Log("Hit");
         gameObject.SetActive(false);
         gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
+        RaidState.enemiesKilled++;
     }
 }

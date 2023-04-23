@@ -20,7 +20,7 @@ public class RaidEnemyMovement : MonoBehaviour
     [SerializeField] private GameObject planet;
 
     public PlanetRaidMovement raidMovement;
-    public PlanetState planetState;
+    //public PlanetState planetState;
 
     private float lateralPosition;
 
@@ -65,7 +65,7 @@ public class RaidEnemyMovement : MonoBehaviour
         //Destroy ship on collison
         if (collision.tag == "PlanetTrigger")
         {
-            planetState.totalRaidDamage++;
+            PlanetState.totalRaidDamage++;
             gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
             Destroy(gameObject);
         }

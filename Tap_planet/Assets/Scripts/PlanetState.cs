@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlanetState : MonoBehaviour
 {
-    public int totalRaidDamage;
+    public static int totalRaidDamage;
 
     public Text damageCounter;
 

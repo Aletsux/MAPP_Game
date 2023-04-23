@@ -19,7 +19,7 @@ public class StoreScript : MonoBehaviour
     [Space]
     public Text UIText;
     [Space]
-    [SerializeField] int tpuCost = 1; //tpu = timedPowerUp
+    //[SerializeField] int tpuCost = 1; //tpu = timedPowerUp
     [Space]
     private float timer; //counts up until it reaches timeToDisplay
     private float timeToDisplay = 2; // time to display message

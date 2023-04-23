@@ -21,7 +21,7 @@ public class EditText : MonoBehaviour
     private bool buyPressed = false;
     private float timer = 0f;
     private float timeToShow = 1f;
-    private int count = 0;
+    //private int count = 0;
 
 
 

@@ -8,13 +8,13 @@ public class EnemyAI : MonoBehaviour
 
     public GameObject[] enemyList;
 
-    private bool isListEmpty = false;
-    private int nullCounter = 0;
+    //private bool isListEmpty = false;
+    //private int nullCounter = 0;
     private bool launch = false;
     private int shipCount;
 
-    private float minDelay = 1f;
-    private float maxDelay = 2f;
+    private float minDelay = 3f;
+    private float maxDelay = 4f;
 
     // Start is called before the first frame update
     void Start()
