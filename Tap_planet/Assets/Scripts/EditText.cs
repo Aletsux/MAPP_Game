@@ -145,7 +145,7 @@ public class EditText : MonoBehaviour
         buyPressed = true;
         if (buyPressed)
         {
-            permPurchaseButn.GetComponent<ItemScript>().desciption = "Your clicks will now give you " + (gameController.ReturnClickIncrease()+1) + " crystals!";
+            permPurchaseButn.GetComponent<ItemScript>().desciption = "Your clicks will now give you " + (GameController.ReturnClickIncrease()+1) + " crystals!";
         }
     }
 

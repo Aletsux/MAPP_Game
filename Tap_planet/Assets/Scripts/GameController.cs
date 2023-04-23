@@ -8,24 +8,27 @@ using Random = System.Random;
 
 public class GameController : MonoBehaviour
 {
-    private int crystals;
-    public Text crystalAmount;
-    private int clickIncrease = 1;
+    private static int crystals;
+    public static Text crystalAmount;
+    private static int clickIncrease = 1;
 
-    private int stardust;
-    public Text stardustAmount;
-    private int stardustMinerLevel;
+    private static int stardust;
+    public static Text stardustAmount;
+    private static int stardustMinerLevel;
     private static Random rnd = new Random();
 
     //private static string suffix = "";
 
+    /*cost as method! for scaling purposes and maybe in store!*/
     [SerializeField] int tpuCost = 1; //tpu = timedPowerUp
     [SerializeField] private float tpuTimeBeforeReset; // hur många sekunder som powerup ska hålla på
+    /* make method for scaling the amount!*/
     [SerializeField] public int tpuAddClicksBy;
-    private bool isUsingPowerUp = false;
-    private int saveCurrentClick; //saves clickIncrease before the limited timed powerUp
-    private float timer = 0f;
+    private bool isUsingTPU = false; 
+    private int saveCurrentClickIncrease; //saves clickIncrease before the limited timed powerUp
+    private float tpuTimer = 0f;
 
+    /*name : clickUpgrade?*/  /*cost as method! for scaling purposes and maybe in store!*/
     [SerializeField] public int permCost; //perm = permanent, så att om spelaren köper kommer de alltid ha extra klicks
 
     //powerups
@@ -139,13 +142,13 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (isUsingPowerUp == true)
+        if (isUsingTPU == true)
         {
-            timer += Time.deltaTime;
-            if (timer >= tpuTimeBeforeReset)
+            tpuTimer += Time.deltaTime;
+            if (tpuTimer >= tpuTimeBeforeReset)
             {
-                timer = 0f;
-                isUsingPowerUp = false;
+                tpuTimer = 0f;
+                isUsingTPU = false;
                 ResetClickIncrease();
             }
         }
@@ -180,7 +183,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public int GetCrystals()
+    public static int GetCrystals()
     {
         return crystals;
     }
@@ -214,7 +217,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public int ReturnClickIncrease()
+    public static int ReturnClickIncrease()
     {
         return clickIncrease;
     }
@@ -236,12 +239,12 @@ public class GameController : MonoBehaviour
         UpdateStardust();
     }
 
-    public int GetStardust()
+    public static int GetStardust()
     {
         return stardust;
     }
 
-    public void AddStardust(int toAdd)
+    public static void AddStardust(int toAdd)
     {
         stardust += toAdd;
     }
@@ -251,18 +254,18 @@ public class GameController : MonoBehaviour
         stardustMinerLevel += 1;
     }
 
-    public void DecreaseStardust(int cost) // for example: to buy
+    public static int GetStardustMinerLevel()
+    {
+        return stardustMinerLevel;
+    }
+
+    public static void DecreaseStardust(int cost) // for example: to buy
     {
         stardust -= cost;
         UpdateStardust();
     }
 
-    public int GetStardustMinerLevel()
-    {
-        return stardustMinerLevel;
-    }
-
-    private void UpdateStardust()
+    private static void UpdateStardust()
     {
         stardustAmount.text = stardust + "" /*suffix*/;
     }
@@ -281,11 +284,11 @@ public class GameController : MonoBehaviour
 
     private void TimedPowerUp() // göra en individs klick starkare i några sekunder
     {
-        if (isUsingPowerUp == false)
+        if (isUsingTPU == false)
         {
-            isUsingPowerUp = true;
+            isUsingTPU = true;
 
-            saveCurrentClick = clickIncrease;
+            saveCurrentClickIncrease = clickIncrease;
 
             clickIncrease += tpuAddClicksBy;
         }
@@ -293,14 +296,14 @@ public class GameController : MonoBehaviour
 
     public void ResetClickIncrease() // sätt tillbaka klick till default
     {
-        clickIncrease = saveCurrentClick;
+        clickIncrease = saveCurrentClickIncrease;
     }
 
     public void DoPowerUp(string powerUpName) // olika knappar kan kalla på denna och skicka in en sträng, metoden väljer sen själv vilken powerup som ska göras
     {
         if (powerUpName.Equals("tpu"))
         {
-            if (TPUAmount > 0 && isUsingPowerUp == false) // viktigt så spelaren inte kan råka använda tpu under poweruppen
+            if (TPUAmount > 0 && isUsingTPU == false) // viktigt så spelaren inte kan råka använda tpu under poweruppen
             {
                 TimedPowerUp();
                 TPUAmount--;
