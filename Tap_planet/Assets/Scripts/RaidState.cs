@@ -22,6 +22,7 @@ public class RaidState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemiesKilled = 0;
         beginRaid = false;
         raidOverPanel.SetActive(false);
     }

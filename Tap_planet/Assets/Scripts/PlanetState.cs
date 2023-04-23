@@ -12,7 +12,7 @@ public class PlanetState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        totalRaidDamage = 0;
     }
 
     // Update is called once per frame

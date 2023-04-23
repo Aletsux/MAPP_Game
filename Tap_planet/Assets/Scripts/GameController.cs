@@ -200,6 +200,7 @@ public class GameController : MonoBehaviour
 
     public static void AddCrystals(int toAdd)
     {
+        toAdd = (toAdd > crystals) ? crystals : toAdd;
         crystals += toAdd;
     }
 
@@ -254,6 +255,7 @@ public class GameController : MonoBehaviour
 
     public static void AddStardust(int toAdd)
     {
+        toAdd = (toAdd > stardust) ? crystals : stardust;
         stardust += toAdd;
     }
 
