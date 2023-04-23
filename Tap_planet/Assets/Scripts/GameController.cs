@@ -218,6 +218,8 @@ public class GameController : MonoBehaviour
 
             double higherCost = permCost * 1.2;
             permCost += (int)higherCost;
+
+            Debug.Log(permCost);
         }
     }
 
@@ -295,6 +297,9 @@ public class GameController : MonoBehaviour
             saveCurrentClick = clickIncrease;
 
             clickIncrease += tpuAddClicksBy;
+
+            //double higherCost = tpuCost * 1.2;
+            //tpuCost += (int)higherCost;
         }
     }
 
@@ -339,6 +344,9 @@ public class GameController : MonoBehaviour
             TPU.SetActive(true);
         TPUAmount++;
         UpdateTPU();
+
+        double higherCost = tpuCost * 1.2;
+        tpuCost += (int)higherCost;
     }
 
     private void DisableTPU()
@@ -439,7 +447,7 @@ public class GameController : MonoBehaviour
         //
         if (isAtLevel == false || lvlCounter > 0)
         {
-            double higherCost = idleCost * 1.02; // lägger till 2% på kostnad
+            double higherCost = idleCost * 1.2; // lägger till 20% på kostnad
             idleCost += (int)higherCost;
             lvlCounter -= 1;
             Debug.Log("Lvl: " + lvlCounter);

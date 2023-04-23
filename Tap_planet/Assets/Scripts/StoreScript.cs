@@ -116,8 +116,8 @@ public class StoreScript : MonoBehaviour
                 }
 
 
-                gameController.BuyIdle();
                 gameController.DecreaseCrystals(gameController.GetIdleCost());
+                gameController.BuyIdle();
 
             }
             else
