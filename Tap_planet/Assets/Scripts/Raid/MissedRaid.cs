@@ -1,28 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = System.Random;
 
 public class MissedRaid : MonoBehaviour
 {
-    private bool active;
+    private static Random rnd = new Random();
+    private float lostCrystals;
+    private float lostStardust;
+    public Text crystalText;
+    public Text stardustText;
 
-    void Start()
+    public void CalculateRaidLoss()
     {
-        active = false;
-        ActivatePanel(false);
-    }
+        int rng = rnd.Next(1, 6);
+        lostCrystals = rng * GameController.GetCrystals() / 10;
+        GameController.DecreaseCrystals((int) lostCrystals);
+        crystalText.text = "Lost Crystals: " + lostCrystals;
 
-    public void ActivatePanel()
-    {
-        if (active)
-        {
-            gameObject.SetActive(!active);
-            active = !active;
-        }
-    }
-
-    public void ActivatePanel(bool toggle)
-    {
-        gameObject.SetActive(toggle);
+        lostStardust = rng * GameController.GetStardust() / 10;
+        GameController.DecreaseStardust((int) lostStardust);
+        stardustText.text = "Lost Stardust: " + lostStardust;
     }
 }

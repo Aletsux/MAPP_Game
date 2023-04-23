@@ -200,14 +200,14 @@ public class GameController : MonoBehaviour
 
     public static void AddCrystals(int toAdd)
     {
-        toAdd = (toAdd > crystals) ? crystals : toAdd;
         crystals += toAdd;
     }
 
-    public void DecreaseCrystals(int cost) // for example: to buy
+    public static void DecreaseCrystals(int cost) // for example: to buy
     {
+        cost = (cost > crystals) ? crystals : cost;
+        cost = (cost < 0) ? 0 : cost;
         crystals -= cost;
-        UpdateCrystals();
     }
 
     private void UpdateCrystals()
@@ -255,8 +255,14 @@ public class GameController : MonoBehaviour
 
     public static void AddStardust(int toAdd)
     {
-        toAdd = (toAdd > stardust) ? crystals : stardust;
         stardust += toAdd;
+    }
+
+    public static void DecreaseStardust(int cost) // for example: to buy
+    {
+        cost = (cost > stardust) ? stardust : cost;
+        cost = (cost < 0) ? 0 : cost;
+        stardust -= cost;
     }
 
     public void IncreaseStardustMinerLevel()
@@ -267,11 +273,6 @@ public class GameController : MonoBehaviour
     public static int GetStardustMinerLevel()
     {
         return stardustMinerLevel;
-    }
-
-    public static void DecreaseStardust(int cost) // for example: to buy
-    {
-        stardust -= cost;
     }
 
     private void UpdateStardust()
@@ -375,9 +376,9 @@ public class GameController : MonoBehaviour
 
     private void ResetForBuild()
     {
-        PlayerPrefs.SetInt("crystals", 0);
+        PlayerPrefs.SetInt("crystals", 10000);
         PlayerPrefs.SetInt("clickIncrease", 1);
-        PlayerPrefs.SetInt("stardust", 0);
+        PlayerPrefs.SetInt("stardust", 1000);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(false));
@@ -425,7 +426,7 @@ public class GameController : MonoBehaviour
         else
         {
             SaveGame();
-            //ResetForBuild();
+            ResetForBuild();
         }
     }
 

@@ -79,7 +79,7 @@ public class StoreScript : MonoBehaviour
             if (GameController.GetCrystals() >= gameController.GetTpuCost()) // checks bank balance       
             {
                 gameController.AddTPUAmount(); // adds 1 to tpuAmount
-                gameController.DecreaseCrystals(gameController.GetTpuCost()); // reduces money in bank
+                GameController.DecreaseCrystals(gameController.GetTpuCost()); // reduces money in bank
                 DisplayMessage("Timed boost purchased!"); // displays message
             }
             else
@@ -92,7 +92,7 @@ public class StoreScript : MonoBehaviour
             if (GameController.GetCrystals() >= gameController.GetPermCost())
             {
                 gameController.ClickIncrease();
-                gameController.DecreaseCrystals(gameController.GetPermCost());
+                GameController.DecreaseCrystals(gameController.GetPermCost());
                 DisplayMessage("Your clicks now give you " + GameController.ReturnClickIncrease() + " crystals!");
             }
             else
@@ -117,7 +117,7 @@ public class StoreScript : MonoBehaviour
 
 
                 gameController.BuyIdle();
-                gameController.DecreaseCrystals(gameController.GetIdleCost());
+                GameController.DecreaseCrystals(gameController.GetIdleCost());
 
             }
             else
