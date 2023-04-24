@@ -671,6 +671,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 210186517}
+  - component: {fileID: 210186519}
+  - component: {fileID: 210186518}
   m_Layer: 5
   m_Name: Tabs
   m_TagString: Untagged
@@ -701,7 +703,45 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &210186518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210186516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9245283, g: 0.14391243, b: 0.14391243, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &210186519
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210186516}
+  m_CullTransparentMesh: 1
 --- !u!114 &211916991 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
@@ -727,7 +767,7 @@ GameObject:
   - component: {fileID: 216231089}
   - component: {fileID: 216231088}
   m_Layer: 5
-  m_Name: PowerupTabButton
+  m_Name: Powerup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3247,6 +3287,7 @@ GameObject:
   - component: {fileID: 329710848}
   - component: {fileID: 329710847}
   - component: {fileID: 329710846}
+  - component: {fileID: 329710850}
   m_Layer: 5
   m_Name: Scroll_Buttons
   m_TagString: Untagged
@@ -3356,6 +3397,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &329710850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329710844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3672f5bf9f3405387d45b5aa4a1503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &362235498 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7921601258029114973, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
@@ -4412,6 +4465,7 @@ GameObject:
   - component: {fileID: 725468489}
   - component: {fileID: 725468488}
   - component: {fileID: 725468487}
+  - component: {fileID: 725468491}
   m_Layer: 5
   m_Name: Scroll_Buttons
   m_TagString: Untagged
@@ -4438,7 +4492,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 2500}
+  m_SizeDelta: {x: 1080, y: 1190.8594}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &725468487
 MonoBehaviour:
@@ -4521,6 +4575,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &725468491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 725468485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3672f5bf9f3405387d45b5aa4a1503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &741574302 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6458594102381984812, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
@@ -4556,6 +4622,7 @@ GameObject:
   - component: {fileID: 751985415}
   - component: {fileID: 751985414}
   - component: {fileID: 751985413}
+  - component: {fileID: 751985417}
   m_Layer: 5
   m_Name: Scroll_Buttons
   m_TagString: Untagged
@@ -4665,6 +4732,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &751985417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751985411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3672f5bf9f3405387d45b5aa4a1503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &770331716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9699,7 +9778,7 @@ GameObject:
   - component: {fileID: 973488660}
   - component: {fileID: 973488659}
   m_Layer: 5
-  m_Name: PlanetTabButton
+  m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10310,7 +10389,7 @@ GameObject:
   - component: {fileID: 1103532808}
   - component: {fileID: 1103532807}
   m_Layer: 5
-  m_Name: UpgradeTabButton
+  m_Name: Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13476,6 +13555,7 @@ GameObject:
   - component: {fileID: 1638563246}
   - component: {fileID: 1638563245}
   - component: {fileID: 1638563244}
+  - component: {fileID: 1638563247}
   m_Layer: 5
   m_Name: Scroll_Buttons
   m_TagString: Untagged
@@ -13585,6 +13665,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1638563241}
   m_CullTransparentMesh: 1
+--- !u!114 &1638563247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638563241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3672f5bf9f3405387d45b5aa4a1503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1649499988
 GameObject:
   m_ObjectHideFlags: 0
@@ -13599,7 +13691,7 @@ GameObject:
   - component: {fileID: 1649499992}
   - component: {fileID: 1649499991}
   m_Layer: 5
-  m_Name: AccessoryTabButton
+  m_Name: Accessory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
