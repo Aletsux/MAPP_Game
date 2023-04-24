@@ -5,7 +5,7 @@ using UnityEngine;
 public class DescriptionState : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         gameObject.SetActive(false);
     }
