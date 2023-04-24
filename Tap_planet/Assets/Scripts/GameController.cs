@@ -8,9 +8,9 @@ using Random = System.Random;
 
 public class GameController : MonoBehaviour
 {
-    private static int crystals;
+    private static long crystals;
     public Text crystalAmount;
-    private static int clickIncrease = 1;
+    private static long clickIncrease = 1;
 
     private static int stardust;
     public Text stardustAmount;
@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     /* make method for scaling the amount!*/
     [SerializeField] public int tpuAddClicksBy;
     private bool isUsingTPU = false; 
-    private int saveCurrentClickIncrease; //saves clickIncrease before the limited timed powerUp
+    private long saveCurrentClickIncrease; //saves clickIncrease before the limited timed powerUp
     private float tpuTimer = 0f;
 
     /*name : clickUpgrade?*/  /*cost as method! for scaling purposes and maybe in store!*/
@@ -186,7 +186,7 @@ public class GameController : MonoBehaviour
         UpdateStardust();
     }
 
-    public static int GetCrystals()
+    public static long GetCrystals()
     {
         return crystals;
     }
@@ -198,12 +198,12 @@ public class GameController : MonoBehaviour
         UpdateCrystals(); // update amount in UI
     }
 
-    public static void AddCrystals(int toAdd)
+    public static void AddCrystals(long toAdd)
     {
         crystals += toAdd;
     }
 
-    public static void DecreaseCrystals(int cost) // for example: to buy
+    public static void DecreaseCrystals(long cost) // for example: to buy
     {
         cost = (cost > crystals) ? crystals : cost;
         cost = (cost < 0) ? 0 : cost;
@@ -233,7 +233,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public static int ReturnClickIncrease()
+    public static long ReturnClickIncrease()
     {
         return clickIncrease;
     }
@@ -368,8 +368,8 @@ public class GameController : MonoBehaviour
 
     private void SaveGame()
     {
-        PlayerPrefs.SetInt("crystals", GetCrystals());
-        PlayerPrefs.SetInt("clickIncrease", ReturnClickIncrease());
+        PlayerPrefs.SetString("crystals", GetCrystals().ToString()); // save converted long to string
+        PlayerPrefs.SetString("clickIncrease", ReturnClickIncrease().ToString()); // save converted long to string
         PlayerPrefs.SetInt("stardust", stardust);
         PlayerPrefs.SetInt("stardustMinerLevel", GetStardustMinerLevel());
         PlayerPrefs.SetInt("tpu", TPUAmount);
@@ -383,9 +383,9 @@ public class GameController : MonoBehaviour
 
     private void ResetForBuild()
     {
-        PlayerPrefs.SetInt("crystals", 10000);
-        PlayerPrefs.SetInt("clickIncrease", 1);
-        PlayerPrefs.SetInt("stardust", 1000);
+        PlayerPrefs.SetString("crystals", 0.ToString());
+        PlayerPrefs.SetString("clickIncrease", 1.ToString());
+        PlayerPrefs.SetInt("stardust", 0);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(false));
@@ -398,8 +398,8 @@ public class GameController : MonoBehaviour
 
     private void LoadGame()
     {
-        crystals = PlayerPrefs.GetInt("crystals");
-        clickIncrease = PlayerPrefs.GetInt("clickIncrease");
+        crystals = (long)Convert.ToDouble(PlayerPrefs.GetString("crystals")); // convert saved string to double and then to long
+        clickIncrease = (long)Convert.ToDouble(PlayerPrefs.GetString("clickIncrease"));// convert saved string to double and then to long
         TPUAmount = PlayerPrefs.GetInt("tpu");
         isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
         stardust = PlayerPrefs.GetInt("stardust");
@@ -433,7 +433,7 @@ public class GameController : MonoBehaviour
         else
         {
             SaveGame();
-            ResetForBuild();
+            //ResetForBuild();
         }
     }
 
