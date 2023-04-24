@@ -1742,12 +1742,24 @@ PrefabInstance:
       value: DrippyButton
       objectReference: {fileID: 0}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -1766,12 +1778,24 @@ PrefabInstance:
       value: ButtonsPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -1790,12 +1814,24 @@ PrefabInstance:
       value: ButtonsPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -1814,12 +1850,24 @@ PrefabInstance:
       value: ButtonsPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -1838,12 +1886,24 @@ PrefabInstance:
       value: ButtonsPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -1862,12 +1922,24 @@ PrefabInstance:
       value: ButtonsPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -1886,12 +1958,24 @@ PrefabInstance:
       value: ButtonsPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -1910,12 +1994,24 @@ PrefabInstance:
       value: ButtonsPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -1934,12 +2030,24 @@ PrefabInstance:
       value: ButtonsPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -1958,12 +2066,24 @@ PrefabInstance:
       value: ButtonsPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -5250,12 +5370,24 @@ PrefabInstance:
       value: BuyPerm
       objectReference: {fileID: 0}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -5274,12 +5406,24 @@ PrefabInstance:
       value: ButtonsPowerup
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -5298,12 +5442,24 @@ PrefabInstance:
       value: ButtonsPowerup
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -5322,12 +5478,24 @@ PrefabInstance:
       value: ButtonsPowerup
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -5346,12 +5514,24 @@ PrefabInstance:
       value: ButtonsPowerup
       objectReference: {fileID: 0}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -5370,12 +5550,24 @@ PrefabInstance:
       value: ButtonsPowerup
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -5394,12 +5586,24 @@ PrefabInstance:
       value: ButtonsPowerup
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -5418,12 +5622,24 @@ PrefabInstance:
       value: ButtonsPowerup
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -5442,12 +5658,24 @@ PrefabInstance:
       value: ButtonsPowerup
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -5466,12 +5694,24 @@ PrefabInstance:
       value: ButtonsPowerup
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -7096,12 +7336,24 @@ PrefabInstance:
       value: -0.99902344
       objectReference: {fileID: 0}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -7120,12 +7372,24 @@ PrefabInstance:
       value: ButtonsUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -7144,12 +7408,24 @@ PrefabInstance:
       value: ButtonsUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -7168,12 +7444,24 @@ PrefabInstance:
       value: ButtonsUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -7192,12 +7480,24 @@ PrefabInstance:
       value: ButtonsUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -7216,12 +7516,24 @@ PrefabInstance:
       value: ButtonsUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -7240,12 +7552,24 @@ PrefabInstance:
       value: ButtonsUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -7264,12 +7588,24 @@ PrefabInstance:
       value: ButtonsUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -7288,12 +7624,24 @@ PrefabInstance:
       value: ButtonsUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -7312,12 +7660,24 @@ PrefabInstance:
       value: ButtonsUpgrade
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -13966,12 +14326,24 @@ PrefabInstance:
       value: PartyHatButton
       objectReference: {fileID: 0}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -13990,12 +14362,24 @@ PrefabInstance:
       value: ButtonsAccessories
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666625967151, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -14014,12 +14398,24 @@ PrefabInstance:
       value: ButtonsAccessories
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666710207386, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -14038,12 +14434,24 @@ PrefabInstance:
       value: ButtonsAccessories
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823666856484727, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -14062,12 +14470,24 @@ PrefabInstance:
       value: ButtonsAccessories
       objectReference: {fileID: 0}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823667376949779, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -14086,12 +14506,24 @@ PrefabInstance:
       value: ButtonsAccessories
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668106061612, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -14110,12 +14542,24 @@ PrefabInstance:
       value: ButtonsAccessories
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668479148219, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -14134,12 +14578,24 @@ PrefabInstance:
       value: ButtonsAccessories
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668493659758, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -14158,12 +14614,24 @@ PrefabInstance:
       value: ButtonsAccessories
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668540578725, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
@@ -14182,12 +14650,24 @@ PrefabInstance:
       value: ButtonsAccessories
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: price
+      value: 
+      objectReference: {fileID: 868310403}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 1916428460}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceKey
+      value: Price
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleKey
       value: Title 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: priceTable
+      value: PriceInDesc
       objectReference: {fileID: 0}
     - target: {fileID: 7039823668602255051, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: titleTable
