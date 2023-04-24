@@ -8,8 +8,8 @@ using TMPro;
 public class ItemScript : MonoBehaviour
 {
     public Sprite sprite;
-    public String itemName;
-    public String description;
+    private String itemName = "";
+    private String description = "";
 
     //public TMP_Text description;
     //public TMP_Text testText;
