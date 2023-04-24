@@ -28,4 +28,9 @@ public class LanguageSelector : MonoBehaviour
         PlayerPrefs.SetInt("LanguageKey", languageID);
         active = false;
     }
+
+    public string GetCurrentLanguage()
+    {
+        return LocalizationSettings.SelectedLocale.name;
+    }
 }

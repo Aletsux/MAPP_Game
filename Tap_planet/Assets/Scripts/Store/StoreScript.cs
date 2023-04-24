@@ -35,6 +35,8 @@ public class StoreScript : MonoBehaviour
     public List<Button> planetButtons;
     public List<int> planetCosts = new List<int>();
 
+    private string currentLanguage;
+
     void Start()
     {
         UIText.gameObject.SetActive(false);
@@ -126,6 +128,10 @@ public class StoreScript : MonoBehaviour
                 displayUIMessage = false;
             }
         }
+
+        LanguageSelector languageSelector = FindObjectOfType<LanguageSelector>();
+        currentLanguage = languageSelector.GetCurrentLanguage();
+        Debug.Log(currentLanguage);
     }
 
     public void OpenStore()
@@ -357,5 +363,27 @@ public class StoreScript : MonoBehaviour
                 planetButtons[i].interactable = true;
             }
         }
+    }
+
+    private Dictionary<string, Dictionary<string, string>> getTranslations()
+    {
+        //En "tabell" med översättningar
+        Dictionary<string, Dictionary<string, string>> translations = new Dictionary<string, Dictionary<string, string>>();
+        translations["en"] = new Dictionary<string, string>() {
+            { "Buy", "Buy" },
+            { "Equip", "Equip" },
+            { "Unequip", "Unequip" },
+            { "Equipped", "Equipped" },
+            { "", "" },
+        };
+        translations["sv"] = new Dictionary<string, string>() {
+            { "Buy", "Köp" },
+            { "Equip", "Sätt på" },
+            { "Unequip", "Ta av" },
+            { "Equipped", "På" },
+            { "", "" },
+        };
+
+        return translations; //wtf am i doing
     }
 }
