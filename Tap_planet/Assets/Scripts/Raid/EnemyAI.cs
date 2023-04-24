@@ -13,39 +13,43 @@ public class EnemyAI : MonoBehaviour
     private bool launch = false;
     private int shipCount;
 
-    private float minDelay = 3f;
-    private float maxDelay = 4f;
+    private float minDelay = 0.5f;
+    private float maxDelay = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
         //Set default value for amount of ships
-        shipCount = 10;
+        shipCount = enemyList.Length;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Mst kolla om den finns / redan �kt.
-        //InScene
-
-        //trackShipCount();
-
-
-        if (launch && shipCount > 0)
-        {
-            Debug.Log("Start!");
-            //launchEnemies();
-            StartCoroutine(launchWithDelay());
-        }
 
     }
     //Triggers from begin raid button
+
+    //Start a recursive call
     public void startLaunching()
     {
         Debug.Log("LAUNCH!");
         launch = true;
+        //startRaid();
+        launchShips();
     }
+
+    private void launchShips() {
+        if(launch) {
+            
+            float delay = Random.Range(minDelay, maxDelay);
+            StartCoroutine(launchWithDelay(delay));
+            //Debug.Log(shipCount);
+            
+        }
+    }
+
 /* 
     public void launchEnemies()
     {        while (shipCount > 0)
@@ -60,26 +64,39 @@ public class EnemyAI : MonoBehaviour
 
         }
     } */
+   
 
-    IEnumerator launchWithDelay()
+    IEnumerator launchWithDelay(float delay)
     {
-        int j = Random.Range(0, enemyList.Length);
-
-        Debug.Log("ShipNr " + j);
+        //Only available ships
+        int j = Random.Range(0, shipCount);
 
         if (enemyList[j] != null)
         {
             enemyList[j].GetComponent<RaidEnemyMovement>().timeToMove = true;
             enemyList[j] = null;
-            shipCount--;
+            //Use the same delay as the initial delay
+            yield return new WaitForSeconds(delay);
+        } else {
+            j = Random.Range(0, shipCount);
         }
-        float delay = Random.Range(minDelay, maxDelay);
-        yield return new WaitForSeconds(delay);
-
+        
+        if(checkShips() > 0) {
+            launchShips();
+        }
+        
     }
+    
 
-
-
+    public int checkShips() {
+        List<int> availableShips = new List<int>();
+        for(int i = 0; i < enemyList.Length; i++) {
+            if(enemyList[i] != null) {
+                availableShips.Add(i);
+            }
+        }
+        return availableShips.Count;
+    }
 }
 //int number = Random.Range(0, enemyList.Length);
 
