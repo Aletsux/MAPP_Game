@@ -43,76 +43,76 @@ public class StoreScript : MonoBehaviour
         CloseStore();
         gameController = GC.GetComponent<GameController>(); // gets access to methods
 
-        //PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
-        //Accessoarer:
-        for (int i = 0; i < accessoryObjects.Count; i++)
-        {
-            if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 1)
-            {
-                accessoryObjects[i].SetActive(true);
-                SetButtonLabel(accessoryButtons, i, "Unequip");
-            }
-            else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1)
-            {
-                accessoryObjects[i].SetActive(false);
-                SetButtonLabel(accessoryButtons, i, "Equip");
-                PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
-                PlayerPrefs.Save();
-            }
-            else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
-            {
-                accessoryObjects[i].SetActive(false);
-                SetButtonLabel(accessoryButtons, i, accessoryCosts[i].ToString() + "SD");
-                PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
-                PlayerPrefs.Save();
-            }
+        //PlayerPrefs.DeleteAll(); //Till fÃ¶r testning av accessoarer/planeter - ta bort om kÃ¶p ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska pÃ¥verkas 
+        //Accessoarer: 
+        for (int i = 0; i < accessoryObjects.Count; i++) 
+        { 
+            if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 1) 
+            { 
+                accessoryObjects[i].SetActive(true); 
+                SetButtonLabel(accessoryButtons, i, "Unequip"); 
+            } 
+            else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1) 
+            { 
+                accessoryObjects[i].SetActive(false); 
+                SetButtonLabel(accessoryButtons, i, "Equip"); 
+                PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0); 
+                PlayerPrefs.Save(); 
+            } 
+            else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0) 
+            { 
+                accessoryObjects[i].SetActive(false); 
+                SetButtonLabel(accessoryButtons, i, accessoryCosts[i].ToString() + "SD"); 
+                PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0); 
+                PlayerPrefs.Save(); 
+            } 
 
-            accessoryButtons[i].onClick.RemoveAllListeners();
-            accessoryButtons[i].onClick.AddListener(() =>
-            {
-                EquipAccessory(i);
-            });
-        }
+            accessoryButtons[i].onClick.RemoveAllListeners(); 
+            accessoryButtons[i].onClick.AddListener(() => 
+            { 
+                EquipAccessory(i); 
+            }); 
+        } 
 
-        //Planeter
-        int activePlanetIndex = PlayerPrefs.GetInt("ActivePlanetIndex", 0);
+        //Planeter 
+        int activePlanetIndex = PlayerPrefs.GetInt("ActivePlanetIndex", 0); 
+  
+        for (int i = 0; i < planetObjects.Count; i++) 
+        { 
+            if (i == activePlanetIndex) //Om i Ã¤r den aktiva planeten 
+            { 
+                planetObjects[i].SetActive(true); 
+                SetButtonLabel(planetButtons, i, "Equipped"); 
+                planetButtons[i].interactable = false; 
+            } 
+            else if (PlayerPrefs.GetInt("PlanetPurchased_" + i) == 1) //Om planeten har kÃ¶pts tidigare 
+            { 
+                planetObjects[i].SetActive(false); 
+                SetButtonLabel(planetButtons, i, ""); 
+                planetButtons[i].interactable = false; 
+            } 
+            else //Om planeten ej har kÃ¶pts tidigare 
+            { 
+                planetObjects[i].SetActive(false); 
+                SetButtonLabel(planetButtons, i, planetCosts[i].ToString() + "SD"); 
+                planetButtons[i].interactable = true; 
+            } 
 
-        for (int i = 0; i < planetObjects.Count; i++)
-        {
-            if (i == activePlanetIndex) //Om i är den aktiva planeten
-            {
-                planetObjects[i].SetActive(true);
-                SetButtonLabel(planetButtons, i, "Equipped");
-                planetButtons[i].interactable = false;
-            }
-            else if (PlayerPrefs.GetInt("PlanetPurchased_" + i) == 1) //Om planeten har köpts tidigare
-            {
-                planetObjects[i].SetActive(false);
-                SetButtonLabel(planetButtons, i, "");
-                planetButtons[i].interactable = false;
-            }
-            else //Om planeten ej har köpts tidigare
-            {
-                planetObjects[i].SetActive(false);
-                SetButtonLabel(planetButtons, i, planetCosts[i].ToString() + "SD");
-                planetButtons[i].interactable = true;
-            }
+            planetButtons[i].onClick.RemoveAllListeners(); 
+            planetButtons[i].onClick.AddListener(() => //lÃ¤gger till listener fÃ¶r varje planet-knapp 
+            { 
+                EquipPlanet(i); 
+            }); 
+        } 
 
-            planetButtons[i].onClick.RemoveAllListeners();
-            planetButtons[i].onClick.AddListener(() => //lägger till listener för varje planet-knapp
-            {
-                EquipPlanet(i);
-            });
-        }
-
-        //Om ingen planet är aktiverad, sätt startplaneten som aktiv
-        if (activePlanetIndex == 0)
-        {
-            planetObjects[0].SetActive(true);
-            SetButtonLabel(planetButtons, 0, "Equipped");
-            planetButtons[0].interactable = false;
-            PlayerPrefs.SetInt("PlanetPurchased_" + 0, 1);
-            PlayerPrefs.Save();
+        //Om ingen planet Ã¤r aktiverad, sÃ¤tt startplaneten som aktiv 
+        if (activePlanetIndex == 0) 
+        { 
+            planetObjects[0].SetActive(true); 
+            SetButtonLabel(planetButtons, 0, "Equipped"); 
+            planetButtons[0].interactable = false; 
+            PlayerPrefs.SetInt("PlanetPurchased_" + 0, 1); 
+            PlayerPrefs.Save(); 
         }
     }
 
@@ -251,7 +251,7 @@ public class StoreScript : MonoBehaviour
         timer = 0;
     }
 
-    public void EquipAccessory(int index) //anropas vid klick av accessories-köpknapp
+    public void EquipAccessory(int index) //anropas vid klick av accessories-kï¿½pknapp
     {
         //if (index >= accessoryObjects.Count)
         //{
@@ -279,11 +279,11 @@ public class StoreScript : MonoBehaviour
         SetButtonLabel(accessoryButtons, index, "Equip");
     }
 
-    private void ToggleAccessory(int index) //ifall accessoaren är aktiverad inaktiveras den och vice versa
+    private void ToggleAccessory(int index) //ifall accessoaren ï¿½r aktiverad inaktiveras den och vice versa
     {
-        bool isEquipped = accessoryObjects[index].activeSelf; //om accessoar-gameobjectet är aktiverat
+        bool isEquipped = accessoryObjects[index].activeSelf; //om accessoar-gameobjectet ï¿½r aktiverat
 
-        //sätter för den klickade knappen
+        //sï¿½tter fï¿½r den klickade knappen
         if (isEquipped)
         {
             accessoryObjects[index].SetActive(false);
@@ -298,7 +298,7 @@ public class StoreScript : MonoBehaviour
             PlayerPrefs.SetInt("AccessoryEquipped_" + index, 1);
             PlayerPrefs.Save();
         }
-        //sätter för de andra knapparna
+        //sï¿½tter fï¿½r de andra knapparna
         for (int i = 0; i < accessoryObjects.Count; i++)
         {
             if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1)
@@ -345,7 +345,7 @@ public class StoreScript : MonoBehaviour
         SetButtonLabel(planetButtons, index, "Equipped");
         planetButtons[index].interactable = false;
         planetObjects[index].SetActive(true);
-        PlayerPrefs.SetInt("ActivePlanetIndex", index); //ifall man hämtar inten får man indexet för planeten som är equipped
+        PlayerPrefs.SetInt("ActivePlanetIndex", index); //ifall man hï¿½mtar inten fï¿½r man indexet fï¿½r planeten som ï¿½r equipped
         PlayerPrefs.Save();
 
         for (int i = 0; i < planetObjects.Count; i++)
@@ -367,7 +367,7 @@ public class StoreScript : MonoBehaviour
 
     private Dictionary<string, Dictionary<string, string>> getTranslations()
     {
-        //En "tabell" med översättningar
+        //En "tabell" med ï¿½versï¿½ttningar
         Dictionary<string, Dictionary<string, string>> translations = new Dictionary<string, Dictionary<string, string>>();
         translations["en"] = new Dictionary<string, string>() {
             { "Buy", "Buy" },
@@ -377,10 +377,10 @@ public class StoreScript : MonoBehaviour
             { "", "" },
         };
         translations["sv"] = new Dictionary<string, string>() {
-            { "Buy", "Köp" },
-            { "Equip", "Sätt på" },
+            { "Buy", "Kï¿½p" },
+            { "Equip", "Sï¿½tt pï¿½" },
             { "Unequip", "Ta av" },
-            { "Equipped", "På" },
+            { "Equipped", "Pï¿½" },
             { "", "" },
         };
 
