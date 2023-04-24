@@ -1222,8 +1222,9 @@ MonoBehaviour:
   activateRaidPanel: {fileID: 488676328}
   activateMissedRaidPanel: {fileID: 651859874}
   timeSinceQuit: 0
-  timeBeforeRaid: 30
-  timeBeforeMiss: 0
+  timeBeforeRaid: 10
+  timeBeforeMiss: 3600
+  raidPanel: {fileID: 0}
 --- !u!114 &272204736
 MonoBehaviour:
   m_ObjectHideFlags: 0

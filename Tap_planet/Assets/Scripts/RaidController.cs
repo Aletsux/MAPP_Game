@@ -9,18 +9,16 @@ public class RaidController : MonoBehaviour
     public ActivatePanel activateRaidPanel;
     public ActivatePanel activateMissedRaidPanel;
 
-    new ActivatePanel activatePanel;
-    new MissedRaid missedRaid;
-
-    public GameObject missedRaidPanel;
-    public GameObject raidPanel;
+    //new ActivatePanel activatePanel;
+    //new MissedRaid missedRaid;
 
     public DateTime lastSaveTime;
     public int timeSinceQuit;
 
     public int timeBeforeRaid = 30;
     public int timeBeforeMiss = 3600;
-    
+
+    public GameObject raidPanel;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +38,7 @@ public class RaidController : MonoBehaviour
         {
             timeSinceQuit = calculateSecondsSinceQuit();
             Debug.Log(timeSinceQuit);
+  
 
             if (timeSinceQuit > timeBeforeRaid && timeSinceQuit < timeBeforeMiss) // if time since last save is larger than tBR (def: 30) & less than tBM
             {
@@ -58,8 +57,13 @@ public class RaidController : MonoBehaviour
             {
                 activateMissedRaidPanel.Toggle();
                 //missedRaidPanel.SetActive(true);
-                missedRaid.CalculateRaidLoss();
+                gameObject.GetComponent<MissedRaid>().CalculateRaidLoss();
                 Debug.Log("You missed the raid, 2 lazy");
+            }
+
+            else
+            {
+                return;
             }
 
         }
