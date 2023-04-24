@@ -9,8 +9,8 @@ public class RaidController : MonoBehaviour
     public ActivatePanel activateRaidPanel;
     public ActivatePanel activateMissedRaidPanel;
 
-    new ActivatePanel activatePanel;
-    new MissedRaid missedRaid;
+    public ActivatePanel activatePanel;
+    public MissedRaid missedRaid;
 
     public GameObject missedRaidPanel;
     public GameObject raidPanel;
@@ -38,13 +38,11 @@ public class RaidController : MonoBehaviour
     {
         if (focus) //if player enters game
         {
-            timeSinceQuit = calculateSecondsSinceQuit();
+            //timeSinceQuit = calculateSecondsSinceQuit();
             Debug.Log(timeSinceQuit);
-
-            if (timeSinceQuit > timeBeforeRaid && timeSinceQuit < timeBeforeMiss) // if time since last save is larger than tBR (def: 30) & less than tBM
+            if ((timeSinceQuit > timeBeforeRaid) && (timeSinceQuit < timeBeforeMiss)) // if time since last save is larger than tBR (def: 30) & less than tBM
             {
-                //raidPanel.SetActive(true);
-                activateRaidPanel.Toggle(true); // You have been raided popup.
+                raidPanel.SetActive(true);// You have been raided popup.
                 Debug.Log("You logged in during the raid and have to defend");
             }
 
