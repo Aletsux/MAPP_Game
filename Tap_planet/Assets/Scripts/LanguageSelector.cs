@@ -29,7 +29,7 @@ public class LanguageSelector : MonoBehaviour
         active = false;
     }
 
-    public string GetCurrentLanguage()
+    public string GetCurrentLanguage() //linn la till den hära för att pröva
     {
         return LocalizationSettings.SelectedLocale.name;
     }
