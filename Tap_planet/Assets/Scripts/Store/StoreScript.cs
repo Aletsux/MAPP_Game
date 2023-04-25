@@ -50,19 +50,19 @@ public class StoreScript : MonoBehaviour
             if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 1) 
             { 
                 accessoryObjects[i].SetActive(true); 
-                SetButtonLabel(accessoryButtons, i, "Unequip"); 
+                SetButtonLabel(accessoryButtons, i, "TextUnequip"); 
             } 
             else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1) 
             { 
                 accessoryObjects[i].SetActive(false); 
-                SetButtonLabel(accessoryButtons, i, "Equip"); 
+                SetButtonLabel(accessoryButtons, i, "TextEquip"); 
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0); 
                 PlayerPrefs.Save(); 
             } 
             else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0) 
             { 
                 accessoryObjects[i].SetActive(false); 
-                SetButtonLabel(accessoryButtons, i, accessoryCosts[i].ToString() + "SD"); 
+                SetButtonLabel(accessoryButtons, i, "TextBuy"); 
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0); 
                 PlayerPrefs.Save(); 
             } 
@@ -82,19 +82,19 @@ public class StoreScript : MonoBehaviour
             if (i == activePlanetIndex) //Om i är den aktiva planeten 
             { 
                 planetObjects[i].SetActive(true); 
-                SetButtonLabel(planetButtons, i, "Equipped"); 
+                SetButtonLabel(planetButtons, i, "TextEquipped"); 
                 planetButtons[i].interactable = false; 
             } 
             else if (PlayerPrefs.GetInt("PlanetPurchased_" + i) == 1) //Om planeten har köpts tidigare 
             { 
                 planetObjects[i].SetActive(false); 
-                SetButtonLabel(planetButtons, i, ""); 
+                SetButtonLabel(planetButtons, i, "TextEmpty"); 
                 planetButtons[i].interactable = false; 
             } 
             else //Om planeten ej har köpts tidigare 
             { 
                 planetObjects[i].SetActive(false); 
-                SetButtonLabel(planetButtons, i, planetCosts[i].ToString() + "SD"); 
+                SetButtonLabel(planetButtons, i, "TextBuy"); 
                 planetButtons[i].interactable = true; 
             } 
 
@@ -109,7 +109,7 @@ public class StoreScript : MonoBehaviour
         if (activePlanetIndex == 0) 
         { 
             planetObjects[0].SetActive(true); 
-            SetButtonLabel(planetButtons, 0, "Equipped"); 
+            SetButtonLabel(planetButtons, 0, "TextEquipped"); 
             planetButtons[0].interactable = false; 
             PlayerPrefs.SetInt("PlanetPurchased_" + 0, 1); 
             PlayerPrefs.Save(); 
@@ -131,7 +131,7 @@ public class StoreScript : MonoBehaviour
 
         LanguageSelector languageSelector = FindObjectOfType<LanguageSelector>();
         currentLanguage = languageSelector.GetCurrentLanguage();
-        Debug.Log(currentLanguage);
+        //Debug.Log(currentLanguage);
     }
 
     public void OpenStore()
@@ -252,7 +252,7 @@ public class StoreScript : MonoBehaviour
         timer = 0;
     }
 
-    public void EquipAccessory(int index) //anropas vid klick av accessories-k�pknapp
+    public void EquipAccessory(int index) //anropas vid klick av accessories-köpknapp
     {
         //if (index >= accessoryObjects.Count)
         //{
@@ -277,51 +277,54 @@ public class StoreScript : MonoBehaviour
         GameController.DecreaseStardust(accessoryCosts[index]);
         PlayerPrefs.SetInt("AccessoryPurchased_" + index, 1);
         PlayerPrefs.Save();
-        SetButtonLabel(accessoryButtons, index, "Equip");
+        SetButtonLabel(accessoryButtons, index, "TextEquip");
     }
 
-    private void ToggleAccessory(int index) //ifall accessoaren �r aktiverad inaktiveras den och vice versa
+    private void ToggleAccessory(int index) //ifall accessoaren är aktiverad inaktiveras den och vice versa
     {
-        bool isEquipped = accessoryObjects[index].activeSelf; //om accessoar-gameobjectet �r aktiverat
+        bool isEquipped = accessoryObjects[index].activeSelf; //om accessoar-gameobjectet är aktiverat
 
-        //s�tter f�r den klickade knappen
+        //sätter för den klickade knappen
         if (isEquipped)
         {
             accessoryObjects[index].SetActive(false);
-            SetButtonLabel(accessoryButtons, index, "Equip");
+            SetButtonLabel(accessoryButtons, index, "TextEquip");
             PlayerPrefs.SetInt("AccessoryEquipped_" + index, 0);
             PlayerPrefs.Save();
         }
         else
         {
             accessoryObjects[index].SetActive(true);
-            SetButtonLabel(accessoryButtons, index, "Unequip");
+            SetButtonLabel(accessoryButtons, index, "TextUnequip");
             PlayerPrefs.SetInt("AccessoryEquipped_" + index, 1);
             PlayerPrefs.Save();
         }
-        //s�tter f�r de andra knapparna
+        //sätter för de andra knapparna
         for (int i = 0; i < accessoryObjects.Count; i++)
         {
             if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1)
             {
                 accessoryObjects[i].SetActive(false);
-                SetButtonLabel(accessoryButtons, i, "Equip");
+                SetButtonLabel(accessoryButtons, i, "TextEquip");
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
                 PlayerPrefs.Save();
             }
             else if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
             {
                 accessoryObjects[i].SetActive(false);
-                SetButtonLabel(accessoryButtons, i, accessoryCosts[i].ToString() + "SD");
+                SetButtonLabel(accessoryButtons, i, "TextBuy");
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
                 PlayerPrefs.Save();
             }
         }
     }
 
-    private void SetButtonLabel(List<Button> buttons, int index, string label)
+    private void SetButtonLabel(List<Button> buttons, int index, string textObjectName)
     {
-        buttons[index].GetComponentInChildren<Text>().text = label;
+        //buttons[index].GetComponentInChildren<Text>().text = label;
+        GameObject buttonObject = buttons[index].gameObject;
+        Text textComponent = buttonObject.transform.Find(textObjectName).GetComponent<Text>();
+        textComponent.gameObject.SetActive(true);
     }
 
     public void EquipPlanet(int index)
@@ -343,7 +346,7 @@ public class StoreScript : MonoBehaviour
 
     private void togglePlanet(int index)
     {
-        SetButtonLabel(planetButtons, index, "Equipped");
+        SetButtonLabel(planetButtons, index, "TextEquipped");
         planetButtons[index].interactable = false;
         planetObjects[index].SetActive(true);
         PlayerPrefs.SetInt("ActivePlanetIndex", index); //ifall man h�mtar inten f�r man indexet f�r planeten som �r equipped
@@ -354,37 +357,15 @@ public class StoreScript : MonoBehaviour
             if (i != index && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 1) //ifall man tidigare haft planeten
             {
                 planetObjects[i].SetActive(false);
-                SetButtonLabel(planetButtons, i, "");
+                SetButtonLabel(planetButtons, i, "TextEmpty");
                 planetButtons[i].interactable = false;
             }
             else if (i != index && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 0)
             {
                 planetObjects[i].SetActive(false);
-                SetButtonLabel(planetButtons, i, planetCosts[i].ToString() + "SD");
+                SetButtonLabel(planetButtons, i, "TextBuy");
                 planetButtons[i].interactable = true;
             }
         }
-    }
-
-    private Dictionary<string, Dictionary<string, string>> getTranslations()
-    {
-        //En "tabell" med �vers�ttningar
-        Dictionary<string, Dictionary<string, string>> translations = new Dictionary<string, Dictionary<string, string>>();
-        translations["en"] = new Dictionary<string, string>() {
-            { "Buy", "Buy" },
-            { "Equip", "Equip" },
-            { "Unequip", "Unequip" },
-            { "Equipped", "Equipped" },
-            { "", "" },
-        };
-        translations["sv"] = new Dictionary<string, string>() {
-            { "Buy", "K�p" },
-            { "Equip", "S�tt p�" },
-            { "Unequip", "Ta av" },
-            { "Equipped", "P�" },
-            { "", "" },
-        };
-
-        return translations; //wtf am i doing
     }
 }
