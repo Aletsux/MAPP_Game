@@ -445,7 +445,7 @@ public class GameController : MonoBehaviour
         else
         {
             SaveGame();
-            ResetForBuild();
+            //ResetForBuild();
         }
     }
 
