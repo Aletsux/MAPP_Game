@@ -356,6 +356,12 @@ public class GameController : MonoBehaviour
             TPU.SetActive(true);
         TPUAmount++;
         UpdateTPU();
+
+        //double higherCost = permCost * 1.2;
+        //permCost += (int)higherCost;
+
+        double higherCost = tpuCost * 1.2;
+        tpuCost += (int)higherCost;
     }
 
     private void DisableTPU()
