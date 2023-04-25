@@ -23,7 +23,7 @@ public class EditText : MonoBehaviour
 
     private int dustCost = 250;
 
-    
+
 
     //public class MyClass2
     //{
@@ -301,8 +301,6 @@ public class EditText : MonoBehaviour
 
     public void ChangeWhenBoughtDust()
     {
-        dustCost = (GameController.GetStardustMinerLevel() == 0) ? 250 : GameController.GetStardustMinerLevel() * 100;
-        
 
         if (GameController.GetStardustMinerLevel() == 20)
         {
@@ -320,23 +318,26 @@ public class EditText : MonoBehaviour
             }
  
         }
-        else if (GameController.GetStardust() >= dustCost)
+        else if (GameController.GetStardust() >= GetDustCost())
         {
             gameController.IncreaseStardustMinerLevel();
-            GameController.DecreaseStardust(dustCost);
+            GameController.DecreaseStardust(GetDustCost());
+
+            dustCost = (GameController.GetStardustMinerLevel() == 0) ? 250 : GameController.GetStardustMinerLevel() * 100;
 
             if (IsEngelska())
             {
                 dustPurchaseButn.GetComponent<ItemScript>().desciption = GameController.GetStardustMinerLevel() + "% chance to find stardust!";
-                dustPurchaseButn.GetComponent<ItemScript>().price = "price: " + dustCost + " stardust";
+                dustPurchaseButn.GetComponent<ItemScript>().price = "price: " + GetDustCost() + " stardust";
                 dustPurchaseButn.GetComponent<ItemScript>().itemName = "Stardust Miner!";
             }
             else if (IsSvenska())
             {
                 dustPurchaseButn.GetComponent<ItemScript>().desciption = GameController.GetStardustMinerLevel() + "% större chans att finna stjärnpuder!";
-                dustPurchaseButn.GetComponent<ItemScript>().price = "pris: " + dustCost + " stjärnpuder";
+                dustPurchaseButn.GetComponent<ItemScript>().price = "pris: " + GetDustCost() + " stjärnpuder";
                 dustPurchaseButn.GetComponent<ItemScript>().itemName = "Stjärnpuder Grävare!";
             }
+
 
         }
         else
@@ -344,16 +345,18 @@ public class EditText : MonoBehaviour
             if (IsEngelska())
             {
                 dustPurchaseButn.GetComponent<ItemScript>().desciption = "Not Enough Stardust!";
-                dustPurchaseButn.GetComponent<ItemScript>().price = "price: " + dustCost + " stardust";
+                dustPurchaseButn.GetComponent<ItemScript>().price = "price: " + GetDustCost() + " stardust";
                 dustPurchaseButn.GetComponent<ItemScript>().itemName = "Stardust Miner!";
             }
             else if (IsSvenska())
             {
                 dustPurchaseButn.GetComponent<ItemScript>().desciption = "Inte nog med stjärnpuder!";
-                dustPurchaseButn.GetComponent<ItemScript>().price = "pris: " + dustCost + " stjärnpuder";
+                dustPurchaseButn.GetComponent<ItemScript>().price = "pris: " + GetDustCost() + " stjärnpuder";
                 dustPurchaseButn.GetComponent<ItemScript>().itemName = "Stjärnpuder Grävare!";
             }
         }
+
+        //dustCost = (GameController.GetStardustMinerLevel() == 0) ? 250 : GameController.GetStardustMinerLevel() * 100;
     }
     
 
