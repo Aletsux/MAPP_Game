@@ -18,7 +18,7 @@ public class RaidController : MonoBehaviour
     public int timeBeforeRaid = 30;
     public int timeBeforeMiss = 3600;
 
-    public static int howManyRaids = 0;
+    public static int howManyRaids;
 
     public static bool raidToggle;
 
@@ -43,7 +43,7 @@ public class RaidController : MonoBehaviour
     {
         if (focus) //if player enters game
         {
-            timeSinceQuit = calculateSecondsSinceQuit();
+            //timeSinceQuit = calculateSecondsSinceQuit();
             Debug.Log("TimeSincequit: " + timeSinceQuit);
             Debug.Log(PlayerPrefs.GetInt("RaidToggle"));
             //PlayerPrefs.SetInt("RaidToggle");
@@ -67,11 +67,26 @@ public class RaidController : MonoBehaviour
 
             else if (timeSinceQuit > timeBeforeMiss) // LOGIN AFTER RAID DURATION (MISS)
             {
+                howManyRaids = 1;
+
+                if (timeSinceQuit >= 2*timeBeforeMiss)
+                {
+                    howManyRaids = 2;
+                }
+                if (timeSinceQuit >= 3 * timeBeforeMiss)
+                {
+                    howManyRaids = 3;
+                }
+                if (timeSinceQuit >= 20 * timeBeforeMiss)
+                {
+                    howManyRaids = 4;
+                }
+
                 activateMissedRaidPanel.Toggle(true);
                 activateRaidPanel.Toggle(false);
                 //missedRaidPanel.SetActive(true);
-                howManyRaids++;
                 gameObject.GetComponent<MissedRaid>().CalculateRaidLoss(howManyRaids);
+                Debug.Log("how many raids:" + howManyRaids);
                 Debug.Log("You missed the raid, 2 lazy");
             }
 
