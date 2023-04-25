@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Raid Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: Raid
+  m_TableCollectionNameGuidString: a885721fa522d49f8b0b38b07d58fe63
+  m_Entries:
+  - m_Id: 36371947520
+    m_Key: RaidTrigger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63496511488
+    m_Key: MissRaid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90151313408
+    m_Key: RaidText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662917079040
+    m_Key: BeginRaid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 937794985984
+    m_Key: MissedRaidText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1358890524672
+    m_Key: Result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1420668428288
+    m_Key: Crystals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854883749888
+    m_Key: Stardust
+    m_Metadata:
+      m_Items: []
+  - m_Id: 299655131815936
+    m_Key: Planet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300101154103296
+    m_Key: TotalDamage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300206749900800
+    m_Key: RaidBeginsButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300280661925888
+    m_Key: Header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300459691597824
+    m_Key: Summary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300589975068672
+    m_Key: EnemiesKilled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300679691231232
+    m_Key: EnemiesMissed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300811631452160
+    m_Key: DamageInflicted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300904682086400
+    m_Key: BackHomeButton
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 3759417677276512296
+  references:
+    version: 2
+    RefIds:
+    - rid: 3759417677276512296
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1682340706603

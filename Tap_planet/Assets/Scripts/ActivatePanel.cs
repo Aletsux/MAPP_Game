@@ -9,7 +9,7 @@ public class ActivatePanel : MonoBehaviour
     void Start()
     {
         active = false;
-        Toggle(false);
+        Toggle(active);
     }
 
     public void Toggle()

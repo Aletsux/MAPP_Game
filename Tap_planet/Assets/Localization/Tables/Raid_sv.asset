@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Raid_sv
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: sv
+  m_SharedData: {fileID: 11400000, guid: a885721fa522d49f8b0b38b07d58fe63, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 36371947520
+    m_Localized: Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 63496511488
+    m_Localized: Missad attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 90151313408
+    m_Localized: Din planet blir attackerad!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 662917079040
+    m_Localized: "F\xF6rsvara"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 937794985984
+    m_Localized: Din planet har blivit attackerad!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1358890524672
+    m_Localized: Resultat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1420668428288
+    m_Localized: "Kristaller f\xF6rlorade:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1854883749888
+    m_Localized: "Stj\xE4rnstoff f\xF6rlorat:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 299655131815936
+    m_Localized: Klickknapp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300101154103296
+    m_Localized: SKADA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300206749900800
+    m_Localized: Starta attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300280661925888
+    m_Localized: "Attacken \xE4r slut"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300459691597824
+    m_Localized: 'Sammanfattning:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300589975068672
+    m_Localized: Besegrade fiender
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300679691231232
+    m_Localized: Missade fiender
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300811631452160
+    m_Localized: 'Resultat:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 300904682086400
+    m_Localized: "\xC5terv\xE4nd till planeten"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

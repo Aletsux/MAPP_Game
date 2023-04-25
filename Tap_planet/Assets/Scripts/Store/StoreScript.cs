@@ -49,6 +49,7 @@ public class StoreScript : MonoBehaviour
     public void OpenStore()
     {
         gameObject.SetActive(true);
+        CloseTabsExcept("upgrade");
     }
 
     public void CloseStore()
