@@ -20,6 +20,8 @@ public class RaidState : MonoBehaviour
     private float raidTimer;
     public float raidTime = 15;
 
+    public GameController gc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +59,11 @@ public class RaidState : MonoBehaviour
         enemiesMissedText.text = PlanetState.totalRaidDamage.ToString();
         resultText.text = result.ToString();
         GameController.AddCrystals(result * 10 * GameController.ReturnClickIncrease());
+        PlayerPrefs.SetString("crystals", GameController.GetCrystals().ToString());
+
         GameController.AddStardust(result);
+        PlayerPrefs.SetInt("stardust", GameController.GetStardust());
+
         PlayerPrefs.SetInt("ToggleRaid", 0);
         enemyAI.deactivate();
     }
