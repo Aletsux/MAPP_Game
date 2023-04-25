@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class DescriptionState : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private bool active;
+
     public void Start()
     {
-        gameObject.SetActive(false);
+        active = false;
+        SetObjectActive();
     }
 
     public void SetObjectActive() {
-        gameObject.SetActive(true);
+        gameObject.SetActive(!active);
+        active = !active;
     }
 }

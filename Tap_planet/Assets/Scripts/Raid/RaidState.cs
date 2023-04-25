@@ -17,7 +17,7 @@ public class RaidState : MonoBehaviour
 
     private bool beginRaid;
     private float raidTimer;
-    private float raidTime = 10;
+    public float raidTime = 15;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,7 @@ public class RaidState : MonoBehaviour
             raidTimer += Time.deltaTime;
             if (raidTimer >= raidTime)
             {
+                beginRaid = false;
                 raidTimer = 0f;
                 RaidEnded();
             }
@@ -56,7 +57,6 @@ public class RaidState : MonoBehaviour
         resultText.text = result.ToString();
         GameController.AddCrystals(result * 10 * GameController.ReturnClickIncrease());
         GameController.AddStardust(result);
-        //GameController.AddCrystals(result * (100 ^ GameController.ReturnClickIncrease()));
-        //GameController.AddStardust(result * GameController.GetStardustMinerLevel()+1);
+        PlayerPrefs.SetInt("ToggleRaid", 0);
     }
 }
