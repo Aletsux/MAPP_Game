@@ -62,10 +62,7 @@ public class GameController : MonoBehaviour
 
     private int nextUpdate = 1;
     public int lvlCounter = 5;
-    private bool svenska = false;
-    private bool engelska = true;
-    private int saveIfUsingEngelska;
-    private int saveIfUsingSvenska;
+    
 
     void Start()
     {
@@ -389,8 +386,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("numPerSec", ReturnClicksPerSec());
         PlayerPrefs.SetInt("secBeforeIdleClick", ReturnSecBeforeClick());
         PlayerPrefs.SetInt("lvlCounter", ReturnTimesToLvlUp());
-        PlayerPrefs.SetInt("saveIfUsingSvenska", Convert.ToInt32(svenska));
-        PlayerPrefs.SetInt("saveIfUsingEngelska", Convert.ToInt32(engelska));
+        //PlayerPrefs.SetInt("saveIfUsingSvenska", Convert.ToInt32(svenska));
+        //PlayerPrefs.SetInt("saveIfUsingEngelska", Convert.ToInt32(engelska));
     }
 
     private void ResetForBuild()
@@ -422,8 +419,8 @@ public class GameController : MonoBehaviour
         numPerSec = PlayerPrefs.GetInt("numPerSec");
         secBeforeIdleClick = PlayerPrefs.GetInt("secBeforeIdleClick");
         lvlCounter = PlayerPrefs.GetInt("lvlCounter");
-        engelska = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingEngelska"));
-        svenska = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingSvenska"));
+        //engelska = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingEngelska"));
+        //svenska = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingSvenska"));
 
         LoadIdleClicks(calculateSecondsSinceQuit());
         UpdateTPU();
@@ -697,27 +694,27 @@ public class GameController : MonoBehaviour
     }
     //
 
-    public void SVTaskOnCLick()
-    {
-        svenska = true;
-        engelska = false;
-        Debug.Log("sve " + svenska);
-    }
+    //public void SVTaskOnCLick()
+    //{
+    //    svenska = true;
+    //    engelska = false;
+    //    Debug.Log("sve " + svenska);
+    //}
 
-    public void ENGTaskOnCLick()
-    {
-        engelska = true;
-        svenska = false;
-        Debug.Log("eng " + engelska);
-    }
+    //public void ENGTaskOnCLick()
+    //{
+    //    engelska = true;
+    //    svenska = false;
+    //    Debug.Log("eng " + engelska);
+    //}
 
 
-    public bool IsSvenska()
-    {
-        return svenska;
-    }
-    public bool IsEngelska()
-    {
-        return engelska;
-    }
+    //public bool IsSvenska()
+    //{
+    //    return svenska;
+    //}
+    //public bool IsEngelska()
+    //{
+    //    return engelska;
+    //}
 }
