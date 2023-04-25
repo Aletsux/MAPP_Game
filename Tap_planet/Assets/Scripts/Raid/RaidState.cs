@@ -17,7 +17,7 @@ public class RaidState : MonoBehaviour
 
     private bool beginRaid;
     private float raidTimer;
-    private float raidTime = 30;
+    public float raidTime = 15;
 
     // Start is called before the first frame update
     void Start()

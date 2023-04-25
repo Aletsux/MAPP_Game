@@ -52,6 +52,5 @@ public class MissedRaid : MonoBehaviour
             stardustText.text = "Lost Stardust: " + lostStardust;
             PlayerPrefs.SetInt("ToggleRaid", 0);
         }
-
     }
 }
