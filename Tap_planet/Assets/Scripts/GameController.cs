@@ -386,8 +386,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("numPerSec", ReturnClicksPerSec());
         PlayerPrefs.SetInt("secBeforeIdleClick", ReturnSecBeforeClick());
         PlayerPrefs.SetInt("lvlCounter", ReturnTimesToLvlUp());
-        //PlayerPrefs.SetInt("saveIfUsingSvenska", Convert.ToInt32(svenska));
-        //PlayerPrefs.SetInt("saveIfUsingEngelska", Convert.ToInt32(engelska));
+        
     }
 
     private void ResetForBuild()
@@ -419,8 +418,7 @@ public class GameController : MonoBehaviour
         numPerSec = PlayerPrefs.GetInt("numPerSec");
         secBeforeIdleClick = PlayerPrefs.GetInt("secBeforeIdleClick");
         lvlCounter = PlayerPrefs.GetInt("lvlCounter");
-        //engelska = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingEngelska"));
-        //svenska = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingSvenska"));
+        
 
         LoadIdleClicks(calculateSecondsSinceQuit());
         UpdateTPU();
@@ -694,27 +692,5 @@ public class GameController : MonoBehaviour
     }
     //
 
-    //public void SVTaskOnCLick()
-    //{
-    //    svenska = true;
-    //    engelska = false;
-    //    Debug.Log("sve " + svenska);
-    //}
-
-    //public void ENGTaskOnCLick()
-    //{
-    //    engelska = true;
-    //    svenska = false;
-    //    Debug.Log("eng " + engelska);
-    //}
-
-
-    //public bool IsSvenska()
-    //{
-    //    return svenska;
-    //}
-    //public bool IsEngelska()
-    //{
-    //    return engelska;
-    //}
+    
 }
