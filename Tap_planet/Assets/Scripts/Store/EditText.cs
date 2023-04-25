@@ -25,7 +25,39 @@ public class EditText : MonoBehaviour
 
 
 
+    // ta in localization
 
+    
+
+    private bool IsEngelska()
+    {
+        int ID = PlayerPrefs.GetInt("LanguageKey", 0); // 0 är engelska och 1 är svenska // engelska ska vara false och svenska true
+
+
+        if(ID == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private bool IsSvenska()
+    {
+        int ID = PlayerPrefs.GetInt("LanguageKey", 0); // 0 är engelska och 1 är svenska // engelska ska vara false och svenska true
+
+
+        if (ID == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 
 
 
@@ -46,41 +78,38 @@ public class EditText : MonoBehaviour
 
     }
 
-
-
     public void ChangeTextIdle()// när spelaren trycker på blå knapp inte köp ska det reflektera
     {
-        if (gameController.IsIdleTrue() == false && gameController.IsEngelska() == true)
+        if (gameController.IsIdleTrue() == false && IsEngelska() == true)
         {
             idleButton.GetComponent<ItemScript>().desciption = "Get 1 crystal each 60 sec! Every upgrade will decrease time 15 seconds.";
             idleButton.GetComponent<ItemScript>().price = "price: " + gameController.GetIdleCost() + " crystals.";
         }
-        else if (gameController.IsIdleTrue() && gameController.IsIdleLvlTrue() == false && gameController.IsEngelska() == true)
+        else if (gameController.IsIdleTrue() && gameController.IsIdleLvlTrue() == false && IsEngelska() == true)
         {
             idleButton.GetComponent<ItemScript>().desciption = "You get " + (gameController.ReturnClicksPerSec() + 1) + " crystal per " + (gameController.ReturnSecBeforeClick()) + " seconds";
             idleButton.GetComponent<ItemScript>().price = "price: " + gameController.GetIdleCost() + " crystals.";
         }
-        else if (gameController.IsIdleLvlTrue() && gameController.IsIdleTrue() && gameController.IsEngelska() == true)
+        else if (gameController.IsIdleLvlTrue() && gameController.IsIdleTrue() && IsEngelska() == true)
         {
             idleButton.GetComponent<ItemScript>().desciption = "You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every " + (gameController.ReturnSecBeforeClick()) + " seconds";
             idleButton.GetComponent<ItemScript>().price = "price: " + gameController.GetIdleCost() + " crystals.";
         }
-        else if(gameController.IsIdleTrue() == false && gameController.IsSvenska() == true)
+        else if(gameController.IsIdleTrue() == false && IsSvenska() == true)
         {
             idleButton.GetComponent<ItemScript>().desciption = "Få 1 kristall varje sekund! Varje uppgradering tar bort 15 sekunder.";
             idleButton.GetComponent<ItemScript>().price = "pris: " + gameController.GetIdleCost() + " Kristaller.";
         }
-        else if (gameController.IsIdleTrue() && gameController.IsIdleLvlTrue() == false && gameController.IsSvenska() == true)
+        else if (gameController.IsIdleTrue() && gameController.IsIdleLvlTrue() == false && IsSvenska() == true)
         {
             idleButton.GetComponent<ItemScript>().desciption = "Du får " + (gameController.ReturnClicksPerSec() + 1) + " kristaller för varje " + (gameController.ReturnSecBeforeClick()) + " sekunder.";
             idleButton.GetComponent<ItemScript>().price = "pris: " + gameController.GetIdleCost() + " kristaller.";
         }
-        else if (gameController.IsIdleLvlTrue() && gameController.IsIdleTrue() && gameController.IsSvenska() == true)
+        else if (gameController.IsIdleLvlTrue() && gameController.IsIdleTrue() && IsSvenska() == true)
         {
             idleButton.GetComponent<ItemScript>().desciption = "Du får " + gameController.ReturnClicksPerSec() + " kristaller för varje sekund och " + gameController.ReturnClickPerTime() + " varje " + (gameController.ReturnSecBeforeClick()) + " sekunder.";
             idleButton.GetComponent<ItemScript>().price = "pris: " + gameController.GetIdleCost() + " kristaller.";
         }
-
     }
 
     public void ChangeWhenBoughtIdle()// när spelaren köper ska den veta hur mycket de får nu och vad det nya priset är
@@ -91,7 +120,7 @@ public class EditText : MonoBehaviour
             GameController.DecreaseCrystals(gameController.GetIdleCost());
             gameController.BuyIdle();
 
-            if(gameController.IsEngelska() == true)
+            if(IsEngelska() == true)
             {
                 if (gameController.IsIdleTrue() == true && gameController.IsIdleLvlTrue() == false)
                 {
@@ -121,7 +150,7 @@ public class EditText : MonoBehaviour
                     }
                 }
             }
-            else if(gameController.IsSvenska() == true)
+            else if(IsSvenska() == true)
             {
                 if (gameController.IsIdleTrue() == true && gameController.IsIdleLvlTrue() == false)
                 {
@@ -156,12 +185,12 @@ public class EditText : MonoBehaviour
         }
         else
         {
-            if (gameController.IsEngelska() == true)
+            if (IsEngelska() == true)
             {
                 idlePurchaseButn.GetComponent<ItemScript>().desciption = "Not enough crystals.";
                 idlePurchaseButn.GetComponent<ItemScript>().price = "price: " + gameController.GetIdleCost() + " crystals.";
             }
-            else if (gameController.IsSvenska() == true)
+            else if (IsSvenska() == true)
             {
                 idlePurchaseButn.GetComponent<ItemScript>().desciption = "Inte nog med kristaller.";
                 idlePurchaseButn.GetComponent<ItemScript>().price = "pris: " + gameController.GetIdleCost() + " kristaller.";
@@ -171,12 +200,12 @@ public class EditText : MonoBehaviour
 
     public void ChangeTextPerm()// Your clicks will increased by 1 crystal with each purchase! Every 10 purchase will add 5.
     {
-        if (gameController.IsEngelska())
+        if (IsEngelska())
         {
             permButton.GetComponent<ItemScript>().price = "Price: " + gameController.GetPermCost() + " crystals.";
             permButton.GetComponent<ItemScript>().desciption = "Your clicks will increased by 1 crystal with each purchase! Every 10 purchase will add 5.";
         }
-        else if (gameController.IsSvenska())
+        else if (IsSvenska())
         {
             permButton.GetComponent<ItemScript>().price = "Pris: " + gameController.GetPermCost() + " kristaller.";
             permButton.GetComponent<ItemScript>().desciption = "Du får en extra kristall för varje gång du klickar! Varje 10 köp lägger till 5.";
@@ -193,12 +222,12 @@ public class EditText : MonoBehaviour
             GameController.DecreaseCrystals(gameController.GetPermCost());
             gameController.ClickIncrease();
 
-            if (gameController.IsEngelska())
+            if (IsEngelska())
             {
                 permPurchaseButn.GetComponent<ItemScript>().desciption = "Your clicks will now give you " + (GameController.ReturnClickIncrease()) + " crystals!";
                 permPurchaseButn.GetComponent<ItemScript>().price = "Price: " + gameController.GetPermCost() + " crystals.";
             }
-            else if(gameController.IsSvenska())
+            else if(IsSvenska())
             {
                 permPurchaseButn.GetComponent<ItemScript>().desciption = "Dina klicks ger dig " + (GameController.ReturnClickIncrease()) + " kristaller!";
                 permPurchaseButn.GetComponent<ItemScript>().price = "Pris: " + gameController.GetPermCost() + " kristaller.";
@@ -208,12 +237,12 @@ public class EditText : MonoBehaviour
         }
         else
         {
-            if (gameController.IsEngelska())
+            if (IsEngelska())
             {
                 permPurchaseButn.GetComponent<ItemScript>().desciption = "Not enough crystals.";
                 permPurchaseButn.GetComponent<ItemScript>().price = "Price: " + gameController.GetPermCost() + " crystals.";
             }
-            else if (gameController.IsSvenska())
+            else if (IsSvenska())
             {
                 permPurchaseButn.GetComponent<ItemScript>().desciption = "Inte nog med kristaller.";
                 permPurchaseButn.GetComponent<ItemScript>().price = "Pris: " + gameController.GetPermCost() + " kristaller.";
@@ -224,12 +253,12 @@ public class EditText : MonoBehaviour
 
     public void ChangeTextTemp()
     {
-        if (gameController.IsEngelska())
+        if (IsEngelska())
         {
             tempButton.GetComponent<ItemScript>().desciption = "Your clicks will be boosted with " + gameController.ReturnTPUAddClicksBy() + " for " + gameController.ReturnTPUTimeBeforeReset() + " seconds.";
             tempButton.GetComponent<ItemScript>().price = "price: " + gameController.GetTpuCost() + " crystals.";
         }
-        else if (gameController.IsSvenska())
+        else if (IsSvenska())
         {
             tempButton.GetComponent<ItemScript>().desciption = "Varje klick får du en boost med " + gameController.ReturnTPUAddClicksBy() + " kristaller under " + gameController.ReturnTPUTimeBeforeReset() + " sekunder.";
             tempButton.GetComponent<ItemScript>().price = "pris: " + gameController.GetTpuCost() + " kristaller.";
@@ -245,12 +274,12 @@ public class EditText : MonoBehaviour
             GameController.DecreaseCrystals(gameController.GetTpuCost()); // reduces money in bank
             gameController.AddTPUAmount(); // adds 1 to tpuAmount
 
-            if (gameController.IsEngelska())
+            if (IsEngelska())
             {
                 tempPurchaseButn.GetComponent<ItemScript>().desciption = "Your time boost will have to be activated. Go back into the game and press the activation button.";
                 tempPurchaseButn.GetComponent<ItemScript>().price = "price: " + gameController.GetTpuCost() + " crystals.";
             }
-            else if (gameController.IsSvenska())
+            else if (IsSvenska())
             {
                 tempPurchaseButn.GetComponent<ItemScript>().desciption = "Din tidsbaserade boost måste aktiveras. Gå tillbaka till spelet och tryck på aktiveringsknappen.";
                 tempPurchaseButn.GetComponent<ItemScript>().price = "pris: " + gameController.GetTpuCost() + " kristaller.";
@@ -259,12 +288,12 @@ public class EditText : MonoBehaviour
         }
         else
         {
-            if (gameController.IsEngelska())
+            if (IsEngelska())
             {
                 tempPurchaseButn.GetComponent<ItemScript>().desciption = "Not enough crystals.";
                 tempPurchaseButn.GetComponent<ItemScript>().price = "price: " + gameController.GetTpuCost() + " crystals.";
             }
-            else if (gameController.IsSvenska())
+            else if (IsSvenska())
             {
                 tempPurchaseButn.GetComponent<ItemScript>().desciption = "Inte nog med kristaller.";
                 tempPurchaseButn.GetComponent<ItemScript>().price = "pris: " + gameController.GetTpuCost() + " kristaller.";
@@ -275,13 +304,13 @@ public class EditText : MonoBehaviour
 
     public void ChangeTextDust()
     {
-        if (gameController.IsEngelska())
+        if (IsEngelska())
         {
             dustButton.GetComponent<ItemScript>().desciption = "Bigger chance to find stardust when mining.";
             dustButton.GetComponent<ItemScript>().price = "price: " + GetDustCost();
 
         }
-        else if (gameController.IsSvenska())
+        else if (IsSvenska())
         {
             dustButton.GetComponent<ItemScript>().desciption = "större chans att finna stjärnpuder när du klickar!.";
             dustButton.GetComponent<ItemScript>().price = "pris: " + GetDustCost();
@@ -295,12 +324,12 @@ public class EditText : MonoBehaviour
 
         if (GameController.GetStardustMinerLevel() == 20)
         {
-            if (gameController.IsEngelska())
+            if (IsEngelska())
             {
                 dustPurchaseButn.GetComponent<ItemScript>().desciption = "No more upgrades!";
                 dustPurchaseButn.GetComponent<ItemScript>().price = "price: X";
             }
-            else if (gameController.IsSvenska())
+            else if (IsSvenska())
             {
                 dustPurchaseButn.GetComponent<ItemScript>().desciption = "Inga mer uppgraderingar!";
                 dustPurchaseButn.GetComponent<ItemScript>().price = "pris: X";
@@ -312,12 +341,12 @@ public class EditText : MonoBehaviour
             gameController.IncreaseStardustMinerLevel();
             GameController.DecreaseStardust(dustCost);
 
-            if (gameController.IsEngelska())
+            if (IsEngelska())
             {
                 dustPurchaseButn.GetComponent<ItemScript>().desciption = GameController.GetStardustMinerLevel() + "% chance to find stardust!";
                 dustPurchaseButn.GetComponent<ItemScript>().price = "price: " + dustCost + " crystals";
             }
-            else if (gameController.IsSvenska())
+            else if (IsSvenska())
             {
                 dustPurchaseButn.GetComponent<ItemScript>().desciption = GameController.GetStardustMinerLevel() + "% större chans att finna stjärnpuder!";
                 dustPurchaseButn.GetComponent<ItemScript>().price = "pris: " + dustCost + " kristaller";
@@ -326,12 +355,12 @@ public class EditText : MonoBehaviour
         }
         else
         {
-            if (gameController.IsEngelska())
+            if (IsEngelska())
             {
                 dustPurchaseButn.GetComponent<ItemScript>().desciption = "Not Enough Stardust!";
                 dustPurchaseButn.GetComponent<ItemScript>().price = "price: " + dustCost + " crystals";
             }
-            else if (gameController.IsSvenska())
+            else if (IsSvenska())
             {
                 dustPurchaseButn.GetComponent<ItemScript>().desciption = "Inte nog med stjärnpuder!";
                 dustPurchaseButn.GetComponent<ItemScript>().price = "pris: " + dustCost + " kristaller";
