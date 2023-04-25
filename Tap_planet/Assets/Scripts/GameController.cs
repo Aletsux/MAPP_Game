@@ -62,8 +62,8 @@ public class GameController : MonoBehaviour
 
     private int nextUpdate = 1;
     public int lvlCounter = 5;
-    private bool svenska;
-    private bool engelska;
+    private bool svenska = false;
+    private bool engelska = true;
     private int saveIfUsingEngelska;
     private int saveIfUsingSvenska;
 
@@ -447,7 +447,7 @@ public class GameController : MonoBehaviour
         else
         {
             SaveGame();
-            //ResetForBuild();
+            ResetForBuild();
         }
     }
 
