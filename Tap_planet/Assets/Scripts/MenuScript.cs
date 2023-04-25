@@ -20,6 +20,10 @@ public class MenuScript : MonoBehaviour
 
     void Update()
     {
+       //closeOnClick();
+    }
+
+    private void closeOnClick() {
         // Check for mouse click
         if (Input.GetMouseButtonDown(0))
         {
