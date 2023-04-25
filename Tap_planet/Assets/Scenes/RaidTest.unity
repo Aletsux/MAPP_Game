@@ -1667,7 +1667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1947544821335205265, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1947544821335205265, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2012,69 +2012,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &301892254
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 301892255}
-  - component: {fileID: 301892256}
-  m_Layer: 5
-  m_Name: PlanetHitTrigger
-  m_TagString: PlanetTrigger
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &301892255
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301892254}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1500350629}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1100}
-  m_SizeDelta: {x: 700, y: 700}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!61 &301892256
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 301892254}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.28079224, y: 14.949463}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 699.98065, y: 694.4949}
-  m_EdgeRadius: 0
 --- !u!1 &305287880
 GameObject:
   m_ObjectHideFlags: 0
@@ -5243,9 +5180,10 @@ GameObject:
   - component: {fileID: 1500350631}
   - component: {fileID: 1500350633}
   - component: {fileID: 1500350634}
+  - component: {fileID: 1500350635}
   m_Layer: 5
   m_Name: Planet
-  m_TagString: Untagged
+  m_TagString: PlanetTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5263,10 +5201,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1389035235}
-  - {fileID: 230112649}
   - {fileID: 2019051934}
+  - {fileID: 230112649}
   - {fileID: 930912226}
-  - {fileID: 301892255}
   m_Father: {fileID: 1764616458}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5351,6 +5288,32 @@ MonoBehaviour:
   - {fileID: 230112652}
   - {fileID: 230112651}
   - {fileID: 230112650}
+--- !u!61 &1500350635
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500350628}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1506664848 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -5620,6 +5583,7 @@ MonoBehaviour:
   raidOverPanel: {fileID: 220729196}
   enemyAI: {fileID: 1397023896}
   raidTime: 15
+  gc: {fileID: 0}
 --- !u!1001 &1583978200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7424,7 +7388,7 @@ PrefabInstance:
     - target: {fileID: 8910365622598826355, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
       propertyPath: planet
       value: 
-      objectReference: {fileID: 301892254}
+      objectReference: {fileID: 1500350628}
     - target: {fileID: 8910365622598826355, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
       propertyPath: raidMovement
       value: 
@@ -7996,7 +7960,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4347518385774679651, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4347518385774679651, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
       propertyPath: m_AnchorMax.x

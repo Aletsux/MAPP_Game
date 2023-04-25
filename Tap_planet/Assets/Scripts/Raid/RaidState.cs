@@ -22,6 +22,9 @@ public class RaidState : MonoBehaviour
 
     public GameController gc;
 
+    private int crystalsToAdd;
+    private int stardustToAdd;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,10 +61,15 @@ public class RaidState : MonoBehaviour
         enemiesKilledText.text = enemiesKilled + "";
         enemiesMissedText.text = PlanetState.totalRaidDamage.ToString();
         resultText.text = result.ToString();
-        GameController.AddCrystals(result * 10 * GameController.ReturnClickIncrease());
+        if (result < 0 && -result > GameController.GetStardust())
+        {
+            crystalsToAdd = 0;
+            stardustToAdd = 0;
+        }
+        GameController.AddCrystals(crystalsToAdd * 10 * GameController.ReturnClickIncrease());
         PlayerPrefs.SetString("crystals", GameController.GetCrystals().ToString());
 
-        GameController.AddStardust(result);
+        GameController.AddStardust(stardustToAdd);
         PlayerPrefs.SetInt("stardust", GameController.GetStardust());
 
         PlayerPrefs.SetInt("ToggleRaid", 0);
