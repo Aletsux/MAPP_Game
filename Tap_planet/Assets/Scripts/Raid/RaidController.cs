@@ -43,7 +43,7 @@ public class RaidController : MonoBehaviour
     {
         if (focus) //if player enters game
         {
-            //timeSinceQuit = calculateSecondsSinceQuit();
+            timeSinceQuit = calculateSecondsSinceQuit();
             Debug.Log("TimeSincequit: " + timeSinceQuit);
             Debug.Log(PlayerPrefs.GetInt("RaidToggle"));
             //PlayerPrefs.SetInt("RaidToggle");
