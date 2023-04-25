@@ -14,6 +14,7 @@ public class RaidState : MonoBehaviour
     public Text resultText;
 
     public GameObject raidOverPanel;
+    public EnemyAI enemyAI;
 
     private bool beginRaid;
     private float raidTimer;
@@ -58,5 +59,6 @@ public class RaidState : MonoBehaviour
         GameController.AddCrystals(result * 10 * GameController.ReturnClickIncrease());
         GameController.AddStardust(result);
         PlayerPrefs.SetInt("ToggleRaid", 0);
+        enemyAI.deactivate();
     }
 }
