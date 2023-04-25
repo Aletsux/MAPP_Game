@@ -54,7 +54,7 @@ public class MenuScript : MonoBehaviour
     }
 
     public void onMuteClick() {
-        AudioListener.pause = muted;
+        AudioListener.pause = !muted;
         muted = !muted;
 
         if(muted) {
