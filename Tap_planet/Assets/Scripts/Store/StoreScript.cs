@@ -353,7 +353,7 @@ public class StoreScript : MonoBehaviour
         SetButtonLabel(planetButtons, index, "Equipped");
         planetButtons[index].interactable = false;
         planetObjects[index].SetActive(true);
-        PlayerPrefs.SetInt("ActivePlanetIndex", index); //ifall man h�mtar inten f�r man indexet f�r planeten som �r equipped
+        PlayerPrefs.SetInt("ActivePlanetIndex", index); //ifall man hämtar inten för man indexet för planeten som är equipped
         PlayerPrefs.Save();
 
         for (int i = 0; i < planetObjects.Count; i++)
