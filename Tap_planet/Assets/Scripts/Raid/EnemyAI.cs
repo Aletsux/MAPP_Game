@@ -16,7 +16,18 @@ public class EnemyAI : MonoBehaviour
     private float minDelay = 0.5f;
     private float maxDelay = 1f;
 
-    // Start is called before the first frame update
+    public void deactivate() {
+        Debug.Log("Deactivated!");
+        launch = false;
+        
+        for(int i = 0; i < enemyList.Length; i++) {
+            if(enemyList[i] != null) {
+                GameObject ship = enemyList[i];
+                ship.SetActive(false);
+            }
+        }
+    }
+
     void Start()
     {
         //Set default value for amount of ships

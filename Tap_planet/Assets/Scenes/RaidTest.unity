@@ -5285,7 +5285,7 @@ MonoBehaviour:
   enemyAi: {fileID: 1397023895}
   target: {fileID: 2061935842}
   triggerAi: {fileID: 900713548}
-  speed: 850
+  speed: 600
   raidBegins: 0
   planetInPosition: 0
 --- !u!1 &1506664848 stripped
@@ -5555,6 +5555,7 @@ MonoBehaviour:
   enemiesMissedText: {fileID: 1369425910}
   resultText: {fileID: 1557961836}
   raidOverPanel: {fileID: 220729196}
+  enemyAI: {fileID: 1397023896}
   raidTime: 15
 --- !u!1001 &1583978200
 PrefabInstance:
