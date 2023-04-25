@@ -17,7 +17,7 @@ public class RaidState : MonoBehaviour
 
     private bool beginRaid;
     private float raidTimer;
-    private float raidTime = 10;
+    private float raidTime = 30;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,7 @@ public class RaidState : MonoBehaviour
             raidTimer += Time.deltaTime;
             if (raidTimer >= raidTime)
             {
+                beginRaid = false;
                 raidTimer = 0f;
                 RaidEnded();
             }
