@@ -1093,7 +1093,7 @@ MonoBehaviour:
   - {fileID: 1684661583}
   accessoryButtons:
   - {fileID: 1764331472}
-  - {fileID: 721274238}
+  - {fileID: 2104320003}
   - {fileID: 1353897277}
   accessoryCosts: f4010000f4010000f4010000
   planetObjects:
@@ -4936,17 +4936,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!114 &721274238 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9010891648561881403, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
-  m_PrefabInstance: {fileID: 1764331470}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &725468485
 GameObject:
   m_ObjectHideFlags: 0
@@ -19703,6 +19692,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2099729606}
   m_CullTransparentMesh: 1
+--- !u!114 &2104320003 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 205854124087735476, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+  m_PrefabInstance: {fileID: 1764331470}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2107906852 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6765710529422817861, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
