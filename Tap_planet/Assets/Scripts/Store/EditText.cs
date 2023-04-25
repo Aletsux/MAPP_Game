@@ -15,10 +15,13 @@ public class EditText : MonoBehaviour
     public GameObject tempButton;
     public GameObject tempPurchaseButn;
     [Space]
+    public GameObject dustButton;
+    public GameObject dustPurchaseButn;
+    [Space]
     public GameObject GC;
     private GameController gameController;
 
-    
+    private int dustCost = 250;
 
 
 
@@ -266,14 +269,81 @@ public class EditText : MonoBehaviour
                 tempPurchaseButn.GetComponent<ItemScript>().desciption = "Inte nog med kristaller.";
                 tempPurchaseButn.GetComponent<ItemScript>().price = "pris: " + gameController.GetTpuCost() + " kristaller.";
             }
-            
         }
-
-
     }
 
+
+    public void ChangeTextDust()
+    {
+        if (gameController.IsEngelska())
+        {
+            dustButton.GetComponent<ItemScript>().desciption = "Bigger chance to find stardust when mining.";
+            dustButton.GetComponent<ItemScript>().price = "price: " + GetDustCost();
+
+        }
+        else if (gameController.IsSvenska())
+        {
+            dustButton.GetComponent<ItemScript>().desciption = "större chans att finna stjärnpuder när du klickar!.";
+            dustButton.GetComponent<ItemScript>().price = "pris: " + GetDustCost();
+        }
+    }
+
+    public void ChangeWhenBoughtDust()
+    {
+        dustCost = (GameController.GetStardustMinerLevel() == 0) ? 250 : GameController.GetStardustMinerLevel() * 100;
+        
+
+        if (GameController.GetStardustMinerLevel() == 20)
+        {
+            if (gameController.IsEngelska())
+            {
+                dustPurchaseButn.GetComponent<ItemScript>().desciption = "No more upgrades!";
+                dustPurchaseButn.GetComponent<ItemScript>().price = "price: X";
+            }
+            else if (gameController.IsSvenska())
+            {
+                dustPurchaseButn.GetComponent<ItemScript>().desciption = "Inga mer uppgraderingar!";
+                dustPurchaseButn.GetComponent<ItemScript>().price = "pris: X";
+            }
+ 
+        }
+        else if (GameController.GetStardust() >= dustCost)
+        {
+            gameController.IncreaseStardustMinerLevel();
+            GameController.DecreaseStardust(dustCost);
+
+            if (gameController.IsEngelska())
+            {
+                dustPurchaseButn.GetComponent<ItemScript>().desciption = GameController.GetStardustMinerLevel() + "% chance to find stardust!";
+                dustPurchaseButn.GetComponent<ItemScript>().price = "price: " + dustCost + " crystals";
+            }
+            else if (gameController.IsSvenska())
+            {
+                dustPurchaseButn.GetComponent<ItemScript>().desciption = GameController.GetStardustMinerLevel() + "% större chans att finna stjärnpuder!";
+                dustPurchaseButn.GetComponent<ItemScript>().price = "pris: " + dustCost + " kristaller";
+            }
+
+        }
+        else
+        {
+            if (gameController.IsEngelska())
+            {
+                dustPurchaseButn.GetComponent<ItemScript>().desciption = "Not Enough Stardust!";
+                dustPurchaseButn.GetComponent<ItemScript>().price = "price: " + dustCost + " crystals";
+            }
+            else if (gameController.IsSvenska())
+            {
+                dustPurchaseButn.GetComponent<ItemScript>().desciption = "Inte nog med stjärnpuder!";
+                dustPurchaseButn.GetComponent<ItemScript>().price = "pris: " + dustCost + " kristaller";
+            }
+        }
+    }
     
 
+    public int GetDustCost()
+    {
+        return dustCost;
+    }
 
 
 }
