@@ -56,7 +56,6 @@ public class RaidState : MonoBehaviour
         resultText.text = result.ToString();
         GameController.AddCrystals(result * 10 * GameController.ReturnClickIncrease());
         GameController.AddStardust(result);
-        //GameController.AddCrystals(result * (100 ^ GameController.ReturnClickIncrease()));
-        //GameController.AddStardust(result * GameController.GetStardustMinerLevel()+1);
+        PlayerPrefs.SetInt("ToggleRaid", 0);
     }
 }
