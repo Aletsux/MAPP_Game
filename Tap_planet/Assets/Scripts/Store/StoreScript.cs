@@ -35,8 +35,6 @@ public class StoreScript : MonoBehaviour
     public List<Button> planetButtons;
     public List<int> planetCosts = new List<int>();
 
-    private string currentLanguage;
-
     void Start()
     {
         UIText.gameObject.SetActive(false);
@@ -128,10 +126,6 @@ public class StoreScript : MonoBehaviour
                 displayUIMessage = false;
             }
         }
-
-        LanguageSelector languageSelector = FindObjectOfType<LanguageSelector>();
-        currentLanguage = languageSelector.GetCurrentLanguage();
-        //Debug.Log(currentLanguage);
     }
 
     public void OpenStore()
@@ -321,10 +315,8 @@ public class StoreScript : MonoBehaviour
 
     private void SetButtonLabel(List<Button> buttons, int index, string textObjectName)
     {
-        //buttons[index].GetComponentInChildren<Text>().text = label;
         GameObject buttonObject = buttons[index].gameObject;
         Text textComponent = buttonObject.transform.Find(textObjectName).GetComponent<Text>();
-        textComponent.gameObject.SetActive(true);
     }
 
     public void EquipPlanet(int index)

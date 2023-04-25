@@ -28,9 +28,4 @@ public class LanguageSelector : MonoBehaviour
         PlayerPrefs.SetInt("LanguageKey", languageID);
         active = false;
     }
-
-    public string GetCurrentLanguage() //linn la till den hära för att pröva
-    {
-        return LocalizationSettings.SelectedLocale.name;
-    }
 }
