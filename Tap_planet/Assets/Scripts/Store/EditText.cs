@@ -205,15 +205,33 @@ public class EditText : MonoBehaviour
         }
         else
         {
-            permPurchaseButn.GetComponent<ItemScript>().desciption = "Not enough crystals.";
-            permPurchaseButn.GetComponent<ItemScript>().price = "Price: " + gameController.GetPermCost() + " crystals.";
+            if (gameController.IsEngelska())
+            {
+                permPurchaseButn.GetComponent<ItemScript>().desciption = "Not enough crystals.";
+                permPurchaseButn.GetComponent<ItemScript>().price = "Price: " + gameController.GetPermCost() + " crystals.";
+            }
+            else if (gameController.IsSvenska())
+            {
+                permPurchaseButn.GetComponent<ItemScript>().desciption = "Inte nog med kristaller.";
+                permPurchaseButn.GetComponent<ItemScript>().price = "Pris: " + gameController.GetPermCost() + " kristaller.";
+            }
+            
         }
     }
 
     public void ChangeTextTemp()
     {
-        tempButton.GetComponent<ItemScript>().desciption = "Your clicks will be boosted with " + gameController.ReturnTPUAddClicksBy() + " for " + gameController.ReturnTPUTimeBeforeReset() + " seconds.";
-        tempButton.GetComponent<ItemScript>().price = "price: " + gameController.GetTpuCost() + " crystals.";
+        if (gameController.IsEngelska())
+        {
+            tempButton.GetComponent<ItemScript>().desciption = "Your clicks will be boosted with " + gameController.ReturnTPUAddClicksBy() + " for " + gameController.ReturnTPUTimeBeforeReset() + " seconds.";
+            tempButton.GetComponent<ItemScript>().price = "price: " + gameController.GetTpuCost() + " crystals.";
+        }
+        else if (gameController.IsSvenska())
+        {
+            tempButton.GetComponent<ItemScript>().desciption = "Varje klick får du en boost med " + gameController.ReturnTPUAddClicksBy() + " kristaller under " + gameController.ReturnTPUTimeBeforeReset() + " sekunder.";
+            tempButton.GetComponent<ItemScript>().price = "pris: " + gameController.GetTpuCost() + " kristaller.";
+        }
+        
     }
 
     public void ChangeWhenBoughtTemp()
@@ -224,15 +242,31 @@ public class EditText : MonoBehaviour
             GameController.DecreaseCrystals(gameController.GetTpuCost()); // reduces money in bank
             gameController.AddTPUAmount(); // adds 1 to tpuAmount
 
-            tempPurchaseButn.GetComponent<ItemScript>().desciption = "Your time boost will have to be activated. Go back into the game and press the activation button.";
-            tempPurchaseButn.GetComponent<ItemScript>().price = "price: " + gameController.GetTpuCost() + " crystals.";
-
-
+            if (gameController.IsEngelska())
+            {
+                tempPurchaseButn.GetComponent<ItemScript>().desciption = "Your time boost will have to be activated. Go back into the game and press the activation button.";
+                tempPurchaseButn.GetComponent<ItemScript>().price = "price: " + gameController.GetTpuCost() + " crystals.";
+            }
+            else if (gameController.IsSvenska())
+            {
+                tempPurchaseButn.GetComponent<ItemScript>().desciption = "Din tidsbaserade boost måste aktiveras. Gå tillbaka till spelet och tryck på aktiveringsknappen.";
+                tempPurchaseButn.GetComponent<ItemScript>().price = "pris: " + gameController.GetTpuCost() + " kristaller.";
+            }
+      
         }
         else
         {
-            tempPurchaseButn.GetComponent<ItemScript>().desciption = "Not enough crystals.";
-            tempPurchaseButn.GetComponent<ItemScript>().price = "price: " + gameController.GetTpuCost() + " crystals.";
+            if (gameController.IsEngelska())
+            {
+                tempPurchaseButn.GetComponent<ItemScript>().desciption = "Not enough crystals.";
+                tempPurchaseButn.GetComponent<ItemScript>().price = "price: " + gameController.GetTpuCost() + " crystals.";
+            }
+            else if (gameController.IsSvenska())
+            {
+                tempPurchaseButn.GetComponent<ItemScript>().desciption = "Inte nog med kristaller.";
+                tempPurchaseButn.GetComponent<ItemScript>().price = "pris: " + gameController.GetTpuCost() + " kristaller.";
+            }
+            
         }
 
 
