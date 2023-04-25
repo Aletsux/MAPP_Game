@@ -66,6 +66,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        LoadGame();
         DisableTPU(); //om spelaren inte har någon timed powerup
 
         //PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
@@ -373,7 +374,7 @@ public class GameController : MonoBehaviour
         DisableTPU();
     }
 
-    private void SaveGame()
+    public void SaveGame()
     {
         PlayerPrefs.SetString("crystals", GetCrystals().ToString()); // save converted long to string
         PlayerPrefs.SetString("clickIncrease", ReturnClickIncrease().ToString()); // save converted long to string
@@ -405,7 +406,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("lvlCounter", 5);
     }
 
-    private void LoadGame()
+    public void LoadGame()
     {
         crystals = (long)Convert.ToDouble(PlayerPrefs.GetString("crystals")); // convert saved string to double and then to long
         clickIncrease = (long)Convert.ToDouble(PlayerPrefs.GetString("clickIncrease"));// convert saved string to double and then to long
