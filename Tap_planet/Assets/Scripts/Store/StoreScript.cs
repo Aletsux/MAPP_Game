@@ -138,6 +138,8 @@ public class StoreScript : MonoBehaviour
             {
                 gameController.IncreaseStardustMinerLevel();
                 GameController.DecreaseStardust(cost);
+
+
                 DisplayMessage(GameController.GetStardustMinerLevel() + "% chance to find stardust!" );
             }
             else
