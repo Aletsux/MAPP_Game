@@ -18,12 +18,16 @@ public class RaidController : MonoBehaviour
     public int timeBeforeRaid = 30;
     public int timeBeforeMiss = 3600;
 
+    public static bool raidToggle;
+
     public GameObject raidPanel;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        //timeBeforeMiss = timeBeforeRaid + 3600;
+       
 }
 
     // Update is called once per frame
@@ -38,16 +42,20 @@ public class RaidController : MonoBehaviour
         {
             timeSinceQuit = calculateSecondsSinceQuit();
             Debug.Log(timeSinceQuit);
-  
+            Debug.Log(PlayerPrefs.GetInt("RaidToggle"));
+            //PlayerPrefs.SetInt("RaidToggle");
 
-            if (timeSinceQuit > timeBeforeRaid && timeSinceQuit < timeBeforeMiss) // if time since last save is larger than tBR (def: 30) & less than tBM
+            if (timeSinceQuit > timeBeforeRaid && timeSinceQuit < timeBeforeMiss || PlayerPrefs.GetInt("RaidToggle") == 1) // if time since last save is larger than tBR (def: 30) & less than tBM
             {
+                activateRaidPanel.Toggle(true);
+                PlayerPrefs.SetInt("RaidToggle", 1);
                 //raidPanel.SetActive(true);
-                activateRaidPanel.Toggle(true); // You have been raided popup.
+                // You have been raided popup.
+                toggleRaid();
                 Debug.Log("You logged in during the raid and have to defend");
             }
 
-            else if (timeSinceQuit < timeBeforeRaid) // LOGIN BEFORE RAID START
+            else if (timeSinceQuit < timeBeforeRaid ) // LOGIN BEFORE RAID START
             {
                 Debug.Log("You logged in before a raid begun, nice!");
                 return;
@@ -60,6 +68,7 @@ public class RaidController : MonoBehaviour
                 gameObject.GetComponent<MissedRaid>().CalculateRaidLoss();
                 Debug.Log("You missed the raid, 2 lazy");
             }
+
 
             else
             {
@@ -81,5 +90,13 @@ public class RaidController : MonoBehaviour
         DateTime quitTime = DateTime.FromBinary(temp); //Convert the old time from binary to a DataTime variable
         TimeSpan difference = currentDate.Subtract(quitTime); //Use the Subtract method and store the result as a timespan variable
         return (int)difference.TotalSeconds; // return the difference as an int
+    }
+
+    private static void toggleRaid() 
+    {
+        if (raidToggle == false)
+        {
+            raidToggle = true;
+        }
     }
 }
