@@ -11,8 +11,6 @@ public class ItemScript : MonoBehaviour
     public String itemName;
     public String desciption;
     public String price;
-    
-
 
     public Sprite ReturnImage()
     {
@@ -33,8 +31,4 @@ public class ItemScript : MonoBehaviour
     {
         return price;
     }
-
-
-
-    
 }
