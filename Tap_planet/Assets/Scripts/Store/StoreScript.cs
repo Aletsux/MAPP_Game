@@ -347,9 +347,12 @@ public class StoreScript : MonoBehaviour
 
     private void purchasePlanet(int index)
     {
-        GameController.DecreaseStardust(planetCosts[index]);
-        PlayerPrefs.SetInt("PlanetPurchased_" + index, 1);
-        PlayerPrefs.Save();
+        if (GameController.GetStardust() >= accessoryCosts[index])
+        {
+            GameController.DecreaseStardust(planetCosts[index]);
+            PlayerPrefs.SetInt("PlanetPurchased_" + index, 1);
+            PlayerPrefs.Save();
+        }
     }
 
     private void togglePlanet(int index)
@@ -399,11 +402,15 @@ public class StoreScript : MonoBehaviour
        
         else if (name.Equals("party"))
         {
-            return 1000;
+            return 500;
         }
         else if (name.Equals("cow"))
         {
-            return 10000;
+            return 500;
+        }
+        else if (name.Equals("halo"))
+        {
+            return 501;
         }
 
 
