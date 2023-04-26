@@ -13,9 +13,12 @@ public class PlanetRaidMovement : MonoBehaviour
     //Original speed = 850
     public float speed;
 
+    public RaidState raidState;
+
     //public bool isRaidActive = false;
     public bool raidBegins = false;
     public bool planetInPosition = false;
+    public static bool waveStart = true;
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +40,11 @@ public class PlanetRaidMovement : MonoBehaviour
         //Compare distance between planet and target position to threshold (0.01f)
         if(Vector3.Distance(transform.position, target.position) < 0.01f) {
             planetInPosition = true;
+            beginRaid();
+            raidState.RaidStart();
+
         }
-        
+
 
         //Doesn't work for some reason...
         /*   if (transform.position == target.position)
@@ -52,7 +58,7 @@ public class PlanetRaidMovement : MonoBehaviour
     public void beginRaid()
     {
         Debug.Log("PlanetPosition: " + planetInPosition);
-        if (planetInPosition)
+        if (planetInPosition && waveStart)
         {
             raidBegins = true;
 
@@ -61,6 +67,8 @@ public class PlanetRaidMovement : MonoBehaviour
 
             //Make TriggerAI start moving on button click
             triggerAi.GetComponent<Rigidbody2D>().isKinematic = false;
+            waveStart = false;
+
 
         }
 

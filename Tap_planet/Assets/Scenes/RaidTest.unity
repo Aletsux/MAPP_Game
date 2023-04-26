@@ -4698,7 +4698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1365782017
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5362,6 +5362,7 @@ MonoBehaviour:
   target: {fileID: 2061935842}
   triggerAi: {fileID: 900713548}
   speed: 600
+  raidState: {fileID: 1567866249}
   raidBegins: 0
   planetInPosition: 0
 --- !u!114 &1500350634
@@ -8969,18 +8970,6 @@ PrefabInstance:
     - target: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
       propertyPath: m_SizeDelta.y
       value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
       propertyPath: m_LocalPosition.x
