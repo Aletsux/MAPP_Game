@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CheckPrice : MonoBehaviour
 {
-    private int price;
+    public int price = 10;
     public Button button;
 
     void Update()
