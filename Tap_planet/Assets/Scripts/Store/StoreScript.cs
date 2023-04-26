@@ -250,11 +250,13 @@ public class StoreScript : MonoBehaviour
 
     public void EquipAccessory(int index) //anropas vid klick av accessories-köpknapp
     {
-        //if (index >= accessoryObjects.Count)
-        //{
-        //    Debug.LogError("Invalid index: " + index);
-        //    return;
-        //}
+        if (index >= accessoryObjects.Count)
+        {
+            Debug.LogError("Invalid index: " + index);
+            return;
+        }
+
+        Debug.Log(index);
 
         bool hasPurchased = PlayerPrefs.GetInt("AccessoryPurchased_" + index, 0) == 1;
 
