@@ -76,7 +76,9 @@ public class EditText : MonoBehaviour
     void Start()
     {
         gameController = GC.GetComponent<GameController>();
+        //IsEngelska();
 
+        
         
     }
 
@@ -84,12 +86,13 @@ public class EditText : MonoBehaviour
     void Update()
     {
 
-
+       
 
     }
 
     public void ChangeTextIdle()// när spelaren trycker på blå knapp inte köp ska det reflektera  // fungerar fint
     {
+        //Debug.Log("GameController text" + gameController.IsIdleTrue());
         if (gameController.IsIdleTrue() == false && IsEngelska() == true)
         {
             idleButton.GetComponent<ItemScript>().desciption = "Get 1 crystal each 60 sec! Every upgrade will decrease time 15 seconds.";
@@ -244,6 +247,7 @@ public class EditText : MonoBehaviour
 
     public void ChangeWhenBoughtTemp()
     {
+        
         //buyPressed = true;
         if (GameController.GetCrystals() >= gameController.GetTpuCost())
         {
