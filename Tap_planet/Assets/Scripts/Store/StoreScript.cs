@@ -256,6 +256,8 @@ public class StoreScript : MonoBehaviour
         //    return;
         //}
 
+        //Debug.Log(index);
+
         bool hasPurchased = PlayerPrefs.GetInt("AccessoryPurchased_" + index, 0) == 1;
 
         if (!hasPurchased)
