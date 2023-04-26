@@ -28,4 +28,7 @@ public class LanguageSelector : MonoBehaviour
         PlayerPrefs.SetInt("LanguageKey", languageID);
         active = false;
     }
+
+
+
 }
