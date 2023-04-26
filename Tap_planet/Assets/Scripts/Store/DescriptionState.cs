@@ -8,12 +8,17 @@ public class DescriptionState : MonoBehaviour
 
     public void Start()
     {
-        active = false;
-        SetObjectActive();
+        //active = false;
+        setObjectInactive();
     }
 
     public void SetObjectActive() {
-        gameObject.SetActive(!active);
-        active = !active;
+        gameObject.SetActive(true);
+        //active = !active;
+    }
+
+    public void setObjectInactive()
+    {
+        gameObject.SetActive(false);
     }
 }
