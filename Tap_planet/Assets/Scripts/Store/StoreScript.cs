@@ -349,7 +349,7 @@ public class StoreScript : MonoBehaviour
 
     private void purchasePlanet(int index)
     {
-        if (GameController.GetStardust() >= accessoryCosts[index])
+        if (GameController.GetStardust() >= planetCosts[index])
         {
             GameController.DecreaseStardust(planetCosts[index]);
             PlayerPrefs.SetInt("PlanetPurchased_" + index, 1);
