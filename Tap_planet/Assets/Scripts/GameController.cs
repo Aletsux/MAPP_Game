@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        ResetForBuild();
+        //ResetForBuild();
         LoadGame();
         DisableTPU(); //om spelaren inte har någon timed powerup
     }
