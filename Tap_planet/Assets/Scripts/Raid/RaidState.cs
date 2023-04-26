@@ -48,22 +48,25 @@ public class RaidState : MonoBehaviour
     {
         beginRaid = true;
     }
-    
+
     public void RaidEnded()
     {
         raidOverPanel.SetActive(true);
-        int result = enemiesKilled - PlanetState.totalRaidDamage; 
+        int result = enemiesKilled - PlanetState.totalRaidDamage;
 
         enemiesKilledText.text = enemiesKilled + "";
         enemiesMissedText.text = PlanetState.totalRaidDamage.ToString();
         resultText.text = result.ToString();
-        GameController.AddCrystals(result * 10 * GameController.ReturnClickIncrease());
+        int lostCrystals = (result < GameController.GetCrystals()) ? 0 : result;
+        int lostStardust = (result < GameController.GetStardust()) ? 0 : result;
+        GameController.AddCrystals(lostCrystals * 10 * GameController.ReturnClickIncrease());
         PlayerPrefs.SetString("crystals", GameController.GetCrystals().ToString());
 
-        GameController.AddStardust(result);
+        GameController.AddStardust(lostStardust);
         PlayerPrefs.SetInt("stardust", GameController.GetStardust());
 
         PlayerPrefs.SetInt("ToggleRaid", 0);
         enemyAI.deactivate();
     }
+
 }

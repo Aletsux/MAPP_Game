@@ -4795,7 +4795,7 @@ MonoBehaviour:
   sceneChange: {fileID: 205055367}
   activateRaidPanel: {fileID: 488676328}
   activateMissedRaidPanel: {fileID: 1140226197}
-  timeSinceQuit: 25
+  timeSinceQuit: 0
   timeBeforeRaid: 10
   timeBeforeMiss: 20
 --- !u!4 &581952677
@@ -16695,6 +16695,22 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3322951195117722505, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: costsStardust
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195947188212, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195947188212, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195947188212, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: title
+      value: halo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195947188212, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: costsStardust
       value: 1
       objectReference: {fileID: 0}
