@@ -41,7 +41,7 @@ public class StoreScript : MonoBehaviour
         CloseStore();
         gameController = GC.GetComponent<GameController>(); // gets access to methods
 
-        //PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas 
+        PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas 
         //Accessoarer: 
         for (int i = 0; i < accessoryObjects.Count; i++) 
         { 
@@ -270,10 +270,14 @@ public class StoreScript : MonoBehaviour
 
     private void PurchaseAccessory(int index)
     {
-        GameController.DecreaseStardust(accessoryCosts[index]);
-        PlayerPrefs.SetInt("AccessoryPurchased_" + index, 1);
-        PlayerPrefs.Save();
-        SetButtonLabel(accessoryButtons, index, "Equip");
+        if (GameController.GetStardust() >= accessoryCosts[index])
+        {
+            GameController.DecreaseStardust(accessoryCosts[index]);
+            PlayerPrefs.SetInt("AccessoryPurchased_" + index, 1);
+            PlayerPrefs.Save();
+            SetButtonLabel(accessoryButtons, index, "Equip");
+        }
+        
     }
 
     private void ToggleAccessory(int index) //ifall accessoaren är aktiverad inaktiveras den och vice versa
@@ -371,5 +375,50 @@ public class StoreScript : MonoBehaviour
                 planetButtons[i].interactable = true;
             }
         }
+    }
+
+    public int GetPrice(string name)
+    {
+        if (name.Equals("idle"))
+        {
+            return gameController.GetIdleCost();
+        }
+        else if (name.Equals("perm"))
+        {
+            return gameController.GetPermCost();
+        }
+        else if (name.Equals("temp"))
+        {
+            return gameController.GetTpuCost();
+        }
+        else if (name.Equals("dust"))
+        {
+            return (GameController.GetStardustMinerLevel() == 0) ? 50 : GameController.GetStardustMinerLevel() * 100;
+        }
+
+       
+        else if (name.Equals("party"))
+        {
+            return 1000;
+        }
+        else if (name.Equals("cow"))
+        {
+            return 10000;
+        }
+
+
+        else if (name.Equals("drip"))
+        {
+            return 1000;
+        }
+        else if (name.Equals("cookie"))
+        {
+            return 10000;
+        }
+        else if (name.Equals("candy"))
+        {
+            return 10000;
+        }
+        return 0;
     }
 }

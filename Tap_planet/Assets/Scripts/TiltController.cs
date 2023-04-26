@@ -6,20 +6,26 @@ public class TiltController : MonoBehaviour
 {
     Rigidbody2D rb;
     float dx;
-    float moveSpeed = 20f;
+    public float moveSpeed = 50f;
+
+    public float minX = -20f;
+    public float maxX = 20f;
+    private Vector3 startingPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        startingPosition = transform.position;
         Input.gyro.enabled = true;
         rb = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
         dx = Input.acceleration.x * moveSpeed;
-        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -7.5f, 7.5f), transform.position.y);
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, minX, maxX), transform.position.y);
     }
 
     private void FixedUpdate()
