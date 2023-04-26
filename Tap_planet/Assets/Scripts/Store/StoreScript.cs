@@ -41,7 +41,7 @@ public class StoreScript : MonoBehaviour
         CloseStore();
         gameController = GC.GetComponent<GameController>(); // gets access to methods
 
-        //PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas 
+        PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas 
         //Accessoarer: 
         for (int i = 0; i < accessoryObjects.Count; i++) 
         { 
@@ -277,7 +277,6 @@ public class StoreScript : MonoBehaviour
             PlayerPrefs.Save();
             SetButtonLabel(accessoryButtons, index, "Equip");
         }
-        
     }
 
     private void ToggleAccessory(int index) //ifall accessoaren är aktiverad inaktiveras den och vice versa
@@ -337,22 +336,18 @@ public class StoreScript : MonoBehaviour
 
     public void EquipPlanet(int index)
     {
-        if (PlayerPrefs.GetInt("PlanetPurchased_" + index) == 0)
+        if (GameController.GetStardust() >= planetCosts[index])
         {
             purchasePlanet(index);
+            togglePlanet(index);
         }
-
-        togglePlanet(index);
     }
 
     private void purchasePlanet(int index)
     {
-        if (GameController.GetStardust() >= planetCosts[index])
-        {
-            GameController.DecreaseStardust(planetCosts[index]);
-            PlayerPrefs.SetInt("PlanetPurchased_" + index, 1);
-            PlayerPrefs.Save();
-        }
+        GameController.DecreaseStardust(planetCosts[index]);
+        PlayerPrefs.SetInt("PlanetPurchased_" + index, 1);
+        PlayerPrefs.Save();
     }
 
     private void togglePlanet(int index)
