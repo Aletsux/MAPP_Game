@@ -555,7 +555,7 @@ GameObject:
   - component: {fileID: 205055367}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -850,7 +850,7 @@ GameObject:
   - component: {fileID: 232701621}
   m_Layer: 5
   m_Name: StorePanel
-  m_TagString: Untagged
+  m_TagString: Store
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1513,6 +1513,62 @@ PrefabInstance:
     - target: {fileID: 882076763334217649, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318328955209371554, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318328955209371554, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: costsStardust
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195063987778, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195063987778, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195063987778, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: title
+      value: cookie
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195063987778, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: costsStardust
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195117722505, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195117722505, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195117722505, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: title
+      value: drip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195117722505, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: costsStardust
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195947188212, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195947188212, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: index
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195947188212, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: title
+      value: candy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195947188212, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: costsStardust
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4345312104138829847, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
@@ -5622,6 +5678,18 @@ PrefabInstance:
       propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_text
       objectReference: {fileID: 0}
+    - target: {fileID: 1318328955209371554, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: title
+      value: idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195063987778, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: title
+      value: temp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195117722505, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: title
+      value: perm
+      objectReference: {fileID: 0}
     - target: {fileID: 3488917065479033560, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
       value: 5019525120
@@ -7838,6 +7906,14 @@ PrefabInstance:
     - target: {fileID: 882076763334217649, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318328955209371554, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: title
+      value: dust
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318328955209371554, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: costsStardust
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3488917065479033560, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
@@ -15835,6 +15911,14 @@ PrefabInstance:
       propertyPath: m_UpdateString.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: set_text
       objectReference: {fileID: 0}
+    - target: {fileID: 1318328955209371554, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318328955209371554, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: costsStardust
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1802897948780673753, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -15846,6 +15930,46 @@ PrefabInstance:
     - target: {fileID: 2689763416292486898, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195063987778, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195063987778, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: index
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195063987778, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: title
+      value: cow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195063987778, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: isAccessory
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195063987778, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: costsStardust
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195117722505, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195117722505, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: index
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195117722505, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: title
+      value: party
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195117722505, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: isAccessory
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322951195117722505, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: costsStardust
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3488917065479033560, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
@@ -19505,8 +19629,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8476d2e68bc0f435fa5bd3b025c8d477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 0
   button: {fileID: 1764331472}
+  activeColor: {r: 0, g: 0, b: 0, a: 0}
+  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  title: 
+  index: 0
+  type: 1
+  costsStardust: 1
 --- !u!114 &2108821193 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6458594100657880776, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
