@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        //ResetForBuild();
+        ResetForBuild();
         LoadGame();
         DisableTPU(); //om spelaren inte har någon timed powerup
     }
@@ -313,7 +313,7 @@ public class GameController : MonoBehaviour
     {
         PlayerPrefs.SetString("crystals", 0.ToString());
         PlayerPrefs.SetString("clickIncrease", 1.ToString());
-        PlayerPrefs.SetInt("stardust", 100);
+        PlayerPrefs.SetInt("stardust", 10000);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(false));
