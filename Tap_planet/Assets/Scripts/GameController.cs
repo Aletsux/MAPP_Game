@@ -53,6 +53,7 @@ public class GameController : MonoBehaviour
     private int nextUpdate = 1;
     public int lvlCounter = 5;
     
+    public VolumeManager volumeManager;
 
     void Start()
     {
@@ -306,7 +307,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("numPerSec", ReturnClicksPerSec());
         PlayerPrefs.SetInt("secBeforeIdleClick", ReturnSecBeforeClick());
         PlayerPrefs.SetInt("lvlCounter", ReturnTimesToLvlUp());
-        
+        PlayerPrefs.SetFloat("Volume", volumeManager.getVolume());
     }
 
     private void ResetForBuild()
@@ -338,7 +339,7 @@ public class GameController : MonoBehaviour
         numPerSec = PlayerPrefs.GetInt("numPerSec");
         secBeforeIdleClick = PlayerPrefs.GetInt("secBeforeIdleClick");
         lvlCounter = PlayerPrefs.GetInt("lvlCounter");
-        
+        PlayerPrefs.SetFloat("Volume", volumeManager.getVolume());
 
         LoadIdleClicks(calculateSecondsSinceQuit());
         UpdateTPU();
