@@ -21,7 +21,7 @@ public class EditText : MonoBehaviour
     public GameObject GC;
     private GameController gameController;
 
-    private int dustCost = 250;
+    private int dustCost = 50;
 
 
 
