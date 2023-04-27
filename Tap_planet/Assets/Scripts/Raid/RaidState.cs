@@ -57,11 +57,15 @@ public class RaidState : MonoBehaviour
         enemiesKilledText.text = enemiesKilled + "";
         enemiesMissedText.text = PlanetState.totalRaidDamage.ToString();
         resultText.text = result.ToString();
-        int lostCrystals = (result < GameController.GetCrystals()) ? 0 : result;
-        int lostStardust = (result < GameController.GetStardust()) ? 0 : result;
-        GameController.AddCrystals(lostCrystals * 10 * GameController.ReturnClickIncrease());
-        PlayerPrefs.SetString("crystals", GameController.GetCrystals().ToString());
 
+        int lostCrystals = result;
+        int lostStardust = result;
+
+
+        GameController.AddCrystals(lostCrystals * 10 * GameController.ReturnClickIncrease());
+        Debug.Log("HERE HERE HERE " + lostCrystals * 10 * GameController.ReturnClickIncrease());
+        PlayerPrefs.SetString("crystals", GameController.GetCrystals().ToString());
+        Debug.Log("HERE HERE HERE " + lostStardust);
         GameController.AddStardust(lostStardust);
         PlayerPrefs.SetInt("stardust", GameController.GetStardust());
 

@@ -64,6 +64,16 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
+        if (crystals < 0)
+        {
+            crystals = 0;
+        }
+
+        if (stardust < 0)
+        {
+            stardust = 0;
+        }
+
         if (isUsingTPU == true)
         {
             tpuTimer += Time.deltaTime;
