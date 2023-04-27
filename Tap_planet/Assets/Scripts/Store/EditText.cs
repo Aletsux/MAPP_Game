@@ -26,6 +26,11 @@ public class EditText : MonoBehaviour
 
     private int dustCost = 50;
 
+    private bool dust;
+    private bool idle;
+    private bool perm;
+    private bool temp;
+
 
 
     //public class MyClass2
@@ -101,6 +106,27 @@ public class EditText : MonoBehaviour
     }
 
 
+    public void UpdateStoreLanguage()
+    {
+        if (dust)
+        {
+            ChangeTextDust();
+        }
+        else if (idle)
+        {
+            ChangeTextIdle();
+        }
+        else if (perm)
+        {
+            ChangeTextPerm();
+        }
+        else if (temp)
+        {
+            ChangeTextTemp();
+        }
+    }
+
+
     public void ChangeTextIdle()// när spelaren trycker på blå knapp inte köp ska det reflektera  // fungerar fint
     {
         //Debug.Log("GameController text" + gameController.IsIdleTrue());
@@ -142,6 +168,11 @@ public class EditText : MonoBehaviour
             idleButton.GetComponent<ItemScript>().itemName = "Automatiserade Klick!";
         }
 
+        perm = false;
+        idle = true;
+        dust = false;
+        temp = false;
+
     }
 
   
@@ -181,10 +212,16 @@ public class EditText : MonoBehaviour
             }
         }
         gameController.SaveGame();
+
+        perm = false;
+        idle = true;
+        dust = false;
+        temp = false;
     }
 
     public void ChangeTextPerm()// Your clicks will increased by 1 crystal with each purchase! Every 10 purchase will add 5.
     {
+        
         if (IsEngelska())
         {
             permButton.GetComponent<ItemScript>().price = "Price: " + gameController.GetPermCost() + " crystals.";
@@ -197,7 +234,11 @@ public class EditText : MonoBehaviour
             permButton.GetComponent<ItemScript>().desciption = "Du får en extra kristall för varje gång du klickar! Varje 10 köp lägger till 5.";
             permButton.GetComponent<ItemScript>().itemName = "Permanent Klick Ökare!";
         }
-       
+
+        perm = true;
+        idle = false;
+        dust = false;
+        temp = false;
     }
 
     public void ChangeWhenBoughtPerm()
@@ -241,6 +282,11 @@ public class EditText : MonoBehaviour
             
         }
         gameController.SaveGame();
+
+        perm = true;
+        idle = false;
+        dust = false;
+        temp = false;
     }
 
     public void ChangeTextTemp()
@@ -257,7 +303,11 @@ public class EditText : MonoBehaviour
             tempButton.GetComponent<ItemScript>().price = "pris: " + gameController.GetTpuCost() + " kristaller.";
             tempButton.GetComponent<ItemScript>().itemName = "Temporär Klickar Boost!";
         }
-        
+
+        perm = false;
+        idle = false;
+        dust = false;
+        temp = true;
     }
 
     public void ChangeWhenBoughtTemp()
@@ -299,6 +349,11 @@ public class EditText : MonoBehaviour
             }
         }
         gameController.SaveGame();
+
+        perm = false;
+        idle = false;
+        dust = false;
+        temp = true;
     }
 
 
@@ -317,6 +372,11 @@ public class EditText : MonoBehaviour
             dustButton.GetComponent<ItemScript>().price = "pris: " + GetDustCost() + " stjärnpuder";
             dustButton.GetComponent<ItemScript>().itemName = "Sjärnpuder Grävare!";
         }
+
+        perm = false;
+        idle = false;
+        dust = true;
+        temp = false;
     }
 
     public void ChangeWhenBoughtDust()
@@ -375,7 +435,10 @@ public class EditText : MonoBehaviour
                 dustPurchaseButn.GetComponent<ItemScript>().itemName = "Stjärnpuder Grävare!";
             }
         }
-
+        perm = false;
+        idle = false;
+        dust = true;
+        temp = false;
         //dustCost = (GameController.GetStardustMinerLevel() == 0) ? 250 : GameController.GetStardustMinerLevel() * 100;
     }
     
