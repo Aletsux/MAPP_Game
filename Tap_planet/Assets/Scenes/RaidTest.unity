@@ -3555,7 +3555,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.06319206, b: 0.14150941, a: 1}
+  m_Color: {r: 0.09411765, g: 0.09411765, b: 0.09411765, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5365,6 +5365,7 @@ MonoBehaviour:
   raidState: {fileID: 1567866249}
   raidBegins: 0
   planetInPosition: 0
+  waveStart: 1
 --- !u!114 &1500350634
 MonoBehaviour:
   m_ObjectHideFlags: 0
