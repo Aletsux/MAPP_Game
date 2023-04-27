@@ -326,6 +326,9 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("numPerSec", 0);
         PlayerPrefs.SetInt("secBeforeIdleClick", 75);
         PlayerPrefs.SetInt("lvlCounter", 5);
+        PlayerPrefs.SetInt("tpuCost", 5);
+        PlayerPrefs.SetInt("idleCost", 5);
+        PlayerPrefs.SetInt("permCost", 5);
     }
 
     public void LoadGame()

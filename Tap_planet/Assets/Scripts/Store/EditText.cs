@@ -26,6 +26,11 @@ public class EditText : MonoBehaviour
 
     private int dustCost = 50;
 
+    private bool dust;
+    private bool idle;
+    private bool perm;
+    private bool temp;
+
 
 
     //public class MyClass2
@@ -142,6 +147,8 @@ public class EditText : MonoBehaviour
             idleButton.GetComponent<ItemScript>().itemName = "Automatiserade Klick!";
         }
 
+        
+
     }
 
   
@@ -181,10 +188,13 @@ public class EditText : MonoBehaviour
             }
         }
         gameController.SaveGame();
+
+        
     }
 
     public void ChangeTextPerm()// Your clicks will increased by 1 crystal with each purchase! Every 10 purchase will add 5.
     {
+        
         if (IsEngelska())
         {
             permButton.GetComponent<ItemScript>().price = "Price: " + gameController.GetPermCost() + " crystals.";
@@ -197,7 +207,8 @@ public class EditText : MonoBehaviour
             permButton.GetComponent<ItemScript>().desciption = "Du får en extra kristall för varje gång du klickar! Varje 10 köp lägger till 5.";
             permButton.GetComponent<ItemScript>().itemName = "Permanent Klick Ökare!";
         }
-       
+
+        
     }
 
     public void ChangeWhenBoughtPerm()
@@ -241,6 +252,8 @@ public class EditText : MonoBehaviour
             
         }
         gameController.SaveGame();
+
+        
     }
 
     public void ChangeTextTemp()
@@ -257,6 +270,7 @@ public class EditText : MonoBehaviour
             tempButton.GetComponent<ItemScript>().price = "pris: " + gameController.GetTpuCost() + " kristaller.";
             tempButton.GetComponent<ItemScript>().itemName = "Temporär Klickar Boost!";
         }
+
         
     }
 
@@ -299,6 +313,8 @@ public class EditText : MonoBehaviour
             }
         }
         gameController.SaveGame();
+
+        
     }
 
 
@@ -317,6 +333,8 @@ public class EditText : MonoBehaviour
             dustButton.GetComponent<ItemScript>().price = "pris: " + GetDustCost() + " stjärnpuder";
             dustButton.GetComponent<ItemScript>().itemName = "Sjärnpuder Grävare!";
         }
+
+        
     }
 
     public void ChangeWhenBoughtDust()
@@ -375,7 +393,7 @@ public class EditText : MonoBehaviour
                 dustPurchaseButn.GetComponent<ItemScript>().itemName = "Stjärnpuder Grävare!";
             }
         }
-
+       
         //dustCost = (GameController.GetStardustMinerLevel() == 0) ? 250 : GameController.GetStardustMinerLevel() * 100;
     }
     
