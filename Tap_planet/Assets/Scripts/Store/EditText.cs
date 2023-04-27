@@ -20,6 +20,9 @@ public class EditText : MonoBehaviour
     [Space]
     public GameObject GC;
     private GameController gameController;
+    [Space]
+    //public GameObject DS;
+    //private DescriptionState descriptionState;
 
     private int dustCost = 50;
 
@@ -76,20 +79,32 @@ public class EditText : MonoBehaviour
     void Start()
     {
         gameController = GC.GetComponent<GameController>();
+        //IsEngelska();
 
-        
+        //descriptionState = DS.GetComponent<DescriptionState>();
+
+        //Debug.Log("Gamegontroller" + gameController.IsIdleTrue());
+        //descriptionState.SetObjectActive();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-
+       
 
     }
 
+    private void OnEnable()
+    {
+        gameController = GC.GetComponent<GameController>();
+    }
+
+
     public void ChangeTextIdle()// när spelaren trycker på blå knapp inte köp ska det reflektera  // fungerar fint
     {
+        //Debug.Log("GameController text" + gameController.IsIdleTrue());
+        
         if (gameController.IsIdleTrue() == false && IsEngelska() == true)
         {
             idleButton.GetComponent<ItemScript>().desciption = "Get 1 crystal each 60 sec! Every upgrade will decrease time 15 seconds.";
@@ -244,6 +259,7 @@ public class EditText : MonoBehaviour
 
     public void ChangeWhenBoughtTemp()
     {
+        
         //buyPressed = true;
         if (GameController.GetCrystals() >= gameController.GetTpuCost())
         {

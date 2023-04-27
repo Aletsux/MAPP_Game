@@ -41,7 +41,7 @@ public class StoreScript : MonoBehaviour
         CloseStore();
         gameController = GC.GetComponent<GameController>(); // gets access to methods
 
-        //PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas 
+        PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas 
         //Accessoarer: 
         for (int i = 0; i < accessoryObjects.Count; i++) 
         { 
@@ -256,6 +256,8 @@ public class StoreScript : MonoBehaviour
         //    return;
         //}
 
+        //Debug.Log(index);
+
         bool hasPurchased = PlayerPrefs.GetInt("AccessoryPurchased_" + index, 0) == 1;
 
         if (!hasPurchased)
@@ -277,7 +279,6 @@ public class StoreScript : MonoBehaviour
             PlayerPrefs.Save();
             SetButtonLabel(accessoryButtons, index, "Equip");
         }
-        
     }
 
     private void ToggleAccessory(int index) //ifall accessoaren är aktiverad inaktiveras den och vice versa
@@ -337,12 +338,11 @@ public class StoreScript : MonoBehaviour
 
     public void EquipPlanet(int index)
     {
-        if (PlayerPrefs.GetInt("PlanetPurchased_" + index) == 0)
+        if (GameController.GetStardust() >= planetCosts[index])
         {
             purchasePlanet(index);
+            togglePlanet(index);
         }
-
-        togglePlanet(index);
     }
 
     private void purchasePlanet(int index)
@@ -399,11 +399,15 @@ public class StoreScript : MonoBehaviour
        
         else if (name.Equals("party"))
         {
-            return 1000;
+            return 500;
         }
         else if (name.Equals("cow"))
         {
-            return 10000;
+            return 500;
+        }
+        else if (name.Equals("halo"))
+        {
+            return 501;
         }
 
 
