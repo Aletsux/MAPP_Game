@@ -95,7 +95,7 @@ public class EditText : MonoBehaviour
 
     }
 
-    private void OnEnable()
+    private void OnEnable() // nåt fel med setActive false i kanske descState, scriptet blev false oxå och startade inte upp förrän desc gjorde det
     {
         gameController = GC.GetComponent<GameController>();
     }
@@ -141,6 +141,7 @@ public class EditText : MonoBehaviour
             idleButton.GetComponent<ItemScript>().price = "pris: " + gameController.GetIdleCost() + " kristaller.";
             idleButton.GetComponent<ItemScript>().itemName = "Automatiserade Klick!";
         }
+
     }
 
   
@@ -179,6 +180,7 @@ public class EditText : MonoBehaviour
                 idlePurchaseButn.GetComponent<ItemScript>().itemName = "Automatiserade Klick!";
             }
         }
+        gameController.SaveGame();
     }
 
     public void ChangeTextPerm()// Your clicks will increased by 1 crystal with each purchase! Every 10 purchase will add 5.
@@ -238,6 +240,7 @@ public class EditText : MonoBehaviour
             }
             
         }
+        gameController.SaveGame();
     }
 
     public void ChangeTextTemp()
@@ -295,6 +298,7 @@ public class EditText : MonoBehaviour
                 tempPurchaseButn.GetComponent<ItemScript>().itemName = "Temporär Klickar Boost!";
             }
         }
+        gameController.SaveGame();
     }
 
 
