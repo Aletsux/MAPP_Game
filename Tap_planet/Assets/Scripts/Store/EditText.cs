@@ -95,7 +95,7 @@ public class EditText : MonoBehaviour
 
     }
 
-    private void OnEnable()
+    private void OnEnable() // nåt fel med setActive false i kanske descState, scriptet blev false oxå och startade inte upp förrän desc gjorde det
     {
         gameController = GC.GetComponent<GameController>();
     }
