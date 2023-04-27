@@ -9,12 +9,12 @@ public class CheckPrice : MonoBehaviour
     public Color activeColor;
     public Color inactiveColor;
 
-    public string title;
-    public int index;
-    public int type;
+    public string title; // used to identify upgrades/powerups
+    public int index; // used for accessories and planets
+    public int type; // 0 for upgrades/powerups, 1 for accessories, 2 for planets
 
     private StoreScript sc;
-    public bool costsStardust;
+    public bool costsStardust; // some upgrades/all accessories/all planets use stardust
 
     void Start()
     {
@@ -23,17 +23,11 @@ public class CheckPrice : MonoBehaviour
 
     void Update()
     {
-        if (costsStardust )
+        if (costsStardust)
         {
-            if (type == 1 && PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1)
-            {
-                button.image.color = activeColor;
-            }
-            if (type == 2 && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1)
-            {
-                button.image.color = activeColor;
-            }
-            else if (GameController.GetStardust() >= sc.GetPrice(title))
+            if ( (type == 1 && PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1) // true means owned
+              || (type == 2 && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1)
+              || (GameController.GetStardust() >= sc.GetPrice(title)) )
             {
                 button.image.color = activeColor;
             }
@@ -53,6 +47,5 @@ public class CheckPrice : MonoBehaviour
                 button.image.color = inactiveColor;
             }
         }
-
     }
 }

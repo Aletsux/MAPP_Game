@@ -32,7 +32,16 @@ public class EnemyAI : MonoBehaviour
     {
         //Set default value for amount of ships
         shipCount = enemyList.Length;
-        
+
+        for (int i = 0; i < enemyList.Length; i++)
+        {
+            if (enemyList[i] != null)
+            {
+                GameObject ship = enemyList[i];
+                ship.SetActive(true);
+            }
+        }
+
     }
 
     // Update is called once per frame
