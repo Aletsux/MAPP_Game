@@ -16,15 +16,6 @@ public class StoreScript : MonoBehaviour
     public GameObject GC; // gameController
     private GameController gameController; //actually gameController script!
 
-    [Space]
-    public Text UIText;
-    [Space]
-    //[SerializeField] int tpuCost = 1; //tpu = timedPowerUp
-    [Space]
-    private float timer; //counts up until it reaches timeToDisplay
-    private float timeToDisplay = 2; // time to display message
-    private bool displayUIMessage = false;
-
     //Accessoar
     public List<GameObject> accessoryObjects = new List<GameObject>();
     public List<Button> accessoryButtons;
@@ -37,7 +28,6 @@ public class StoreScript : MonoBehaviour
 
     void Start()
     {
-        UIText.gameObject.SetActive(false);
         CloseStore();
         gameController = GC.GetComponent<GameController>(); // gets access to methods
 
@@ -64,12 +54,6 @@ public class StoreScript : MonoBehaviour
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0); 
                 PlayerPrefs.Save(); 
             } 
-
-            accessoryButtons[i].onClick.RemoveAllListeners(); 
-            accessoryButtons[i].onClick.AddListener(() => 
-            { 
-                EquipAccessory(i); 
-            }); 
         } 
 
         //Planeter 
@@ -95,12 +79,6 @@ public class StoreScript : MonoBehaviour
                 SetButtonLabel(planetButtons, i, "Buy"); 
                 planetButtons[i].interactable = true; 
             } 
-
-            planetButtons[i].onClick.RemoveAllListeners(); 
-            planetButtons[i].onClick.AddListener(() => //lägger till listener för varje planet-knapp 
-            { 
-                EquipPlanet(i); 
-            }); 
         } 
 
         //Om ingen planet är aktiverad, sätt startplaneten som aktiv 
@@ -113,21 +91,6 @@ public class StoreScript : MonoBehaviour
             PlayerPrefs.Save(); 
         }
     }
-
-    void Update()
-    {
-        if (displayUIMessage) // bool set to true in DisplayMessage()
-        {
-            timer += Time.deltaTime;
-            if (timer >= timeToDisplay)
-            {
-                timer = 0f;
-                UIText.gameObject.SetActive(false);
-                displayUIMessage = false;
-            }
-        }
-    }
-
     public void OpenStore()
     {
         gameObject.SetActive(true);
@@ -137,7 +100,6 @@ public class StoreScript : MonoBehaviour
     public void CloseStore()
     {
         gameObject.SetActive(false);
-        ResetTimer();
     }
 
     public void CloseTabsExcept(string tab) // different buttons send different arguments
@@ -153,100 +115,6 @@ public class StoreScript : MonoBehaviour
         if (tab.Equals(thisTab)) // checks if strings match
             return true;
         return false;
-    }
-
-    public void BuyPowerUp(string powerUpName) // takes which powerup to buy
-    {
-        if (powerUpName.Equals("tpu")) // if tpu
-        {
-            if (GameController.GetCrystals() >= gameController.GetTpuCost()) // checks bank balance       
-            {
-                gameController.AddTPUAmount(); // adds 1 to tpuAmount
-                GameController.DecreaseCrystals(gameController.GetTpuCost()); // reduces money in bank
-                DisplayMessage("Timed boost purchased!"); // displays message
-            }
-            else
-            {
-                DisplayMessage("Not Enough Crystals!"); // if not enough crystals in bank
-            }
-        }
-        else if (powerUpName.Equals("permanentClickPowerUp"))
-        {
-            if (GameController.GetCrystals() >= gameController.GetPermCost())
-            {
-                gameController.ClickIncrease();
-                GameController.DecreaseCrystals(gameController.GetPermCost());
-                DisplayMessage("Your clicks now give you " + GameController.ReturnClickIncrease() + " crystals!");
-            }
-            else
-            {
-                DisplayMessage("Not Enough Crystals!");
-            }
-        }
-        else if (powerUpName.Equals("IdlePower")) {
-
-            if(GameController.GetCrystals() >= gameController.GetIdleCost())
-            {
-                if (gameController.IsIdleTrue() == false)
-                {
-                    
-                    DisplayMessage("You will now recieve " + gameController.ReturnClicksPerSec() + " crystal per minute!");
-                }
-                else if(gameController.IsIdleLvlTrue())
-                {
-
-                    DisplayMessage("You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every " + (gameController.ReturnSecBeforeClick()) + " seconds");
-                }
-
-
-                gameController.BuyIdle();
-                GameController.DecreaseCrystals(gameController.GetIdleCost());
-
-            }
-            else
-            {
-                DisplayMessage("Not Enough Crystals!");
-            }
-            
-        }
-        else if (powerUpName.Equals("stardustMiner"))
-        {
-            int cost = (GameController.GetStardustMinerLevel() == 0) ? 250 : GameController.GetStardustMinerLevel() * 100;
-            if (GameController.GetStardustMinerLevel() == 20)
-            {
-                DisplayMessage("No more upgrades!");
-            }
-            else if (GameController.GetStardust() >= cost)
-            {
-                gameController.IncreaseStardustMinerLevel();
-                GameController.DecreaseStardust(cost);
-
-
-                DisplayMessage(GameController.GetStardustMinerLevel() + "% chance to find stardust!" );
-            }
-            else
-            {
-                DisplayMessage("Not Enough Stardust!");
-            }
-        }
-        else
-        {
-            DisplayMessage("Error: No such item found!");
-        }
-        gameController.SaveGame();
-    }
-
-    public void DisplayMessage(string message) // called by actions the player makes such as buying upgrades or failing to buy upgrades
-    {
-        UIText.gameObject.SetActive(true); // important to activate and deactivate otherwise its always in the way
-        UIText.text = message;
-        displayUIMessage = true; // bool to tell timer to start
-        ResetTimer(); //without this, the timer would run out and the message would dissappear even if player clicks multiple times after the initial
-    }
-
-    private void ResetTimer() 
-    {
-        timer = 0;
     }
 
     public void EquipAccessory(int index) //anropas vid klick av accessories-köpknapp
@@ -273,6 +141,9 @@ public class StoreScript : MonoBehaviour
 
     private void PurchaseAccessory(int index)
     {
+        print("index: " + index);
+        print("accessoryCosts[index]: " + accessoryCosts[index]);
+        print(GameController.GetStardust() >= accessoryCosts[index]);
         if (GameController.GetStardust() >= accessoryCosts[index])
         {
             GameController.DecreaseStardust(accessoryCosts[index]);
@@ -397,32 +268,31 @@ public class StoreScript : MonoBehaviour
             return (GameController.GetStardustMinerLevel() == 0) ? 50 : GameController.GetStardustMinerLevel() * 100;
         }
 
-       
         else if (name.Equals("party"))
         {
-            return 500;
+            return accessoryCosts[1];
         }
         else if (name.Equals("cow"))
         {
-            return 500;
+            return accessoryCosts[2];
         }
         else if (name.Equals("halo"))
         {
-            return 501;
+            return accessoryCosts[3];
         }
 
 
         else if (name.Equals("drip"))
         {
-            return 1000;
+            return planetCosts[1];
         }
         else if (name.Equals("cookie"))
         {
-            return 10000;
+            return planetCosts[2];
         }
         else if (name.Equals("candy"))
         {
-            return 10000;
+            return planetCosts[3];
         }
         return 0;
     }
