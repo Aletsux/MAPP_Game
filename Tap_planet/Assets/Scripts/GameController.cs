@@ -45,16 +45,6 @@ public class GameController : MonoBehaviour
     private int theNextUpdate = 1;
     public int secBeforeIdleClick = 75;
 
-    //Accessoar
-    public List<GameObject> accessoryObjects = new List<GameObject>();
-    public List<Button> accessoryButtons;
-    public List<int> accessoryCosts= new List<int>();
-
-    //Planeter
-    public List<GameObject> planetObjects = new List<GameObject>();
-    public List<Button> planetButtons;
-    public List<int> planetCosts = new List<int>();
-
     //private int saveIfUsingIdle = 0;
     //private int saveIfLvlOne = 0;
     private bool isAtLevel = false;
@@ -63,82 +53,13 @@ public class GameController : MonoBehaviour
     private int nextUpdate = 1;
     public int lvlCounter = 5;
     
+    public VolumeManager volumeManager;
 
     void Start()
     {
+        //ResetForBuild();
+        LoadGame();
         DisableTPU(); //om spelaren inte har någon timed powerup
-
-        //PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas
-        //Accessoarer
-        for (int i = 0; i < accessoryObjects.Count; i++)
-        {
-            if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 1)
-            {
-                accessoryObjects[i].SetActive(true);
-                SetButtonLabel(accessoryButtons, i, "Unequip");
-            }
-            else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1)
-            {
-                accessoryObjects[i].SetActive(false);
-                SetButtonLabel(accessoryButtons, i, "Equip");
-                PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
-                PlayerPrefs.Save();
-            }
-            else if (PlayerPrefs.GetInt("AccessoryEquipped_" + i) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
-            {
-                accessoryObjects[i].SetActive(false);
-                SetButtonLabel(accessoryButtons, i, accessoryCosts[i].ToString() + "SD");
-                PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
-                PlayerPrefs.Save();
-            }
-
-            accessoryButtons[i].onClick.RemoveAllListeners();
-            accessoryButtons[i].onClick.AddListener(() =>
-            {
-                EquipAccessory(i);
-            });
-        }
-
-        //Planeter
-        int activePlanetIndex = PlayerPrefs.GetInt("ActivePlanetIndex", 0);
-
-        for (int i = 0; i < planetObjects.Count; i++)
-        {
-            if (i == activePlanetIndex) //Om i är den aktiva planeten
-            {
-                planetObjects[i].SetActive(true);
-                SetButtonLabel(planetButtons, i, "Equipped");
-                planetButtons[i].interactable = false;
-            }
-            else if (PlayerPrefs.GetInt("PlanetPurchased_" + i) == 1) //Om planeten har köpts tidigare
-            {
-                planetObjects[i].SetActive(false);
-                SetButtonLabel(planetButtons, i, "");
-                planetButtons[i].interactable = false;
-            }
-            else //Om planeten ej har köpts tidigare
-            {
-                planetObjects[i].SetActive(false);
-                SetButtonLabel(planetButtons, i, planetCosts[i].ToString() + "SD");
-                planetButtons[i].interactable = true;
-            }
-
-            planetButtons[i].onClick.RemoveAllListeners();
-            planetButtons[i].onClick.AddListener(() => //lägger till listener för varje planet-knapp
-            {
-                EquipPlanet(i);
-            });
-        }
-
-        //Om ingen planet är aktiverad, sätt startplaneten som aktiv
-        if (activePlanetIndex == 0)
-        {
-            planetObjects[0].SetActive(true);
-            SetButtonLabel(planetButtons, 0, "Equipped");
-            planetButtons[0].interactable = false;
-            PlayerPrefs.SetInt("PlanetPurchased_" + 0, 1);
-            PlayerPrefs.Save();
-        }
     }
 
     void Update()
@@ -213,7 +134,7 @@ public class GameController : MonoBehaviour
 
     private void UpdateCrystals()
     {
-        crystalAmount.text = crystals + "" /*suffix*/;
+        crystalAmount.text = crystals.ToString();
     }
 
     public void ClickIncrease()
@@ -285,7 +206,7 @@ public class GameController : MonoBehaviour
 
     private void UpdateStardust()
     {
-        stardustAmount.text = stardust + "" /*suffix*/;
+        stardustAmount.text = stardust.ToString();
     }
 
     //private string FormatCrystalAmount() // should convert from 1000 to 1k and so on
@@ -373,7 +294,7 @@ public class GameController : MonoBehaviour
         DisableTPU();
     }
 
-    private void SaveGame()
+    public void SaveGame()
     {
         PlayerPrefs.SetString("crystals", GetCrystals().ToString()); // save converted long to string
         PlayerPrefs.SetString("clickIncrease", ReturnClickIncrease().ToString()); // save converted long to string
@@ -386,15 +307,17 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("numPerSec", ReturnClicksPerSec());
         PlayerPrefs.SetInt("secBeforeIdleClick", ReturnSecBeforeClick());
         PlayerPrefs.SetInt("lvlCounter", ReturnTimesToLvlUp());
-        //PlayerPrefs.SetInt("saveIfUsingSvenska", Convert.ToInt32(svenska));
-        //PlayerPrefs.SetInt("saveIfUsingEngelska", Convert.ToInt32(engelska));
+        PlayerPrefs.SetFloat("Volume", volumeManager.getVolume());
+        PlayerPrefs.SetInt("tpuCost", GetTpuCost());
+        PlayerPrefs.SetInt("idleCost", GetIdleCost());
+        PlayerPrefs.SetInt("permCost", GetPermCost());
     }
 
     private void ResetForBuild()
     {
         PlayerPrefs.SetString("crystals", 0.ToString());
         PlayerPrefs.SetString("clickIncrease", 1.ToString());
-        PlayerPrefs.SetInt("stardust", 0);
+        PlayerPrefs.SetInt("stardust", 10000);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(false));
@@ -403,9 +326,12 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("numPerSec", 0);
         PlayerPrefs.SetInt("secBeforeIdleClick", 75);
         PlayerPrefs.SetInt("lvlCounter", 5);
+        PlayerPrefs.SetInt("tpuCost", 5);
+        PlayerPrefs.SetInt("idleCost", 5);
+        PlayerPrefs.SetInt("permCost", 5);
     }
 
-    private void LoadGame()
+    public void LoadGame()
     {
         crystals = (long)Convert.ToDouble(PlayerPrefs.GetString("crystals")); // convert saved string to double and then to long
         clickIncrease = (long)Convert.ToDouble(PlayerPrefs.GetString("clickIncrease"));// convert saved string to double and then to long
@@ -419,8 +345,10 @@ public class GameController : MonoBehaviour
         numPerSec = PlayerPrefs.GetInt("numPerSec");
         secBeforeIdleClick = PlayerPrefs.GetInt("secBeforeIdleClick");
         lvlCounter = PlayerPrefs.GetInt("lvlCounter");
-        //engelska = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingEngelska"));
-        //svenska = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingSvenska"));
+        PlayerPrefs.SetFloat("Volume", volumeManager.getVolume());
+        tpuCost = PlayerPrefs.GetInt("tpuCost");
+        idleCost = PlayerPrefs.GetInt("idleCost");
+        permCost = PlayerPrefs.GetInt("permCost");
 
         LoadIdleClicks(calculateSecondsSinceQuit());
         UpdateTPU();
@@ -444,7 +372,7 @@ public class GameController : MonoBehaviour
         else
         {
             SaveGame();
-            ResetForBuild();
+            //ResetForBuild();
         }
     }
 
@@ -569,120 +497,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void EquipAccessory(int index) //anropas vid klick av accessories-köpknapp
-    {
-        //if (index >= accessoryObjects.Count)
-        //{
-        //    Debug.LogError("Invalid index: " + index);
-        //    return;
-        //}
-
-        bool hasPurchased = PlayerPrefs.GetInt("AccessoryPurchased_" + index, 0) == 1;
-
-        if (!hasPurchased)
-        {
-            PurchaseAccessory(index);
-        }
-        else
-        {
-            ToggleAccessory(index);
-        }
-    }
-
-    private void PurchaseAccessory(int index)
-    {
-        DecreaseStardust(accessoryCosts[index]);
-        PlayerPrefs.SetInt("AccessoryPurchased_" + index, 1);
-        PlayerPrefs.Save();
-        SetButtonLabel(accessoryButtons, index, "Equip");
-    }
-
-    private void ToggleAccessory(int index) //ifall accessoaren är aktiverad inaktiveras den och vice versa
-    {
-        bool isEquipped = accessoryObjects[index].activeSelf; //om accessoar-gameobjectet är aktiverat
-
-        //sätter för den klickade knappen
-        if (isEquipped)
-        {
-            accessoryObjects[index].SetActive(false);
-            SetButtonLabel(accessoryButtons, index, "Equip");
-            PlayerPrefs.SetInt("AccessoryEquipped_" + index, 0);
-            PlayerPrefs.Save();
-        }
-        else
-        {
-            accessoryObjects[index].SetActive(true);
-            SetButtonLabel(accessoryButtons, index, "Unequip");
-            PlayerPrefs.SetInt("AccessoryEquipped_" + index, 1);
-            PlayerPrefs.Save();
-        }
-        //sätter för de andra knapparna
-        for (int i = 0; i < accessoryObjects.Count; i++)
-        {
-            if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1)
-            {
-                accessoryObjects[i].SetActive(false);
-                SetButtonLabel(accessoryButtons, i, "Equip");
-                PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
-                PlayerPrefs.Save();
-            }
-            else if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
-            {
-                accessoryObjects[i].SetActive(false);
-                SetButtonLabel(accessoryButtons, i, accessoryCosts[i].ToString() + "SD");
-                PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
-                PlayerPrefs.Save();
-            }
-        }
-    }
-
-    private void SetButtonLabel(List<Button> buttons, int index, string label)
-    {
-        buttons[index].GetComponentInChildren<Text>().text = label;
-    }
-
-    public void EquipPlanet(int index)
-    {
-        if (PlayerPrefs.GetInt("PlanetPurchased_" + index) == 0)
-        {
-            purchasePlanet(index);
-        }
-
-        togglePlanet(index);
-    }
-
-    private void purchasePlanet(int index)
-    {
-        DecreaseStardust(planetCosts[index]);
-        PlayerPrefs.SetInt("PlanetPurchased_" + index, 1);
-        PlayerPrefs.Save();
-    }
-
-    private void togglePlanet(int index)
-    {
-        SetButtonLabel(planetButtons, index, "Equipped");
-        planetButtons[index].interactable = false;
-        planetObjects[index].SetActive(true);
-        PlayerPrefs.SetInt("ActivePlanetIndex", index); //ifall man hämtar inten får man indexet för planeten som är equipped
-        PlayerPrefs.Save();
-
-        for (int i = 0; i < planetObjects.Count; i++)
-        {
-            if (i != index && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 1) //ifall man tidigare haft planeten
-            {
-                planetObjects[i].SetActive(false);
-                SetButtonLabel(planetButtons, i, "");
-                planetButtons[i].interactable = false;
-            }
-            else if (i != index && PlayerPrefs.GetInt("PlanetPurchased_" + i) == 0)
-            {
-                planetObjects[i].SetActive(false);
-                SetButtonLabel(planetButtons, i, planetCosts[i].ToString() + "SD");
-                planetButtons[i].interactable = true;
-            }
-        }
-    }
-
     public float ReturnTPUTimeBeforeReset()
     {
         return tpuTimeBeforeReset;
@@ -694,27 +508,5 @@ public class GameController : MonoBehaviour
     }
     //
 
-    //public void SVTaskOnCLick()
-    //{
-    //    svenska = true;
-    //    engelska = false;
-    //    Debug.Log("sve " + svenska);
-    //}
-
-    //public void ENGTaskOnCLick()
-    //{
-    //    engelska = true;
-    //    svenska = false;
-    //    Debug.Log("eng " + engelska);
-    //}
-
-
-    //public bool IsSvenska()
-    //{
-    //    return svenska;
-    //}
-    //public bool IsEngelska()
-    //{
-    //    return engelska;
-    //}
+    
 }

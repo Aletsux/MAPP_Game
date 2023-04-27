@@ -8,7 +8,7 @@ public class ScrollSize : MonoBehaviour
     {
         Canvas canvas = FindObjectOfType<Canvas>();
         RectTransform rt = gameObject.GetComponent<RectTransform>();
-        float h = canvas.GetComponent<RectTransform>().rect.height - 250;
+        float h = canvas.GetComponent<RectTransform>().rect.height - 350;
         rt.sizeDelta = new Vector2(1080, h);
     }
 }

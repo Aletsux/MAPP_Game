@@ -22,6 +22,9 @@ public class RaidController : MonoBehaviour
 
     public static bool raidToggle;
 
+    private float autoRaidTimer;
+    public float raidTime = 10f;
+
 
     //public GameObject raidPanel;
 
@@ -36,19 +39,29 @@ public class RaidController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        autoRaidTimer += Time.deltaTime;
 
+        Debug.Log(autoRaidTimer);
+        Debug.Log(raidTime);
+
+        if (autoRaidTimer >= raidTime)
+        {
+            activateAutoRaid();
+        }
     }
 
     void OnApplicationFocus(bool focus)
     {
         if (focus) //if player enters game
         {
-            //timeSinceQuit = calculateSecondsSinceQuit();
+
+
+            timeSinceQuit = calculateSecondsSinceQuit();
             Debug.Log("TimeSincequit: " + timeSinceQuit);
             Debug.Log(PlayerPrefs.GetInt("RaidToggle"));
             //PlayerPrefs.SetInt("RaidToggle");
 
-            if (timeSinceQuit > timeBeforeRaid && timeSinceQuit < timeBeforeMiss || PlayerPrefs.GetInt("RaidToggle") == 1 && timeSinceQuit < timeBeforeMiss) // if time since last save is larger than tBR (def: 30) & less than tBM
+            if (timeSinceQuit > timeBeforeRaid && timeSinceQuit < timeBeforeMiss || (PlayerPrefs.GetInt("RaidToggle") == 1 && timeSinceQuit < timeBeforeMiss)) // if time since last save is larger than tBR (def: 30) & less than tBM
             {
                 activateRaidPanel.Toggle(true);
                 activateMissedRaidPanel.Toggle(false);
@@ -119,4 +132,15 @@ public class RaidController : MonoBehaviour
             raidToggle = true;
         }
     }
+
+    private void activateAutoRaid()
+    {
+        activateRaidPanel.Toggle(true);
+        activateMissedRaidPanel.Toggle(false);
+        PlayerPrefs.SetInt("RaidToggle", 1);
+        toggleRaid();
+        autoRaidTimer = 0;
+        Debug.Log("bang");
+    }
 }
+

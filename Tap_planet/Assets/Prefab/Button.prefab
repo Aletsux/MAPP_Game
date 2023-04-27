@@ -89,8 +89,8 @@ GameObject:
   - component: {fileID: 3221458959929768791}
   - component: {fileID: 8156258698832436789}
   m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
+  m_Name: TextBuy
+  m_TagString: Buy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -454,6 +454,7 @@ GameObject:
   - component: {fileID: 4347904051842622612}
   - component: {fileID: 4347904051842622613}
   - component: {fileID: 2371637610812320705}
+  - component: {fileID: 8018301817121971750}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -632,7 +633,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   title: {fileID: 0}
   description: {fileID: 0}
+  price: {fileID: 0}
   titleKey: 
   titleTable: 
   descriptionKey: 
   descriptionTable: 
+  priceKey: 
+  priceTable: 
+--- !u!114 &8018301817121971750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4347904051842622600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8476d2e68bc0f435fa5bd3b025c8d477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  price: 0
+  index: 0
+  button: {fileID: 4864048919557140763}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}

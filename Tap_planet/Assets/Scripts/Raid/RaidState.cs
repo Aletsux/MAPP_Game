@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
 using UnityEngine.UI;
 
 public class RaidState : MonoBehaviour
@@ -20,6 +19,8 @@ public class RaidState : MonoBehaviour
     private float raidTimer;
     public float raidTime = 15;
 
+    public GameController gc;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +37,9 @@ public class RaidState : MonoBehaviour
             raidTimer += Time.deltaTime;
             if (raidTimer >= raidTime)
             {
+                RaidEnded();
                 beginRaid = false;
                 raidTimer = 0f;
-                RaidEnded();
             }
         }
     }
@@ -47,18 +48,25 @@ public class RaidState : MonoBehaviour
     {
         beginRaid = true;
     }
-    
+
     public void RaidEnded()
     {
         raidOverPanel.SetActive(true);
-        int result = enemiesKilled - PlanetState.totalRaidDamage; 
+        int result = enemiesKilled - PlanetState.totalRaidDamage;
 
         enemiesKilledText.text = enemiesKilled + "";
         enemiesMissedText.text = PlanetState.totalRaidDamage.ToString();
         resultText.text = result.ToString();
-        GameController.AddCrystals(result * 10 * GameController.ReturnClickIncrease());
-        GameController.AddStardust(result);
+        int lostCrystals = (result < GameController.GetCrystals()) ? 0 : result;
+        int lostStardust = (result < GameController.GetStardust()) ? 0 : result;
+        GameController.AddCrystals(lostCrystals * 10 * GameController.ReturnClickIncrease());
+        PlayerPrefs.SetString("crystals", GameController.GetCrystals().ToString());
+
+        GameController.AddStardust(lostStardust);
+        PlayerPrefs.SetInt("stardust", GameController.GetStardust());
+
         PlayerPrefs.SetInt("ToggleRaid", 0);
         enemyAI.deactivate();
     }
+
 }

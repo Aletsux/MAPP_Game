@@ -58,13 +58,14 @@ public class RaidEnemyMovement : MonoBehaviour
     {
         if (collision.tag == "SpeedIncrease")
         {
-            Debug.Log("bam");
+            //Debug.Log("bam");
             isHoming = true;
         }
 
         //Destroy ship on collison
         if (collision.tag == "PlanetTrigger")
         {
+            Debug.Log("YOU WERE HIT");
             PlanetState.totalRaidDamage++;
             gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
             Destroy(gameObject);

@@ -21,13 +21,12 @@ public class MissedRaid : MonoBehaviour
             lostCrystals = rng * GameController.GetCrystals() / 10;
             //long lostCrystalsLong = Mathf.RoundToInt(lostCrystals);
             GameController.DecreaseCrystals((long)lostCrystals);
-            crystalText.text = "Lost Crystals: " + lostCrystals;
+            crystalText.text = lostCrystals.ToString();
 
             lostStardust = rng * GameController.GetStardust() / 10;
             GameController.DecreaseStardust((int)lostStardust);
-            stardustText.text = "Lost Stardust: " + lostStardust;
+            stardustText.text = lostStardust.ToString();
             PlayerPrefs.SetInt("ToggleRaid", 0);
-            Debug.Log(GameController.GetCrystals());
             Debug.Log("LEVEL 1");
         }
 
@@ -36,11 +35,11 @@ public class MissedRaid : MonoBehaviour
             int rng = rnd.Next(2, 7);
             lostCrystals = rng * GameController.GetCrystals() / 10;
             GameController.DecreaseCrystals((int)lostCrystals);
-            crystalText.text = "Lost Crystals: " + lostCrystals;
+            crystalText.text = lostCrystals.ToString();
 
             lostStardust = rng * GameController.GetStardust() / 10;
             GameController.DecreaseStardust((int)lostStardust);
-            stardustText.text = "Lost Stardust: " + lostStardust;
+            stardustText.text = lostStardust.ToString();
             PlayerPrefs.SetInt("ToggleRaid", 0);
             Debug.Log("LEVEL 2");
         }
@@ -50,11 +49,11 @@ public class MissedRaid : MonoBehaviour
             int rng = rnd.Next(3, 8);
             lostCrystals = rng * GameController.GetCrystals() / 10;
             GameController.DecreaseCrystals((int)lostCrystals);
-            crystalText.text = "Lost Crystals: " + lostCrystals;
+            crystalText.text = lostCrystals.ToString();
 
             lostStardust = rng * GameController.GetStardust() / 10;
             GameController.DecreaseStardust((int)lostStardust);
-            stardustText.text = "Lost Stardust: " + lostStardust;
+            stardustText.text = lostStardust.ToString();
             PlayerPrefs.SetInt("ToggleRaid", 0);
             Debug.Log("LEVEL 3");
         }
@@ -64,11 +63,11 @@ public class MissedRaid : MonoBehaviour
             int rng = rnd.Next(10, 10);
             lostCrystals = rng * GameController.GetCrystals() / 10;
             GameController.DecreaseCrystals((int)lostCrystals);
-            crystalText.text = "Lost Crystals: " + lostCrystals;
+            crystalText.text = lostCrystals.ToString();
 
             lostStardust = rng * GameController.GetStardust() / 10;
             GameController.DecreaseStardust((int)lostStardust);
-            stardustText.text = "Lost Stardust: " + lostStardust;
+            stardustText.text = lostStardust.ToString();
             PlayerPrefs.SetInt("ToggleRaid", 0);
             Debug.Log("LEVEL 4");
         }
