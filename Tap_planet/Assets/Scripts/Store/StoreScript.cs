@@ -54,14 +54,6 @@ public class StoreScript : MonoBehaviour
                 PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0); 
                 PlayerPrefs.Save(); 
             } 
-
-            accessoryButtons[i].onClick.RemoveAllListeners(); 
-            accessoryButtons[i].onClick.AddListener(() => 
-            {
-                print("before buttonlistener");
-                EquipAccessory(i);
-                print("after buttonlistener");
-            }); 
         } 
 
         //Planeter 
@@ -87,12 +79,6 @@ public class StoreScript : MonoBehaviour
                 SetButtonLabel(planetButtons, i, "Buy"); 
                 planetButtons[i].interactable = true; 
             } 
-
-            planetButtons[i].onClick.RemoveAllListeners(); 
-            planetButtons[i].onClick.AddListener(() => //lägger till listener för varje planet-knapp 
-            { 
-                EquipPlanet(i); 
-            }); 
         } 
 
         //Om ingen planet är aktiverad, sätt startplaneten som aktiv 
