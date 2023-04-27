@@ -41,9 +41,6 @@ public class RaidController : MonoBehaviour
     {
         autoRaidTimer += Time.deltaTime;
 
-        Debug.Log(autoRaidTimer);
-        Debug.Log(raidTime);
-
         if (autoRaidTimer >= raidTime)
         {
             activateAutoRaid();

@@ -110,7 +110,7 @@ public class GameController : MonoBehaviour
                 nextUpdate = Mathf.FloorToInt(Time.time) + 1;
                 IdleClickPowerUp();
 
-                Debug.Log("crystal: " + 1);
+                //Debug.Log("crystal: " + 1);
             }
         }
 
