@@ -134,7 +134,7 @@ public class GameController : MonoBehaviour
 
     private void UpdateCrystals()
     {
-        crystalAmount.text = crystals + "" /*suffix*/;
+        crystalAmount.text = crystals.ToString();
     }
 
     public void ClickIncrease()
@@ -206,7 +206,7 @@ public class GameController : MonoBehaviour
 
     private void UpdateStardust()
     {
-        stardustAmount.text = stardust + "" /*suffix*/;
+        stardustAmount.text = stardust.ToString();
     }
 
     //private string FormatCrystalAmount() // should convert from 1000 to 1k and so on

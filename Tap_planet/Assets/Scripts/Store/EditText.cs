@@ -340,10 +340,9 @@ public class EditText : MonoBehaviour
         }
         else if (GameController.GetStardust() >= GetDustCost())
         {
+            dustCost = (GameController.GetStardustMinerLevel() == 0) ? 50 : GameController.GetStardustMinerLevel() * 100;
             gameController.IncreaseStardustMinerLevel();
             GameController.DecreaseStardust(GetDustCost());
-
-            dustCost = (GameController.GetStardustMinerLevel() == 0) ? 250 : GameController.GetStardustMinerLevel() * 100;
 
             if (IsEngelska())
             {
@@ -375,7 +374,7 @@ public class EditText : MonoBehaviour
                 dustPurchaseButn.GetComponent<ItemScript>().itemName = "Stjärnpuder Grävare!";
             }
         }
-
+        gameController.SaveGame();
         //dustCost = (GameController.GetStardustMinerLevel() == 0) ? 250 : GameController.GetStardustMinerLevel() * 100;
     }
     
