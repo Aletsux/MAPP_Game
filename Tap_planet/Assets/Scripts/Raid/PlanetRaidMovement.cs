@@ -18,7 +18,7 @@ public class PlanetRaidMovement : MonoBehaviour
     //public bool isRaidActive = false;
     public bool raidBegins = false;
     public bool planetInPosition = false;
-    public static bool waveStart = true;
+    public bool waveStart = true;
 
     // Start is called before the first frame update
     void Start()

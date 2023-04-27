@@ -27,7 +27,6 @@ public class MissedRaid : MonoBehaviour
             GameController.DecreaseStardust((int)lostStardust);
             stardustText.text = "Lost Stardust: " + lostStardust;
             PlayerPrefs.SetInt("ToggleRaid", 0);
-            Debug.Log(GameController.GetCrystals());
             Debug.Log("LEVEL 1");
         }
 
