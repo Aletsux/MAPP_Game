@@ -53,10 +53,11 @@ public class GameController : MonoBehaviour
     private int nextUpdate = 1;
     public int lvlCounter = 5;
     
+    public VolumeManager volumeManager;
 
     void Start()
     {
-        //ResetForBuild();
+        ResetForBuild();
         LoadGame();
         DisableTPU(); //om spelaren inte har någon timed powerup
     }
@@ -306,14 +307,14 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("numPerSec", ReturnClicksPerSec());
         PlayerPrefs.SetInt("secBeforeIdleClick", ReturnSecBeforeClick());
         PlayerPrefs.SetInt("lvlCounter", ReturnTimesToLvlUp());
-        
+        PlayerPrefs.SetFloat("Volume", volumeManager.getVolume());
     }
 
     private void ResetForBuild()
     {
         PlayerPrefs.SetString("crystals", 0.ToString());
         PlayerPrefs.SetString("clickIncrease", 1.ToString());
-        PlayerPrefs.SetInt("stardust", 100);
+        PlayerPrefs.SetInt("stardust", 10000);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(false));
@@ -338,7 +339,7 @@ public class GameController : MonoBehaviour
         numPerSec = PlayerPrefs.GetInt("numPerSec");
         secBeforeIdleClick = PlayerPrefs.GetInt("secBeforeIdleClick");
         lvlCounter = PlayerPrefs.GetInt("lvlCounter");
-        
+        PlayerPrefs.SetFloat("Volume", volumeManager.getVolume());
 
         LoadIdleClicks(calculateSecondsSinceQuit());
         UpdateTPU();

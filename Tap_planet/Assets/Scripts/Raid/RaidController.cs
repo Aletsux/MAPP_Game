@@ -48,7 +48,7 @@ public class RaidController : MonoBehaviour
             Debug.Log(PlayerPrefs.GetInt("RaidToggle"));
             //PlayerPrefs.SetInt("RaidToggle");
 
-            if (timeSinceQuit > timeBeforeRaid && timeSinceQuit < timeBeforeMiss || PlayerPrefs.GetInt("RaidToggle") == 1 && timeSinceQuit < timeBeforeMiss) // if time since last save is larger than tBR (def: 30) & less than tBM
+            if (timeSinceQuit > timeBeforeRaid && timeSinceQuit < timeBeforeMiss || (PlayerPrefs.GetInt("RaidToggle") == 1 && timeSinceQuit < timeBeforeMiss)) // if time since last save is larger than tBR (def: 30) & less than tBM
             {
                 activateRaidPanel.Toggle(true);
                 activateMissedRaidPanel.Toggle(false);
