@@ -37,9 +37,9 @@ public class RaidState : MonoBehaviour
             raidTimer += Time.deltaTime;
             if (raidTimer >= raidTime)
             {
+                RaidEnded();
                 beginRaid = false;
                 raidTimer = 0f;
-                RaidEnded();
             }
         }
     }
