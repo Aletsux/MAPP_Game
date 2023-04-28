@@ -57,13 +57,20 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        //ResetForBuild();
         LoadGame();
         DisableTPU(); //om spelaren inte har någon timed powerup
     }
 
     void Update()
     {
+        if (Input.GetKeyDown("space"))
+        {
+            GetMoney();
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            ResetForBuild();
+        }
         if (crystals < 0)
         {
             crystals = 0;
@@ -328,6 +335,24 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetString("crystals", 0.ToString());
         PlayerPrefs.SetString("clickIncrease", 1.ToString());
         PlayerPrefs.SetInt("stardust", 10000);
+        PlayerPrefs.SetInt("stardustMinerLevel", 0);
+        PlayerPrefs.SetInt("tpu", 0);
+        PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(false));
+
+        PlayerPrefs.SetInt("saveIfLvlOne", Convert.ToInt32(false));
+        PlayerPrefs.SetInt("numPerSec", 0);
+        PlayerPrefs.SetInt("secBeforeIdleClick", 75);
+        PlayerPrefs.SetInt("lvlCounter", 5);
+        PlayerPrefs.SetInt("tpuCost", 5);
+        PlayerPrefs.SetInt("idleCost", 5);
+        PlayerPrefs.SetInt("permCost", 5);
+    }
+
+    private void GetMoney()
+    {
+        PlayerPrefs.SetString("crystals", 10000.ToString());
+        PlayerPrefs.SetString("clickIncrease", 10.ToString());
+        PlayerPrefs.SetInt("stardust", 1000000);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(false));
