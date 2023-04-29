@@ -12,7 +12,7 @@ public class ItemScript : MonoBehaviour
     public String desciption;
     public String price;
 
-    private Text textComponent;
+    protected Text textComponent;
     private Button panelButton;
     private Button buyButton;
     public Color activeColor;
@@ -22,32 +22,28 @@ public class ItemScript : MonoBehaviour
     public int index; // used for accessories and planets
     public int type; // 0 for upgrades/powerups, 1 for accessories, 2 for planets
 
-    private StoreScript store;
-    private DescriptionScript desc;
+    protected StoreScript store;
+    protected DescriptionScript desc;
     public bool costsStardust; // some upgrades/all accessories/all planets use stardust
-    public bool toTest;
 
     void Start()
     {
         store = GameObject.FindGameObjectWithTag("Store").GetComponent<StoreScript>();
         desc = GameObject.FindGameObjectWithTag("Description").GetComponent<DescriptionScript>();
+
+        textComponent = gameObject.GetComponentsInChildren<Text>()[1];
+
         panelButton = gameObject.GetComponent<Button>();
-        buyButton = GameObject.FindObjectsOfType<Button>()[0];
+        buyButton = gameObject.GetComponentsInChildren<Button>()[1];
 
         panelButton.onClick.AddListener(OnPanelClick);
         buyButton.onClick.AddListener(OnBuyClick);
 
-        if (toTest)
-        {
-            textComponent = gameObject.GetComponentsInChildren<Text>()[1];
-        }
+        SetBuyButtonText();
     }
 
     void Update()
     {
-        if (toTest)
-        {
-
         if (costsStardust)
         {
             if ((type == 1 && PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1) // true means owned
@@ -72,8 +68,18 @@ public class ItemScript : MonoBehaviour
                 buyButton.image.color = inactiveColor;
             }
         }
+    }
 
-        }
+    public void OnPanelClick()
+    {
+        desc.GetAllInformation(this, false);
+    }
+
+    public virtual void OnBuyClick()
+    {
+        store.BuyPowerUp(title);
+        SetBuyButtonText();
+        desc.GetAllInformation(this, true);
     }
 
     public Sprite ReturnImage()
@@ -93,7 +99,7 @@ public class ItemScript : MonoBehaviour
 
     public string ReturnPrice()
     {
-        long price = store.GetPrice(title);
+        double price = store.GetPrice(title);
         if (price < 1000)
         {
             return price.ToString();
@@ -110,24 +116,9 @@ public class ItemScript : MonoBehaviour
         {
             return (price / 1000000000).ToString("F3") + "B";
         }
-
     }
 
-    public void OnPanelClick()
-    {
-        desc.GetAllInformation(this);
-        print("panel");
-    }
-
-    public void OnBuyClick()
-    {
-        desc.GetAllInformation(this);
-        //store.BuyUpgrade(title);
-        SetBuyButtonText();
-        print("buy");
-    }
-
-    private void SetBuyButtonText()
+    protected virtual void SetBuyButtonText()
     {
         textComponent.text = ReturnPrice();
     }

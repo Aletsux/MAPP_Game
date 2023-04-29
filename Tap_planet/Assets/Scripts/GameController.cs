@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System;
 using System.Reflection;
 using Random = System.Random;
+using System.Globalization;
 
 public class GameController : MonoBehaviour
 {
@@ -52,24 +53,51 @@ public class GameController : MonoBehaviour
 
     private int nextUpdate = 1;
     public int lvlCounter = 5;
-    
+
     public VolumeManager volumeManager;
+
+    void Awake()
+    {
+        print("awake (before reset/getmoney ) " + crystals.ToString() + crystals + "PlayerPrefs.GetString(crystals) " + PlayerPrefs.GetString("crystals"));
+        PlayerPrefs.SetInt("getMoney", 0);
+        PlayerPrefs.SetInt("reset", 0);
+        if (PlayerPrefs.GetInt("getMoney") == 1)
+        {
+            GetMoney();
+        }
+        else if (PlayerPrefs.GetInt("reset") == 1)
+        {
+            ResetForBuild();
+        }
+
+        print("awake (after reset/getmoney ) " + crystals.ToString() + crystals + "PlayerPrefs.GetString(crystals) " + PlayerPrefs.GetString("crystals"));
+        
+    }
 
     void Start()
     {
+        print("Start (before load game) " + crystals.ToString() + crystals + "PlayerPrefs.GetString(crystals) " + PlayerPrefs.GetString("crystals"));
         LoadGame();
         DisableTPU(); //om spelaren inte har någon timed powerup
+
+        print("Start (after load game) " + crystals.ToString() + crystals + "PlayerPrefs.GetString(crystals) " + PlayerPrefs.GetString("crystals"));
     }
 
     void Update()
     {
         if (Input.GetKeyDown("space"))
         {
-            GetMoney();
+            PlayerPrefs.SetInt("getMoney", 1);
+            PlayerPrefs.SetInt("reset", 0);
+            print("getmoney " + PlayerPrefs.GetInt("getMoney"));
+            print("reset " + PlayerPrefs.GetInt("reset"));
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            ResetForBuild();
+            PlayerPrefs.SetInt("reset", 1);
+            PlayerPrefs.SetInt("getMoney", 0);
+            print("getmoney " + PlayerPrefs.GetInt("getMoney"));
+            print("reset " + PlayerPrefs.GetInt("reset"));
         }
         if (crystals < 0)
         {
@@ -167,8 +195,8 @@ public class GameController : MonoBehaviour
             //double higherCost = idleCost * 1.02; // lägger till 2% på kostnad
             //idleCost += (int)higherCost;
 
-            double higherCost = permCost * 1.2;
-            permCost += (int)higherCost;
+            //double higherCost = permCost * 1.2;
+            permCost += (int)1;
         }
     }
 
@@ -226,18 +254,6 @@ public class GameController : MonoBehaviour
         stardustAmount.text = stardust.ToString();
     }
 
-    //private string FormatCrystalAmount() // should convert from 1000 to 1k and so on
-    //{
-    //    if (getCrystals() < 1000)
-    //        suffix = "";
-    //    else if (getCrystals() < 1000000)
-    //        suffix = "k";
-    //    else
-    //        suffix = "m";
-    //    return suffix;
-    //}
-
-
     private void TimedPowerUp() // göra en individs klick starkare i några sekunder
     {
         if (isUsingTPU == false)
@@ -246,7 +262,7 @@ public class GameController : MonoBehaviour
 
             saveCurrentClickIncrease = clickIncrease;
 
-            clickIncrease += tpuAddClicksBy;
+            clickIncrease *= (long) 1.5;
         }
     }
 
@@ -313,12 +329,14 @@ public class GameController : MonoBehaviour
 
     public void SaveGame()
     {
+        print("crystals:" + crystals + "prefs:" + PlayerPrefs.GetString("crystals"));
         PlayerPrefs.SetString("crystals", GetCrystals().ToString()); // save converted long to string
+        print("crystals:" + crystals + "prefs:" + PlayerPrefs.GetString("crystals"));
         PlayerPrefs.SetString("clickIncrease", ReturnClickIncrease().ToString()); // save converted long to string
         PlayerPrefs.SetInt("stardust", stardust);
         PlayerPrefs.SetInt("stardustMinerLevel", GetStardustMinerLevel());
         PlayerPrefs.SetInt("tpu", TPUAmount);
-        PlayerPrefs.SetString("quitTime", System.DateTime.Now.ToBinary().ToString());
+        PlayerPrefs.SetInt("quitTime", (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds);
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(isUsingIdleClicker));
         PlayerPrefs.SetInt("saveIfLvlOne", Convert.ToInt32(isAtLevel));
         PlayerPrefs.SetInt("numPerSec", ReturnClicksPerSec());
@@ -328,13 +346,15 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("tpuCost", GetTpuCost());
         PlayerPrefs.SetInt("idleCost", GetIdleCost());
         PlayerPrefs.SetInt("permCost", GetPermCost());
+
+        PlayerPrefs.Save();
     }
 
     private void ResetForBuild()
     {
         PlayerPrefs.SetString("crystals", 0.ToString());
         PlayerPrefs.SetString("clickIncrease", 1.ToString());
-        PlayerPrefs.SetInt("stardust", 10000);
+        PlayerPrefs.SetInt("stardust", 0);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
         PlayerPrefs.SetInt("saveIfUsingIdle", Convert.ToInt32(false));
@@ -345,13 +365,14 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("lvlCounter", 5);
         PlayerPrefs.SetInt("tpuCost", 5);
         PlayerPrefs.SetInt("idleCost", 5);
-        PlayerPrefs.SetInt("permCost", 5);
+        PlayerPrefs.SetInt("permCost", 1);
+        PlayerPrefs.Save();
     }
 
     private void GetMoney()
     {
-        PlayerPrefs.SetString("crystals", 10000.ToString());
-        PlayerPrefs.SetString("clickIncrease", 10.ToString());
+        PlayerPrefs.SetString("crystals", 1000000.ToString());
+        PlayerPrefs.SetString("clickIncrease", 1.ToString());
         PlayerPrefs.SetInt("stardust", 1000000);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
@@ -363,13 +384,37 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("lvlCounter", 5);
         PlayerPrefs.SetInt("tpuCost", 5);
         PlayerPrefs.SetInt("idleCost", 5);
-        PlayerPrefs.SetInt("permCost", 5);
+        PlayerPrefs.SetInt("permCost", 1);
+        PlayerPrefs.Save();
     }
 
     public void LoadGame()
     {
-        crystals = (long)Convert.ToDouble(PlayerPrefs.GetString("crystals")); // convert saved string to double and then to long
-        clickIncrease = (long)Convert.ToDouble(PlayerPrefs.GetString("clickIncrease"));// convert saved string to double and then to long
+        //crystals = (long)Convert.ToDouble(PlayerPrefs.GetString("crystals")); // convert saved string to double and then to long
+        //crystals = long.Parse(PlayerPrefs.GetString("crystals"));
+        //clickIncrease = long.Parse(PlayerPrefs.GetString("clickIncrease"));// convert saved string to double and then to long
+        if (long.TryParse(PlayerPrefs.GetString("crystals"), out long getCrystals))
+        {
+            crystals = getCrystals;
+            print("yes");
+        }
+        else
+        {
+            crystals = 0;
+            print("no");
+        }
+
+        if (long.TryParse(PlayerPrefs.GetString("clickIncrease"), out long getClickIncr))
+        {
+            clickIncrease = getClickIncr;
+            print("yes");
+        }
+        else
+        {
+            clickIncrease = 0;
+            print("no");
+        }
+
         TPUAmount = PlayerPrefs.GetInt("tpu");
         isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
         stardust = PlayerPrefs.GetInt("stardust");
@@ -385,17 +430,14 @@ public class GameController : MonoBehaviour
         idleCost = PlayerPrefs.GetInt("idleCost");
         permCost = PlayerPrefs.GetInt("permCost");
 
+
         LoadIdleClicks(calculateSecondsSinceQuit());
         UpdateTPU();
     }
 
-    private int calculateSecondsSinceQuit()
+    public static int calculateSecondsSinceQuit()
     {
-        DateTime currentDate = System.DateTime.Now; //Store the current time
-        long temp = Convert.ToInt64(PlayerPrefs.GetString("quitTime")); //Grab the old time from the player prefs as a long
-        DateTime quitTime = DateTime.FromBinary(temp); //Convert the old time from binary to a DataTime variable
-        TimeSpan difference = currentDate.Subtract(quitTime); //Use the Subtract method and store the result as a timespan variable
-        return (int)difference.TotalSeconds; // return the difference as an int
+        return (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds - PlayerPrefs.GetInt("quitTime");
     }
 
     void OnApplicationFocus(bool focus)
@@ -444,9 +486,6 @@ public class GameController : MonoBehaviour
         }
         Debug.Log("sec" + secBeforeIdleClick);
     }
-
-    
-    
 
     public bool IsIdleTrue()
     {
@@ -541,7 +580,4 @@ public class GameController : MonoBehaviour
     {
         return tpuAddClicksBy;
     }
-    //
-
-    
 }
