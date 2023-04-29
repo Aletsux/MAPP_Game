@@ -53,7 +53,7 @@ public class RaidController : MonoBehaviour
         {
 
 
-            timeSinceQuit = GameController.calculateSecondsSinceQuit();
+            timeSinceQuit = calculateSecondsSinceQuit();
             Debug.Log("TimeSincequit: " + timeSinceQuit);
             Debug.Log(PlayerPrefs.GetInt("RaidToggle"));
             //PlayerPrefs.SetInt("RaidToggle");
@@ -111,6 +111,15 @@ public class RaidController : MonoBehaviour
             lastSaveTime = System.DateTime.Now;
             Debug.Log(lastSaveTime.ToString());
         }
+    }
+
+    private int calculateSecondsSinceQuit()
+    {
+        DateTime currentDate = System.DateTime.Now; //Store the current time
+        long temp = Convert.ToInt64(PlayerPrefs.GetString("quitTime")); //Grab the old time from the player prefs as a long
+        DateTime quitTime = DateTime.FromBinary(temp); //Convert the old time from binary to a DataTime variable
+        TimeSpan difference = currentDate.Subtract(quitTime); //Use the Subtract method and store the result as a timespan variable
+        return (int)difference.TotalSeconds; // return the difference as an int
     }
 
     private static void toggleRaid()

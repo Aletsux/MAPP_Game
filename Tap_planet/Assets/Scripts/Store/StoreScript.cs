@@ -26,9 +26,11 @@ public class StoreScript : MonoBehaviour
     public List<Button> planetButtons;
     public List<int> planetCosts = new List<int>();
 
-    void Awake()
+    void Start()
     {
+        CloseStore();
         gameController = GC.GetComponent<GameController>(); // gets access to methods
+
         PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas 
         //Accessoarer: 
         for (int i = 0; i < accessoryObjects.Count; i++) 
@@ -88,8 +90,6 @@ public class StoreScript : MonoBehaviour
             PlayerPrefs.SetInt("PlanetPurchased_" + 0, 1); 
             PlayerPrefs.Save(); 
         }
-
-        CloseStore();
     }
     public void OpenStore()
     {
@@ -249,45 +249,6 @@ public class StoreScript : MonoBehaviour
         }
     }
 
-    public void BuyPowerUp(string powerUpName) // takes which powerup to buy
-    {
-        if (powerUpName.Equals("temp")) // if tpu
-        {
-            if (GameController.GetCrystals() >= GetPrice(powerUpName)) // checks bank balance       
-            {
-                gameController.AddTPUAmount(); // adds 1 to tpuAmount
-                GameController.DecreaseCrystals(GetPrice(powerUpName)); // reduces money in bank
-            }
-        }
-        else if (powerUpName.Equals("perm"))
-        {
-            if (GameController.GetCrystals() >= GetPrice(powerUpName))
-            {
-                gameController.ClickIncrease();
-                GameController.DecreaseCrystals(GetPrice(powerUpName));
-            }
-        }
-        else if (powerUpName.Equals("idle"))
-        {
-            if (GameController.GetCrystals() >= GetPrice(powerUpName))
-            {
-                gameController.BuyIdle();
-                GameController.DecreaseCrystals(GetPrice(powerUpName));
-            }
-        }
-        else if (powerUpName.Equals("dust"))
-        {
-            int cost = (GameController.GetStardustMinerLevel() == 0) ? 20 : GameController.GetStardustMinerLevel() * 50;
-            if (GameController.GetStardust() >= cost)
-            {
-                gameController.IncreaseStardustMinerLevel();
-                GameController.DecreaseStardust(cost);
-            }
-        }
-
-        gameController.SaveGame();
-    }
-
     public int GetPrice(string name)
     {
         if (name.Equals("idle"))
@@ -296,7 +257,7 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("perm"))
         {
-            return gameController.GetPermCost() * (12);
+            return gameController.GetPermCost();
         }
         else if (name.Equals("temp"))
         {

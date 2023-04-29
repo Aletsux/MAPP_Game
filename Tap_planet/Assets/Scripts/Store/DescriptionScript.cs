@@ -20,9 +20,9 @@ public class DescriptionScript : MonoBehaviour
         Toggle(active);
     }
 
-    public void GetAllInformation(ItemScript item, bool buy)
+    public void GetAllInformation(ItemScript item)
     {
-        if (item.Equals(currentItem) && active && !buy)
+        if (item.Equals(currentItem) && active)
         {
             active = false;
         }
@@ -42,5 +42,10 @@ public class DescriptionScript : MonoBehaviour
     private void Toggle(bool b)
     {
         gameObject.SetActive(b);
+    }
+
+    private void setObjectInactive()
+    {
+        gameObject.SetActive(false);
     }
 }
