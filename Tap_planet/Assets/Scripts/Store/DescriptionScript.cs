@@ -22,8 +22,36 @@ public class DescriptionScript : MonoBehaviour
         price.text = item.ReturnPrice();
     }
 
+<<<<<<< HEAD
+=======
+    public void GetAllInformation(ItemScript item)
+    {
+        if (item.Equals(currentItem) && active)
+        {
+            active = false;
+        }
+        else
+        {
+            itemName.text = item.ReturnName();
+            description.text = item.ReturnDescription();
+            sprite.sprite = item.ReturnImage();
+            price.text = item.ReturnPrice();
+>>>>>>> parent of b9ee07c0 (...)
 
 
+<<<<<<< HEAD
 
 
 }
+=======
+    private void Toggle(bool b)
+    {
+        gameObject.SetActive(b);
+    }
+
+    private void setObjectInactive()
+    {
+        gameObject.SetActive(false);
+    }
+}
+>>>>>>> parent of b9ee07c0 (...)
