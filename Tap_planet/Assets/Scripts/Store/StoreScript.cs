@@ -263,7 +263,7 @@ public class StoreScript : MonoBehaviour
         {
             if (GameController.GetCrystals() >= GetPrice(powerUpName))
             {
-                gameController.ClickIncrease();
+                gameController.ClickLevelUp();
                 GameController.DecreaseCrystals(GetPrice(powerUpName));
             }
         }
@@ -296,7 +296,7 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("perm"))
         {
-            return gameController.GetPermCost() * (12);
+            return GameController.GetClickLvl() * (5);
         }
         else if (name.Equals("temp"))
         {

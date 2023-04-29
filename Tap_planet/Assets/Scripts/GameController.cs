@@ -11,26 +11,21 @@ public class GameController : MonoBehaviour
 {
     private static long crystals;
     public Text crystalAmount;
-    private static long clickIncrease = 1;
+    private static int clickLvl = 1;
 
     private static int stardust;
     public Text stardustAmount;
     private static int stardustMinerLevel;
     private static Random rnd = new Random();
 
-    //private static string suffix = "";
-
-    /*cost as method! for scaling purposes and maybe in store!*/
     [SerializeField] int tpuCost = 1; //tpu = timedPowerUp
     [SerializeField] private float tpuTimeBeforeReset; // hur många sekunder som powerup ska hålla på
-    /* make method for scaling the amount!*/
+
     [SerializeField] public int tpuAddClicksBy;
     private bool isUsingTPU = false; 
-    private long saveCurrentClickIncrease; //saves clickIncrease before the limited timed powerUp
+    private int saveCurrentClickLvl; //saves clickLvl before the limited timed powerUp
     private float tpuTimer = 0f;
 
-    /*name : clickUpgrade?*/  /*cost as method! for scaling purposes and maybe in store!*/
-    [SerializeField] public int permCost; //perm = permanent, så att om spelaren köper kommer de alltid ha extra klicks
 
     //powerups
     [Space]
@@ -39,7 +34,7 @@ public class GameController : MonoBehaviour
     public Text TPUText;
     private int TPUAmount = 0;
 
-    [SerializeField] public int idleCost;//the cost for the idle click powerup
+    [SerializeField] public int idleCost = 5;//the cost for the idle click powerup
     public float clicksPerSecond = 1f;
     private bool isUsingIdleClicker = false;
     private int numPerSec = 0;
@@ -58,9 +53,7 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        print("awake (before reset/getmoney ) " + crystals.ToString() + crystals + "PlayerPrefs.GetString(crystals) " + PlayerPrefs.GetString("crystals"));
-        PlayerPrefs.SetInt("getMoney", 0);
-        PlayerPrefs.SetInt("reset", 0);
+        //ResetForBuild();
         if (PlayerPrefs.GetInt("getMoney") == 1)
         {
             GetMoney();
@@ -69,18 +62,10 @@ public class GameController : MonoBehaviour
         {
             ResetForBuild();
         }
-
-        print("awake (after reset/getmoney ) " + crystals.ToString() + crystals + "PlayerPrefs.GetString(crystals) " + PlayerPrefs.GetString("crystals"));
-        
-    }
-
-    void Start()
-    {
-        print("Start (before load game) " + crystals.ToString() + crystals + "PlayerPrefs.GetString(crystals) " + PlayerPrefs.GetString("crystals"));
+        PlayerPrefs.SetInt("reset", 0);
+        PlayerPrefs.SetInt("getMoney", 0);
         LoadGame();
         DisableTPU(); //om spelaren inte har någon timed powerup
-
-        print("Start (after load game) " + crystals.ToString() + crystals + "PlayerPrefs.GetString(crystals) " + PlayerPrefs.GetString("crystals"));
     }
 
     void Update()
@@ -116,7 +101,7 @@ public class GameController : MonoBehaviour
             {
                 tpuTimer = 0f;
                 isUsingTPU = false;
-                ResetClickIncrease();
+                RestoreClickLvl();
             }
         }
 
@@ -160,7 +145,7 @@ public class GameController : MonoBehaviour
 
     public void ClickCrystal()
     {
-        crystals += (1 * clickIncrease); // add crystals
+        crystals += (1 * clickLvl); // add crystals
         //setSuffix();
         UpdateCrystals(); // update amount in UI
     }
@@ -182,27 +167,17 @@ public class GameController : MonoBehaviour
         crystalAmount.text = crystals.ToString();
     }
 
-    public void ClickIncrease()
+    public void ClickLevelUp()
     {
-        if (crystals >= permCost)
-        {
-            int toAdd = 1;
-            if (clickIncrease % 10 == 0) // every 10 upgrades varje gång klickar på knapp i store
-                toAdd = 5;  // the player gets a bonus
-            clickIncrease += toAdd;
-
-            //permCost
-            //double higherCost = idleCost * 1.02; // lägger till 2% på kostnad
-            //idleCost += (int)higherCost;
-
-            //double higherCost = permCost * 1.2;
-            permCost += (int)1;
-        }
+        double toAdd = 1;
+        if (clickLvl % 10 == 0) // every 10 upgrades varje gång klickar på knapp i store
+            toAdd = clickLvl;  // the player gets a bonus
+        clickLvl += 1 + (int)(clickLvl * 0.1);
     }
 
-    public static long ReturnClickIncrease()
+    public static int ReturnClickLvl()
     {
-        return clickIncrease;
+        return clickLvl;
     }
 
     public void ClickStardust()
@@ -260,15 +235,15 @@ public class GameController : MonoBehaviour
         {
             isUsingTPU = true;
 
-            saveCurrentClickIncrease = clickIncrease;
+            saveCurrentClickLvl = clickLvl;
 
-            clickIncrease *= (long) 1.5;
+            clickLvl *= 2;
         }
     }
 
-    public void ResetClickIncrease() // sätt tillbaka klick till default
+    public void RestoreClickLvl() // sätt tillbaka klick till default
     {
-        clickIncrease = saveCurrentClickIncrease;
+        clickLvl = saveCurrentClickLvl;
     }
 
     public void DoPowerUp(string powerUpName) // olika knappar kan kalla på denna och skicka in en sträng, metoden väljer sen själv vilken powerup som ska göras
@@ -296,9 +271,9 @@ public class GameController : MonoBehaviour
     {
         return tpuCost;
     }
-    public int GetPermCost()
+    public static int GetClickLvl()
     {
-        return permCost;
+        return clickLvl;
     }
 
     public void AddTPUAmount()
@@ -308,8 +283,8 @@ public class GameController : MonoBehaviour
         TPUAmount++;
         UpdateTPU();
 
-        //double higherCost = permCost * 1.2;
-        //permCost += (int)higherCost;
+        //double higherCost = clickLvl * 1.2;
+        //clickLvl += (int)higherCost;
 
         double higherCost = tpuCost * 1.2;
         tpuCost += (int)higherCost;
@@ -329,10 +304,8 @@ public class GameController : MonoBehaviour
 
     public void SaveGame()
     {
-        print("crystals:" + crystals + "prefs:" + PlayerPrefs.GetString("crystals"));
         PlayerPrefs.SetString("crystals", GetCrystals().ToString()); // save converted long to string
-        print("crystals:" + crystals + "prefs:" + PlayerPrefs.GetString("crystals"));
-        PlayerPrefs.SetString("clickIncrease", ReturnClickIncrease().ToString()); // save converted long to string
+        PlayerPrefs.SetInt("clickLvl", GetClickLvl()); // save converted long to string
         PlayerPrefs.SetInt("stardust", stardust);
         PlayerPrefs.SetInt("stardustMinerLevel", GetStardustMinerLevel());
         PlayerPrefs.SetInt("tpu", TPUAmount);
@@ -345,7 +318,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetFloat("Volume", volumeManager.getVolume());
         PlayerPrefs.SetInt("tpuCost", GetTpuCost());
         PlayerPrefs.SetInt("idleCost", GetIdleCost());
-        PlayerPrefs.SetInt("permCost", GetPermCost());
+        PlayerPrefs.SetInt("clickLvl", GetClickLvl());
 
         PlayerPrefs.Save();
     }
@@ -353,7 +326,7 @@ public class GameController : MonoBehaviour
     private void ResetForBuild()
     {
         PlayerPrefs.SetString("crystals", 0.ToString());
-        PlayerPrefs.SetString("clickIncrease", 1.ToString());
+        PlayerPrefs.SetInt("clickLvl", 1);
         PlayerPrefs.SetInt("stardust", 0);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
@@ -365,14 +338,14 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("lvlCounter", 5);
         PlayerPrefs.SetInt("tpuCost", 5);
         PlayerPrefs.SetInt("idleCost", 5);
-        PlayerPrefs.SetInt("permCost", 1);
+        PlayerPrefs.SetInt("clickLvl", 1);
         PlayerPrefs.Save();
     }
 
     private void GetMoney()
     {
         PlayerPrefs.SetString("crystals", 1000000.ToString());
-        PlayerPrefs.SetString("clickIncrease", 1.ToString());
+        PlayerPrefs.SetInt("clickLvl", 1);
         PlayerPrefs.SetInt("stardust", 1000000);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
         PlayerPrefs.SetInt("tpu", 0);
@@ -384,15 +357,12 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("lvlCounter", 5);
         PlayerPrefs.SetInt("tpuCost", 5);
         PlayerPrefs.SetInt("idleCost", 5);
-        PlayerPrefs.SetInt("permCost", 1);
+        PlayerPrefs.SetInt("clickLvl", 1);
         PlayerPrefs.Save();
     }
 
     public void LoadGame()
     {
-        //crystals = (long)Convert.ToDouble(PlayerPrefs.GetString("crystals")); // convert saved string to double and then to long
-        //crystals = long.Parse(PlayerPrefs.GetString("crystals"));
-        //clickIncrease = long.Parse(PlayerPrefs.GetString("clickIncrease"));// convert saved string to double and then to long
         if (long.TryParse(PlayerPrefs.GetString("crystals"), out long getCrystals))
         {
             crystals = getCrystals;
@@ -403,18 +373,7 @@ public class GameController : MonoBehaviour
             crystals = 0;
             print("no");
         }
-
-        if (long.TryParse(PlayerPrefs.GetString("clickIncrease"), out long getClickIncr))
-        {
-            clickIncrease = getClickIncr;
-            print("yes");
-        }
-        else
-        {
-            clickIncrease = 0;
-            print("no");
-        }
-
+        clickLvl = PlayerPrefs.GetInt("clickLvl");
         TPUAmount = PlayerPrefs.GetInt("tpu");
         isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
         stardust = PlayerPrefs.GetInt("stardust");
@@ -428,7 +387,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetFloat("Volume", volumeManager.getVolume());
         tpuCost = PlayerPrefs.GetInt("tpuCost");
         idleCost = PlayerPrefs.GetInt("idleCost");
-        permCost = PlayerPrefs.GetInt("permCost");
+        clickLvl = PlayerPrefs.GetInt("clickLvl");
 
 
         LoadIdleClicks(calculateSecondsSinceQuit());
@@ -449,10 +408,8 @@ public class GameController : MonoBehaviour
         else
         {
             SaveGame();
-            //ResetForBuild();
         }
     }
-
 
     public void BuyIdle()
     {
@@ -462,12 +419,10 @@ public class GameController : MonoBehaviour
 
     public void UpdateIdleLevel()
     {
-        //level up it adds cost with 2%
-        //
         if (isAtLevel == false || lvlCounter > 0)
         {
-            double higherCost = idleCost * 1.02; // lägger till 2% på kostnad
-            idleCost += (int)higherCost;
+            double num = Math.Ceiling(idleCost * 1.02); // lägger till 2% på kostnad
+            idleCost = (int)num;
             lvlCounter -= 1;
             Debug.Log("Lvl: " + lvlCounter);
 
@@ -482,7 +437,6 @@ public class GameController : MonoBehaviour
 
             secBeforeIdleClick = 60;
             numPerSec += 1;
-
         }
         Debug.Log("sec" + secBeforeIdleClick);
     }
@@ -539,8 +493,6 @@ public class GameController : MonoBehaviour
     {
         return lvlCounter;
     }
-
-    
 
     private void LoadIdleClicks(int secondsPassed)
     {

@@ -766,7 +766,6 @@ GameObject:
   m_Component:
   - component: {fileID: 205055366}
   - component: {fileID: 205055365}
-  - component: {fileID: 205055367}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -791,7 +790,6 @@ MonoBehaviour:
   tpuCost: 5
   tpuTimeBeforeReset: 5
   tpuAddClicksBy: 100
-  permCost: 1
   TPU: {fileID: 2099729606}
   TPUText: {fileID: 1033135185}
   idleCost: 5
@@ -814,18 +812,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &205055367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205055364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4939603de377d43a9889079e88cd715b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &205800286 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6458594102437613890, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
@@ -2210,7 +2196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4507413346053660831, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GetStringForUI
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4507413346053660831, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -2230,7 +2216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4507413346053660831, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Translate, Assembly-CSharp
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4507413346053660831, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -2258,7 +2244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4507413346053660831, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4507413346053660831, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -2414,7 +2400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298256, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298256, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2427,7 +2413,7 @@ PrefabInstance:
     - target: {fileID: 4709575009440298256, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1975293276}
     - target: {fileID: 4709575009440298256, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2442,7 +2428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298256, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GetStringForUI
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298256, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -2454,7 +2440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298256, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Translate, Assembly-CSharp
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298256, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -2474,7 +2460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298256, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298256, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -5440,7 +5426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873ba3800abb38a4081ac2174bbebd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneChange: {fileID: 205055367}
+  sceneChange: {fileID: 0}
   activateRaidPanel: {fileID: 488676328}
   activateMissedRaidPanel: {fileID: 0}
   timeSinceQuit: 0
@@ -9310,7 +9296,7 @@ PrefabInstance:
       objectReference: {fileID: 3442147}
     - target: {fileID: 205854124087735476, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 205854124087735476, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -9327,7 +9313,7 @@ PrefabInstance:
     - target: {fileID: 205854124087735476, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 183200732}
+      objectReference: {fileID: 1810921110}
     - target: {fileID: 205854124087735476, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -9350,7 +9336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 205854124087735476, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: ChangeTextIdle
       objectReference: {fileID: 0}
     - target: {fileID: 205854124087735476, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -9362,7 +9348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 205854124087735476, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DescriptionState, Assembly-CSharp
+      value: EditText, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 205854124087735476, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -9382,7 +9368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 205854124087735476, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 205854124087735476, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -11904,8 +11890,8 @@ MonoBehaviour:
   itemName: 
   desciption: 
   price: 
-  activeColor: {r: 0, g: 0, b: 0, a: 0}
-  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
   index: 0
   type: 0
@@ -11922,6 +11908,7 @@ GameObject:
   - component: {fileID: 849885109}
   - component: {fileID: 849885108}
   - component: {fileID: 849885107}
+  - component: {fileID: 849885110}
   m_Layer: 5
   m_Name: Exit_Button
   m_TagString: Untagged
@@ -11994,9 +11981,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 61063971}
-        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: onExitClick
+      - m_Target: {fileID: 205055365}
+        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
+        m_MethodName: SaveGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 849885110}
+        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
+        m_MethodName: LoadMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12044,6 +12043,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849885105}
   m_CullTransparentMesh: 1
+--- !u!114 &849885110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849885105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4939603de377d43a9889079e88cd715b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goToGame: 0
 --- !u!1 &859040515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9010891648516527340, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
@@ -12375,7 +12387,7 @@ MonoBehaviour:
   itemName: 
   desciption: 
   price: 
-  activeColor: {r: 1, g: 1, b: 1, a: 0}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: cookie
   index: 2
@@ -12670,8 +12682,8 @@ MonoBehaviour:
   itemName: 
   desciption: 
   price: 
-  activeColor: {r: 0, g: 0, b: 0, a: 0}
-  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
   index: 0
   type: 0
@@ -14126,7 +14138,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 205055367}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
         m_MethodName: LoadRaid
         m_Mode: 1
@@ -14197,8 +14209,8 @@ MonoBehaviour:
   itemName: 
   desciption: 
   price: 
-  activeColor: {r: 0, g: 0, b: 0, a: 0}
-  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
   index: 0
   type: 0
@@ -16987,8 +16999,8 @@ MonoBehaviour:
   itemName: 
   desciption: 
   price: 
-  activeColor: {r: 0, g: 0, b: 0, a: 0}
-  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
   index: 0
   type: 0
@@ -20327,7 +20339,7 @@ MonoBehaviour:
   itemName: 
   desciption: 
   price: 
-  activeColor: {r: 1, g: 1, b: 1, a: 0}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: drip
   index: 1
@@ -21736,12 +21748,40 @@ MonoBehaviour:
   itemName: 
   desciption: 
   price: 
-  activeColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
-  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
   index: 0
   type: 2
   costsStardust: 1
+--- !u!114 &1975293276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866811273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:53417b17619027c4da614c1bd7eedf02
+    m_TableEntryReference:
+      m_KeyId: 1908412243968
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &1984410645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21758,8 +21798,8 @@ MonoBehaviour:
   itemName: 
   desciption: 
   price: 
-  activeColor: {r: 0, g: 0, b: 0, a: 0}
-  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
   index: 0
   type: 0
@@ -21892,8 +21932,8 @@ MonoBehaviour:
   itemName: 
   desciption: 
   price: 
-  activeColor: {r: 0, g: 0, b: 0, a: 0}
-  inactiveColor: {r: 0, g: 0, b: 0, a: 0}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
+  inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
   index: 0
   type: 0
@@ -22650,7 +22690,7 @@ MonoBehaviour:
   itemName: 
   desciption: 
   price: 
-  activeColor: {r: 1, g: 1, b: 1, a: 0}
+  activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: candy
   index: 3

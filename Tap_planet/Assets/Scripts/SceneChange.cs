@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
+    public bool goToGame;
+
+    void Start()
+    {
+        if (goToGame)
+            LoadGame();
+    }
     public void LoadMainMenu()
     {
         SceneManager.LoadScene("StartMenu");

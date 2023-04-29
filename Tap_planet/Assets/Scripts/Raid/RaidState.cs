@@ -62,8 +62,8 @@ public class RaidState : MonoBehaviour
         int lostStardust = result;
 
 
-        GameController.AddCrystals(lostCrystals * 10 * GameController.ReturnClickIncrease());
-        Debug.Log("HERE HERE HERE " + lostCrystals * 10 * GameController.ReturnClickIncrease());
+        GameController.AddCrystals(lostCrystals * 10 * GameController.GetClickLvl());
+        Debug.Log("HERE HERE HERE " + lostCrystals * 10 * GameController.GetClickLvl());
         PlayerPrefs.SetString("crystals", GameController.GetCrystals().ToString());
         Debug.Log("HERE HERE HERE " + lostStardust);
         GameController.AddStardust(lostStardust);

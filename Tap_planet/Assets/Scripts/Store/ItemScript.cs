@@ -97,7 +97,7 @@ public class ItemScript : MonoBehaviour
         return desciption;
     }
 
-    public string ReturnPrice()
+    public virtual string ReturnPrice()
     {
         double price = store.GetPrice(title);
         if (price < 1000)
