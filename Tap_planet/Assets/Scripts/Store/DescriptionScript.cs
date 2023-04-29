@@ -10,20 +10,42 @@ public class DescriptionScript : MonoBehaviour
     public TMP_Text itemName;
     public TMP_Text description;
     public TMP_Text price;
+    private static ItemScript currentItem;
 
+    private static bool active;
 
-    
+    public void Start()
+    {
+        active = true;
+        Toggle(active);
+    }
 
     public void GetAllInformation(ItemScript item)
     {
-        itemName.text = item.ReturnName();
-        description.text = item.ReturnDescription();
-        sprite.sprite = item.ReturnImage();
-        price.text = item.ReturnPrice();
+        if (item.Equals(currentItem) && active)
+        {
+            active = false;
+        }
+        else
+        {
+            itemName.text = item.ReturnName();
+            description.text = item.ReturnDescription();
+            sprite.sprite = item.ReturnImage();
+            price.text = item.ReturnPrice();
+
+            active = true;
+        }
+        Toggle(active);
+        currentItem = item;
     }
 
+    private void Toggle(bool b)
+    {
+        gameObject.SetActive(b);
+    }
 
-
-
-
+    private void setObjectInactive()
+    {
+        gameObject.SetActive(false);
+    }
 }
