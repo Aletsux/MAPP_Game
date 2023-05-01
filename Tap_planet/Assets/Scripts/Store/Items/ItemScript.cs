@@ -4,18 +4,19 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Localization.Settings;
 
 public class ItemScript : MonoBehaviour
 {
-    public Sprite sprite;
+    public Sprite itemSprite;
     public String itemName;
-    public String desciption;
+    public String description;
     public String price;
 
-    protected Text textComponent;
     private Button panelButton;
     private Button buyButton;
-    public Color activeColor;
+    protected Text buyButtonText;
+    public Color activeColor; 
     public Color inactiveColor;
 
     public string title; // used to identify upgrades/powerups
@@ -26,12 +27,20 @@ public class ItemScript : MonoBehaviour
     protected DescriptionScript desc;
     public bool costsStardust; // some upgrades/all accessories/all planets use stardust
 
-    void Start()
+    protected string table;
+    protected string titleKey = "Title ";
+    protected string descriptionKey = "Desc ";
+    protected string priceKey = "Price";
+
+    public virtual void Start()
     {
+        titleKey = "Title " + (index + 1);
+        descriptionKey = "Desc " + (index + 1);
+        
         store = GameObject.FindGameObjectWithTag("Store").GetComponent<StoreScript>();
         desc = GameObject.FindGameObjectWithTag("Description").GetComponent<DescriptionScript>();
 
-        textComponent = gameObject.GetComponentsInChildren<Text>()[1];
+        buyButtonText = gameObject.GetComponentsInChildren<Text>()[1];
 
         panelButton = gameObject.GetComponent<Button>();
         buyButton = gameObject.GetComponentsInChildren<Button>()[1];
@@ -46,9 +55,7 @@ public class ItemScript : MonoBehaviour
     {
         if (costsStardust)
         {
-            if ((type == 1 && PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1) // true means owned
-              || (type == 2 && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1)
-              || (GameController.GetStardust() >= store.GetPrice(title)))
+            if ((type == 1 && PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1)  || (type == 2 && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1)  || (GameController.GetStardust() >= store.GetPrice(title)))
             {
                 buyButton.image.color = activeColor;
             }
@@ -70,13 +77,14 @@ public class ItemScript : MonoBehaviour
         }
     }
 
-    public void OnPanelClick()
+    protected virtual void OnPanelClick()
     {
         desc.GetAllInformation(this, false);
     }
 
-    public virtual void OnBuyClick()
+    protected virtual void OnBuyClick()
     {
+        print("itemscript");
         store.BuyPowerUp(title);
         SetBuyButtonText();
         desc.GetAllInformation(this, true);
@@ -84,7 +92,7 @@ public class ItemScript : MonoBehaviour
 
     public Sprite ReturnImage()
     {
-        return sprite;
+        return itemSprite;
     }
 
     public String ReturnName()
@@ -94,7 +102,7 @@ public class ItemScript : MonoBehaviour
 
     public String ReturnDescription()
     {
-        return desciption;
+        return description;
     }
 
     public virtual string ReturnPrice()
@@ -120,6 +128,13 @@ public class ItemScript : MonoBehaviour
 
     protected virtual void SetBuyButtonText()
     {
-        textComponent.text = ReturnPrice();
+        buyButtonText.text = ReturnPrice();
+    }
+
+    public void GetStringForUI()
+    {
+        itemName = LocalizationSettings.StringDatabase.GetLocalizedString(table, titleKey);
+        description = LocalizationSettings.StringDatabase.GetLocalizedString(table, descriptionKey);
+        price = LocalizationSettings.StringDatabase.GetLocalizedString(table, priceKey);
     }
 }

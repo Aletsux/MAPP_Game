@@ -28,8 +28,8 @@ public class StoreScript : MonoBehaviour
 
     void Awake()
     {
-        gameController = GC.GetComponent<GameController>(); // gets access to methods
-        PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas 
+        gameController = GC.GetComponent<GameController>();// gets access to methods
+        //PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas 
         //Accessoarer: 
         for (int i = 0; i < accessoryObjects.Count; i++) 
         { 
