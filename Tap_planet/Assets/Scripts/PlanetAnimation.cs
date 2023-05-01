@@ -5,16 +5,16 @@ using UnityEngine;
 public class PlanetAnimation : MonoBehaviour
 {
     private RectTransform planetPosition;
-    public int toMove;
+    public int toMove = 15;
     [Space]
     private float timer = 0;
     [Space]
     public float timePerFrame = 0.8f;
     private float normalTimePerFrame;
-    public float speedyTimePerFrame = 0.1f;
+    public float speedyTimePerFrame = 0.15f;
     [Space]
     private float duringClickTimer = 0;
-    public float timeBeforeSlowDown;
+    public float timeBeforeSlowDown = 1;
 
     void Start()
     {
