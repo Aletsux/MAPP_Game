@@ -18,6 +18,7 @@ public class ItemScript : MonoBehaviour
     protected Text buyButtonText;
     public Color activeColor; 
     public Color inactiveColor;
+    private Color defaultColor;
 
     public string title; // used to identify upgrades/powerups
     public int index; // used for accessories and planets
@@ -31,7 +32,7 @@ public class ItemScript : MonoBehaviour
     protected string titleKey = "Title ";
     protected string descriptionKey = "Desc ";
     protected string priceKey = "Price";
-
+    protected int galaxyLvl = 1; //Same As ActivePlanetIndex, update value after store items have been updated (ToggleItemActive)
     public virtual void Start()
     {
         titleKey = "Title " + (index + 1);
@@ -47,14 +48,22 @@ public class ItemScript : MonoBehaviour
 
         panelButton.onClick.AddListener(OnPanelClick);
         buyButton.onClick.AddListener(OnBuyClick);
-
+        
         SetBuyButtonText();
+
+        defaultColor = gameObject.GetComponent<Image>().color;
+        ToggleItemActive();
     }
 
     void Update()
     {
+        if(galaxyLvl != PlayerPrefs.GetInt("ActivePlanetIndex", 0)) {
+            ToggleItemActive();
+            galaxyLvl = PlayerPrefs.GetInt("ActivePlanetIndex", 0);
+        }
+        
         if (costsStardust)
-        {
+        {   
             if ((type == 1 && PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1)  || (type == 2 && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1)  || (GameController.GetStardust() >= store.GetPrice(title)))
             {
                 buyButton.image.color = activeColor;
@@ -136,5 +145,30 @@ public class ItemScript : MonoBehaviour
         itemName = LocalizationSettings.StringDatabase.GetLocalizedString(table, titleKey);
         description = LocalizationSettings.StringDatabase.GetLocalizedString(table, descriptionKey);
         price = LocalizationSettings.StringDatabase.GetLocalizedString(table, priceKey);
+    }
+
+    //Set inactive color of button panel if item index is outside of scope 
+    //if active, set color to defaultColor and set interactable
+    public void ToggleItemActive() {
+        int scope = 2;
+        if(!costsStardust) {
+            if (CheckItemActive(scope))
+            {
+                gameObject.GetComponent<Button>().image.color = defaultColor;
+                buyButton.interactable = true;
+            }
+            else
+            {
+                gameObject.GetComponent<Button>().image.color = inactiveColor;
+                buyButton.interactable = false;
+            }
+        }
+    }
+
+    //Check If item is outside of scope
+    private bool CheckItemActive(int scope) {
+        int difference = this.index - PlayerPrefs.GetInt("ActivePlanetIndex", 0) + 1;
+        Debug.Log(this.itemName + " Differece: " + difference);
+        return difference <= scope;
     }
 }
