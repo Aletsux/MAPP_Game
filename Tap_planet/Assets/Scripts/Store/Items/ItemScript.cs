@@ -148,18 +148,19 @@ public class ItemScript : MonoBehaviour
     }
 
     //Set inactive color of button panel if item index is outside of scope 
-    //if active, set color to defaultColor
+    //if active, set color to defaultColor and set interactable
     public void ToggleItemActive() {
-        //Scope can vary based on planet maybe...
         int scope = 2;
         if(!costsStardust) {
             if (CheckItemActive(scope))
             {
                 gameObject.GetComponent<Button>().image.color = defaultColor;
+                buyButton.interactable = true;
             }
             else
             {
                 gameObject.GetComponent<Button>().image.color = inactiveColor;
+                buyButton.interactable = false;
             }
         }
     }
