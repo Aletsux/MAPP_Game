@@ -72,5 +72,6 @@ public class MissedRaid : MonoBehaviour
             PlayerPrefs.SetInt("ToggleRaid", 0);
             Debug.Log("LEVEL 4");
         }
+        PlayerPrefs.SetInt("RaidToggle", 0);
     }
 }
