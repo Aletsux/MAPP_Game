@@ -84,6 +84,4 @@ public class PanelAnimation : MonoBehaviour
     {
         return isActive;
     }
-
-    public 
 }
