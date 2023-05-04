@@ -6,36 +6,32 @@ using TMPro;
 public class FloatingPoints : MonoBehaviour
 {
     public GameObject pointParent;
+    [Space]
+    //Range for spawn position
+    public float xMax = 0;
+    public float xMin = 0; 
+    public float yMax = 0;
+    public float yMin = 0;
+    [Space]
+    //time to destroy after instantiated
+    public float destroyTimer = 1f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    //Make number appear on click position
-    //Input.mousePosition probably not work on touch?
+    //calculate amount, isntantiate obj with random spawnLocation, destroy after 0.5f,
     public void showFloatingPoints() {
         long amount = 1 * GameController.GetClickLvl();
-        Vector3 spawnLocation = new Vector3(Random.Range(-500,500), 0f, 0f); 
-        
-        Vector3 clickPos = Input.mousePosition;
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(clickPos);
-        worldPosition.y = 0;
+        Vector3 spawnLocation = gameObject.transform.position + new Vector3(Random.Range(xMax,xMin), Random.Range(yMax,yMin), 0f);
 
+        Debug.Log("pointParent Pos: " + pointParent.transform.position);
+
+        GameObject points = Instantiate(pointParent, spawnLocation, Quaternion.identity, transform); 
+        
         pointParent.GetComponentInChildren<TextMeshProUGUI>().text = amount.ToString();
 
-        GameObject points = Instantiate(pointParent, spawnLocation, Quaternion.identity) as GameObject; //instantiate text object
-        points.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false); //Sets position?
-
-        //points.transform.localPosition += worldPosition + spawnLocation; //Values change, no difference visually
-        Debug.Log("Pos: " + points.transform.localPosition);
-        Destroy(points, 1f);
+        Debug.Log("Pos: " + points.transform.position);
+        Destroy(points, destroyTimer);
     }
+
+
+
+
 }
