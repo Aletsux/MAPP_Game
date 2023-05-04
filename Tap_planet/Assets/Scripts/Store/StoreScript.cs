@@ -84,10 +84,10 @@ public class StoreScript : MonoBehaviour
                 //{
                 //    if(PlayerPrefs.GetInt("PlanetPurchased_" + (i - 1)) == 0)
                 //    {
-                //        itemScript.buyButton.image.color = itemScript.inactiveColor;
+                //        planetButtons[i].interactable = false;
                 //    } else
                 //    {
-                //        itemScript.buyButton.image.color = itemScript.activeColor;
+                //        planetButtons[i].interactable = true;
                 //    }
                 //}
             } 
@@ -219,7 +219,7 @@ public class StoreScript : MonoBehaviour
         int previousPlanet = index - 1;
         if (previousPlanet != 0)
         {
-            if (GameController.GetStardust() >= planetCosts[index] && PlayerPrefs.GetInt("PlanetPurchased_" + previousPlanet) == 1)
+            if (GameController.GetStardust() >= planetCosts[index] /*&& PlayerPrefs.GetInt("PlanetPurchased_" + previousPlanet) == 1*/)
             {
                 purchasePlanet(index);
                 togglePlanet(index);
@@ -260,11 +260,11 @@ public class StoreScript : MonoBehaviour
                 //{
                 //    if (PlayerPrefs.GetInt("PlanetPurchased_" + (i - 1)) == 0)
                 //    {
-                //        itemScript.buyButton.image.color = itemScript.inactiveColor;
+                //        planetButtons[i].interactable = false;
                 //    }
                 //    else
                 //    {
-                //        itemScript.buyButton.image.color = itemScript.activeColor;
+                //        planetButtons[i].interactable = false;
                 //    }
                 //}
             }
