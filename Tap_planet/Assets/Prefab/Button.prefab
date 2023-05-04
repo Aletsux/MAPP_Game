@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 2338690380335207486}
   - component: {fileID: 8785204462614592721}
   - component: {fileID: 3221458959929768791}
-  - component: {fileID: 8156258698832436789}
   m_Layer: 5
   m_Name: TextBuy
   m_TagString: Buy
@@ -157,46 +156,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Buy!
---- !u!114 &8156258698832436789
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521214125188245900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_StringReference:
-    m_TableReference:
-      m_TableCollectionName: 
-    m_TableEntryReference:
-      m_KeyId: 0
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
-  m_FormatArguments: []
-  m_UpdateString:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
-        m_MethodName: set_text
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  references:
-    version: 2
-    RefIds: []
 --- !u!1 &1896229787487069032
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,8 +412,6 @@ GameObject:
   - component: {fileID: 4347904051842622614}
   - component: {fileID: 4347904051842622612}
   - component: {fileID: 4347904051842622613}
-  - component: {fileID: 2371637610812320705}
-  - component: {fileID: 8018301817121971750}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -615,45 +572,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bda4e58a85e41bf88887695c19fe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
+  itemSprite: {fileID: 0}
   itemName: Item 1
-  desciption: Desc 1
+  description: 
   price: price
---- !u!114 &2371637610812320705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4347904051842622600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d6d3be7dab3c42ec909a59b2bbecb13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  title: {fileID: 0}
-  description: {fileID: 0}
-  price: {fileID: 0}
-  titleKey: 
-  titleTable: 
-  descriptionKey: 
-  descriptionTable: 
-  priceKey: 
-  priceTable: 
---- !u!114 &8018301817121971750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4347904051842622600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8476d2e68bc0f435fa5bd3b025c8d477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  price: 0
-  index: 0
-  button: {fileID: 4864048919557140763}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
+  title: 
+  index: 0
+  type: 0
+  costsStardust: 0

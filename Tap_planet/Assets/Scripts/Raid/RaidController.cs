@@ -6,7 +6,10 @@ using UnityEngine;
 public class RaidController : MonoBehaviour
 {
     public SceneChange sceneChange;
-    public ActivatePanel activateRaidPanel;
+    
+    public PanelAnimation raidPanel;
+    public PanelAnimation missedRaidPanel;
+
     public ActivatePanel activateMissedRaidPanel;
 
     //new ActivatePanel activatePanel;
@@ -15,8 +18,8 @@ public class RaidController : MonoBehaviour
     public DateTime lastSaveTime;
     public int timeSinceQuit;
 
-    public int timeBeforeRaid = 30;
-    public int timeBeforeMiss = 3600;
+    public static int timeBeforeRaid = 5;
+    public int timeBeforeMiss = 6;
 
     public static int howManyRaids;
 
@@ -33,16 +36,13 @@ public class RaidController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        autoRaidTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
         autoRaidTimer += Time.deltaTime;
-
-        Debug.Log(autoRaidTimer);
-        Debug.Log(raidTime);
 
         if (autoRaidTimer >= raidTime)
         {
@@ -56,15 +56,14 @@ public class RaidController : MonoBehaviour
         {
 
 
-            timeSinceQuit = calculateSecondsSinceQuit();
+            timeSinceQuit = GameController.calculateSecondsSinceQuit();
             Debug.Log("TimeSincequit: " + timeSinceQuit);
             Debug.Log(PlayerPrefs.GetInt("RaidToggle"));
             //PlayerPrefs.SetInt("RaidToggle");
 
-            if (timeSinceQuit > timeBeforeRaid && timeSinceQuit < timeBeforeMiss || (PlayerPrefs.GetInt("RaidToggle") == 1 && timeSinceQuit < timeBeforeMiss)) // if time since last save is larger than tBR (def: 30) & less than tBM
+            if (timeSinceQuit > timeBeforeRaid && timeSinceQuit < timeBeforeMiss || ((PlayerPrefs.GetInt("RaidToggle") == 1 && timeSinceQuit < timeBeforeMiss))) // if time since last save is larger than tBR (def: 30) & less than tBM
             {
-                activateRaidPanel.Toggle(true);
-                activateMissedRaidPanel.Toggle(false);
+                raidPanel.StretchPanel();
                 PlayerPrefs.SetInt("RaidToggle", 1);
                 //raidPanel.SetActive(true);
                 // You have been raided popup.
@@ -75,6 +74,7 @@ public class RaidController : MonoBehaviour
             else if (timeSinceQuit < timeBeforeRaid) // LOGIN BEFORE RAID START
             {
                 Debug.Log("You logged in before a raid begun, nice!");
+                PlayerPrefs.SetInt("RaidToggle", 0);
                 return;
             }
 
@@ -94,11 +94,10 @@ public class RaidController : MonoBehaviour
                 {
                     howManyRaids = 4;
                 }
-
-                activateMissedRaidPanel.Toggle(true);
-                activateRaidPanel.Toggle(false);
-                //missedRaidPanel.SetActive(true);
                 gameObject.GetComponent<MissedRaid>().CalculateRaidLoss(howManyRaids);
+                activateMissedRaidPanel.Toggle(true);
+                missedRaidPanel.StretchPanel();
+                //missedRaidPanel.SetActive(true);
                 Debug.Log("how many raids:" + howManyRaids);
                 Debug.Log("You missed the raid, 2 lazy");
             }
@@ -116,15 +115,6 @@ public class RaidController : MonoBehaviour
         }
     }
 
-    private int calculateSecondsSinceQuit()
-    {
-        DateTime currentDate = System.DateTime.Now; //Store the current time
-        long temp = Convert.ToInt64(PlayerPrefs.GetString("quitTime")); //Grab the old time from the player prefs as a long
-        DateTime quitTime = DateTime.FromBinary(temp); //Convert the old time from binary to a DataTime variable
-        TimeSpan difference = currentDate.Subtract(quitTime); //Use the Subtract method and store the result as a timespan variable
-        return (int)difference.TotalSeconds; // return the difference as an int
-    }
-
     private static void toggleRaid()
     {
         if (raidToggle == false)
@@ -135,8 +125,10 @@ public class RaidController : MonoBehaviour
 
     private void activateAutoRaid()
     {
-        activateRaidPanel.Toggle(true);
-        activateMissedRaidPanel.Toggle(false);
+        if (!raidPanel.IsActive())
+        {
+            raidPanel.StretchPanel();
+        }
         PlayerPrefs.SetInt("RaidToggle", 1);
         toggleRaid();
         autoRaidTimer = 0;
