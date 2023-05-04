@@ -11,19 +11,20 @@ public class BackgroundAnimationAI : MonoBehaviour
     public GameObject prefab1;
     public GameObject prefab2;
     public GameObject prefab3;
+
     private List<GameObject> prefabs;
 
-List<GameObject> instantiatedObjects;
+    List<GameObject> instantiatedObjects;
     List<Vector2> instancePositions;
 
-    public int objectCount = 35;
-    public int maxAttempts = 100;
+    public int objectCount;
+    public int maxAttempts = 500;
 
     void Start()
     {
-        prefabs = new List<GameObject> { prefab1, prefab1, prefab1, prefab1, prefab1, prefab1, prefab2, prefab3};
-        float height = FindObjectOfType<Canvas>().GetComponent<RectTransform>().rect.height; // skapar varibel och lagrar canvasens höjd
-        float width = FindObjectOfType<Canvas>().GetComponent<RectTransform>().rect.width;
+        prefabs = new List<GameObject> { prefab1, prefab1, prefab1, prefab2, prefab2, prefab3 };
+        float height = Screen.height; // skapar varibel och lagrar canvasens höjd
+        float width = Screen.width;
 
         // Create a list to store the instantiated objects and positions
         instantiatedObjects = new List<GameObject>();
@@ -39,6 +40,7 @@ List<GameObject> instantiatedObjects;
             if (!instancePositions.Contains(position))
             {
 
+                //GameObject newObject = Instantiate(prefab1, position, transform.rotation, transform);
                 GameObject newObject = Instantiate(prefabs[Random.Range(0, prefabs.Count)], position, transform.rotation, transform);
                 instantiatedObjects.Add(newObject);
                 instancePositions.Add(position);
@@ -53,6 +55,7 @@ List<GameObject> instantiatedObjects;
         if (timer >= playOneShot)
         {
             timer = 0f;
+            instantiatedObjects[Random.Range(0, instantiatedObjects.Count)].GetComponent<Animator>().SetTrigger("trigger");
         }
     }
 }

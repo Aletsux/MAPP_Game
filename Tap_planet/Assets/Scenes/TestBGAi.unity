@@ -335,7 +335,7 @@ RectTransform:
   - {fileID: 240623521}
   - {fileID: 687961533}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -880,6 +880,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -918,6 +919,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: l
@@ -1172,11 +1174,11 @@ RectTransform:
   - {fileID: 1425120552}
   - {fileID: 1810921109}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 0, y: -50.000122}
   m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &232701619
@@ -1679,7 +1681,7 @@ RectTransform:
   - {fileID: 2051056009}
   - {fileID: 561133399}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4567,6 +4569,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: cow
@@ -6081,6 +6084,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -9437,6 +9441,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: temp
@@ -12322,6 +12327,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -12654,108 +12660,13 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
   index: 0
   type: 0
   costsStardust: 0
---- !u!1 &874802639
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 874802640}
-  - component: {fileID: 874802642}
-  - component: {fileID: 874802641}
-  - component: {fileID: 874802643}
-  m_Layer: 5
-  m_Name: Background
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &874802640
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874802639}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1764616458}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1080, y: 1920}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &874802641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874802639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &874802642
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874802639}
-  m_CullTransparentMesh: 1
---- !u!114 &874802643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 874802639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db7e5f046b38f4a6ca607cd3abe7bb06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 0
-  playOneShot: 0
-  prefab1: {fileID: 5341206482666594318, guid: 9393ef84bab43438ea75499b02d25479, type: 3}
-  prefab2: {fileID: 5341206482666594318, guid: 8d15b1b0ce691421fab691fb343c2368, type: 3}
-  prefab3: {fileID: 5341206482666594318, guid: 65fb3394132364c2394ddce93dbab1a7, type: 3}
-  objectCount: 50
-  maxAttempts: 100
 --- !u!1 &877679683 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9010891647122494675, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
@@ -12866,6 +12777,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: cookie
@@ -13105,6 +13017,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -13188,6 +13101,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -13418,6 +13332,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -14073,6 +13988,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -14646,6 +14562,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -14841,6 +14758,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -15222,7 +15140,7 @@ RectTransform:
   - {fileID: 488676325}
   - {fileID: 330460794902800478}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15648,7 +15566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.12941177}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -16031,7 +15949,7 @@ RectTransform:
   m_Children:
   - {fileID: 240437420}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -16288,7 +16206,7 @@ RectTransform:
   - {fileID: 18322968}
   - {fileID: 980040841}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -16780,7 +16698,7 @@ RectTransform:
   - {fileID: 629049080}
   - {fileID: 185470301}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -17304,6 +17222,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -17460,6 +17379,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -17487,6 +17407,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -20554,7 +20475,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 874802640}
   - {fileID: 2099729607}
   - {fileID: 1500350629}
   - {fileID: 2092736282}
@@ -20841,6 +20761,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: halo
@@ -20863,6 +20784,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: drip
@@ -21112,6 +21034,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -21476,6 +21399,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -21651,6 +21575,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: party
@@ -21678,6 +21603,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -21738,6 +21664,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -22171,6 +22098,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -22193,6 +22121,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -22327,6 +22256,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -22914,6 +22844,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -22963,7 +22894,7 @@ RectTransform:
   - {fileID: 2071598294}
   - {fileID: 2047986275}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -23017,6 +22948,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -23055,7 +22987,7 @@ RectTransform:
   m_Children:
   - {fileID: 1521218419}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -23127,6 +23059,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: candy
