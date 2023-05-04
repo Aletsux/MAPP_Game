@@ -615,9 +615,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7bda4e58a85e41bf88887695c19fe14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
+  itemSprite: {fileID: 0}
   itemName: Item 1
-  desciption: Desc 1
+  description: 
   price: price
 --- !u!114 &2371637610812320705
 MonoBehaviour:

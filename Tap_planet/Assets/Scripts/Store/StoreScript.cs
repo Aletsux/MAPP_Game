@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,12 +27,21 @@ public class StoreScript : MonoBehaviour
     public List<Button> planetButtons;
     public List<int> planetCosts = new List<int>();
 
+<<<<<<< HEAD
     void Start()
     {
         CloseStore();
         gameController = GC.GetComponent<GameController>(); // gets access to methods
 
         PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas 
+=======
+    private ItemScript itemScript;
+
+    void Awake()
+    {
+        gameController = GC.GetComponent<GameController>();// gets access to methods
+        //PlayerPrefs.DeleteAll(); //Till för testning av accessoarer/planeter - ta bort om köp ska minnas efter omstart av spel, eller om det finns andra PlayerPrefs du inte vill ska påverkas 
+>>>>>>> testMain2
         //Accessoarer: 
         for (int i = 0; i < accessoryObjects.Count; i++) 
         { 
@@ -57,7 +67,7 @@ public class StoreScript : MonoBehaviour
         } 
 
         //Planeter 
-        int activePlanetIndex = PlayerPrefs.GetInt("ActivePlanetIndex", 0); 
+        int activePlanetIndex = PlayerPrefs.GetInt("ActivePlanetIndex", 0);
   
         for (int i = 0; i < planetObjects.Count; i++) 
         { 
@@ -77,7 +87,18 @@ public class StoreScript : MonoBehaviour
             { 
                 planetObjects[i].SetActive(false); 
                 SetButtonLabel(planetButtons, i, "Buy"); 
-                planetButtons[i].interactable = true; 
+                planetButtons[i].interactable = true;
+                
+                //if(i != 0)
+                //{
+                //    if(PlayerPrefs.GetInt("PlanetPurchased_" + (i - 1)) == 0)
+                //    {
+                //        itemScript.buyButton.image.color = itemScript.inactiveColor;
+                //    } else
+                //    {
+                //        itemScript.buyButton.image.color = itemScript.activeColor;
+                //    }
+                //}
             } 
         } 
 
@@ -119,14 +140,6 @@ public class StoreScript : MonoBehaviour
 
     public void EquipAccessory(int index) //anropas vid klick av accessories-köpknapp
     {
-        //if (index >= accessoryObjects.Count)
-        //{
-        //    Debug.LogError("Invalid index: " + index);
-        //    return;
-        //}
-
-        //Debug.Log(index);
-
         bool hasPurchased = PlayerPrefs.GetInt("AccessoryPurchased_" + index, 0) == 1;
 
         if (!hasPurchased)
@@ -210,10 +223,14 @@ public class StoreScript : MonoBehaviour
 
     public void EquipPlanet(int index)
     {
-        if (GameController.GetStardust() >= planetCosts[index])
+        int previousPlanet = index - 1;
+        if (previousPlanet != 0)
         {
-            purchasePlanet(index);
-            togglePlanet(index);
+            if (GameController.GetStardust() >= planetCosts[index] && PlayerPrefs.GetInt("PlanetPurchased_" + previousPlanet) == 1)
+            {
+                purchasePlanet(index);
+                togglePlanet(index);
+            }
         }
     }
 
@@ -245,10 +262,64 @@ public class StoreScript : MonoBehaviour
                 planetObjects[i].SetActive(false);
                 SetButtonLabel(planetButtons, i, "Buy");
                 planetButtons[i].interactable = true;
+
+                //if (i != 0)
+                //{
+                //    if (PlayerPrefs.GetInt("PlanetPurchased_" + (i - 1)) == 0)
+                //    {
+                //        itemScript.buyButton.image.color = itemScript.inactiveColor;
+                //    }
+                //    else
+                //    {
+                //        itemScript.buyButton.image.color = itemScript.activeColor;
+                //    }
+                //}
             }
         }
     }
 
+<<<<<<< HEAD
+=======
+    public void BuyPowerUp(string powerUpName) // takes which powerup to buy
+    {
+        if (powerUpName.Equals("temp")) // if tpu
+        {
+            if (GameController.GetCrystals() >= GetPrice(powerUpName)) // checks bank balance       
+            {
+                gameController.AddTPUAmount(); // adds 1 to tpuAmount
+                GameController.DecreaseCrystals(GetPrice(powerUpName)); // reduces money in bank
+            }
+        }
+        else if (powerUpName.Equals("perm"))
+        {
+            if (GameController.GetCrystals() >= GetPrice(powerUpName))
+            {
+                gameController.ClickLevelUp();
+                GameController.DecreaseCrystals(GetPrice(powerUpName));
+            }
+        }
+        else if (powerUpName.Equals("idle"))
+        {
+            if (GameController.GetCrystals() >= GetPrice(powerUpName))
+            {
+                gameController.BuyIdle();
+                GameController.DecreaseCrystals(GetPrice(powerUpName));
+            }
+        }
+        else if (powerUpName.Equals("dust"))
+        {
+            int cost = (GameController.GetStardustMinerLevel() == 0) ? 20 : GameController.GetStardustMinerLevel() * 50;
+            if (GameController.GetStardust() >= cost)
+            {
+                gameController.IncreaseStardustMinerLevel();
+                GameController.DecreaseStardust(cost);
+            }
+        }
+
+        gameController.SaveGame();
+    }
+
+>>>>>>> testMain2
     public int GetPrice(string name)
     {
         if (name.Equals("idle"))
@@ -257,7 +328,11 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("perm"))
         {
+<<<<<<< HEAD
             return gameController.GetPermCost();
+=======
+            return GameController.GetClickLvl() * (5);
+>>>>>>> testMain2
         }
         else if (name.Equals("temp"))
         {

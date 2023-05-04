@@ -33,17 +33,20 @@ public class PlanetRaidMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        float step = speed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+        if (!planetInPosition)
+        {
+            float step = speed * Time.deltaTime;
+            transform.position = Vector3.MoveTowards(transform.position, target.position, step);
 
-        //Compare distance between planet and target position to threshold (0.01f)
-        if(Vector3.Distance(transform.position, target.position) < 0.01f) {
-            planetInPosition = true;
-            beginRaid();
-            raidState.RaidStart();
-
+            //Compare distance between planet and target position to threshold (0.01f)
+            if (Vector3.Distance(transform.position, target.position) < 0.01f)
+            {
+                planetInPosition = true;
+                beginRaid();
+                raidState.RaidStart();
+            }
         }
+        
 
 
         //Doesn't work for some reason...
