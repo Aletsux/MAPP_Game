@@ -15,10 +15,28 @@ public class FloatingPoints : MonoBehaviour
     [Space]
     //time to destroy after instantiated
     public float destroyTimer = 1f;
+    public Color normal;
+    public Color special;
+    public Color critical;
+    private Material material;
+    //private MeshRenderer renderer;
+    private Color renderColor;
+    public GameObject gc;
+    GameController gcScript;
+    private void Start() {
+        material = pointParent.GetComponentInChildren<MeshRenderer>().material;
+        //material = renderer.material;
+        gcScript = gc.GetComponent<GameController>();
+    } 
+    private void Update() {
+        //renderer.material.color = renderColor;
+        setTextColor();
+    }
 
     //calculate amount, isntantiate obj with random spawnLocation, destroy after 0.5f,
     public void showFloatingPoints() {
         long amount = 1 * GameController.GetClickLvl();
+        
         Vector3 spawnLocation = gameObject.transform.position + new Vector3(Random.Range(xMax,xMin), Random.Range(yMax,yMin), 0f);
 
         Debug.Log("pointParent Pos: " + pointParent.transform.position);
@@ -29,6 +47,14 @@ public class FloatingPoints : MonoBehaviour
 
         Debug.Log("Pos: " + points.transform.position);
         Destroy(points, destroyTimer);
+    }
+    
+    private void setTextColor() {
+        if(gcScript.getIsUsingTPU()) {
+            material.color = special;
+        } 
+
+        material.color = normal;
     }
 
 

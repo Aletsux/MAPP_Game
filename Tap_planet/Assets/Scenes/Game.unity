@@ -17002,6 +17002,10 @@ MonoBehaviour:
   yMax: 200
   yMin: -100
   destroyTimer: 0.3
+  normal: {r: 1, g: 0.9103774, b: 0.9103774, a: 0}
+  special: {r: 1, g: 0.7569667, b: 0.2216981, a: 0}
+  critical: {r: 0, g: 0, b: 0, a: 0}
+  gc: {fileID: 0}
 --- !u!1 &1521218418
 GameObject:
   m_ObjectHideFlags: 0
