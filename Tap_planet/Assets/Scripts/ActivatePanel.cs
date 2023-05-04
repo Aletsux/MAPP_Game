@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class ActivatePanel : MonoBehaviour
 {
-    private bool active;
+    public bool active;
 
-    void Start()
+    void Awake()
     {
-        active = false;
         Toggle(active);
     }
 

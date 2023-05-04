@@ -1,31 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class PanelAnimation : MonoBehaviour
+public class MissedRaidPanelAnimation : PanelAnimation
 {
-    protected RectTransform rectTransform;
-    protected float targetHeight;
-    protected float targetWidth;
-    
-    public float closedHeight = 100;
-    public float closedWidth = 100;
+    public GameObject parent;
 
-    protected float duration = 0.1f;
-    protected float delay = 0.1f;
-    protected bool isActive;
-
-    protected virtual void Awake()
+    protected override void Awake()
     {
-        isActive = false;
-        rectTransform = gameObject.GetComponent<RectTransform>();
-        targetHeight = rectTransform.rect.height;
-        targetWidth = rectTransform.rect.width;
-        rectTransform.sizeDelta = new Vector2(closedWidth, closedHeight);
+        base.Awake();
+        parent.SetActive(false);
     }
-
-    public virtual void StretchPanel()
+    public override void StretchPanel()
     {
         if (isActive == false)
         {
@@ -39,7 +25,7 @@ public class PanelAnimation : MonoBehaviour
             .setDelay(delay)
             .setOnComplete(() =>
             {
-
+                
             });
         });
 
@@ -48,7 +34,7 @@ public class PanelAnimation : MonoBehaviour
         {
             LeanTween.size(rectTransform, new Vector2(targetWidth, closedHeight), duration)
         .setEase(LeanTweenType.easeInOutQuad)
-        .setDelay(delay)
+        .setDelay(0)
         .setOnComplete(() =>
         {
             LeanTween.size(rectTransform, new Vector2(closedWidth, closedHeight), duration)
@@ -56,17 +42,10 @@ public class PanelAnimation : MonoBehaviour
             .setDelay(delay)
             .setOnComplete(() =>
             {
-                
+                parent.SetActive(false);
             });
         });
         }
         isActive = !isActive;
     }
-
-    public bool IsActive()
-    {
-        return isActive;
-    }
-
-    public 
 }
