@@ -121,9 +121,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 12
-        width: 4
-        height: 4
+        y: 11
+        width: 5
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +131,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4503ba4cdb16d45f68ca7ac17dcfb307
-      internalID: 1503310096
+      spriteID: 288cfda4e7c97461aa829542d944baf2
+      internalID: 287375035
       vertices: []
       indices: 
       edges: []
@@ -141,10 +141,10 @@ TextureImporter:
       name: Star_Dot_SpriteSheet_1
       rect:
         serializedVersion: 2
-        x: 4
-        y: 12
-        width: 4
-        height: 4
+        x: 5
+        y: 11
+        width: 5
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,50 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9429b7d983f8f40e6a7816ad2ea8003b
-      internalID: -1451279839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_Dot_SpriteSheet_2
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 12
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b409f0c3b20dc4e6f874ee844eddbaf8
-      internalID: -305842757
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Star_Dot_SpriteSheet_3
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 12
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19a62362a55ba433193b1e11514db76b
-      internalID: -310278057
+      spriteID: 67390361e2a924bccaa8ffedde087765
+      internalID: 669890785
       vertices: []
       indices: 
       edges: []
@@ -211,10 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Star_Dot_SpriteSheet_0: 1503310096
-      Star_Dot_SpriteSheet_1: -1451279839
-      Star_Dot_SpriteSheet_2: -305842757
-      Star_Dot_SpriteSheet_3: -310278057
+      Star_Dot_SpriteSheet_0: 287375035
+      Star_Dot_SpriteSheet_1: 669890785
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4022372014772603810}
   - component: {fileID: 4022372014772603811}
   m_Layer: 5
-  m_Name: Star_Dot 1
+  m_Name: Star_Plus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.3254717, b: 0.96884334, a: 1}
+  m_Color: {r: 0.68010104, g: 0.3537736, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -87,7 +87,7 @@ Animator:
   m_GameObject: {fileID: 4022372014772603809}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c49cb72f9f5c143208cb01b1e423386d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9b971b85cbc6c42cb942c715aa56a7dd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

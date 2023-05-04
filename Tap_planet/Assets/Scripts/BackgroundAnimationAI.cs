@@ -11,19 +11,20 @@ public class BackgroundAnimationAI : MonoBehaviour
     public GameObject prefab1;
     public GameObject prefab2;
     public GameObject prefab3;
+
     private List<GameObject> prefabs;
 
     List<GameObject> instantiatedObjects;
     List<Vector2> instancePositions;
 
-    private int objectCount = 5;
-    public int maxAttempts = 100;
+    public int objectCount;
+    public int maxAttempts = 500;
 
     void Start()
     {
-        prefabs = new List<GameObject> { prefab1, prefab1, prefab1, prefab1, prefab1, prefab1, prefab2, prefab3};
-        float height = FindObjectOfType<Canvas>().GetComponent<RectTransform>().rect.height; // skapar varibel och lagrar canvasens höjd
-        float width = FindObjectOfType<Canvas>().GetComponent<RectTransform>().rect.width;
+        prefabs = new List<GameObject> { prefab1, prefab1, prefab1, prefab2, prefab2, prefab3 };
+        float height = Screen.height; // skapar varibel och lagrar canvasens höjd
+        float width = Screen.width;
 
         // Create a list to store the instantiated objects and positions
         instantiatedObjects = new List<GameObject>();
