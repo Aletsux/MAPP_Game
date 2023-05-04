@@ -13,10 +13,10 @@ public class BackgroundAnimationAI : MonoBehaviour
     public GameObject prefab3;
     private List<GameObject> prefabs;
 
-    List<GameObject> instantiatedObjects;
+List<GameObject> instantiatedObjects;
     List<Vector2> instancePositions;
 
-    private int objectCount = 5;
+    public int objectCount = 35;
     public int maxAttempts = 100;
 
     void Start()
@@ -39,7 +39,6 @@ public class BackgroundAnimationAI : MonoBehaviour
             if (!instancePositions.Contains(position))
             {
 
-                //GameObject newObject = Instantiate(prefab1, position, transform.rotation, transform);
                 GameObject newObject = Instantiate(prefabs[Random.Range(0, prefabs.Count)], position, transform.rotation, transform);
                 instantiatedObjects.Add(newObject);
                 instancePositions.Add(position);
@@ -54,7 +53,6 @@ public class BackgroundAnimationAI : MonoBehaviour
         if (timer >= playOneShot)
         {
             timer = 0f;
-            instantiatedObjects[Random.Range(0, instantiatedObjects.Count)].GetComponent<Animator>().SetTrigger("trigger");
         }
     }
 }
