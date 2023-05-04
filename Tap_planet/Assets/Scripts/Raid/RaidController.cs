@@ -18,8 +18,8 @@ public class RaidController : MonoBehaviour
     public DateTime lastSaveTime;
     public int timeSinceQuit;
 
-    public static int timeBeforeRaid = 5;
-    public int timeBeforeMiss = 6;
+    public static int timeBeforeRaid = 30;
+    public int timeBeforeMiss = 60;
 
     public static int howManyRaids;
 
