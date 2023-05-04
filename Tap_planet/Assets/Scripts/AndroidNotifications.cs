@@ -5,6 +5,21 @@ using UnityEngine;
 
 public class AndroidNotifications : MonoBehaviour
 {
+    private static AndroidNotifications instance;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         AndroidNotificationCenter.CancelAllDisplayedNotifications();
@@ -23,6 +38,7 @@ public class AndroidNotifications : MonoBehaviour
         // Quick! You have 15 minutes to
         // enter and defend your planet!
     }
+
 
     void OnApplicationFocus(bool focus)
     {
