@@ -14,7 +14,7 @@ public class ItemScript : MonoBehaviour
     public String price;
 
     private Button panelButton;
-    private Button buyButton;
+    public Button buyButton;
     protected Text buyButtonText;
     public Color activeColor; 
     public Color inactiveColor;

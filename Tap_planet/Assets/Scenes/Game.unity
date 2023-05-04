@@ -794,7 +794,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 980, y: 120}
+  m_SizeDelta: {x: 960, y: 120}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &189432244 stripped
 MonoBehaviour:
@@ -884,6 +884,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -922,6 +923,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: l
@@ -1687,7 +1689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1697}
+  m_AnchoredPosition: {x: 0, y: 1756}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &280513286
@@ -4651,6 +4653,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: cow
@@ -6112,7 +6115,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &629049081
 MonoBehaviour:
@@ -6134,7 +6137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 65f5222e099204c91bb8a25648963d9d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 157ac13ea3f7f0e4688c0eab169ae0e2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6173,6 +6176,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -9613,6 +9617,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: temp
@@ -12630,6 +12635,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -12962,6 +12968,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -13154,6 +13161,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: cookie
@@ -13393,6 +13401,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -13476,6 +13485,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -13706,6 +13716,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -14365,6 +14376,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -14942,6 +14954,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -15137,6 +15150,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -17612,6 +17626,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -17768,6 +17783,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -17795,6 +17811,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -21229,6 +21246,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: halo
@@ -21251,6 +21269,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: drip
@@ -21500,6 +21519,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -21872,6 +21892,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -22047,6 +22068,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: party
@@ -22074,6 +22096,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -22134,6 +22157,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -22567,6 +22591,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -22589,6 +22614,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -22723,6 +22749,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -22939,7 +22966,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 980, y: 120}
+  m_SizeDelta: {x: 960, y: 120}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &2047986276
 MonoBehaviour:
@@ -23152,7 +23179,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2071598296
 CanvasRenderer:
@@ -23182,7 +23209,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1097deede84f045288c0d1611b6118b2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 007dcad7ec479604d8ee2f36f2894bde, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23314,6 +23341,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -23417,6 +23445,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
@@ -23527,6 +23556,7 @@ MonoBehaviour:
   itemName: 
   description: 
   price: 
+  buyButton: {fileID: 0}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: candy
