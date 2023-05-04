@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,8 +25,6 @@ public class StoreScript : MonoBehaviour
     public List<GameObject> planetObjects = new List<GameObject>();
     public List<Button> planetButtons;
     public List<int> planetCosts = new List<int>();
-
-    private ItemScript itemScript;
 
     void Awake()
     {
@@ -58,7 +55,7 @@ public class StoreScript : MonoBehaviour
         } 
 
         //Planeter 
-        int activePlanetIndex = PlayerPrefs.GetInt("ActivePlanetIndex", 0);
+        int activePlanetIndex = PlayerPrefs.GetInt("ActivePlanetIndex", 0); 
   
         for (int i = 0; i < planetObjects.Count; i++) 
         { 
@@ -78,18 +75,7 @@ public class StoreScript : MonoBehaviour
             { 
                 planetObjects[i].SetActive(false); 
                 SetButtonLabel(planetButtons, i, "Buy"); 
-                planetButtons[i].interactable = true;
-                
-                //if(i != 0)
-                //{
-                //    if(PlayerPrefs.GetInt("PlanetPurchased_" + (i - 1)) == 0)
-                //    {
-                //        itemScript.buyButton.image.color = itemScript.inactiveColor;
-                //    } else
-                //    {
-                //        itemScript.buyButton.image.color = itemScript.activeColor;
-                //    }
-                //}
+                planetButtons[i].interactable = true; 
             } 
         } 
 
@@ -133,6 +119,14 @@ public class StoreScript : MonoBehaviour
 
     public void EquipAccessory(int index) //anropas vid klick av accessories-köpknapp
     {
+        //if (index >= accessoryObjects.Count)
+        //{
+        //    Debug.LogError("Invalid index: " + index);
+        //    return;
+        //}
+
+        //Debug.Log(index);
+
         bool hasPurchased = PlayerPrefs.GetInt("AccessoryPurchased_" + index, 0) == 1;
 
         if (!hasPurchased)
@@ -216,14 +210,10 @@ public class StoreScript : MonoBehaviour
 
     public void EquipPlanet(int index)
     {
-        int previousPlanet = index - 1;
-        if (previousPlanet != 0)
+        if (GameController.GetStardust() >= planetCosts[index])
         {
-            if (GameController.GetStardust() >= planetCosts[index] && PlayerPrefs.GetInt("PlanetPurchased_" + previousPlanet) == 1)
-            {
-                purchasePlanet(index);
-                togglePlanet(index);
-            }
+            purchasePlanet(index);
+            togglePlanet(index);
         }
     }
 
@@ -255,18 +245,6 @@ public class StoreScript : MonoBehaviour
                 planetObjects[i].SetActive(false);
                 SetButtonLabel(planetButtons, i, "Buy");
                 planetButtons[i].interactable = true;
-
-                //if (i != 0)
-                //{
-                //    if (PlayerPrefs.GetInt("PlanetPurchased_" + (i - 1)) == 0)
-                //    {
-                //        itemScript.buyButton.image.color = itemScript.inactiveColor;
-                //    }
-                //    else
-                //    {
-                //        itemScript.buyButton.image.color = itemScript.activeColor;
-                //    }
-                //}
             }
         }
     }
