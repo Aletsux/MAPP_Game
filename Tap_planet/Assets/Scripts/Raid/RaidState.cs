@@ -69,7 +69,7 @@ public class RaidState : MonoBehaviour
         GameController.AddStardust(lostStardust);
         PlayerPrefs.SetInt("stardust", GameController.GetStardust());
 
-        PlayerPrefs.SetInt("ToggleRaid", 0);
+        PlayerPrefs.SetInt("RaidToggle", 0);
         enemyAI.deactivate();
     }
 
