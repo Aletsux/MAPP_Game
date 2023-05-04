@@ -277,6 +277,50 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 60524128814951985, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
   m_PrefabInstance: {fileID: 93455404}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &163949060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 163949062}
+  - component: {fileID: 163949061}
+  m_Layer: 0
+  m_Name: AndroidNotifications
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &163949061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163949060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d31b4ea95f249b3b64088fa456d48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &163949062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163949060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 733.4579, y: 962.852, z: -19.235397}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &333345554
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +333,7 @@ GameObject:
   - component: {fileID: 333345555}
   m_Layer: 0
   m_Name: SceneChange
-  m_TagString: Untagged
+  m_TagString: SceneChange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

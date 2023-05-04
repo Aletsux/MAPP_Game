@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour
 {
@@ -12,8 +13,13 @@ public class MenuScript : MonoBehaviour
     public GameObject panel;
     private bool visible;
     private bool muted;
-    private void Start() {
-        gameObject.SetActive(false);
+
+    private Button openSettings;
+
+    void Start()
+    {
+        openSettings = gameObject.GetComponent<Button>();
+        //gameObject.SetActive(false);
         visible = false;
         muted = false;
     }
@@ -46,6 +52,7 @@ public class MenuScript : MonoBehaviour
     public void toggleMenu() {
         gameObject.SetActive(!visible);
         visible = !visible;
+
     }
 
     //Go back to start menu
@@ -64,5 +71,15 @@ public class MenuScript : MonoBehaviour
         }
     }
 
-
+    public void SetButtonActive()
+    {
+        if (openSettings.enabled == false)
+        {
+            openSettings.enabled = true;
+        }
+        else
+        {
+            openSettings.enabled = false;
+        }
+    }
 }
