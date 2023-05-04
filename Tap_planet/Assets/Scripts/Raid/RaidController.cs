@@ -18,8 +18,8 @@ public class RaidController : MonoBehaviour
     public DateTime lastSaveTime;
     public int timeSinceQuit;
 
-    public static int timeBeforeRaid = 30;
-    public int timeBeforeMiss = 3600;
+    public static int timeBeforeRaid = 5;
+    public int timeBeforeMiss = 6;
 
     public static int howManyRaids;
 
@@ -94,10 +94,10 @@ public class RaidController : MonoBehaviour
                 {
                     howManyRaids = 4;
                 }
-                activateMissedRaidPanel.Toggle();
+                gameObject.GetComponent<MissedRaid>().CalculateRaidLoss(howManyRaids);
+                activateMissedRaidPanel.Toggle(true);
                 missedRaidPanel.StretchPanel();
                 //missedRaidPanel.SetActive(true);
-                gameObject.GetComponent<MissedRaid>().CalculateRaidLoss(howManyRaids);
                 Debug.Log("how many raids:" + howManyRaids);
                 Debug.Log("You missed the raid, 2 lazy");
             }

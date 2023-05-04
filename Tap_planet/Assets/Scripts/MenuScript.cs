@@ -13,9 +13,12 @@ public class MenuScript : MonoBehaviour
     public GameObject panel;
     private bool visible;
     private bool muted;
-    
-    void Start() {
 
+    private Button openSettings;
+
+    void Start()
+    {
+        openSettings = gameObject.GetComponent<Button>();
         //gameObject.SetActive(false);
         visible = false;
         muted = false;
@@ -68,5 +71,15 @@ public class MenuScript : MonoBehaviour
         }
     }
 
-
+    public void SetButtonActive()
+    {
+        if (openSettings.enabled == false)
+        {
+            openSettings.enabled = true;
+        }
+        else
+        {
+            openSettings.enabled = false;
+        }
+    }
 }

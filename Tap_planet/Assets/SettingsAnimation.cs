@@ -3,29 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PanelAnimation : MonoBehaviour
+public class SettingsAnimation : PanelAnimation
 {
-    protected RectTransform rectTransform;
-    protected float targetHeight;
-    protected float targetWidth;
-    
-    public float closedHeight = 100;
-    public float closedWidth = 100;
+    private Button openSettings;
+    private GameObject closeSettings;
+    private GameObject text;
 
-    protected float duration = 0.1f;
-    protected float delay = 0.1f;
-    protected bool isActive;
-
-    protected virtual void Awake()
+    protected override void Awake()
     {
-        isActive = false;
-        rectTransform = gameObject.GetComponent<RectTransform>();
-        targetHeight = rectTransform.rect.height;
-        targetWidth = rectTransform.rect.width;
-        rectTransform.sizeDelta = new Vector2(closedWidth, closedHeight);
+        base.Awake();
+        openSettings = GetComponent<Button>();
+        closeSettings = transform.GetChild(0).gameObject;
+        closeSettings.SetActive(false);
+        text = transform.GetChild(1).gameObject;
     }
 
-    public virtual void StretchPanel()
+    public override void StretchPanel()
     {
         if (isActive == false)
         {
@@ -34,18 +27,21 @@ public class PanelAnimation : MonoBehaviour
         .setDelay(delay)
         .setOnComplete(() =>
         {
+            text.SetActive(isActive);
             LeanTween.size(rectTransform, new Vector2(targetWidth, targetHeight), duration)
             .setEase(LeanTweenType.easeInOutQuad)
             .setDelay(delay)
             .setOnComplete(() =>
             {
-
+                SetButtonsActive();
+                
             });
         });
 
         }
         else
         {
+            SetButtonsActive();
             LeanTween.size(rectTransform, new Vector2(targetWidth, closedHeight), duration)
         .setEase(LeanTweenType.easeInOutQuad)
         .setDelay(delay)
@@ -56,17 +52,24 @@ public class PanelAnimation : MonoBehaviour
             .setDelay(delay)
             .setOnComplete(() =>
             {
-                
+                text.SetActive(!isActive);
             });
         });
         }
         isActive = !isActive;
     }
 
-    public bool IsActive()
+    private void SetButtonsActive()
     {
-        return isActive;
+        if (openSettings.interactable == false)
+        {
+            openSettings.interactable = true;
+            closeSettings.SetActive(false);
+        }
+        else
+        {
+            openSettings.interactable = false;
+            closeSettings.SetActive(true);
+        }
     }
-
-    public 
 }

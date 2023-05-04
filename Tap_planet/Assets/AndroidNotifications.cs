@@ -7,6 +7,7 @@ public class AndroidNotifications : MonoBehaviour
 {
     void Start()
     {
+        AndroidNotificationCenter.CancelAllDisplayedNotifications();
         var channel = new AndroidNotificationChannel()
         {
             Id = "channel_id",
