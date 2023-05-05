@@ -28,12 +28,9 @@ public class MotherShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (RaidState.beginRaid)
-        {
-            DisplayHealthBar(false);
-        }
         if (attacked)
         {
+            healthBarTimer += Time.deltaTime;
             if (healthBarTimer >= 1)
             {
                 DisplayHealthBar(false);
@@ -46,8 +43,10 @@ public class MotherShip : MonoBehaviour
 
     public void OnButtonClick()
     {
+        print("buttonCLick");
         if (RaidState.beginRaid)
         {
+            print("2");
             DisplayHealthBar(true);
             HP--;
             healthBar.value = HP;

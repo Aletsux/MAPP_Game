@@ -8,9 +8,12 @@ public class RaidState : MonoBehaviour
     public static int enemiesKilled;
 
     public Text enemiesKilledText;
-    public Text enemiesMissedText;
-
-    public Text resultText;
+    public Text motherShipBonusText;
+    public Text crystalsWon;
+    public Text stardustWon;
+    public Text crystalsLost;
+    public Text stardustLost;
+    public int motherShipBonus = 1;
 
     public GameObject raidOverPanel;
     public GameObject gameOverPanel;
@@ -22,7 +25,6 @@ public class RaidState : MonoBehaviour
 
     public GameController gc;
 
-    public MotherShip motherShip;
 
 
     // Start is called before the first frame update
@@ -31,8 +33,10 @@ public class RaidState : MonoBehaviour
         enemiesKilled = 0;
         beginRaid = false;
         raidOverPanel.SetActive(true);
+        //raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
 
-        gameOverPanel.SetActive(true);
+        //gameOverPanel.SetActive(true);
+        //gameOverPanel.GetComponent<PanelAnimation>().StretchPanel();
     }
 
     // Update is called once per frame
@@ -43,6 +47,7 @@ public class RaidState : MonoBehaviour
             raidTimer += Time.deltaTime;
             if (raidTimer >= raidTime || MotherShip.HP <= 0 || PlanetState.HP <= 0)
             {
+                print("Ended");
                 RaidEnded();
                 beginRaid = false;
                 raidTimer = 0f;
@@ -53,46 +58,73 @@ public class RaidState : MonoBehaviour
     public void RaidStart()
     {
         beginRaid = true;
-        //MotherShip.DisplayHealthBar(false);
-        //PlanetState.DisplayHealthBar(false);
+        MotherShip.DisplayHealthBar(false);
+        PlanetState.DisplayHealthBar(false);
     }
 
     public void RaidEnded()
     {
         beginRaid = false; // timer slutar räkna
-        int result = enemiesKilled;
+
+        enemiesKilledText.text = enemiesKilled.ToString();
+
 
         if (MotherShip.HP <= 0)
         {
-            result = 100;
+            if (enemiesKilled == 0)
+            {
+                enemiesKilled++;
+            }
+            enemiesKilled *= 100;
+            motherShipBonusText.text = "x" + 100;
+            raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
         }
         else if (PlanetState.HP <= 0)
         {
-            result = -100;
+            enemiesKilled = -100;
             gameOverPanel.GetComponent<PanelAnimation>().StretchPanel();
         }
+        else
+        {
+            raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
+        }
+        int crystals = enemiesKilled * 10 * GameController.GetClickLvl();
+        int stardust = enemiesKilled;
 
-        enemiesKilledText.text = enemiesKilled + "";
-        //enemiesMissedText.text = PlanetState.totalRaidDamage.ToString();
+        crystalsWon.text = crystalsLost.text = ReturnString(crystals);
+        stardustWon.text = crystalsLost.text = ReturnString(stardust);
 
-        // set you died message
+        //raidOverPanel.SetActive(true);zx
 
-        resultText.text = result.ToString();
-        int lostCrystals = result;
-        int lostStardust = result;
-
-        //raidOverPanel.SetActive(true);
-        raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
-
-        GameController.AddCrystals(lostCrystals * 10 * GameController.GetClickLvl());
-        Debug.Log("HERE HERE HERE " + lostCrystals * 10 * GameController.GetClickLvl());
+        GameController.AddCrystals(crystals);
+        Debug.Log("HERE HERE HERE " + crystals * 10 * GameController.GetClickLvl());
         PlayerPrefs.SetString("crystals", GameController.GetCrystals().ToString());
-        Debug.Log("HERE HERE HERE " + lostStardust);
-        GameController.AddStardust(lostStardust);
+        Debug.Log("HERE HERE HERE " + stardust);
+        GameController.AddStardust(stardust);
         PlayerPrefs.SetInt("stardust", GameController.GetStardust());
 
         PlayerPrefs.SetInt("RaidToggle", 0);
         enemyAI.deactivate();
     }
 
+    private string ReturnString(int amount)
+    {
+        double newString = amount;
+        if (newString < 1000)
+        {
+            return newString.ToString();
+        }
+        else if (newString < 1000000)
+        {
+            return (newString / 1000).ToString("F3") + "k";
+        }
+        else if (newString < 1000000000)
+        {
+            return (newString / 1000000).ToString("F3") + "M";
+        }
+        else
+        {
+            return (newString / 1000000000).ToString("F3") + "B";
+        }
+    }
 }

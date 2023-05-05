@@ -14,16 +14,14 @@ public class PlanetState : MonoBehaviour
     void Start()
     {
         healthBar = gameObject.GetComponentInChildren<Slider>();
-
         HP = maxHP;
         healthBar.value = HP;
         DisplayHealthBar(true);
     }
 
-
     void Update()
     {
-        if (attacked)
+        if (attacked && RaidState.beginRaid)
         {
             healthBarTimer += Time.deltaTime;
             if (healthBarTimer >= 1)
