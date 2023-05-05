@@ -80,16 +80,16 @@ public class StoreScript : MonoBehaviour
                 SetButtonLabel(planetButtons, i, "Buy"); 
                 planetButtons[i].interactable = true;
                 
-                //if(i != 0)
-                //{
-                //    if(PlayerPrefs.GetInt("PlanetPurchased_" + (i - 1)) == 0)
-                //    {
-                //        planetButtons[i].interactable = false;
-                //    } else
-                //    {
-                //        planetButtons[i].interactable = true;
-                //    }
-                //}
+                if(i != 0)
+                {
+                    if(PlayerPrefs.GetInt("PlanetPurchased_" + (i - 1)) == 0)
+                    {
+                        planetButtons[i].interactable = false;
+                    } else
+                    {
+                        planetButtons[i].interactable = true;
+                    }
+                }
             } 
         } 
 
@@ -178,24 +178,24 @@ public class StoreScript : MonoBehaviour
             PlayerPrefs.SetInt("AccessoryEquipped_" + index, 1);
             PlayerPrefs.Save();
         }
-        //sätter för de andra knapparna
-        for (int i = 0; i < accessoryObjects.Count; i++)
-        {
-            if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1)
-            {
-                accessoryObjects[i].SetActive(false);
-                SetButtonLabel(accessoryButtons, i, "Equip");
-                PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
-                PlayerPrefs.Save();
-            }
-            else if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
-            {
-                accessoryObjects[i].SetActive(false);
-                SetButtonLabel(accessoryButtons, i, "Buy");
-                PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
-                PlayerPrefs.Save();
-            }
-        }
+        //sätter för de andra knapparna - detta var för ifall bara en accessoar kunde vara aktiverad
+        //for (int i = 0; i < accessoryObjects.Count; i++)
+        //{
+        //    if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 1)
+        //    {
+        //        accessoryObjects[i].SetActive(false);
+        //        SetButtonLabel(accessoryButtons, i, "Equip");
+        //        PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
+        //        PlayerPrefs.Save();
+        //    }
+        //    else if (i != index && PlayerPrefs.GetInt("AccessoryPurchased_" + i) == 0)
+        //    {
+        //        accessoryObjects[i].SetActive(false);
+        //        SetButtonLabel(accessoryButtons, i, "Buy");
+        //        PlayerPrefs.SetInt("AccessoryEquipped_" + i, 0);
+        //        PlayerPrefs.Save();
+        //    }
+        //}
     }
 
     private void SetButtonLabel(List<Button> buttons, int index, string textObjectTag)
@@ -219,7 +219,7 @@ public class StoreScript : MonoBehaviour
         int previousPlanet = index - 1;
         if (previousPlanet != 0)
         {
-            if (GameController.GetStardust() >= planetCosts[index] /*&& PlayerPrefs.GetInt("PlanetPurchased_" + previousPlanet) == 1*/)
+            if (GameController.GetStardust() >= planetCosts[index] && PlayerPrefs.GetInt("PlanetPurchased_" + previousPlanet) == 1)
             {
                 purchasePlanet(index);
                 togglePlanet(index);
@@ -256,17 +256,17 @@ public class StoreScript : MonoBehaviour
                 SetButtonLabel(planetButtons, i, "Buy");
                 planetButtons[i].interactable = true;
 
-                //if (i != 0)
-                //{
-                //    if (PlayerPrefs.GetInt("PlanetPurchased_" + (i - 1)) == 0)
-                //    {
-                //        planetButtons[i].interactable = false;
-                //    }
-                //    else
-                //    {
-                //        planetButtons[i].interactable = false;
-                //    }
-                //}
+                if (i != 0)
+                {
+                    if (PlayerPrefs.GetInt("PlanetPurchased_" + (i - 1)) == 0)
+                    {
+                        planetButtons[i].interactable = false;
+                    }
+                    else
+                    {
+                        planetButtons[i].interactable = false;
+                    }
+                }
             }
         }
     }
