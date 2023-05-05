@@ -65,8 +65,9 @@ public class RaidEnemyMovement : MonoBehaviour
         //Destroy ship on collison
         if (collision.tag == "PlanetTrigger")
         {
+                    PlanetState.DecreaseHP();
             Debug.Log("YOU WERE HIT");
-            PlanetState.totalRaidDamage++;
+
             gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
             Destroy(gameObject);
         }

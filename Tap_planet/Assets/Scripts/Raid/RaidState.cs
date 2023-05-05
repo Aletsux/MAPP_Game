@@ -13,20 +13,26 @@ public class RaidState : MonoBehaviour
     public Text resultText;
 
     public GameObject raidOverPanel;
+    public GameObject gameOverPanel;
     public EnemyAI enemyAI;
 
-    private bool beginRaid;
+    public static bool beginRaid;
     private float raidTimer;
     public float raidTime = 15;
 
     public GameController gc;
+
+    public MotherShip motherShip;
+
 
     // Start is called before the first frame update
     void Start()
     {
         enemiesKilled = 0;
         beginRaid = false;
-        raidOverPanel.SetActive(false);
+        raidOverPanel.SetActive(true);
+
+        gameOverPanel.SetActive(true);
     }
 
     // Update is called once per frame
@@ -35,7 +41,7 @@ public class RaidState : MonoBehaviour
         if (beginRaid)
         {
             raidTimer += Time.deltaTime;
-            if (raidTimer >= raidTime)
+            if (raidTimer >= raidTime || MotherShip.HP <= 0 || PlanetState.HP <= 0)
             {
                 RaidEnded();
                 beginRaid = false;
@@ -47,20 +53,36 @@ public class RaidState : MonoBehaviour
     public void RaidStart()
     {
         beginRaid = true;
+        //MotherShip.DisplayHealthBar(false);
+        //PlanetState.DisplayHealthBar(false);
     }
 
     public void RaidEnded()
     {
-        raidOverPanel.SetActive(true);
-        int result = enemiesKilled - PlanetState.totalRaidDamage;
+        beginRaid = false; // timer slutar räkna
+        int result = enemiesKilled;
+
+        if (MotherShip.HP <= 0)
+        {
+            result = 100;
+        }
+        else if (PlanetState.HP <= 0)
+        {
+            result = -100;
+            gameOverPanel.GetComponent<PanelAnimation>().StretchPanel();
+        }
 
         enemiesKilledText.text = enemiesKilled + "";
-        enemiesMissedText.text = PlanetState.totalRaidDamage.ToString();
-        resultText.text = result.ToString();
+        //enemiesMissedText.text = PlanetState.totalRaidDamage.ToString();
 
+        // set you died message
+
+        resultText.text = result.ToString();
         int lostCrystals = result;
         int lostStardust = result;
 
+        //raidOverPanel.SetActive(true);
+        raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
 
         GameController.AddCrystals(lostCrystals * 10 * GameController.GetClickLvl());
         Debug.Log("HERE HERE HERE " + lostCrystals * 10 * GameController.GetClickLvl());
