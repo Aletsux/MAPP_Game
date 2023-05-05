@@ -60,6 +60,7 @@ public class GameController : MonoBehaviour
         }
         else if (PlayerPrefs.GetInt("reset") == 1)
         {
+            PlayerPrefs.DeleteAll();
             ResetForBuild();
         }
         PlayerPrefs.SetInt("reset", 0);
