@@ -217,13 +217,10 @@ public class StoreScript : MonoBehaviour
     public void EquipPlanet(int index)
     {
         int previousPlanet = index - 1;
-        if (previousPlanet != 0)
+        if (GameController.GetStardust() >= planetCosts[index] && PlayerPrefs.GetInt("PlanetPurchased_" + previousPlanet) == 1)
         {
-            if (GameController.GetStardust() >= planetCosts[index] && PlayerPrefs.GetInt("PlanetPurchased_" + previousPlanet) == 1)
-            {
-                purchasePlanet(index);
-                togglePlanet(index);
-            }
+            purchasePlanet(index);
+            togglePlanet(index);
         }
     }
 
