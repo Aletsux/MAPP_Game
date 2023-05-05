@@ -261,7 +261,7 @@ public class StoreScript : MonoBehaviour
                     }
                     else
                     {
-                        planetButtons[i].interactable = false;
+                        planetButtons[i].interactable = true;
                     }
                 }
             }
