@@ -32,7 +32,9 @@ public class ItemScript : MonoBehaviour
     protected string titleKey = "Title ";
     protected string descriptionKey = "Desc ";
     protected string priceKey = "Price";
+
     protected int galaxyLvl = 1; //Same As ActivePlanetIndex, update value after store items have been updated (ToggleItemActive)
+
     public virtual void Start()
     {
         titleKey = "Title " + (index + 1);
@@ -57,7 +59,7 @@ public class ItemScript : MonoBehaviour
 
     void Update()
     {
-        if(galaxyLvl != PlayerPrefs.GetInt("ActivePlanetIndex", 0)) {
+        if (galaxyLvl != PlayerPrefs.GetInt("ActivePlanetIndex", 0)) {
             ToggleItemActive();
             galaxyLvl = PlayerPrefs.GetInt("ActivePlanetIndex", 0);
         }
@@ -144,7 +146,15 @@ public class ItemScript : MonoBehaviour
     {
         itemName = LocalizationSettings.StringDatabase.GetLocalizedString(table, titleKey);
         description = LocalizationSettings.StringDatabase.GetLocalizedString(table, descriptionKey);
-        price = LocalizationSettings.StringDatabase.GetLocalizedString(table, priceKey);
+
+        if ((type == 1 && PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1) || (type == 2 && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1))
+        {
+            price = LocalizationSettings.StringDatabase.GetLocalizedString(table, priceKey);
+        }
+        else
+        {
+            SetBuyButtonText();
+        }
     }
 
     //Set inactive color of button panel if item index is outside of scope 
