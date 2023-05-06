@@ -5,13 +5,15 @@ using UnityEngine.UI;
 
 public class BackgroundAnimationAI : MonoBehaviour
 {
-
     private float timer;
     public float timeBetweenAnimation;
 
+    private List<GameObject> prefabs;
     public GameObject prefab1;
     public GameObject prefab2;
     public GameObject prefab3;
+
+    private List<Color> colors;
     public Color color1;
     public Color color2;
     public Color color3;
@@ -19,40 +21,34 @@ public class BackgroundAnimationAI : MonoBehaviour
     public Color color5;
     public Color color6;
 
-    private List<GameObject> prefabs;
-    private List<Color> colors;
 
-    List<GameObject> instantiatedStars;
-    List<Vector2> occupiedPositions;
+    private List<GameObject> instantiatedStars;
+    private List<Vector2> occupiedPositions;
 
-    public int objectCount;
+    public int amountOfStars;
     private int maxAttempts = 10;
 
     void Start()
     {
-        prefabs = new List<GameObject> { prefab1, prefab1, prefab1, prefab2, prefab2, prefab3 };
+        prefabs = new List<GameObject> { prefab1, prefab1, prefab1, prefab2, prefab2, prefab3 }; // går att ändra chans för olika typer
         colors = new List<Color> { color1, color2, color3, color4, color5, color6 };
-        float height = Screen.height; // skapar varibel och lagrar canvasens höjd
+        float height = Screen.height; // skapar varibel och lagrar skärmens storlek
         float width = Screen.width;
 
-        // Create a list to store the instantiated objects and positions
         instantiatedStars = new List<GameObject>();
         occupiedPositions = new List<Vector2>();
 
         int attempts = 0;
-        while (instantiatedStars.Count < objectCount && attempts < maxAttempts)
+        while (instantiatedStars.Count < amountOfStars && attempts < maxAttempts)
         {
-            // Generate a random position within the canvas boundaries
-            Vector2 position = new Vector2(Random.Range(0f, width), Random.Range(0f, height));
+            Vector2 position = new Vector2(Random.Range(0f, width), Random.Range(0f, height)); // random plats på skärmen
 
-            // Instantiate the object if the position is valid
-            if (!occupiedPositions.Contains(position))
+            if (!occupiedPositions.Contains(position)) // om ingen stjärna redan finns där
             {
-                //GameObject newObject = Instantiate(prefab1, position, transform.rotation, transform);
-                GameObject star = Instantiate(prefabs[Random.Range(0, prefabs.Count)], position, transform.rotation, transform);
-                instantiatedStars.Add(star);
-                occupiedPositions.Add(position);
-                star.GetComponent<Image>().color = colors[Random.Range(0, colors.Count)];
+                GameObject star = Instantiate(prefabs[Random.Range(0, prefabs.Count)], position, transform.rotation, transform); // skapa random stjärna
+                instantiatedStars.Add(star); // sparar stjrärna
+                occupiedPositions.Add(position); // sparar positionen
+                star.GetComponent<Image>().color = colors[Random.Range(0, colors.Count)]; // random färg
             }
             else
             {
@@ -67,7 +63,7 @@ public class BackgroundAnimationAI : MonoBehaviour
         if (timer >= timeBetweenAnimation)
         {
             timer = 0f;
-            instantiatedStars[Random.Range(0, instantiatedStars.Count)].GetComponent<Animator>().SetTrigger("trigger");
+            instantiatedStars[Random.Range(0, instantiatedStars.Count)].GetComponent<Animator>().SetTrigger("trigger"); // animera random stjärna ur listan
         }
     }
 }

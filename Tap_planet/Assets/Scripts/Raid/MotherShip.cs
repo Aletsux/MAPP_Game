@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class MotherShip : MonoBehaviour
 {
-
     public static int HP;
     public int maxHP;
     private static Slider healthBar;
@@ -13,19 +12,16 @@ public class MotherShip : MonoBehaviour
     private bool attacked;
     private float healthBarTimer;
 
-    // Start is called before the first frame update
     void Start()
     {
         button = gameObject.GetComponent<Button>();
         healthBar = gameObject.GetComponentInChildren<Slider>();
-
         HP = maxHP;
         healthBar.value = HP;
         DisplayHealthBar(true);
         button.onClick.AddListener(OnButtonClick);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (attacked)
@@ -41,12 +37,10 @@ public class MotherShip : MonoBehaviour
         
     }
 
-    public void OnButtonClick()
+    private void OnButtonClick()
     {
-        print("buttonCLick");
         if (RaidState.beginRaid)
         {
-            print("2");
             DisplayHealthBar(true);
             HP--;
             healthBar.value = HP;
