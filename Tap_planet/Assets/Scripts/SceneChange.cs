@@ -16,7 +16,7 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("StartMenu");
     }
-    public void LoadGame()
+    public static void LoadGame()
     {
         SceneManager.LoadScene("Game");
     }

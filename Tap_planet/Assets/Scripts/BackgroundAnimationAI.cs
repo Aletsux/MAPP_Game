@@ -9,6 +9,10 @@ public class BackgroundAnimationAI : MonoBehaviour
     private float timer;
     public float timeBetweenAnimation;
 
+    private float timerDuringClick;
+    private float saveTimeBetween = 2;
+    public float timeBetweenAnimationFast;
+
     public GameObject prefab1;
     public GameObject prefab2;
     public GameObject prefab3;
@@ -69,5 +73,20 @@ public class BackgroundAnimationAI : MonoBehaviour
             timer = 0f;
             instantiatedStars[Random.Range(0, instantiatedStars.Count)].GetComponent<Animator>().SetTrigger("trigger");
         }
+
+        if (timeBetweenAnimation == timeBetweenAnimationFast)
+        {
+            timerDuringClick += Time.deltaTime;
+            if (timerDuringClick >= 1)
+            {
+                timerDuringClick = 0f;
+                timeBetweenAnimation = saveTimeBetween;
+            }
+        }
+    }
+
+    public void SpeedUp()
+    {
+        timeBetweenAnimation = timeBetweenAnimationFast;
     }
 }
