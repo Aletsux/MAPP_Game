@@ -139,7 +139,7 @@ public class GameController : MonoBehaviour
         UpdateStardust();
     }
 
-    public bool getIsUsingTPU() {
+    public bool getIsTpuActive() {
         return isUsingTPU;
     }
 
