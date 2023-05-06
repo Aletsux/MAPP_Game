@@ -38,7 +38,6 @@ public class PlanetState : MonoBehaviour
         DisplayHealthBar(true);
         HP--;
         healthBar.value = HP;
-        print(HP);
         attacked = true;
     }
 

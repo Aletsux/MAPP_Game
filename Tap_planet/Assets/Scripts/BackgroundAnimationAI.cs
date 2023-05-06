@@ -22,8 +22,8 @@ public class BackgroundAnimationAI : MonoBehaviour
     private List<GameObject> prefabs;
     private List<Color> colors;
 
-    List<GameObject> instantiatedObjects;
-    List<Vector2> instancePositions;
+    List<GameObject> instantiatedStars;
+    List<Vector2> occupiedPositions;
 
     public int objectCount;
     private int maxAttempts = 10;
@@ -36,23 +36,23 @@ public class BackgroundAnimationAI : MonoBehaviour
         float width = Screen.width;
 
         // Create a list to store the instantiated objects and positions
-        instantiatedObjects = new List<GameObject>();
-        instancePositions = new List<Vector2>();
+        instantiatedStars = new List<GameObject>();
+        occupiedPositions = new List<Vector2>();
 
         int attempts = 0;
-        while (instantiatedObjects.Count < objectCount && attempts < maxAttempts)
+        while (instantiatedStars.Count < objectCount && attempts < maxAttempts)
         {
             // Generate a random position within the canvas boundaries
             Vector2 position = new Vector2(Random.Range(0f, width), Random.Range(0f, height));
 
             // Instantiate the object if the position is valid
-            if (!instancePositions.Contains(position))
+            if (!occupiedPositions.Contains(position))
             {
                 //GameObject newObject = Instantiate(prefab1, position, transform.rotation, transform);
-                GameObject newObject = Instantiate(prefabs[Random.Range(0, prefabs.Count)], position, transform.rotation, transform);
-                instantiatedObjects.Add(newObject);
-                instancePositions.Add(position);
-                newObject.GetComponent<Image>().color = colors[Random.Range(0, colors.Count)];
+                GameObject star = Instantiate(prefabs[Random.Range(0, prefabs.Count)], position, transform.rotation, transform);
+                instantiatedStars.Add(star);
+                occupiedPositions.Add(position);
+                star.GetComponent<Image>().color = colors[Random.Range(0, colors.Count)];
             }
             else
             {
@@ -67,7 +67,7 @@ public class BackgroundAnimationAI : MonoBehaviour
         if (timer >= timeBetweenAnimation)
         {
             timer = 0f;
-            instantiatedObjects[Random.Range(0, instantiatedObjects.Count)].GetComponent<Animator>().SetTrigger("trigger");
+            instantiatedStars[Random.Range(0, instantiatedStars.Count)].GetComponent<Animator>().SetTrigger("trigger");
         }
     }
 }
