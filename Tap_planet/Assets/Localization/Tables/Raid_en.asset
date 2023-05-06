@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 90151313408
-    m_Localized: Your planer is being raided!
+    m_Localized: Your planet is being raided!
     m_Metadata:
       m_Items: []
   - m_Id: 662917079040
@@ -67,7 +67,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 300459691597824
-    m_Localized: 'Summary:'
+    m_Localized: 'You Lost:'
     m_Metadata:
       m_Items: []
   - m_Id: 300589975068672
@@ -75,7 +75,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 300679691231232
-    m_Localized: Enemies missed
+    m_Localized: 'Mothership Bonus:'
     m_Metadata:
       m_Items: []
   - m_Id: 300811631452160
@@ -84,6 +84,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 300904682086400
     m_Localized: Return to planet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4037507674005504
+    m_Localized: Game Over...
     m_Metadata:
       m_Items: []
   references:
