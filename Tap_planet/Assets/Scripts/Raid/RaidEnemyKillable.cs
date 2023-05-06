@@ -27,7 +27,7 @@ public class RaidEnemyKillable : MonoBehaviour
     public void destroyEnemy()
     {
         GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation, GameObject.FindAnyObjectByType<Canvas>().transform); // skapa explosion (viktigt: under canvas)
-        explosion.transform.SetAsFirstSibling(); // s? att de inte ?r iv?gen
+        explosion.transform.SetSiblingIndex(1);
         Debug.Log("Hit");
         gameObject.SetActive(false);
         gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
