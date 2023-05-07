@@ -24,6 +24,11 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.LoadScene("RaidTest");
     }
+
+    public void LoadCutscene()
+    {
+        SceneManager.LoadScene("Cutscene");
+    }
 }
 
 //om vi ville ha en utscrollande meny istället för en ändrad scen, kan man ha menyn under själva spelet och sedan ha
