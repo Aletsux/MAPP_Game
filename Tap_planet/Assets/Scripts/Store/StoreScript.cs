@@ -304,6 +304,15 @@ public class StoreScript : MonoBehaviour
                 GameController.DecreaseStardust(cost);
             }
         }
+        else if (powerUpName.Equals("star"))
+        {
+            if (GameController.GetStardust() >= GetPrice(powerUpName))
+            {
+                PlayerPrefs.SetInt("IdleExtenderLvl", PlayerPrefs.GetInt("IdleExtenderLvl") + 1);
+                GameController.DecreaseStardust(GetPrice(powerUpName));
+                print(PlayerPrefs.GetInt("IdleExtenderLvl"));
+            }
+        }
 
         gameController.SaveGame();
     }
@@ -325,6 +334,10 @@ public class StoreScript : MonoBehaviour
         else if (name.Equals("dust"))
         {
             return (GameController.GetStardustMinerLevel() == 0) ? 50 : GameController.GetStardustMinerLevel() * 100;
+        }
+        else if (name.Equals("star"))
+        {
+            return PlayerPrefs.GetInt("IdleExtenderLvl") ^ 2 * 1000;
         }
 
         else if (name.Equals("party"))

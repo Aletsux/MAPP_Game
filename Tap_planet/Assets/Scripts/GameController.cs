@@ -49,6 +49,8 @@ public class GameController : MonoBehaviour
     private int nextUpdate = 1;
     public int lvlCounter = 5;
 
+    public GameObject idleCollectedPanel;
+
     public VolumeManager volumeManager;
 
     void Awake()
@@ -324,7 +326,6 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("tpuCost", GetTpuCost());
         PlayerPrefs.SetInt("idleCost", GetIdleCost());
         PlayerPrefs.SetInt("clickLvl", GetClickLvl());
-
         PlayerPrefs.Save();
     }
 
@@ -344,6 +345,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("tpuCost", 5);
         PlayerPrefs.SetInt("idleCost", 5);
         PlayerPrefs.SetInt("clickLvl", 1);
+
+        PlayerPrefs.SetInt("IdleExtenderLvl", 0);
         PlayerPrefs.Save();
     }
 
@@ -394,8 +397,17 @@ public class GameController : MonoBehaviour
         idleCost = PlayerPrefs.GetInt("idleCost");
         clickLvl = PlayerPrefs.GetInt("clickLvl");
 
+        if (PlayerPrefs.GetInt("IdleExtenderLvl") == 0)
+        {
+            PlayerPrefs.SetInt("IdleExtenderLvl", 1);
+        }
 
-        LoadIdleClicks(calculateSecondsSinceQuit());
+        if (calculateSecondsSinceQuit() < 1800)
+        {
+        idleCollectedPanel.GetComponentInChildren<Text>().text = ReturnIdleClicks(calculateSecondsSinceQuit()).ToString();
+        idleCollectedPanel.GetComponent<PanelAnimation>().StretchPanel();
+            idleCollectedPanel.GetComponent<PanelAnimation>().StretchPanel();
+        }
         UpdateTPU();
     }
 
@@ -501,6 +513,11 @@ public class GameController : MonoBehaviour
 
     private void LoadIdleClicks(int secondsPassed)
     {
+        if (secondsPassed > PlayerPrefs.GetInt("IdleExtenderLvl") * 1800)
+        {
+            secondsPassed = PlayerPrefs.GetInt("IdleExtenderLvl") * 1800;
+        }
+
         if (isAtLevel) //varje sek
         {
             if (numPerSec == 1)
@@ -526,6 +543,40 @@ public class GameController : MonoBehaviour
                 crystalAmount.text = crystals + ""/*suffix*/;
             }
         }
+    }
+
+    private int ReturnIdleClicks(int secondsPassed)
+    {
+        int idleClicks = 0;
+        if (secondsPassed > PlayerPrefs.GetInt("IdleExtenderLvl") * 1800)
+        {
+            secondsPassed = PlayerPrefs.GetInt("IdleExtenderLvl") * 1800;
+        }
+
+        if (isAtLevel) //varje sek
+        {
+            if (numPerSec == 1)
+            {
+                idleClicks += secondsPassed;
+            }
+            else if (numPerSec > 1)
+            {
+                int result = secondsPassed * numPerSec;
+                idleClicks += result;
+            }
+        }
+
+        if (isUsingIdleClicker)//längre väntetid
+        {
+            if (numPerTime > 0)
+            {
+                double dResult = secondsPassed / secBeforeIdleClick;
+                int result = (int)dResult;
+                crystals += result;
+                crystalAmount.text = crystals + ""/*suffix*/;
+            }
+        }
+        return idleClicks;
     }
 
     public float ReturnTPUTimeBeforeReset()
