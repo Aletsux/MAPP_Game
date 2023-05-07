@@ -469,6 +469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closedHeight: 100
   closedWidth: 100
+  duration: 0.1
+  delay: 0.1
 --- !u!114 &70796342 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6458594101022523636, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
@@ -919,7 +921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edd36c875e1647d3b8e1c657a74dd2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: ef8d55501a1df2541a60c492a302e67b, type: 3}
   itemName: 
   description: 
   price: 
@@ -1689,7 +1691,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1750}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &280513286
@@ -4445,6 +4447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAnimation: 0.5
+  timeBetweenAnimationFast: 0.1
   prefab1: {fileID: 5341206482666594318, guid: 9393ef84bab43438ea75499b02d25479, type: 3}
   prefab2: {fileID: 4022372014772603809, guid: 8d15b1b0ce691421fab691fb343c2368, type: 3}
   prefab3: {fileID: 4022372014772603809, guid: 65fb3394132364c2394ddce93dbab1a7, type: 3}
@@ -4833,7 +4836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edd36c875e1647d3b8e1c657a74dd2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 5cb12ac034d06cd4a9c6fb049c92ee92, type: 3}
   itemName: 
   description: 
   price: 
@@ -5533,6 +5536,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closedHeight: 100
   closedWidth: 0
+  duration: 0.1
+  delay: 0.1
 --- !u!1 &497726037 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9010891648561881383, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
@@ -5657,8 +5662,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34cb5d0dee5640d4b7adf739ac432a2, type: 2}
-  m_sharedMaterial: {fileID: 2853139203921609514, guid: f34cb5d0dee5640d4b7adf739ac432a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5885,7 +5890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.20392157}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6121,8 +6126,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: X
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34cb5d0dee5640d4b7adf739ac432a2, type: 2}
-  m_sharedMaterial: {fileID: 2853139203921609514, guid: f34cb5d0dee5640d4b7adf739ac432a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13126,8 +13131,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 79cc89765e080403398127b31cad2168, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -13227,8 +13232,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34cb5d0dee5640d4b7adf739ac432a2, type: 2}
-  m_sharedMaterial: {fileID: 2853139203921609514, guid: f34cb5d0dee5640d4b7adf739ac432a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13436,7 +13441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b852f154f714357aa81aa7b0324ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 3980c37cd47358044b28737424b04250, type: 3}
   itemName: 
   description: 
   price: 
@@ -14559,8 +14564,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34cb5d0dee5640d4b7adf739ac432a2, type: 2}
-  m_sharedMaterial: {fileID: 2853139203921609514, guid: f34cb5d0dee5640d4b7adf739ac432a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14802,8 +14807,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 79cc89765e080403398127b31cad2168, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -16386,8 +16391,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 79cc89765e080403398127b31cad2168, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -16863,8 +16868,9 @@ GameObject:
   - component: {fileID: 1500350631}
   - component: {fileID: 1500350630}
   - component: {fileID: 1500350633}
+  - component: {fileID: 1500350634}
   m_Layer: 5
-  m_Name: ClickerButton
+  m_Name: Planet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16972,6 +16978,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1500350634}
+        m_TargetAssemblyTypeName: FloatingPoints, Assembly-CSharp
+        m_MethodName: showFloatingPoints
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 295205584}
+        m_TargetAssemblyTypeName: BackgroundAnimationAI, Assembly-CSharp
+        m_MethodName: SpeedUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1500350631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17026,6 +17056,27 @@ MonoBehaviour:
   timePerFrame: 0.8
   speedyTimePerFrame: 0.15
   timeBeforeSlowDown: 1
+--- !u!114 &1500350634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500350628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e622a70767914d4c9acea481fa02b8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointParent: {fileID: 8068364861085473504, guid: 250a996cc103c9a47a11133201f8a7d3, type: 3}
+  xMax: 300
+  xMin: -300
+  yMax: 200
+  yMin: -100
+  destroyTimer: 0.3
+  normal: {r: 0.6236205, g: 0.9245283, b: 0.8445601, a: 1}
+  special: {r: 0.9339623, g: 0.6672541, b: 0.2511125, a: 1}
+  gc: {fileID: 205055364}
 --- !u!1 &1521218418
 GameObject:
   m_ObjectHideFlags: 0
@@ -21425,7 +21476,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -21656,7 +21707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edd36c875e1647d3b8e1c657a74dd2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: fa25f139bfa7b44fd9059f4f0966ccf6, type: 3}
   itemName: 
   description: 
   price: 
@@ -21679,7 +21730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b852f154f714357aa81aa7b0324ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: cffcfeb3fea11b349ae95514135ec538, type: 3}
   itemName: 
   description: 
   price: 
@@ -22478,7 +22529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edd36c875e1647d3b8e1c657a74dd2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 1df97d1de46aa6747a15a06e061c6cf7, type: 3}
   itemName: 
   description: 
   price: 
@@ -22638,8 +22689,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: f34cb5d0dee5640d4b7adf739ac432a2, type: 2}
-  m_sharedMaterial: {fileID: 2853139203921609514, guid: f34cb5d0dee5640d4b7adf739ac432a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23001,7 +23052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b852f154f714357aa81aa7b0324ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 9ab9fcbb9348741de82bf3f451974a56, type: 3}
   itemName: 
   description: 
   price: 
@@ -23532,7 +23583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.3764706}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -23966,7 +24017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4b852f154f714357aa81aa7b0324ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: c5b66b2fe27624b3b8e8744998b82fa3, type: 3}
   itemName: 
   description: 
   price: 
@@ -24173,8 +24224,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 79cc89765e080403398127b31cad2168, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -25261,6 +25312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   closedHeight: 100
   closedWidth: 0
+  duration: 0.1
+  delay: 0.1
   parent: {fileID: 330460794902800473}
 --- !u!114 &330460796468687986
 MonoBehaviour:

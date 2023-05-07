@@ -3,25 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlanetState : MonoBehaviour
+public class MotherShip : MonoBehaviour
 {
     public static int HP;
-    public int maxHP = 3;
+    public int maxHP;
     private static Slider healthBar;
-    public static bool attacked;
+    private Button button;
+    private bool attacked;
     private float healthBarTimer;
 
     void Start()
     {
+        button = gameObject.GetComponent<Button>();
         healthBar = gameObject.GetComponentInChildren<Slider>();
         HP = maxHP;
         healthBar.value = HP;
         DisplayHealthBar(true);
+        button.onClick.AddListener(OnButtonClick);
     }
 
     void Update()
     {
-        if (attacked && RaidState.beginRaid)
+        if (attacked)
         {
             healthBarTimer += Time.deltaTime;
             if (healthBarTimer >= 1)
@@ -31,14 +34,20 @@ public class PlanetState : MonoBehaviour
                 attacked = false;
             }
         }
+        
     }
 
-    public static void DecreaseHP()
+    private void OnButtonClick()
     {
-        DisplayHealthBar(true);
-        HP--;
-        healthBar.value = HP;
-        attacked = true;
+        if (RaidState.beginRaid)
+        {
+            DisplayHealthBar(true);
+            HP--;
+            healthBar.value = HP;
+            print(HP);
+            attacked = true;
+            healthBarTimer = 0f;
+        }
     }
 
     public static void DisplayHealthBar(bool b)

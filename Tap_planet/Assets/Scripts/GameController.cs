@@ -60,6 +60,7 @@ public class GameController : MonoBehaviour
         }
         else if (PlayerPrefs.GetInt("reset") == 1)
         {
+            PlayerPrefs.DeleteAll();
             ResetForBuild();
         }
         PlayerPrefs.SetInt("reset", 0);
@@ -136,6 +137,10 @@ public class GameController : MonoBehaviour
 
         UpdateCrystals();
         UpdateStardust();
+    }
+
+    public bool getIsTpuActive() {
+        return isUsingTPU;
     }
 
     public static long GetCrystals()

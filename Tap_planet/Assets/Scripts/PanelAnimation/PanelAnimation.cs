@@ -12,8 +12,8 @@ public class PanelAnimation : MonoBehaviour
     public float closedHeight = 100;
     public float closedWidth = 100;
 
-    protected float duration = 0.1f;
-    protected float delay = 0.1f;
+    public float duration = 0.1f;
+    public float delay = 0.1f;
     protected bool isActive;
 
     protected virtual void Awake()
