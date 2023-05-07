@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class MusicController : MonoBehaviour
 {
-    // Start is called before the first frame update
 
     [SerializeField] private AudioSource audioSource;
-
     [SerializeField] private AudioClip musicClip;
-
 
     void Start()
     {
@@ -18,7 +15,6 @@ public class MusicController : MonoBehaviour
         audioSource.Play();
     }
 
-    // Update is called once per frame
     void Update()
     {
         audioSource.clip = musicClip;
