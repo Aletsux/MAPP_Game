@@ -1304,6 +1304,7 @@ GameObject:
   - component: {fileID: 232701620}
   - component: {fileID: 232701619}
   - component: {fileID: 232701621}
+  - component: {fileID: 232701622}
   m_Layer: 5
   m_Name: StorePanel
   m_TagString: Store
@@ -1330,7 +1331,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50}
+  m_AnchoredPosition: {x: 2, y: -50.000122}
   m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &232701619
@@ -1411,6 +1412,22 @@ MonoBehaviour:
   - {fileID: 282569493}
   - {fileID: 1563319892}
   planetCosts: 00000000e80300001027000010270000
+--- !u!114 &232701622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232701617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee65d71aa4ee4df989f9be804986ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3000
+  SS: {fileID: 232701617}
+  canvas: {fileID: 1764616457}
+  StoreScript: {fileID: 232701617}
 --- !u!1 &233939375 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9010891648576868338, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
@@ -16160,9 +16177,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 232701621}
-        m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-        m_MethodName: CloseStore
+      - m_Target: {fileID: 232701622}
+        m_TargetAssemblyTypeName: StoreSlider, Assembly-CSharp
+        m_MethodName: CloseSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16172,9 +16189,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DescriptionState, Assembly-CSharp
-        m_MethodName: setObjectInactive
+      - m_Target: {fileID: 232701621}
+        m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18197,6 +18214,18 @@ MonoBehaviour:
       - m_Target: {fileID: 232701621}
         m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
         m_MethodName: OpenStore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 232701622}
+        m_TargetAssemblyTypeName: StoreSlider, Assembly-CSharp
+        m_MethodName: OpenSlider
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
