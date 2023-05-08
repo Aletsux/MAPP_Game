@@ -6,6 +6,10 @@ using System;
 using System.Reflection;
 using Random = System.Random;
 using System.Globalization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Tables;
+using UnityEngine.Localization.Components;
 
 public class GameController : MonoBehaviour
 {
@@ -397,23 +401,33 @@ public class GameController : MonoBehaviour
         idleCost = PlayerPrefs.GetInt("idleCost");
         clickLvl = PlayerPrefs.GetInt("clickLvl");
 
-        if (PlayerPrefs.GetInt("IdleExtenderLvl") == 0)
+        if (PlayerPrefs.GetInt("IdleExtenderLvl") == 0) // ser till att level inte är 0
         {
             PlayerPrefs.SetInt("IdleExtenderLvl", 1);
         }
 
-        if (calculateSecondsSinceQuit() < 1800)
+        if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // om spelaren kommer in efter 30 min men innan idle extenders gräns
         {
-        idleCollectedPanel.GetComponentInChildren<Text>().text = ReturnIdleClicks(calculateSecondsSinceQuit()).ToString();
-        idleCollectedPanel.GetComponent<PanelAnimation>().StretchPanel();
+            idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
             idleCollectedPanel.GetComponent<PanelAnimation>().StretchPanel();
         }
+        else if (calculateSecondsSinceQuit() > 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // kommer in efter idle extenders gräns
+        {
+            idleCollectedPanel.transform.GetChild(0).GetChild(2).GetComponent<Text>().text = LocalizationSettings.StringDatabase.GetLocalizedString("IdleStartPanel", "FellAsleep"); // hämtar översättning
+
+
+            idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
+            idleCollectedPanel.GetComponent<PanelAnimation>().StretchPanel();
+        }
+        LoadIdleClicks(calculateSecondsSinceQuit());
+
         UpdateTPU();
     }
 
     public static int calculateSecondsSinceQuit()
     {
         return (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds - PlayerPrefs.GetInt("quitTime");
+        
     }
 
     void OnApplicationFocus(bool focus)
@@ -513,9 +527,9 @@ public class GameController : MonoBehaviour
 
     private void LoadIdleClicks(int secondsPassed)
     {
-        if (secondsPassed > PlayerPrefs.GetInt("IdleExtenderLvl") * 1800)
+        if (secondsPassed > PlayerPrefs.GetInt("IdleExtenderLvl") * 1800) 
         {
-            secondsPassed = PlayerPrefs.GetInt("IdleExtenderLvl") * 1800;
+            secondsPassed = PlayerPrefs.GetInt("IdleExtenderLvl") * 1800; // maxgräns för vad spelaren kan tjäna
         }
 
         if (isAtLevel) //varje sek
@@ -545,7 +559,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private int ReturnIdleClicks(int secondsPassed)
+    private int ReturnIdleClicks(int secondsPassed) // returnerar det LoadIdleClicks adderar till spelarens total
     {
         int idleClicks = 0;
         if (secondsPassed > PlayerPrefs.GetInt("IdleExtenderLvl") * 1800)
