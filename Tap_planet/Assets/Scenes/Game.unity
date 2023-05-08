@@ -1284,12 +1284,14 @@ MonoBehaviour:
   - {fileID: 2047454929}
   - {fileID: 401204365}
   - {fileID: 1322002897}
+  - {fileID: 456249794}
   planetButtons:
   - {fileID: 282569496}
   - {fileID: 282569495}
   - {fileID: 282569493}
   - {fileID: 1563319892}
-  planetCosts: 00000000e80300001027000010270000
+  - {fileID: 1509405034}
+  planetCosts: 00000000e8030000102700001027000010270000
 --- !u!1 &233939375 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9010891648576868338, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
@@ -3468,6 +3470,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c5b66b2fe27624b3b8e8744998b82fa3, type: 3}
+    - target: {fileID: 8765963175784930253, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2353d9ef57f4fbd43b51bfcfd79292ff, type: 3}
     - target: {fileID: 8856855819759885015, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_Type
       value: 0
@@ -3675,6 +3681,10 @@ PrefabInstance:
     - target: {fileID: 9010891647122494674, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010891647206292326, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: m_Name
+      value: WatermelonPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 9010891647206292327, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_AnchorMax.y
@@ -18029,6 +18039,17 @@ MonoBehaviour:
   normal: {r: 0.6236205, g: 0.9245283, b: 0.8445601, a: 1}
   special: {r: 0.9339623, g: 0.6672541, b: 0.2511125, a: 1}
   gc: {fileID: 205055364}
+--- !u!114 &1509405034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 205854124369981173, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+  m_PrefabInstance: {fileID: 282569490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1521218418
 GameObject:
   m_ObjectHideFlags: 0
@@ -24202,16 +24223,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749855874}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4b852f154f714357aa81aa7b0324ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 2353d9ef57f4fbd43b51bfcfd79292ff, type: 3}
   itemName: 
   description: 
   price: 
-  buyButton: {fileID: 0}
+  buyButton: {fileID: 1509405034}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
   title: 
