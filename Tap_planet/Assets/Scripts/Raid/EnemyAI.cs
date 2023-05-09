@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
 {
 
     public GameObject[] enemyList;
+    public GameObject shipParent;
 
     //private bool isListEmpty = false;
     //private int nullCounter = 0;
@@ -18,9 +19,11 @@ public class EnemyAI : MonoBehaviour
 
     public void deactivate() {
         Debug.Log("Deactivated!");
+        //Debug.Log(enemyList.Length);
         launch = false;
-        
-        for(int i = 0; i < enemyList.Length; i++) {
+        shipParent.SetActive(false);
+
+        for (int i = 0; i < enemyList.Length; i++) {
             if(enemyList[i] != null) {
                 GameObject ship = enemyList[i];
                 ship.SetActive(false);

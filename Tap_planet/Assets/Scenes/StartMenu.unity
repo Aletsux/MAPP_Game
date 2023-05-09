@@ -138,6 +138,22 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1890028927824763468, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890028927824763468, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890028927824763468, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1890028927824763468, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4347518385774679651, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -275,6 +291,11 @@ GameObject:
 --- !u!1 &93455409 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 60524128814951985, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
+  m_PrefabInstance: {fileID: 93455404}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &117940262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 479588113242864935, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
   m_PrefabInstance: {fileID: 93455404}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &163949060
@@ -1070,6 +1091,7 @@ MonoBehaviour:
   - {fileID: 93455407}
   - {fileID: 93455406}
   - {fileID: 93455409}
+  - {fileID: 117940262}
   accessoryObjects:
   - {fileID: 1078852609}
   - {fileID: 1078852608}

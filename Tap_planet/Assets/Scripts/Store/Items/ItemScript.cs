@@ -95,7 +95,6 @@ public class ItemScript : MonoBehaviour
 
     protected virtual void OnBuyClick()
     {
-        print("itemscript");
         store.BuyPowerUp(title);
         SetBuyButtonText();
         desc.GetAllInformation(this, true);

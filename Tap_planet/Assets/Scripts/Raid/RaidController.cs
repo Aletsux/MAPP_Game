@@ -54,7 +54,7 @@ public class RaidController : MonoBehaviour
     {
         if (focus) //if player enters game
         {
-
+            timeBeforeRaid = PlayerPrefs.GetInt("timeBeforeRaid");
 
             timeSinceQuit = GameController.calculateSecondsSinceQuit();
             Debug.Log("TimeSincequit: " + timeSinceQuit);
@@ -134,5 +134,7 @@ public class RaidController : MonoBehaviour
         autoRaidTimer = 0;
         Debug.Log("bang");
     }
+
+    // set random time 
 }
 
