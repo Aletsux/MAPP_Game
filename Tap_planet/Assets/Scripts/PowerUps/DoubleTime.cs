@@ -80,25 +80,20 @@ public class DoubleTime : PowerUpHandler, IPowerUp
     
     public void DoubleIdleClick() {
         //check whether IdleClick is being used
-        if(gc.IsIdleTrue()) {
+        if(GameController.IsIdleTrue()) {
             if(Time.time >= interval) {
-                Debug.Log("INCREASE AT INTERVAL!");
                 interval = Mathf.FloorToInt(Time.time) + gc.ReturnSecBeforeClick();
                 GameController.AddCrystals(gc.ReturnClickPerTime() * 2); //add numPerTime * 2 each interval
-                gc.crystalAmount.text = currentCrystals + ""/*suffix*/;  
             }
-            
         }
 
         //Check for IdleLvl -> click each second
         if (gc.IsIdleLvlTrue())
         {
-            Debug.Log("INCREASE PER SEC!");
             if (Time.time >= perSec)
             {
                 perSec = Mathf.FloorToInt(Time.time) + 1;
                 GameController.AddCrystals(gc.ReturnClicksPerSec() * 2); //add numPerSec * 2 each second
-                gc.crystalAmount.text = currentCrystals + ""/*suffix*/;
             }
         }
     }
