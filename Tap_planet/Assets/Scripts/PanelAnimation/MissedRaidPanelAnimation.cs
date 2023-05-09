@@ -1,51 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MissedRaidPanelAnimation : PanelAnimation
 {
-    public GameObject parent;
+    private Button exitButton;
 
     protected override void Awake()
     {
         base.Awake();
-        parent.SetActive(false);
+        transform.parent.gameObject.SetActive(false);
     }
     public override void StretchPanel()
     {
-        if (isActive == false)
+        if (!open)
         {
-            LeanTween.size(rectTransform, new Vector2(targetWidth, closedHeight), duration)
-        .setEase(LeanTweenType.easeInOutQuad)
-        .setDelay(delay)
-        .setOnComplete(() =>
-        {
-            LeanTween.size(rectTransform, new Vector2(targetWidth, targetHeight), duration)
-            .setEase(LeanTweenType.easeInOutQuad)
-            .setDelay(delay)
-            .setOnComplete(() =>
-            {
-                
-            });
-        });
-
+            transform.parent.gameObject.SetActive(true);
         }
-        else
-        {
-            LeanTween.size(rectTransform, new Vector2(targetWidth, closedHeight), duration)
-        .setEase(LeanTweenType.easeInOutQuad)
-        .setDelay(0)
-        .setOnComplete(() =>
-        {
-            LeanTween.size(rectTransform, new Vector2(closedWidth, closedHeight), duration)
-            .setEase(LeanTweenType.easeInOutQuad)
-            .setDelay(delay)
-            .setOnComplete(() =>
-            {
-                parent.SetActive(false);
-            });
-        });
-        }
-        isActive = !isActive;
+        base.StretchPanel();
+    }
+    protected override void OnComplete(bool isActive)
+    {
+        transform.parent.gameObject.SetActive(isActive);
     }
 }
