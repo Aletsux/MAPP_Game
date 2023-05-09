@@ -1,19 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEditor;
 
-public class DoubleTime : MonoBehaviour, IPowerUp
+//Comment: Sort of works, looks scuffed, implement visual feedback
+public class DoubleTime : PowerUpHandler, IPowerUp
 {
+    [Space]
+    [SerializeField] private string _name;
+    [SerializeField] private float _duration;
+    [SerializeField] private bool _isActive;
+    [SerializeField] private long _cost;
+    [SerializeField] private float _timer;
+
+    //Variables from Interface
     public string name { get; set; }
-    public float duration { get; set; }
+    public float duration {get; set; }
     public static bool isActive { get; set; }
     public long cost { get; set; }
     public long defaultValue { get; set; }
     public float timer { get; set;}
-    public long currentCrystals {get;}
+    public long currentCrystals {get; set;}
 
-    public GameObject gameController;
-    private GameController gc;
+
+    //Unique variables
     private bool activateDT = false;
     private int numPerSec;
     private int numPerTime;
@@ -21,7 +32,7 @@ public class DoubleTime : MonoBehaviour, IPowerUp
     private float perSec = 1;
 
     //Constructor set default values from Interface
-    public DoubleTime() {
+    /* public DoubleTime() {
         name = "DoubleTime";
         isActive = false; 
         cost = 100;
@@ -29,16 +40,19 @@ public class DoubleTime : MonoBehaviour, IPowerUp
         timer = 0f;
         duration = 10f;
         currentCrystals = GameController.GetCrystals();
-    }
-
-    public static bool getIsActive() {
-        return isActive;
-    }
+    } */
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Entered start method!");
+        name = _name; //DoubleTime
+        isActive = _isActive;
+        cost = _cost;
+        
+        timer = _timer;
+        duration = _duration;
+        currentCrystals = GameController.GetCrystals();
+        
         gc = gameController.GetComponent<GameController>();
         
         numPerSec = gc.ReturnClicksPerSec();
@@ -60,6 +74,7 @@ public class DoubleTime : MonoBehaviour, IPowerUp
     public void Activate() {
         activateDT = true;
         isActive = true;
+        IPowerUp.isActive = true;
         DoubleIdleClick();
     }
     
@@ -91,9 +106,14 @@ public class DoubleTime : MonoBehaviour, IPowerUp
     public void Deactivate() {
         activateDT = false;
         isActive = false;
+        IPowerUp.isActive = false;
     }
 
     public void RestoreState() {
 
+    }
+
+    public void IncreaseCost() {
+        
     }
 }

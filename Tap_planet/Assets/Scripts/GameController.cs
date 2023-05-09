@@ -112,7 +112,7 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (isUsingIdleClicker && !DoubleTime.getIsActive())
+        if (isUsingIdleClicker && !DoubleTime.isActive)
         {
             //om uppdateringen har skett
             if (Time.time >= theNextUpdate)
@@ -129,7 +129,7 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (isAtLevel && !DoubleTime.getIsActive())//varje sekund
+        if (isAtLevel && !DoubleTime.isActive)//varje sekund
         {
             if (Time.time >= nextUpdate)
             {

@@ -10,13 +10,15 @@ public interface IPowerUp
     public long cost {get; set;}
     public long defaultValue{get; set;}
     public float timer {get; set;}
-    public long currentCrystals {get;}
+    public long currentCrystals {get; set;}
 
     public void Activate();
     
     public void Deactivate();
 
     public void RestoreState();
+
+    public void IncreaseCost();
 
     //???
     public void UpdateDuration() {
