@@ -112,7 +112,7 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (isUsingIdleClicker)
+        if (isUsingIdleClicker && !DoubleTime.isActive)
         {
             //om uppdateringen har skett
             if (Time.time >= theNextUpdate)
@@ -123,22 +123,21 @@ public class GameController : MonoBehaviour
                 //den väntar tills att uppdate
                 Debug.Log("crystal: " + 1);
                 theNextUpdate = Mathf.FloorToInt(Time.time) + secBeforeIdleClick;
-
+                
                 //Det som ska ske varje sekund
                 IdleClickSecApart();
             }
         }
 
-        if (isAtLevel)//varje sekund
+        if (isAtLevel && !DoubleTime.isActive)//varje sekund
         {
             if (Time.time >= nextUpdate)
             {
-                
                 nextUpdate = Mathf.FloorToInt(Time.time) + 1;
                 IdleClickPowerUp();
 
                 //Debug.Log("crystal: " + 1);
-            }
+            } 
         }
 
         UpdateCrystals();
@@ -491,8 +490,7 @@ public class GameController : MonoBehaviour
     public void IdleClickPowerUp()
     {
         crystals += numPerSec;
-        crystalAmount.text = crystals + ""/*suffix*/;
-        
+        crystalAmount.text = crystals + ""/*suffix*/;   
     }
     //några sekunder mellan uppdatering
     public void IdleClickSecApart()
@@ -500,8 +498,7 @@ public class GameController : MonoBehaviour
         crystals += numPerTime;
         crystalAmount.text = crystals + ""/*suffix*/;
     }
-
-
+    
 
 
     public int GetIdleCost()
