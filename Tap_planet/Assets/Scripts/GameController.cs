@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] public int idleCost = 5;//the cost for the idle click powerup
     public float clicksPerSecond = 1f;
-    private bool isUsingIdleClicker = false;
+    private static bool isUsingIdleClicker = false;
     private int numPerSec = 0;
     private int theNextUpdate = 1;
     public int secBeforeIdleClick = 75;
@@ -59,7 +59,6 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        //ResetForBuild();
         if (PlayerPrefs.GetInt("getMoney") == 1)
         {
             GetMoney();
@@ -85,7 +84,7 @@ public class GameController : MonoBehaviour
             print("reset " + PlayerPrefs.GetInt("reset"));
         }
         if (Input.GetKeyDown(KeyCode.A))
-        {
+            {
             PlayerPrefs.SetInt("reset", 1);
             PlayerPrefs.SetInt("getMoney", 0);
             print("getmoney " + PlayerPrefs.GetInt("getMoney"));
@@ -404,29 +403,33 @@ public class GameController : MonoBehaviour
         {
             PlayerPrefs.SetInt("IdleExtenderLvl", 1);
         }
-
-        if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // om spelaren kommer in efter 30 min men innan idle extenders gräns
+        if (isUsingIdleClicker)
         {
-            idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
-            idleCollectedPanel.GetComponent<PanelAnimation>().StretchPanel();
+            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // om spelaren kommer in efter 30 min men innan idle extenders gräns
+            {
+                //print("1");
+                //print(PlayerPrefs.GetInt("IdleExtenderLvl"));
+                idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
+                idleCollectedPanel.GetComponent<PanelAnimation>().StretchPanel();
+            }
+            else if (calculateSecondsSinceQuit() > 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // kommer in efter idle extenders gräns
+            {
+                //print("2");
+                //print(PlayerPrefs.GetInt("IdleExtenderLvl"));
+                idleCollectedPanel.transform.GetChild(0).GetChild(2).GetComponent<Text>().text = LocalizationSettings.StringDatabase.GetLocalizedString("IdleStartPanel", "FellAsleep"); // hämtar översättning
+
+
+                idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
+                idleCollectedPanel.GetComponent<PanelAnimation>().StretchPanel();
+            }
+            LoadIdleClicks(calculateSecondsSinceQuit());
         }
-        else if (calculateSecondsSinceQuit() > 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // kommer in efter idle extenders gräns
-        {
-            idleCollectedPanel.transform.GetChild(0).GetChild(2).GetComponent<Text>().text = LocalizationSettings.StringDatabase.GetLocalizedString("IdleStartPanel", "FellAsleep"); // hämtar översättning
-
-
-            idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
-            idleCollectedPanel.GetComponent<PanelAnimation>().StretchPanel();
-        }
-        LoadIdleClicks(calculateSecondsSinceQuit());
-
         UpdateTPU();
     }
 
     public static int calculateSecondsSinceQuit()
     {
         return (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds - PlayerPrefs.GetInt("quitTime");
-        
     }
 
     void OnApplicationFocus(bool focus)
@@ -471,7 +474,7 @@ public class GameController : MonoBehaviour
         Debug.Log("sec" + secBeforeIdleClick);
     }
 
-    public bool IsIdleTrue()
+    public static bool IsIdleTrue()
     {
         return isUsingIdleClicker;
     }

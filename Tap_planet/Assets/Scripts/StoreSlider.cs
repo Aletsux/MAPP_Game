@@ -66,12 +66,17 @@ public class StoreSlider : MonoBehaviour
 
             
 
-            timer += Time.deltaTime;
-            if (timer >= timeBeforeReset)
+            //timer += Time.deltaTime;
+            //if (timer >= timeBeforeReset)
+            //{
+            //    storeScript.CloseStore();
+            //    timer = 0f;
+            //    closeStore = false;
+            //}
+
+            if(transform.position.y <= nextPos.y)
             {
                 storeScript.CloseStore();
-                timer = 0f;
-                closeStore = false;
             }
         }
 
