@@ -9,6 +9,9 @@ public class TypeWriterEffect : MonoBehaviour
     public string entireText; //hela texten som ska visas
     private string currentText = ""; //böjar alltid tom
 
+    public AudioClip[] typeWriterClips; //förkortat TPC
+    public AudioSource audioSource;
+
     void Start()
     {
         StartCoroutine(ShowText());
@@ -20,7 +23,14 @@ public class TypeWriterEffect : MonoBehaviour
         {
             currentText = entireText.Substring(0, i); //kommer visa bokstäverna på plats 0-1 i entireText
             this.GetComponent<Text>().text = currentText;
+            playRandomTPC();
             yield return new WaitForSeconds(delay);
         }
+    }
+
+    public void playRandomTPC()
+    {
+        audioSource.clip = typeWriterClips[Random.Range(0, typeWriterClips.Length)];
+        audioSource.Play();
     }
 }
