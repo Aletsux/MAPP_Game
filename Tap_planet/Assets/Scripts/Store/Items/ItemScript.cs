@@ -57,7 +57,7 @@ public class ItemScript : MonoBehaviour
         ToggleItemActive();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (galaxyLvl != PlayerPrefs.GetInt("ActivePlanetIndex", 0)) {
             ToggleItemActive();

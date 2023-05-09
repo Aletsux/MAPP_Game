@@ -306,10 +306,10 @@ public class StoreScript : MonoBehaviour
         }
         else if (powerUpName.Equals("star"))
         {
-            if (GameController.GetStardust() >= GetPrice(powerUpName))
+            if (GameController.IsIdleTrue() && GameController.GetCrystals() >= GetPrice(powerUpName))
             {
                 PlayerPrefs.SetInt("IdleExtenderLvl", PlayerPrefs.GetInt("IdleExtenderLvl") + 1);
-                GameController.DecreaseStardust(GetPrice(powerUpName));
+                GameController.DecreaseCrystals(GetPrice(powerUpName));
                 print(PlayerPrefs.GetInt("IdleExtenderLvl"));
             }
         }
