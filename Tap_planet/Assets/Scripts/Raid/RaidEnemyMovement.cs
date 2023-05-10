@@ -24,7 +24,8 @@ public class RaidEnemyMovement : MonoBehaviour
 
     private float lateralPosition;
 
-    
+
+    public GameObject explosionPrefab;
 
     //private Vector3 downTarget = new Vector3(0, 0, 0);
 
@@ -67,6 +68,9 @@ public class RaidEnemyMovement : MonoBehaviour
         {
                     PlanetState.DecreaseHP();
             Debug.Log("YOU WERE HIT");
+            planet.GetComponent<PlanetHit>().StartBlinking();
+            GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation, GameObject.FindAnyObjectByType<Canvas>().transform); // skapa explosion (viktigt: under canvas)
+            explosion.transform.SetSiblingIndex(1);
 
             gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
             Destroy(gameObject);
