@@ -977,7 +977,7 @@ MonoBehaviour:
   tpuTimeBeforeReset: 5
   tpuAddClicksBy: 100
   tpuClock: {fileID: 1701314828}
-  clockFill: {fileID: 1201789183}
+  clockFill: {fileID: 1201789185}
   TPU: {fileID: 2099729606}
   TPUText: {fileID: 1033135185}
   idleCost: 5
@@ -20969,7 +20969,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1701314829
 RectTransform:
   m_ObjectHideFlags: 0
