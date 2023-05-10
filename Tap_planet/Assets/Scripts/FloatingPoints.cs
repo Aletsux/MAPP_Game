@@ -31,11 +31,11 @@ public class FloatingPoints : MonoBehaviour
     //calculate amount, isntantiate obj with random spawnLocation, destroy after 0.5f,
     public void showFloatingPoints() {
         long amount = 1 * GameController.GetClickLvl();
-
+        
         Vector3 spawnLocation = gameObject.transform.position + new Vector3(Random.Range(xMax,xMin), Random.Range(yMax,yMin), 0f);
 
         GameObject points = Instantiate(pointParent, spawnLocation, Quaternion.identity, transform); 
-        pointParent.GetComponentInChildren<Text>().text = amount.ToString();
+        pointParent.GetComponentInChildren<Text>().text = FormatNumbers.FormatInt(amount);
         setTextColor();
         Destroy(points, destroyTimer);
         
