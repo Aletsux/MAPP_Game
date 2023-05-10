@@ -6,6 +6,10 @@ using System;
 using System.Reflection;
 using Random = System.Random;
 using System.Globalization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Tables;
+using UnityEngine.Localization.Components;
 
 public class GameController : MonoBehaviour
 {
@@ -36,7 +40,7 @@ public class GameController : MonoBehaviour
 
     [SerializeField] public int idleCost = 5;//the cost for the idle click powerup
     public float clicksPerSecond = 1f;
-    private bool isUsingIdleClicker = false;
+    private static bool isUsingIdleClicker = false;
     private int numPerSec = 0;
     private int theNextUpdate = 1;
     public int secBeforeIdleClick = 75;
@@ -49,11 +53,13 @@ public class GameController : MonoBehaviour
     private int nextUpdate = 1;
     public int lvlCounter = 5;
 
+    public GameObject idleCollectedPanel;
+    public GameObject idleCollectedPanel2;
+
     public VolumeManager volumeManager;
 
     void Awake()
     {
-        //ResetForBuild();
         if (PlayerPrefs.GetInt("getMoney") == 1)
         {
             GetMoney();
@@ -79,7 +85,7 @@ public class GameController : MonoBehaviour
             print("reset " + PlayerPrefs.GetInt("reset"));
         }
         if (Input.GetKeyDown(KeyCode.A))
-        {
+            {
             PlayerPrefs.SetInt("reset", 1);
             PlayerPrefs.SetInt("getMoney", 0);
             print("getmoney " + PlayerPrefs.GetInt("getMoney"));
@@ -106,7 +112,7 @@ public class GameController : MonoBehaviour
             }
         }
 
-        if (isUsingIdleClicker)
+        if (isUsingIdleClicker && !DoubleTime.isActive)
         {
             //om uppdateringen har skett
             if (Time.time >= theNextUpdate)
@@ -117,22 +123,21 @@ public class GameController : MonoBehaviour
                 //den väntar tills att uppdate
                 Debug.Log("crystal: " + 1);
                 theNextUpdate = Mathf.FloorToInt(Time.time) + secBeforeIdleClick;
-
+                
                 //Det som ska ske varje sekund
                 IdleClickSecApart();
             }
         }
 
-        if (isAtLevel)//varje sekund
+        if (isAtLevel && !DoubleTime.isActive)//varje sekund
         {
             if (Time.time >= nextUpdate)
             {
-                
                 nextUpdate = Mathf.FloorToInt(Time.time) + 1;
                 IdleClickPowerUp();
 
                 //Debug.Log("crystal: " + 1);
-            }
+            } 
         }
 
         UpdateCrystals();
@@ -324,7 +329,6 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("tpuCost", GetTpuCost());
         PlayerPrefs.SetInt("idleCost", GetIdleCost());
         PlayerPrefs.SetInt("clickLvl", GetClickLvl());
-
         PlayerPrefs.Save();
     }
 
@@ -344,6 +348,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("tpuCost", 5);
         PlayerPrefs.SetInt("idleCost", 5);
         PlayerPrefs.SetInt("clickLvl", 1);
+
+        PlayerPrefs.SetInt("IdleExtenderLvl", 0);
         PlayerPrefs.Save();
     }
 
@@ -394,8 +400,31 @@ public class GameController : MonoBehaviour
         idleCost = PlayerPrefs.GetInt("idleCost");
         clickLvl = PlayerPrefs.GetInt("clickLvl");
 
+        if (PlayerPrefs.GetInt("IdleExtenderLvl") == 0) // ser till att level inte är 0
+        {
+            PlayerPrefs.SetInt("IdleExtenderLvl", 1);
+        }
+        if (isUsingIdleClicker)
+        {
+            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // om spelaren kommer in efter 30 min men innan idle extenders gräns
+            {
+                idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
+                PanelManager.AddPanelToQueue(idleCollectedPanel);
+                //PanelManager.AddPanelToQueue(idleCollectedPanel2);
+            }
+            else if (calculateSecondsSinceQuit() > 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // kommer in efter idle extenders gräns
+            {
+                idleCollectedPanel.transform.GetChild(0).GetChild(2).GetComponent<Text>().text = LocalizationSettings.StringDatabase.GetLocalizedString("IdleStartPanel", "FellAsleep"); // hämtar översättning
 
-        LoadIdleClicks(calculateSecondsSinceQuit());
+
+                idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
+                PanelManager.AddPanelToQueue(idleCollectedPanel);
+                //PanelManager.AddPanelToQueue(idleCollectedPanel2);
+
+
+            }
+            LoadIdleClicks(calculateSecondsSinceQuit());
+        }
         UpdateTPU();
     }
 
@@ -446,7 +475,7 @@ public class GameController : MonoBehaviour
         Debug.Log("sec" + secBeforeIdleClick);
     }
 
-    public bool IsIdleTrue()
+    public static bool IsIdleTrue()
     {
         return isUsingIdleClicker;
     }
@@ -461,8 +490,7 @@ public class GameController : MonoBehaviour
     public void IdleClickPowerUp()
     {
         crystals += numPerSec;
-        crystalAmount.text = crystals + ""/*suffix*/;
-        
+        crystalAmount.text = crystals + ""/*suffix*/;   
     }
     //några sekunder mellan uppdatering
     public void IdleClickSecApart()
@@ -470,8 +498,7 @@ public class GameController : MonoBehaviour
         crystals += numPerTime;
         crystalAmount.text = crystals + ""/*suffix*/;
     }
-
-
+    
 
 
     public int GetIdleCost()
@@ -501,6 +528,11 @@ public class GameController : MonoBehaviour
 
     private void LoadIdleClicks(int secondsPassed)
     {
+        if (secondsPassed > PlayerPrefs.GetInt("IdleExtenderLvl") * 1800) 
+        {
+            secondsPassed = PlayerPrefs.GetInt("IdleExtenderLvl") * 1800; // maxgräns för vad spelaren kan tjäna
+        }
+
         if (isAtLevel) //varje sek
         {
             if (numPerSec == 1)
@@ -526,6 +558,40 @@ public class GameController : MonoBehaviour
                 crystalAmount.text = crystals + ""/*suffix*/;
             }
         }
+    }
+
+    private int ReturnIdleClicks(int secondsPassed) // returnerar det LoadIdleClicks adderar till spelarens total
+    {
+        int idleClicks = 0;
+        if (secondsPassed > PlayerPrefs.GetInt("IdleExtenderLvl") * 1800)
+        {
+            secondsPassed = PlayerPrefs.GetInt("IdleExtenderLvl") * 1800;
+        }
+
+        if (isAtLevel) //varje sek
+        {
+            if (numPerSec == 1)
+            {
+                idleClicks += secondsPassed;
+            }
+            else if (numPerSec > 1)
+            {
+                int result = secondsPassed * numPerSec;
+                idleClicks += result;
+            }
+        }
+
+        if (isUsingIdleClicker)//längre väntetid
+        {
+            if (numPerTime > 0)
+            {
+                double dResult = secondsPassed / secBeforeIdleClick;
+                int result = (int)dResult;
+                crystals += result;
+                crystalAmount.text = crystals + ""/*suffix*/;
+            }
+        }
+        return idleClicks;
     }
 
     public float ReturnTPUTimeBeforeReset()

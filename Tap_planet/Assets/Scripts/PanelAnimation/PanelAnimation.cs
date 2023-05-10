@@ -14,11 +14,11 @@ public class PanelAnimation : MonoBehaviour
 
     public float duration = 0.1f;
     public float delay = 0.1f;
-    protected bool isActive;
+    protected bool open;
 
     protected virtual void Awake()
     {
-        isActive = false;
+        open = false;
         rectTransform = gameObject.GetComponent<RectTransform>();
         targetHeight = rectTransform.rect.height;
         targetWidth = rectTransform.rect.width;
@@ -27,7 +27,7 @@ public class PanelAnimation : MonoBehaviour
 
     public virtual void StretchPanel()
     {
-        if (isActive == false)
+        if (open == false)
         {
             LeanTween.size(rectTransform, new Vector2(targetWidth, closedHeight), duration)
         .setEase(LeanTweenType.easeInOutQuad)
@@ -39,7 +39,7 @@ public class PanelAnimation : MonoBehaviour
             .setDelay(delay)
             .setOnComplete(() =>
             {
-
+                open = true;
             });
         });
 
@@ -56,15 +56,21 @@ public class PanelAnimation : MonoBehaviour
             .setDelay(delay)
             .setOnComplete(() =>
             {
-                
+                PanelManager.IAmDone();
+                open = false;
+                OnComplete(open);
             });
         });
         }
-        isActive = !isActive;
     }
 
     public bool IsActive()
     {
-        return isActive;
+        return open;
+    }
+
+    protected virtual void OnComplete(bool isActive)
+    {
+        // to do from overriden class
     }
 }

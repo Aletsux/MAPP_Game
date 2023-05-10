@@ -91,8 +91,8 @@ public class RaidState : MonoBehaviour
         int crystals = enemiesKilled * 10 * GameController.GetClickLvl();
         int stardust = enemiesKilled;
 
-        crystalsWon.text = crystalsLost.text = ReturnString(crystals);
-        stardustWon.text = crystalsLost.text = ReturnString(stardust);
+        crystalsWon.text = crystalsLost.text = FormatNumbers.FormatInt(crystals);
+        stardustWon.text = crystalsLost.text = FormatNumbers.FormatInt(stardust);
 
         //raidOverPanel.SetActive(true);zx
 
@@ -105,26 +105,5 @@ public class RaidState : MonoBehaviour
 
         PlayerPrefs.SetInt("RaidToggle", 0);
         enemyAI.deactivate();
-    }
-
-    private string ReturnString(int amount)
-    {
-        double newString = amount;
-        if (newString < 1000)
-        {
-            return newString.ToString();
-        }
-        else if (newString < 1000000)
-        {
-            return (newString / 1000).ToString("F3") + "k";
-        }
-        else if (newString < 1000000000)
-        {
-            return (newString / 1000000).ToString("F3") + "M";
-        }
-        else
-        {
-            return (newString / 1000000000).ToString("F3") + "B";
-        }
     }
 }
