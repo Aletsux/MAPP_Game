@@ -33,10 +33,13 @@ public class GameController : MonoBehaviour
 
     //powerups
     [Space]
+    public GameObject tpuClock; //TPU Timer Pie-Clock
+    public Image clockFill;    
     public GameObject TPU; // timed powerup objekt med knapp som ligger på spelskärmen
     //public Image TPUImage;
     public Text TPUText;
     private int TPUAmount = 0;
+    
 
     [SerializeField] public int idleCost = 5;//the cost for the idle click powerup
     public float clicksPerSecond = 1f;
@@ -103,9 +106,12 @@ public class GameController : MonoBehaviour
 
         if (isUsingTPU == true)
         {
+            tpuClock.SetActive(true);
             tpuTimer += Time.deltaTime;
+            clockFill.fillAmount = tpuTimer/5;
             if (tpuTimer >= tpuTimeBeforeReset)
             {
+                tpuClock.SetActive(false);
                 tpuTimer = 0f;
                 isUsingTPU = false;
                 RestoreClickLvl();

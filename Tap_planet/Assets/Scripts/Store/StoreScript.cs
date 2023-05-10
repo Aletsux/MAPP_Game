@@ -366,6 +366,10 @@ public class StoreScript : MonoBehaviour
         {
             return planetCosts[3];
         }
+        else if (name.Equals("melon"))
+        {
+            return planetCosts[4];
+        }
         return 0;
     }
 }
