@@ -193,6 +193,7 @@ RectTransform:
   - {fileID: 2047454930}
   - {fileID: 401204366}
   - {fileID: 1322002900}
+  - {fileID: 233784513}
   m_Father: {fileID: 1500350629}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1406,12 +1407,14 @@ MonoBehaviour:
   - {fileID: 2047454929}
   - {fileID: 401204365}
   - {fileID: 1322002897}
+  - {fileID: 1322002897}
   planetButtons:
   - {fileID: 282569496}
   - {fileID: 282569495}
   - {fileID: 282569493}
   - {fileID: 1563319892}
-  planetCosts: 00000000e80300001027000010270000
+  - {fileID: 777332195}
+  planetCosts: 00000000e8030000102700001027000010270000
 --- !u!114 &232701622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,6 +1431,82 @@ MonoBehaviour:
   SS: {fileID: 232701617}
   canvas: {fileID: 1764616457}
   StoreScript: {fileID: 232701617}
+--- !u!1 &233784512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 233784513}
+  - component: {fileID: 233784515}
+  - component: {fileID: 233784514}
+  m_Layer: 5
+  m_Name: MelonPlanet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &233784513
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233784512}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 18322968}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &233784514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233784512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 2353d9ef57f4fbd43b51bfcfd79292ff, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &233784515
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233784512}
+  m_CullTransparentMesh: 1
 --- !u!1 &233939375 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9010891648576868338, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
@@ -3813,6 +3892,10 @@ PrefabInstance:
     - target: {fileID: 9010891647122494674, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010891647206292326, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: m_Name
+      value: MelonPlanet
       objectReference: {fileID: 0}
     - target: {fileID: 9010891647206292327, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_AnchorMax.y
@@ -10489,6 +10572,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &777332195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 205854124369981173, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+  m_PrefabInstance: {fileID: 282569490}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &780652255 stripped
@@ -25186,21 +25280,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749855874}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4b852f154f714357aa81aa7b0324ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 2353d9ef57f4fbd43b51bfcfd79292ff, type: 3}
   itemName: 
   description: 
   price: 
-  buyButton: {fileID: 0}
+  buyButton: {fileID: 777332195}
   activeColor: {r: 1, g: 1, b: 1, a: 1}
   inactiveColor: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
-  title: 
-  index: 0
-  type: 0
+  title: melon
+  index: 4
+  type: 2
   costsStardust: 1
 --- !u!1 &1987566326 stripped
 GameObject:
