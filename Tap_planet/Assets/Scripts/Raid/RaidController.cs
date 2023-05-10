@@ -7,13 +7,8 @@ public class RaidController : MonoBehaviour
 {
     public SceneChange sceneChange;
     
-    public PanelAnimation raidPanel;
-    public PanelAnimation missedRaidPanel;
-
-    public ActivatePanel activateMissedRaidPanel;
-
-    //new ActivatePanel activatePanel;
-    //new MissedRaid missedRaid;
+    public GameObject raidPanel;
+    public GameObject missedRaidPanel;
 
     public DateTime lastSaveTime;
     public int timeSinceQuit;
@@ -27,11 +22,6 @@ public class RaidController : MonoBehaviour
 
     private float autoRaidTimer;
     public float raidTime = 10f;
-
-
-    //public GameObject raidPanel;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -63,9 +53,8 @@ public class RaidController : MonoBehaviour
 
             if (timeSinceQuit > timeBeforeRaid && timeSinceQuit < timeBeforeMiss || ((PlayerPrefs.GetInt("RaidToggle") == 1 && timeSinceQuit < timeBeforeMiss))) // if time since last save is larger than tBR (def: 30) & less than tBM
             {
-                raidPanel.StretchPanel();
+                PanelManager.AddPanelToQueue(raidPanel);
                 PlayerPrefs.SetInt("RaidToggle", 1);
-                //raidPanel.SetActive(true);
                 // You have been raided popup.
                 toggleRaid();
                 Debug.Log("You logged in during the raid and have to defend");
@@ -95,9 +84,7 @@ public class RaidController : MonoBehaviour
                     howManyRaids = 4;
                 }
                 gameObject.GetComponent<MissedRaid>().CalculateRaidLoss(howManyRaids);
-                activateMissedRaidPanel.Toggle(true);
-                missedRaidPanel.StretchPanel();
-                //missedRaidPanel.SetActive(true);
+                PanelManager.AddPanelToQueue(missedRaidPanel, true);
                 Debug.Log("how many raids:" + howManyRaids);
                 Debug.Log("You missed the raid, 2 lazy");
             }
@@ -125,10 +112,7 @@ public class RaidController : MonoBehaviour
 
     private void activateAutoRaid()
     {
-        if (!raidPanel.IsActive())
-        {
-            raidPanel.StretchPanel();
-        }
+        PanelManager.AddPanelToQueue(raidPanel, true);
         PlayerPrefs.SetInt("RaidToggle", 1);
         toggleRaid();
         autoRaidTimer = 0;

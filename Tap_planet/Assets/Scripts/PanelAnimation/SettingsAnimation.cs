@@ -20,14 +20,15 @@ public class SettingsAnimation : PanelAnimation
 
     public override void StretchPanel()
     {
-        if (isActive == false)
+        if (open == false)
         {
             LeanTween.size(rectTransform, new Vector2(targetWidth, closedHeight), duration)
         .setEase(LeanTweenType.easeInOutQuad)
         .setDelay(delay)
         .setOnComplete(() =>
         {
-            text.SetActive(isActive);
+            text.SetActive(open);
+
             LeanTween.size(rectTransform, new Vector2(targetWidth, targetHeight), duration)
             .setEase(LeanTweenType.easeInOutQuad)
             .setDelay(delay)
@@ -42,6 +43,7 @@ public class SettingsAnimation : PanelAnimation
         else
         {
             SetButtonsActive();
+
             LeanTween.size(rectTransform, new Vector2(targetWidth, closedHeight), duration)
         .setEase(LeanTweenType.easeInOutQuad)
         .setDelay(delay)
@@ -52,11 +54,13 @@ public class SettingsAnimation : PanelAnimation
             .setDelay(delay)
             .setOnComplete(() =>
             {
-                text.SetActive(!isActive);
+
+                text.SetActive(!open);
+
             });
         });
         }
-        isActive = !isActive;
+        open = !open;
     }
 
     private void SetButtonsActive()

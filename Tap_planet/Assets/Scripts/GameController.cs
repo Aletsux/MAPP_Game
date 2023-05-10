@@ -33,10 +33,13 @@ public class GameController : MonoBehaviour
 
     //powerups
     [Space]
+    public GameObject tpuClock; //TPU Timer Pie-Clock
+    public Image clockFill;    
     public GameObject TPU; // timed powerup objekt med knapp som ligger på spelskärmen
     //public Image TPUImage;
     public Text TPUText;
     private int TPUAmount = 0;
+    
 
     [SerializeField] public int idleCost = 5;//the cost for the idle click powerup
     public float clicksPerSecond = 1f;
@@ -54,6 +57,7 @@ public class GameController : MonoBehaviour
     public int lvlCounter = 5;
 
     public GameObject idleCollectedPanel;
+    public GameObject idleCollectedPanel2;
 
     public VolumeManager volumeManager;
 
@@ -102,9 +106,12 @@ public class GameController : MonoBehaviour
 
         if (isUsingTPU == true)
         {
+            tpuClock.SetActive(true);
             tpuTimer += Time.deltaTime;
+            clockFill.fillAmount = tpuTimer/5;
             if (tpuTimer >= tpuTimeBeforeReset)
             {
+                tpuClock.SetActive(false);
                 tpuTimer = 0f;
                 isUsingTPU = false;
                 RestoreClickLvl();
@@ -407,20 +414,20 @@ public class GameController : MonoBehaviour
         {
             if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // om spelaren kommer in efter 30 min men innan idle extenders gräns
             {
-                //print("1");
-                //print(PlayerPrefs.GetInt("IdleExtenderLvl"));
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
-                idleCollectedPanel.GetComponent<PanelAnimation>().StretchPanel();
+                PanelManager.AddPanelToQueue(idleCollectedPanel);
+                //PanelManager.AddPanelToQueue(idleCollectedPanel2);
             }
             else if (calculateSecondsSinceQuit() > 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // kommer in efter idle extenders gräns
             {
-                //print("2");
-                //print(PlayerPrefs.GetInt("IdleExtenderLvl"));
                 idleCollectedPanel.transform.GetChild(0).GetChild(2).GetComponent<Text>().text = LocalizationSettings.StringDatabase.GetLocalizedString("IdleStartPanel", "FellAsleep"); // hämtar översättning
 
 
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
-                idleCollectedPanel.GetComponent<PanelAnimation>().StretchPanel();
+                PanelManager.AddPanelToQueue(idleCollectedPanel);
+                //PanelManager.AddPanelToQueue(idleCollectedPanel2);
+
+
             }
             LoadIdleClicks(calculateSecondsSinceQuit());
         }
