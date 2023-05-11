@@ -5,19 +5,20 @@ using UnityEngine.UI;
 
 public class PlanetHit : MonoBehaviour
 {
-    private bool startBlinking;
-    public float alpha;
-    protected Image image;
-    protected int blinkAmount = 8;
-    public float timeBetweenBlinks;
-    private float timer;
-    private bool isVisible;
-    private int blinkCount;
-
     public GameObject hitSprite;
-
     private List<GameObject> hitSprites = new();
 
+    private bool startBlinking;
+    private bool isVisible;
+
+    private float alpha;
+
+    private int blinkAmount = 8;
+    private int blinkCount;
+
+    private float timer;
+    public float timeBetweenBlinks;
+    
     protected virtual void Start()
     {
         GameObject[] activeSprites = GameObject.FindGameObjectsWithTag("PlanetSprite");
