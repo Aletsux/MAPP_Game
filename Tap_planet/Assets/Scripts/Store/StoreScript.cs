@@ -308,9 +308,10 @@ public class StoreScript : MonoBehaviour
         {
             if (GameController.IsIdleTrue() && GameController.GetCrystals() >= GetPrice(powerUpName))
             {
-                PlayerPrefs.SetInt("IdleExtenderLvl", PlayerPrefs.GetInt("IdleExtenderLvl") + 1);
+                int i = PlayerPrefs.GetInt("IdleExtenderLvl");
+                PlayerPrefs.SetInt("IdleExtenderLvl", i + 1);
                 GameController.DecreaseCrystals(GetPrice(powerUpName));
-                print(PlayerPrefs.GetInt("IdleExtenderLvl"));
+                GameObject.FindGameObjectWithTag("twinky").SetActive(true);
             }
         }
 
@@ -337,7 +338,7 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("star"))
         {
-            return PlayerPrefs.GetInt("IdleExtenderLvl") ^ 2 * 1000;
+            return PlayerPrefs.GetInt("IdleExtenderLvl") * PlayerPrefs.GetInt("IdleExtenderLvl") * 1000;
         }
 
         else if (name.Equals("party"))
