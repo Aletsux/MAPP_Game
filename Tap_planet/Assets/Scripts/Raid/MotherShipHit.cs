@@ -8,20 +8,18 @@ public class MotherShipHit : MonoBehaviour
     private Image hitSprite;
 
     private bool startBlinking;
-    private bool isVisible;
 
     private float alpha;
 
-    private int blinkAmount = 8;
+    public int blinkAmount = 8;
     private int blinkCount;
 
     private float timer;
-    public float timeBetweenBlinks;
+    public float timeBetweenBlinks; // hur l?l?ng tid mellan blinkningar
 
     void Start()
     {
-        hitSprite = transform.GetChild(0).GetComponent<Image>();
-        print(hitSprite.name);
+        hitSprite = transform.GetChild(0).GetComponent<Image>(); // sparar den vita bilden
     }
 
     void Update()
@@ -32,7 +30,7 @@ public class MotherShipHit : MonoBehaviour
             if (timer >= timeBetweenBlinks)
             {
                 timer = 0;
-                if (isVisible)
+                if (alpha == 0) // byter fr?n synlig till osynlig baserat p?  om den redan syns eller inte
                 {
                     alpha = 0.5f;
                 }
@@ -40,10 +38,9 @@ public class MotherShipHit : MonoBehaviour
                 {
                     alpha = 0f;
                 }
-                hitSprite.color = new Color(1, 1, 1, alpha);
-                isVisible = !isVisible;
+                hitSprite.color = new Color(1, 1, 1, alpha); // s?tter f?rgen med alpha
                 blinkCount++;
-                if (blinkCount >= blinkAmount)
+                if (blinkCount >= blinkAmount) // om den blinkat tillr?ckligt
                 {
                     startBlinking = false;
                     blinkCount = 0;
@@ -53,12 +50,12 @@ public class MotherShipHit : MonoBehaviour
         }
     }
 
-    public void StartBlinking()
+    public void StartBlinking() //kallas p? n?r spelaren trycker p? mothership
     {
         startBlinking = true;
     }
 
-    private void ResetAlpha()
+    private void ResetAlpha() // g?r den vita bilden osynlig
     {
         hitSprite.color = new Color(1, 1, 1, 0);
     }

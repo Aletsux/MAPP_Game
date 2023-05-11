@@ -9,25 +9,24 @@ public class PlanetHit : MonoBehaviour
     private List<GameObject> hitSprites = new();
 
     private bool startBlinking;
-    private bool isVisible;
 
     private float alpha;
 
-    private int blinkAmount = 8;
+    public int blinkAmount = 8; // hur m?nga blinkningar
     private int blinkCount;
 
     private float timer;
-    public float timeBetweenBlinks;
-    
+    public float timeBetweenBlinks; // hur l?ng tid mellan blinkningar
+
     protected virtual void Start()
     {
-        GameObject[] activeSprites = GameObject.FindGameObjectsWithTag("PlanetSprite");
+        GameObject[] activeSprites = GameObject.FindGameObjectsWithTag("PlanetSprite"); // hittar alla aktiva sprites (accessoarer + planeter)
 
         foreach (GameObject g in activeSprites)
         {
-            GameObject newHitSprite = Instantiate(hitSprite, g.transform.position, g.transform.rotation, g.transform);
-            hitSprites.Add(newHitSprite);
-            newHitSprite.GetComponent<Image>().color = new Color(1, 0, 0, 0);
+            GameObject newHitSprite = Instantiate(hitSprite, g.transform.position, g.transform.rotation, g.transform); // l?gger till en vit sprite som child till varje aktiv sprite (accessoarer + planeter)
+            hitSprites.Add(newHitSprite); // l?gger till dem i en lista
+            newHitSprite.GetComponent<Image>().color = new Color(1, 0, 0, 0); // g?r dem vita 
         }
     }
 
@@ -40,9 +39,8 @@ public class PlanetHit : MonoBehaviour
             {
                 timer = 0;
                 ActivateHitSprites();
-                isVisible = !isVisible;
                 blinkCount++;
-                if (blinkCount >= blinkAmount)
+                if (blinkCount >= blinkAmount)  // om den blinkat tillr?ckligt
                 {
                     startBlinking = false;
                     blinkCount = 0;
@@ -52,30 +50,24 @@ public class PlanetHit : MonoBehaviour
         }
     }
 
-    public void StartBlinking(){
+    public void StartBlinking() //kallas p? n?r spelaren blir tr?ffad
+    {
         startBlinking = true;
     }
-    private void ResetAlpha()
+
+    private void ResetAlpha()  // g?r alla vita sprites  osynliga
     {
         foreach (GameObject g in hitSprites)
         {
-            if (isVisible)
-            {
-                alpha = 0.5f;
-            }
-            else
-            {
-                alpha = 0f;
-            }
             g.GetComponent<Image>().color = new Color(1, 0, 0, 0);
         }
     }
 
-    private void ActivateHitSprites()
+    private void ActivateHitSprites() // beroende p? om de syns eller inte ?ndrar alpha
     {
         foreach (GameObject g in hitSprites)
         {
-            if (isVisible)
+            if (alpha == 0)
             {
                 alpha = 0.5f;
             }
