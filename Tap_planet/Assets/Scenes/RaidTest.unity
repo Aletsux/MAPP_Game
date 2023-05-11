@@ -4455,6 +4455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27aedad6bebe64cf0b9289abd8cce3b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blinkAmount: 8
   timeBetweenBlinks: 0.1
 --- !u!114 &857638508
 MonoBehaviour:
@@ -6787,7 +6788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569e2bf6e33bef84eaf50296f7c78f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 3
 --- !u!114 &1500350638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6801,6 +6802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitSprite: {fileID: 4340843050585764841, guid: eb52d75e4c42c41299bff278bf688a90, type: 3}
+  blinkAmount: 8
   timeBetweenBlinks: 0.1
 --- !u!1 &1506664848 stripped
 GameObject:
