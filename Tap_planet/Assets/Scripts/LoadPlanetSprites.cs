@@ -8,7 +8,7 @@ public class LoadPlanetSprites : MonoBehaviour
     public List<GameObject> planetObjects = new List<GameObject>();
     public List<GameObject> accessoryObjects = new List<GameObject>();
 
-    void Start()
+    void Awake()
     {
         for (int i = 0; i < accessoryObjects.Count; i++)
         {
