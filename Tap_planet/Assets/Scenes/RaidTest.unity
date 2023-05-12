@@ -4453,6 +4453,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &914307574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7825218595051864434, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
+  m_PrefabInstance: {fileID: 1209293356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00cc9d3ba0cb4019a602c43c81926ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &930912225
 GameObject:
   m_ObjectHideFlags: 0
@@ -5580,9 +5591,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6679302959241121034, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679302959241121034, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679302959241121034, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1397023896}
+    - target: {fileID: 6679302959241121034, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 914307574}
+    - target: {fileID: 6679302959241121034, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679302959241121034, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: DecreaseAmount
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679302959241121034, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: WipeEnemiesPowerup, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6679302959241121034, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
 --- !u!1001 &1215263472

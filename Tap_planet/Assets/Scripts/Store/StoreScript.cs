@@ -320,14 +320,13 @@ public class StoreScript : MonoBehaviour
         }
         else if (powerUpName.Equals("raidWipe"))
         {
-            if (GameController.IsIdleTrue() && GameController.GetStardust() >= GetPrice(powerUpName))
+            if (GameController.GetStardust() >= GetPrice(powerUpName))
             {
                 int i = PlayerPrefs.GetInt("WipeEnemiesAmount");
                 PlayerPrefs.SetInt("WipeEnemiesAmount", i + 1);
 
-                double higherCost = raidWipeCost * 1.2;
-                raidWipeCost += (int)higherCost;
-                PlayerPrefs.SetInt("RaidWipeCost", raidWipeCost);
+                double higherCost = PlayerPrefs.GetInt("RaidWipeCost") * 1.05;
+                PlayerPrefs.SetInt("RaidWipeCost", (int)Math.Ceiling(higherCost));
 
                 GameController.DecreaseStardust(GetPrice(powerUpName));
 
@@ -365,7 +364,7 @@ public class StoreScript : MonoBehaviour
         {
             if (PlayerPrefs.GetInt("RaidWipeCost") == 0)
             {
-                PlayerPrefs.SetInt("RaidWipeCost", 100);
+                PlayerPrefs.SetInt("RaidWipeCost", 10);
             }
             return PlayerPrefs.GetInt("RaidWipeCost");
         }

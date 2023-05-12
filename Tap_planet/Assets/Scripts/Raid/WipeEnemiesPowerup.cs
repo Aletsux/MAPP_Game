@@ -15,7 +15,16 @@ public class WipeEnemiesPowerup : MonoBehaviour
         }
         else
         {
+            amount = gameObject.GetComponentInChildren<Text>();
             amount.text = PlayerPrefs.GetInt("WipeEnemiesAmount").ToString();
         }
+    }
+
+    public void DecreaseAmount()
+    {
+        PlayerPrefs.SetInt("WipeEnemiesAmount", PlayerPrefs.GetInt("WipeEnemiesAmount") - 1);
+        amount.text = PlayerPrefs.GetInt("WipeEnemiesAmount").ToString();
+        if (PlayerPrefs.GetInt("WipeEnemiesAmount") == 0)
+            gameObject.SetActive(false);
     }
 }
