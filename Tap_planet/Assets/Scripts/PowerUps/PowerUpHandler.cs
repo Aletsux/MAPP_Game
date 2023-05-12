@@ -17,7 +17,7 @@ public class PowerUpHandler : MonoBehaviour
     private Text buttonText;
     IPowerUp powerUp;
     //public GameObject[] powerUpList = new GameObject[0];
-    private void Start() {
+    void Start() {
         gc = gameController.GetComponent<GameController>();
         buttonText = testButton.GetComponentInChildren<Text>();
         if(buttonText == null) {
@@ -40,11 +40,18 @@ public class PowerUpHandler : MonoBehaviour
                 allPowerups.Add(allScripts[i] as IPowerUp); //Adds all scripts using IPowerUp to list
             }
         }
-        Debug.Log("allPowerups: " + allPowerups.Count);
+    }
+
+    private void ResetValues(bool reset) {
+        if(reset) {
+            foreach(IPowerUp powerUp in allPowerups) {
+                powerUp.RestoreState();
+            }
+        }
     }
 
     //Reference for button activation
-    public void OnClick(string name) {
+    public void OnClick(string name) { //TestPU button usage
         for(int i = 0; i < allPowerups.Count; i++) {
             powerUp = allPowerups[i];
             Debug.Log("Powerup name: " + powerUp.name);
@@ -54,7 +61,7 @@ public class PowerUpHandler : MonoBehaviour
         }
     }
     
-    private void UpdateText() {
+    private void UpdateText() { //TestPU Button
         if (IPowerUp.isActive)
         {
             buttonText.text = "Active";
@@ -68,15 +75,15 @@ public class PowerUpHandler : MonoBehaviour
     }
 
     //Base for all powerups
-    protected int GetClickLvl() {
+    protected int GetClickAmount() {
         return 1 * GameController.GetClickLvl();
     }
 
-    protected int GetCrystalsPerSec() {
+    protected long GetCrystalsPerSec() {
         return gc.ReturnClicksPerSec();
     }
 
-    protected int GetCrystalsPerInterval() {
+    protected long GetCrystalsPerInterval() {
         return gc.ReturnClickPerTime();
     }
 
