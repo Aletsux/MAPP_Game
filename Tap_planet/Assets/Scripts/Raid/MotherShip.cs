@@ -47,6 +47,7 @@ public class MotherShip : MonoBehaviour
             print(HP);
             attacked = true;
             healthBarTimer = 0f;
+            GetComponentInChildren<MotherShipHit>().StartBlinking();
         }
     }
 

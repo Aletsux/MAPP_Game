@@ -124,15 +124,15 @@ public class ItemScript : MonoBehaviour
         }
         else if (price < 1000000)
         {
-            return (price / 1000).ToString("F3") + "k";
+            return (price / 1000).ToString("F1") + "k";
         }
         else if (price < 1000000000)
         {
-            return (price / 1000000).ToString("F3") + "M";
+            return (price / 1000000).ToString("F1") + "M";
         }
         else
         {
-            return (price / 1000000000).ToString("F3") + "B";
+            return (price / 1000000000).ToString("F1") + "B";
         }
     }
 
