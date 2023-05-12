@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour
     public GameObject[] enemyList;
     public GameObject shipParent;
 
+    private static List<GameObject> activeEnemies = new();
+
     //private bool isListEmpty = false;
     //private int nullCounter = 0;
     private bool launch = false;
@@ -17,14 +19,17 @@ public class EnemyAI : MonoBehaviour
     private float minDelay = 0.5f;
     private float maxDelay = 1f;
 
-    public void deactivate() {
+    public void deactivate()
+    {
         Debug.Log("Deactivated!");
         //Debug.Log(enemyList.Length);
         launch = false;
         shipParent.SetActive(false);
 
-        for (int i = 0; i < enemyList.Length; i++) {
-            if(enemyList[i] != null) {
+        for (int i = 0; i < enemyList.Length; i++)
+        {
+            if (enemyList[i] != null)
+            {
                 GameObject ship = enemyList[i];
                 ship.SetActive(false);
             }
@@ -63,31 +68,33 @@ public class EnemyAI : MonoBehaviour
         launchShips();
     }
 
-    private void launchShips() {
-        if(launch) {
-            
+    private void launchShips()
+    {
+        if (launch)
+        {
+
             float delay = Random.Range(minDelay, maxDelay);
             StartCoroutine(launchWithDelay(delay));
             //Debug.Log(shipCount);
-            
+
         }
     }
 
-/* 
-    public void launchEnemies()
-    {        while (shipCount > 0)
-        {
-            int i = Random.Range(0, enemyList.Length);
-            Debug.Log("ShipNr " + i);
+    /* 
+        public void launchEnemies()
+        {        while (shipCount > 0)
+            {
+                int i = Random.Range(0, enemyList.Length);
+                Debug.Log("ShipNr " + i);
 
-            enemyList[i].GetComponent<RaidEnemyMovement>().timeToMove = true;
-            enemyList[i] = null;
+                enemyList[i].GetComponent<RaidEnemyMovement>().timeToMove = true;
+                enemyList[i] = null;
 
-            Debug.Log(enemyList[i].GetComponent<RaidEnemyMovement>().timeToMove);
+                Debug.Log(enemyList[i].GetComponent<RaidEnemyMovement>().timeToMove);
 
-        }
-    } */
-   
+            }
+        } */
+
 
     IEnumerator launchWithDelay(float delay)
     {
@@ -96,29 +103,52 @@ public class EnemyAI : MonoBehaviour
 
         if (enemyList[j] != null)
         {
+            AddToActiveList(enemyList[j]);
             enemyList[j].GetComponent<RaidEnemyMovement>().timeToMove = true;
             enemyList[j] = null;
             //Use the same delay as the initial delay
             yield return new WaitForSeconds(delay);
-        } else {
+        }
+        else
+        {
             j = Random.Range(0, shipCount);
         }
-        
-        if(checkShips() > 0) {
+
+        if (checkShips() > 0)
+        {
             launchShips();
         }
-        
-    }
-    
 
-    public int checkShips() {
+    }
+
+    public int checkShips()
+    {
         List<int> availableShips = new List<int>();
-        for(int i = 0; i < enemyList.Length; i++) {
-            if(enemyList[i] != null) {
+        for (int i = 0; i < enemyList.Length; i++)
+        {
+            if (enemyList[i] != null)
+            {
                 availableShips.Add(i);
             }
         }
         return availableShips.Count;
+    }
+
+
+    public static void AddToActiveList(GameObject toAdd)
+    {
+        activeEnemies.Add(toAdd);
+    }
+    public static void RemoveFromActiveList(GameObject toRemove)
+    {
+        activeEnemies.Remove(toRemove);
+    }
+    public void DestroyActiveEnemies()
+    {
+        while (activeEnemies.Count != 0)
+        {
+            activeEnemies[0].GetComponent<RaidEnemyKillable>().destroyEnemy();
+        }
     }
 }
 //int number = Random.Range(0, enemyList.Length);
