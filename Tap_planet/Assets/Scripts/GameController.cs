@@ -356,6 +356,11 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("clickLvl", 1);
 
         PlayerPrefs.SetInt("IdleExtenderLvl", 0);
+
+        PlayerPrefs.SetInt("WipeEnemiesAmount", 0);
+        PlayerPrefs.SetInt("RaidWipeCost", 10);
+
+
         PlayerPrefs.Save();
     }
 
