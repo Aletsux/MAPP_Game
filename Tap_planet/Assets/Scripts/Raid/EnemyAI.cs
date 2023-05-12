@@ -9,8 +9,6 @@ public class EnemyAI : MonoBehaviour
     public GameObject[] enemyList;
     public GameObject shipParent;
 
-    private static List<GameObject> activeEnemies = new();
-
     //private bool isListEmpty = false;
     //private int nullCounter = 0;
     private bool launch = false;
@@ -98,7 +96,6 @@ public class EnemyAI : MonoBehaviour
 
         if (enemyList[j] != null)
         {
-            AddToActiveList(enemyList[j]);
             enemyList[j].GetComponent<RaidEnemyMovement>().timeToMove = true;
             enemyList[j] = null;
             //Use the same delay as the initial delay
@@ -113,6 +110,7 @@ public class EnemyAI : MonoBehaviour
         
     }
     
+
     public int checkShips() {
         List<int> availableShips = new List<int>();
         for(int i = 0; i < enemyList.Length; i++) {
@@ -121,23 +119,6 @@ public class EnemyAI : MonoBehaviour
             }
         }
         return availableShips.Count;
-    }
-
-
-    public static void AddToActiveList(GameObject toAdd)
-    {
-        activeEnemies.Add(toAdd);
-    }
-    public static void RemoveFromActiveList(GameObject toRemove)
-    {
-        activeEnemies.Remove(toRemove);
-    }
-    public void DestroyActiveEnemies()
-    {
-        while (activeEnemies.Count != 0)
-        {
-            activeEnemies[0].GetComponent<RaidEnemyKillable>().destroyEnemy();
-        }
     }
 }
 //int number = Random.Range(0, enemyList.Length);
