@@ -41,6 +41,7 @@ public class RaidEnemyMovement : MonoBehaviour
         //When planet has landed in its place and raid begins, start moving downwards at speed speed.
         if (raidMovement.raidBegins && timeToMove)
         {
+            //WipeEnemiesPowerup.AddToActiveList(gameObject);
             isMoving = true;   
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, -transform.position.y), step);

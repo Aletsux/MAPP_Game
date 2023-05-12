@@ -29,6 +29,9 @@ public class StoreScript : MonoBehaviour
 
     private ItemScript itemScript;
 
+    private int raidWipeCost;
+
+
     void Awake()
     {
         gameObject.SetActive(true);
@@ -314,7 +317,21 @@ public class StoreScript : MonoBehaviour
                 GameObject.FindGameObjectWithTag("twinky").SetActive(true);
             }
         }
+        else if (powerUpName.Equals("raidWipe"))
+        {
+            if (GameController.IsIdleTrue() && GameController.GetStardust() >= GetPrice(powerUpName))
+            {
+                int i = PlayerPrefs.GetInt("WipeEnemiesAmount");
+                PlayerPrefs.SetInt("WipeEnemiesAmount", i + 1);
 
+                double higherCost = raidWipeCost * 1.2;
+                raidWipeCost += (int)higherCost;
+                PlayerPrefs.SetInt("RaidWipeCost", raidWipeCost);
+
+                GameController.DecreaseStardust(GetPrice(powerUpName));
+            }
+        }
+        
         gameController.SaveGame();
     }
 
@@ -340,6 +357,11 @@ public class StoreScript : MonoBehaviour
         {
             return PlayerPrefs.GetInt("IdleExtenderLvl") * PlayerPrefs.GetInt("IdleExtenderLvl") * 1000;
         }
+        else if (name.Equals("raidWipe"))
+        {
+            return PlayerPrefs.GetInt("RaidWipeCost");
+        }
+
 
         else if (name.Equals("party"))
         {
