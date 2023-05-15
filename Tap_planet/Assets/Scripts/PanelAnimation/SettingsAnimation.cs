@@ -8,6 +8,10 @@ public class SettingsAnimation : PanelAnimation
     private Button openSettings;
     private GameObject closeSettings;
     private GameObject text;
+    public Sprite openedSprite;
+    public Sprite transitionalSprite;
+    public Sprite closedSprite;
+    private Image imageComponent;
 
     protected override void Awake()
     {
@@ -15,20 +19,21 @@ public class SettingsAnimation : PanelAnimation
         openSettings = GetComponent<Button>();
         closeSettings = transform.GetChild(0).gameObject;
         closeSettings.SetActive(false);
-        text = transform.GetChild(1).gameObject;
+        imageComponent = gameObject.GetComponent<Image>();
+        imageComponent.sprite = closedSprite;
     }
 
     public override void StretchPanel()
     {
         if (open == false)
         {
+            imageComponent.sprite = transitionalSprite;
             LeanTween.size(rectTransform, new Vector2(targetWidth, closedHeight), duration)
         .setEase(LeanTweenType.easeInOutQuad)
         .setDelay(delay)
         .setOnComplete(() =>
         {
-            text.SetActive(open);
-
+            imageComponent.sprite = openedSprite;
             LeanTween.size(rectTransform, new Vector2(targetWidth, targetHeight), duration)
             .setEase(LeanTweenType.easeInOutQuad)
             .setDelay(delay)
@@ -49,13 +54,13 @@ public class SettingsAnimation : PanelAnimation
         .setDelay(delay)
         .setOnComplete(() =>
         {
+            imageComponent.sprite = transitionalSprite;
             LeanTween.size(rectTransform, new Vector2(closedWidth, closedHeight), duration)
             .setEase(LeanTweenType.easeInOutQuad)
             .setDelay(delay)
             .setOnComplete(() =>
             {
-
-                text.SetActive(!open);
+                imageComponent.sprite = closedSprite;
 
             });
         });

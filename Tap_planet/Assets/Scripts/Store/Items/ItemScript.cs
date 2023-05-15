@@ -124,15 +124,15 @@ public class ItemScript : MonoBehaviour
         }
         else if (price < 1000000)
         {
-            return (price / 1000).ToString("F3") + "k";
+            return (price / 1000).ToString("F1") + "k";
         }
         else if (price < 1000000000)
         {
-            return (price / 1000000).ToString("F3") + "M";
+            return (price / 1000000).ToString("F1") + "M";
         }
         else
         {
-            return (price / 1000000000).ToString("F3") + "B";
+            return (price / 1000000000).ToString("F1") + "B";
         }
     }
 
@@ -160,6 +160,7 @@ public class ItemScript : MonoBehaviour
     //if active, set color to defaultColor and set interactable
     public void ToggleItemActive() {
         int scope = 2;
+        
         if(!costsStardust) {
             if (CheckItemActive(scope))
             {
@@ -176,8 +177,12 @@ public class ItemScript : MonoBehaviour
 
     //Check If item is outside of scope
     private bool CheckItemActive(int scope) {
+        if(PlayerPrefs.GetInt("ActivePlanetIndex", 0) == 0) { //exception for first planet
+            return true;
+        }
+
         int difference = this.index - PlayerPrefs.GetInt("ActivePlanetIndex", 0) + 1;
-        Debug.Log(this.itemName + " Differece: " + difference);
+        //Debug.Log(this.itemName + " Differece: " + difference);
         return difference <= scope;
     }
 }

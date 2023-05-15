@@ -335,6 +335,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("tpuCost", GetTpuCost());
         PlayerPrefs.SetInt("idleCost", GetIdleCost());
         PlayerPrefs.SetInt("clickLvl", GetClickLvl());
+        PlayerPrefs.SetInt("doubletimeCost", DoubleTime.GetCost());
         PlayerPrefs.Save();
     }
 
@@ -354,8 +355,13 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("tpuCost", 5);
         PlayerPrefs.SetInt("idleCost", 5);
         PlayerPrefs.SetInt("clickLvl", 1);
-
         PlayerPrefs.SetInt("IdleExtenderLvl", 0);
+        PlayerPrefs.SetInt("doubletimeCost", 100);
+
+        PlayerPrefs.SetInt("WipeEnemiesAmount", 0);
+        PlayerPrefs.SetInt("RaidWipeCost", 10);
+
+
         PlayerPrefs.Save();
     }
 
@@ -375,6 +381,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("tpuCost", 5);
         PlayerPrefs.SetInt("idleCost", 5);
         PlayerPrefs.SetInt("clickLvl", 1);
+        PlayerPrefs.SetInt("doubletimeCost", 100);
         PlayerPrefs.Save();
     }
 
@@ -405,6 +412,7 @@ public class GameController : MonoBehaviour
         tpuCost = PlayerPrefs.GetInt("tpuCost");
         idleCost = PlayerPrefs.GetInt("idleCost");
         clickLvl = PlayerPrefs.GetInt("clickLvl");
+        DoubleTime.SetCost(PlayerPrefs.GetInt("doubletimeCost"));
 
         if (PlayerPrefs.GetInt("IdleExtenderLvl") == 0) // ser till att level inte är 0
         {
