@@ -7,9 +7,10 @@ public class PlanetState : MonoBehaviour
 {
     public static int HP;
     public int maxHP = 3;
-    private static Slider healthBar;
+    public static Slider healthBar;
     public static bool attacked;
     private float healthBarTimer;
+    private bool isUsingPowerUp;
 
     void Start()
     {
@@ -44,5 +45,10 @@ public class PlanetState : MonoBehaviour
     public static void DisplayHealthBar(bool b)
     {
         healthBar.gameObject.SetActive(b);
+    }
+
+    public void BoostHP(int newHP) 
+    {
+        HP = newHP;
     }
 }
