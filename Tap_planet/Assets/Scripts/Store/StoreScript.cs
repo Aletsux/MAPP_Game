@@ -333,13 +333,23 @@ public class StoreScript : MonoBehaviour
                 print(PlayerPrefs.GetInt("WipeEnemiesAmount"));
                 print(PlayerPrefs.GetInt("RaidWipeCost"));
             }
-        }
+        } 
+        else if (powerUpName.Equals("doubletime"))
+        {
+            if (GameController.IsIdleTrue() && GameController.GetCrystals() >= GetPrice(powerUpName))
+            {
+                //PlayerPrefs.SetInt("DoubleTime", PlayerPrefs.GetInt("DoubleTime") + 1);
+                DoubleTime.IncreaseCost();
+                GameController.DecreaseCrystals(GetPrice(powerUpName));
+            }
+        } 
 
         gameController.SaveGame();
     }
-
+    //Set updates time for all items in store
     public int GetPrice(string name)
     {
+        //Powerups / upgrades
         if (name.Equals("idle"))
         {
             return gameController.GetIdleCost();
@@ -360,6 +370,10 @@ public class StoreScript : MonoBehaviour
         {
             return PlayerPrefs.GetInt("IdleExtenderLvl") * PlayerPrefs.GetInt("IdleExtenderLvl") * 1000;
         }
+        else if (name.Equals("doubletime"))
+        {
+            return (int) DoubleTime.GetCost();
+        }
         else if (name.Equals("raidWipe"))
         {
             if (PlayerPrefs.GetInt("RaidWipeCost") == 0)
@@ -370,6 +384,7 @@ public class StoreScript : MonoBehaviour
         }
 
 
+        //Accessories
         else if (name.Equals("party"))
         {
             return accessoryCosts[1];
@@ -383,7 +398,7 @@ public class StoreScript : MonoBehaviour
             return accessoryCosts[3];
         }
 
-
+        //Planets
         else if (name.Equals("drip"))
         {
             return planetCosts[1];
