@@ -6,17 +6,12 @@ public class FloatNum : MonoBehaviour
 {
     public GameObject floatingThing;
     private Transform trans;
-    
 
-
-    private bool bought = false;
+    //private bool bought = false;
     private float timer = 1f;
 
     public GameObject parent;
-
-
-    private bool activated = false;
-    private float timerActi = 5;
+    public GameObject cryParent;
 
     public GameObject GC;
     private GameController gameController;
@@ -24,12 +19,15 @@ public class FloatNum : MonoBehaviour
     public List<int> accessoryCosts = new List<int>();
     public List<int> planetCosts = new List<int>();
 
+    public GameObject crystalPos;
+    private int nextUpdate = 1;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameController = GC.GetComponent<GameController>();
     }
 
     private void OnEnable()
@@ -41,36 +39,26 @@ public class FloatNum : MonoBehaviour
     void Update()
     {
 
-        ////Instantiate(floatingThing, trans.position, Quaternion.identity);
-        //if (bought == true)
+        //if (gameController.IsIdleLvlTrue())//varje sekund
         //{
-
-        //    //GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
-
-
-
-        //    timer += Time.deltaTime;
-        //    if (timer >= beforeReset)
+        //    if (Time.time >= nextUpdate)
         //    {
+        //        nextUpdate = Mathf.FloorToInt(Time.time) + 1;
+        //        GameObject newFlot = GameObject.Instantiate(floatingThing, crystalPos.transform.position, Quaternion.identity, GameObject.FindGameObjectWithTag("CryParent").transform);
+        //        CleanCry();
 
-        //        timer = 0f;
-        //        bought = false;
-
-        //        Destroy(floatingThing, timer);
         //    }
         //}
 
-       
 
-        //if (activated)//varje sekund
+        //if (GameController.IsIdleTrue())//varje sekund
         //{
-        //    if (Time.time >= 1)
+        //    if (Time.time >= nextUpdate)
         //    {
-        //        timerActi = Mathf.FloorToInt(Time.time) + 5;
+        //        nextUpdate = Mathf.FloorToInt(Time.time) + gameController.ReturnSecBeforeClick();
 
-        //        GameObject prefab = parent.transform.GetChild(0).gameObject;
-        //        Destroy(prefab);
-
+        //        GameObject newFlot = GameObject.Instantiate(floatingThing, crystalPos.transform.position, Quaternion.identity, GameObject.FindGameObjectWithTag("CryParent").transform);
+        //        CleanCry();
         //    }
         //}
     }
@@ -78,15 +66,8 @@ public class FloatNum : MonoBehaviour
     public void Bought(Transform transform)
     {
         trans = transform;
-        bought = true;
-        activated = true;
-
-        //GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
-
-        //GameObject prefab = parent.transform.GetChild(0).gameObject;
-        //Destroy(prefab, timer);
-
-        //Clean();
+        //bought = true;
+        
 
     }
 
@@ -105,6 +86,10 @@ public class FloatNum : MonoBehaviour
             }
         }
     }
+
+    
+
+
 
 
 
