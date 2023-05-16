@@ -617,4 +617,10 @@ public class GameController : MonoBehaviour
     {
         return tpuAddClicksBy;
     }
+
+
+    public void AddClicks()
+    {
+        crystals += 10000;
+    }
 }
