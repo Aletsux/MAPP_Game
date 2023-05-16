@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlanetHit : MonoBehaviour
 {
+    public GameObject cameraShake;
     public GameObject hitSprite;
     private List<GameObject> hitSprites = new();
 
@@ -53,6 +54,7 @@ public class PlanetHit : MonoBehaviour
     public void StartBlinking() //kallas p? n?r spelaren blir tr?ffad
     {
         startBlinking = true;
+        cameraShake.GetComponent<ScreenShake>().Shake();
     }
 
     private void ResetAlpha()  // g?r alla vita sprites  osynliga
