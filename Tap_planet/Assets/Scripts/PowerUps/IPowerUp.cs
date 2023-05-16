@@ -4,13 +4,15 @@ using UnityEngine;
 
 public interface IPowerUp 
 {
+    //Copy these variables into powerup script, declare variables in start method of navtively 
     public string name {get; set;}
     public float duration {get; set;}
     public static bool isActive {get; set;}
-    public long cost {get; set;}
+    public static int cost {get; set;}
     public long defaultValue{get; set;}
     public float timer {get; set;}
     public long currentCrystals {get; set;}
+    public long multiplier {get; set;}
 
     public void Activate();
     
@@ -18,13 +20,6 @@ public interface IPowerUp
 
     public void RestoreState();
 
-    public void IncreaseCost();
-
-    //???
-    public void UpdateDuration() {
-        timer += Time.time;
-        if(timer >= duration) {
-
-        }
-    }
+    public static void IncreaseCost() {}
+    public static int GetCost() {return cost;}
 }

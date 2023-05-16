@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class MotherShip : MonoBehaviour
 {
+    public GameObject cameraShake;
+
     public static int HP;
     public int maxHP;
     private static Slider healthBar;
@@ -48,6 +50,7 @@ public class MotherShip : MonoBehaviour
             attacked = true;
             healthBarTimer = 0f;
             GetComponentInChildren<MotherShipHit>().StartBlinking();
+            cameraShake.GetComponent<ScreenShake>().Shake();
         }
     }
 

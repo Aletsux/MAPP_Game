@@ -4,25 +4,25 @@ using UnityEngine;
 using System;
 using UnityEditor;
 
-//Comment: Sort of works, looks scuffed, implement visual feedback
 public class DoubleTime : PowerUpHandler, IPowerUp
 {
     [Space]
     [SerializeField] private string _name;
     [SerializeField] private float _duration;
     [SerializeField] private bool _isActive;
-    [SerializeField] private long _cost;
+    [SerializeField] private int _cost;
     [SerializeField] private float _timer;
+    [SerializeField] private long _multiplier; //in percentage, base: 100 = +0%, 120 = +20%...
 
     //Variables from Interface
     public string name { get; set; }
     public float duration {get; set; }
     public static bool isActive { get; set; }
-    public long cost { get; set; }
+    private static int cost { get; set; }
     public long defaultValue { get; set; }
     public float timer { get; set;}
     public long currentCrystals {get; set;}
-
+    public long multiplier {get; set;}
 
     //Unique variables
     private bool activateDT = false;
@@ -31,29 +31,18 @@ public class DoubleTime : PowerUpHandler, IPowerUp
     private float interval = 1;
     private float perSec = 1;
 
-    //Constructor set default values from Interface
-    /* public DoubleTime() {
-        name = "DoubleTime";
-        isActive = false; 
-        cost = 100;
-        
-        timer = 0f;
-        duration = 10f;
-        currentCrystals = GameController.GetCrystals();
-    } */
-
     // Start is called before the first frame update
     void Start()
     {
+        gc = gameController.GetComponent<GameController>();
         name = _name; //DoubleTime
         isActive = _isActive;
-        cost = _cost;
+        multiplier = _multiplier;
+        cost = PlayerPrefs.GetInt("doubletimeCost", 100);
         
         timer = _timer;
         duration = _duration;
         currentCrystals = GameController.GetCrystals();
-        
-        gc = gameController.GetComponent<GameController>();
         
         numPerSec = gc.ReturnClicksPerSec();
         numPerTime = gc.ReturnClickPerTime();
@@ -83,7 +72,7 @@ public class DoubleTime : PowerUpHandler, IPowerUp
         if(GameController.IsIdleTrue()) {
             if(Time.time >= interval) {
                 interval = Mathf.FloorToInt(Time.time) + gc.ReturnSecBeforeClick();
-                GameController.AddCrystals(gc.ReturnClickPerTime() * 2); //add numPerTime * 2 each interval
+                GameController.AddCrystals(gc.ReturnClickPerTime() * multiplier/100);
             }
         }
 
@@ -93,7 +82,8 @@ public class DoubleTime : PowerUpHandler, IPowerUp
             if (Time.time >= perSec)
             {
                 perSec = Mathf.FloorToInt(Time.time) + 1;
-                GameController.AddCrystals(gc.ReturnClicksPerSec() * 2); //add numPerSec * 2 each second
+                GameController.AddCrystals(gc.ReturnClicksPerSec() * multiplier/100); 
+                Debug.Log("Multiplier: " + (long) multiplier);
             }
         }
     }
@@ -105,10 +95,17 @@ public class DoubleTime : PowerUpHandler, IPowerUp
     }
 
     public void RestoreState() {
-
+        
     }
 
-    public void IncreaseCost() {
-        
+    public static void IncreaseCost() {
+        cost = (int) Math.Ceiling(cost * 1.2); //increase cost by 20% 
+    }
+    public static int GetCost() {
+        return cost;
+    }
+
+    public static void SetCost(int amount) {
+        cost = amount;
     }
 }
