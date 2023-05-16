@@ -623,4 +623,8 @@ public class GameController : MonoBehaviour
     {
         crystals += 10000;
     }
+    public void addDust()
+    {
+        stardust += 1000;
+    }
 }
