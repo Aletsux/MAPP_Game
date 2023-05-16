@@ -18,15 +18,15 @@ public class CutsceneController : MonoBehaviour
             timeline.stopped += PlayedCutscene; //lägger till händelsehanterare (metoden playedCutscene) som hanterar när cutscenen spelat klart
         } else
         {
-            //sceneChange.LoadMainMenu();
-            startMenuTransition.StartTransition();
+            sceneChange.LoadMainMenu();
+            //startMenuTransition.StartTransition();
         }
     }
 
     public void PlayedCutscene(PlayableDirector pd) //parametern gör att metoden får tillgång till infon om pb-objektet (timeline) som genererade händelsen (stopped)
     {
         PlayerPrefs.SetInt("PlayedCutscene", 1);
-        //sceneChange.LoadMainMenu();
-        startMenuTransition.StartTransition();
+        sceneChange.LoadMainMenu();
+        //startMenuTransition.StartTransition();
     }
 }
