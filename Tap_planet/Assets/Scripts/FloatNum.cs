@@ -67,8 +67,6 @@ public class FloatNum : MonoBehaviour
     {
         trans = transform;
         //bought = true;
-        
-
     }
 
     public void Clean()

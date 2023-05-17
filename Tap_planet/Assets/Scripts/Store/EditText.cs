@@ -149,8 +149,22 @@ public class EditText : MonoBehaviour
             //idlePurchaseButn.GetComponent<ItemScript>().price = "price: " + store.GetPrice("idle") + " crystals.";
             //idlePurchaseButn.GetComponent<ItemScript>().itemName = "Idle Clicker!";
 
-
-            idleButton.GetComponent<ItemScript>().description = "You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every " + (gameController.ReturnSecBeforeClick()-15) + " seconds.";
+            if ((gameController.ReturnSecBeforeClick() - 15) == 0)
+            {
+                if (!GameController.IsIdleTrue())
+                {
+                    idleButton.GetComponent<ItemScript>().description = "You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every 60 seconds.";
+                }
+                else
+                {
+                    idleButton.GetComponent<ItemScript>().description = "You get " + (gameController.ReturnClicksPerSec()+1) + " crystals per second and " + gameController.ReturnClickPerTime() + " every 60 seconds.";
+                }
+                
+            }
+            else
+            {
+                idleButton.GetComponent<ItemScript>().description = "You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every " + (gameController.ReturnSecBeforeClick() - 15) + " seconds.";
+            }
             idleButton.GetComponent<ItemScript>().price = "price: " + store.GetPrice("idle") + " crystals.";
             idleButton.GetComponent<ItemScript>().itemName = "Idle Clicker!";
 
