@@ -92,7 +92,7 @@ public class FloatNum : MonoBehaviour
 
 
 
-    // från storescript
+    // från storescript inte mitt bara det jag la i if satserna
     public void CheckPrice(string powerUpName)
     {
         if (powerUpName.Equals("temp")) // if tpu
