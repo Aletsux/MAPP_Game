@@ -145,9 +145,15 @@ public class EditText : MonoBehaviour
     {
         if (IsEngelska() == true)
         {
-            idlePurchaseButn.GetComponent<ItemScript>().description = "You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every " + gameController.ReturnSecBeforeClick() + " seconds.";
-            idlePurchaseButn.GetComponent<ItemScript>().price = "price: " + store.GetPrice("idle") + " crystals.";
-            idlePurchaseButn.GetComponent<ItemScript>().itemName = "Idle Clicker!";
+            //idlePurchaseButn.GetComponent<ItemScript>().description = "You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every " + gameController.ReturnSecBeforeClick() + " seconds.";
+            //idlePurchaseButn.GetComponent<ItemScript>().price = "price: " + store.GetPrice("idle") + " crystals.";
+            //idlePurchaseButn.GetComponent<ItemScript>().itemName = "Idle Clicker!";
+
+
+            idleButton.GetComponent<ItemScript>().description = "You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every " + (gameController.ReturnSecBeforeClick()-15) + " seconds.";
+            idleButton.GetComponent<ItemScript>().price = "price: " + store.GetPrice("idle") + " crystals.";
+            idleButton.GetComponent<ItemScript>().itemName = "Idle Clicker!";
+
         }
         else if (IsSvenska() == true)
         {
