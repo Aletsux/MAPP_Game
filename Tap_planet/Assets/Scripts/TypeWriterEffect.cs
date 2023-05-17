@@ -21,7 +21,7 @@ public class TypeWriterEffect : MonoBehaviour
     {
         for (int i = 0; i < entireText.Length + 1; i++) //kommer köra lika många gånger som antalet bokstäver i texten
         {
-            currentText = entireText.Substring(0, i); //kommer visa bokstäverna på plats 0-1 i entireText
+            currentText = entireText.Substring(0, i); //kommer visa bokstäverna på plats 0-i i entireText
             this.GetComponent<Text>().text = currentText;
             playRandomTPC();
             yield return new WaitForSeconds(delay);

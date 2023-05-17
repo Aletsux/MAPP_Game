@@ -617,4 +617,14 @@ public class GameController : MonoBehaviour
     {
         return tpuAddClicksBy;
     }
+
+
+    public void AddClicks()
+    {
+        crystals += 10000;
+    }
+    public void addDust()
+    {
+        stardust += 1000;
+    }
 }
