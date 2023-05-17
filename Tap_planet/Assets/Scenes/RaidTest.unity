@@ -250,6 +250,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &7525464
@@ -537,6 +541,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &28830346
@@ -886,6 +894,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &54531938
@@ -1032,7 +1044,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59546540}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1077,12 +1089,12 @@ RectTransform:
   - {fileID: 2055491353}
   - {fileID: 1638640216}
   - {fileID: 691668287}
-  m_Father: {fileID: 1764616458}
+  m_Father: {fileID: 80145815}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: 1010}
   m_SizeDelta: {x: 1080, y: 1921}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1001 &77703215
@@ -1212,8 +1224,67 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+--- !u!1 &80145814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80145815}
+  - component: {fileID: 80145816}
+  m_Layer: 5
+  m_Name: Shake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &80145815
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80145814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2077754625}
+  - {fileID: 1500350629}
+  - {fileID: 59546541}
+  - {fileID: 216432482}
+  - {fileID: 2061935842}
+  - {fileID: 900713549}
+  m_Father: {fileID: 1764616458}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &80145816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80145814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f949a61e2fc74737b3698b7ed488802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &91662819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1357,6 +1428,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &118921908
@@ -1596,6 +1671,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &216432481
@@ -1625,19 +1704,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216432481}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 857638504}
   - {fileID: 1380680126}
-  m_Father: {fileID: 1764616458}
+  m_Father: {fileID: 80145815}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 910}
   m_SizeDelta: {x: 1666.2134, y: 525.5401}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &216432484
@@ -1660,6 +1739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48382ce3f70a4401aa2cc04729c45d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraShake: {fileID: 80145814}
   maxHP: 100
 --- !u!114 &216432486
 MonoBehaviour:
@@ -1744,14 +1824,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220729196}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 282640620}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 9
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2151,6 +2231,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &282640619
@@ -2444,6 +2528,10 @@ PrefabInstance:
       propertyPath: raidMovement
       value: 
       objectReference: {fileID: 1500350633}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1001 &340871429
@@ -2573,6 +2661,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &341038068
@@ -2933,6 +3025,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &459130747 stripped
@@ -3084,6 +3180,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &468894210
@@ -3119,7 +3219,7 @@ RectTransform:
   m_Children:
   - {fileID: 2029893949}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 8
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3329,6 +3429,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1001 &605490122
@@ -3470,6 +3574,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &611517902
@@ -3675,6 +3783,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1001 &652174864
@@ -3816,6 +3928,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &659647424
@@ -4454,6 +4570,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &834557675 stripped
@@ -4607,17 +4727,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900713548}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 10.62, y: 10.62, z: 10.62}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1764616458}
+  m_Father: {fileID: 80145815}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -249.99994}
+  m_AnchoredPosition: {x: 0, y: 660}
   m_SizeDelta: {x: 101.89, y: 142.99866}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!61 &900713550
@@ -4921,6 +5041,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1022460326 stripped
@@ -5076,6 +5200,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1068048940 stripped
@@ -5730,7 +5858,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6679302959241121029, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6679302959241121029, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
       propertyPath: m_AnchorMax.x
@@ -5774,15 +5902,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6679302959241121029, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6679302959241121029, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6679302959241121029, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6679302959241121029, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -5965,6 +6093,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1223526248
@@ -6302,6 +6434,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1365782016
@@ -6330,14 +6466,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365782016}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2120124673}
   m_Father: {fileID: 1764616458}
-  m_RootOrder: 7
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -6855,6 +6991,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1500350628
@@ -6889,7 +7029,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500350628}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6898,7 +7038,7 @@ RectTransform:
   - {fileID: 230112649}
   - {fileID: 930912226}
   - {fileID: 713988977}
-  m_Father: {fileID: 1764616458}
+  m_Father: {fileID: 80145815}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -7044,6 +7184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19da5287ffb674624ae9c4e694ecd87b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraShake: {fileID: 80145814}
   hitSprite: {fileID: 4340843050585764841, guid: eb52d75e4c42c41299bff278bf688a90, type: 3}
   blinkAmount: 8
   timeBetweenBlinks: 0.1
@@ -7212,6 +7353,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1539013373
@@ -7610,6 +7755,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1597843946 stripped
@@ -7769,6 +7918,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1646445613 stripped
@@ -7908,6 +8061,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1001 &1713316940
@@ -8037,6 +8194,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1719894041 stripped
@@ -8188,6 +8349,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1764616457
@@ -8221,12 +8386,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2077754625}
-  - {fileID: 1500350629}
-  - {fileID: 59546541}
-  - {fileID: 216432482}
-  - {fileID: 2061935842}
-  - {fileID: 900713549}
+  - {fileID: 80145815}
   - {fileID: 800134530}
   - {fileID: 1365782017}
   - {fileID: 468894211}
@@ -8454,6 +8614,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1787489045
@@ -8736,6 +8900,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1813329696
@@ -9069,6 +9237,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1866231167 stripped
@@ -9220,6 +9392,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1889409636 stripped
@@ -9457,6 +9633,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1001 &1931285801
@@ -9586,6 +9766,10 @@ PrefabInstance:
       propertyPath: raidMovement
       value: 
       objectReference: {fileID: 1500350633}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1001 &1936495750
@@ -9715,6 +9899,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1945077583 stripped
@@ -9952,6 +10140,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &1999669418 stripped
@@ -10224,6 +10416,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &2011021722 stripped
@@ -10601,6 +10797,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1001 &2023244603
@@ -10742,6 +10942,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1 &2024525218
@@ -10950,17 +11154,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2061935841}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1764616458}
+  m_Father: {fileID: 80145815}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -910}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &2077754624
@@ -10994,13 +11198,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1764616458}
+  m_Father: {fileID: 80145815}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -3.8149986, y: 0.00009918213}
+  m_SizeDelta: {x: 1109.7112, y: 1934.4512}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2077754626
 MonoBehaviour:
@@ -11357,6 +11561,10 @@ PrefabInstance:
       propertyPath: raidState
       value: 
       objectReference: {fileID: 1567866247}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
 --- !u!1001 &8910365623679205200
@@ -11366,6 +11574,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 59546541}
     m_Modifications:
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 80145816}
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Shake
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ScreenShake, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1951503400, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
       propertyPath: m_Name
       value: EnemyShip
@@ -11462,5 +11698,9 @@ PrefabInstance:
       propertyPath: raidMovement
       value: 
       objectReference: {fileID: 1500350633}
+    - target: {fileID: 8910365622598826358, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}

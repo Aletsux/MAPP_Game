@@ -5,6 +5,7 @@ using UnityEngine;
 public class RaidEnemyKillable : MonoBehaviour
 {
     public GameObject explosionPrefab;
+    public GameObject cameraShake;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,11 +28,12 @@ public class RaidEnemyKillable : MonoBehaviour
     public void destroyEnemy()
     {
         EnemyAI.RemoveFromActiveList(gameObject);
-        GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation, GameObject.FindAnyObjectByType<Canvas>().transform); // skapa explosion (viktigt: under canvas)
+        GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation, GameObject.FindAnyObjectByType<Canvas>().transform);// skapa explosion (viktigt: under canvas)
         explosion.transform.SetSiblingIndex(1);
         Debug.Log("Hit");
         gameObject.SetActive(false);
         gameObject.GetComponent<RaidEnemyMovement>().enemyCleared = true;
         RaidState.enemiesKilled++;
+        cameraShake.GetComponent<ScreenShake>().Shake();
     }
 }
