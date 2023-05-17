@@ -32,6 +32,7 @@ public class FloatingDustSec : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        idleLvl = gameController.IsIdleLvlTrue();
         if (idleLvl)//varje sekund
         {
             if (Time.time >= nextUpdate)

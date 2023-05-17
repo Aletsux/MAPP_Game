@@ -152,6 +152,11 @@ public class FloatNum : MonoBehaviour
                 Clean();
             }
         }
+        else if (powerUpName.Equals("test"))
+        {
+
+        }
+        
     }
 
     //Kopierrat från storeScript inte mitt
