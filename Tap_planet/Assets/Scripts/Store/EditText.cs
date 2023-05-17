@@ -34,7 +34,11 @@ public class EditText : MonoBehaviour
     public Image newSprite;
 
     private int dustCost = 50;
-    
+
+    private static int clickLvl = 1;
+
+    private int numPerm;
+
 
     //public class MyClass2
     //{
@@ -206,8 +210,11 @@ public class EditText : MonoBehaviour
         }
     }
 
+
     public void ChangeTextPerm()// Your clicks will increased by 1 crystal with each purchase! Every 10 purchase will add 5.
     {
+        
+
         if (IsEngelska())
         {
             permButton.GetComponent<ItemScript>().price = "Price: " + store.GetPrice("perm") + " crystals.";
@@ -223,17 +230,19 @@ public class EditText : MonoBehaviour
 
     }
 
+    
     public void ChangeWhenBoughtPerm()
     {
+
         if (IsEngelska())
         {
-            permButton.GetComponent<ItemScript>().description = "Your clicks will now give you " + (GameController.ReturnClickLvl() + 1) + " crystals!";
+            permButton.GetComponent<ItemScript>().description = "Your clicks have gotten a permanent boost!";
             permButton.GetComponent<ItemScript>().price = "Price: " + store.GetPrice("perm") + " crystals.";
             permButton.GetComponent<ItemScript>().itemName = "Permanent Click Increaser!";
         }
         else if (IsSvenska())
         {
-            permButton.GetComponent<ItemScript>().description = "Dina klicks ger dig " + (GameController.ReturnClickLvl() + 1) + " kristaller!";
+            permButton.GetComponent<ItemScript>().description = "Dina klicks har fått en permanent boost!";
             permButton.GetComponent<ItemScript>().price = "Pris: " + store.GetPrice("perm") + " kristaller.";
             permButton.GetComponent<ItemScript>().itemName = "Permanent Klick Ökare!";
         }
@@ -323,7 +332,7 @@ public class EditText : MonoBehaviour
             }
             else if (IsSvenska())
             {
-                dustButton.GetComponent<ItemScript>().description = (GameController.GetStardustMinerLevel() +1) + "% större chans att finna stjärnpuder!";
+                dustButton.GetComponent<ItemScript>().description =( GameController.GetStardustMinerLevel() +1) + "% större chans att finna stjärnpuder!";
                 dustButton.GetComponent<ItemScript>().price = "pris: " + store.GetPrice("dust") + " stjärnpuder";
                 dustButton.GetComponent<ItemScript>().itemName = "Stjärnpuder Grävare!";
             }
