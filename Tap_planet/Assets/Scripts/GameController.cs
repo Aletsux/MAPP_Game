@@ -408,7 +408,7 @@ public class GameController : MonoBehaviour
         numPerSec = PlayerPrefs.GetInt("numPerSec");
         secBeforeIdleClick = PlayerPrefs.GetInt("secBeforeIdleClick");
         lvlCounter = PlayerPrefs.GetInt("lvlCounter");
-        PlayerPrefs.SetFloat("Volume", volumeManager.getVolume());
+        AudioListener.volume = PlayerPrefs.GetFloat("Volume", volumeManager.getVolume());
         tpuCost = PlayerPrefs.GetInt("tpuCost");
         idleCost = PlayerPrefs.GetInt("idleCost");
         clickLvl = PlayerPrefs.GetInt("clickLvl");

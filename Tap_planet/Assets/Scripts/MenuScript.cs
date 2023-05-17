@@ -12,15 +12,26 @@ public class MenuScript : MonoBehaviour
     public GameObject exitButton;
     public GameObject panel;
     private bool visible;
-    private bool muted;
+    private static bool muted;
 
     private Button openSettings;
+
+    public static bool getIsMuted() {
+        return muted;
+    }  
+    public static void setIsMuted(bool mute) {
+        muted = mute;
+    }
 
     void Start()
     {
         openSettings = gameObject.GetComponent<Button>();
         //gameObject.SetActive(false);
         visible = false;
+        if(PlayerPrefs.GetFloat("Volume", 1) <= 0) {
+            muted = true;
+            return;
+        }
         muted = false;
     }
 
@@ -60,10 +71,10 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void onMuteClick() {
+    public static void onMuteClick() {
         AudioListener.pause = !muted;
         muted = !muted;
-
+        
         if(muted) {
             Debug.Log("Audio muted!");
         } else { 
