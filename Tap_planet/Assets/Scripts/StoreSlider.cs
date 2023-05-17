@@ -77,6 +77,7 @@ public class StoreSlider : MonoBehaviour
             if(transform.position.y <= nextPos.y)
             {
                 storeScript.CloseStore();
+                //Debug.Log("Close");
             }
         }
 
