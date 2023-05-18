@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8910365622598826358}
   - component: {fileID: 8910365622598826357}
   - component: {fileID: 1951503400}
+  - component: {fileID: 4520100560152003953}
   m_Layer: 5
   m_Name: EnemyShip
   m_TagString: Untagged
@@ -141,7 +142,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c145f55fda61c4484163121a70b61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionSFX: {fileID: 8300000, guid: 57d9f4337222c48e5bd81f9c7e1c6fd3, type: 3}
   explosionPrefab: {fileID: 2460366733165182216, guid: 51bdc65758ab845bdab4e1da80e18f90, type: 3}
+  cameraShake: {fileID: 0}
 --- !u!50 &8910365622598826357
 Rigidbody2D:
   serializedVersion: 4
@@ -192,3 +195,16 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &4520100560152003953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8910365622598826319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c106b8a2b7cd496a82eb8ff4b437883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionSFX: {fileID: 8300000, guid: 57d9f4337222c48e5bd81f9c7e1c6fd3, type: 3}

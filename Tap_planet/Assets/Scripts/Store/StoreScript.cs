@@ -14,6 +14,11 @@ public class StoreScript : MonoBehaviour
     public GameObject powerupTab;
     public GameObject planetTab;
     [Space]
+    public GameObject upgradeTabButton; //different tab-buttons
+    public GameObject accessoryTabButton;
+    public GameObject powerupTabButton;
+    public GameObject planetTabButton;
+    [Space]
     public GameObject GC; // gameController
     private GameController gameController; //actually gameController script!
 
@@ -123,10 +128,32 @@ public class StoreScript : MonoBehaviour
 
     public void CloseTabsExcept(string tab) // different buttons send different arguments
     {
+        upgradeTabButton.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f);
+        accessoryTabButton.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f);
+        planetTabButton.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f);
+        powerupTabButton.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f);
+
         upgradeTab.SetActive(CorrectTab(tab, "upgrade")); // only true if method was called with upgrade as argument
         accessoryTab.SetActive(CorrectTab(tab, "accessory")); // false if called with upgrade
         planetTab.SetActive(CorrectTab(tab, "planet"));
         powerupTab.SetActive(CorrectTab(tab, "powerup"));
+
+        if (upgradeTab.activeSelf)
+        {
+            upgradeTabButton.GetComponent<Image>().color = Color.white;
+        }
+        if (accessoryTab.activeSelf)
+        {
+            accessoryTabButton.GetComponent<Image>().color = Color.white;
+        }
+        if (planetTab.activeSelf)
+        {
+            planetTabButton.GetComponent<Image>().color = Color.white;
+        }
+        if (powerupTab.activeSelf)
+        {
+            powerupTabButton.GetComponent<Image>().color = Color.white;
+        }
     }
 
     private bool CorrectTab(string tab, string thisTab)
