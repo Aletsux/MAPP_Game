@@ -333,7 +333,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1563319891}
+    m_TransformParent: {fileID: 777332196}
     m_Modifications:
     - target: {fileID: 1290951518208823932, guid: e77919666e4add54e9b6f24bb851dbcf, type: 3}
       propertyPath: m_FontData.m_Font
@@ -413,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1290951518208823934, guid: e77919666e4add54e9b6f24bb851dbcf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 300.00003
       objectReference: {fileID: 0}
     - target: {fileID: 1290951518208823934, guid: e77919666e4add54e9b6f24bb851dbcf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3502,12 +3502,24 @@ PrefabInstance:
       value: -0.99902344
       objectReference: {fileID: 0}
     - target: {fileID: 5889008386056235731, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: m_Text
+      value: 1.0k
+      objectReference: {fileID: 0}
+    - target: {fileID: 5889008386056235731, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_FontData.m_Font
       value: 
       objectReference: {fileID: 12800000, guid: 16b5a3aedd98d40edaed299d6af7077c, type: 3}
     - target: {fileID: 5889008386056235731, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 43
+      objectReference: {fileID: 0}
+    - target: {fileID: 6073022370253494760, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: m_Name
+      value: TextPrice
+      objectReference: {fileID: 0}
+    - target: {fileID: 6073022370299898915, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: m_Name
+      value: TextPrice
       objectReference: {fileID: 0}
     - target: {fileID: 6458594100607439229, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_FontData.m_Font
@@ -3986,6 +3998,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7498895911424604168, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: m_Name
+      value: TextPrice
+      objectReference: {fileID: 0}
+    - target: {fileID: 7498895911424604168, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -4077,6 +4093,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: c5b66b2fe27624b3b8e8744998b82fa3, type: 3}
+    - target: {fileID: 8765963175784930253, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2353d9ef57f4fbd43b51bfcfd79292ff, type: 3}
     - target: {fileID: 8856855819759885015, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_Type
       value: 0
@@ -7458,7 +7478,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:4925cd452dba94f00b65587788066f24
     m_TableEntryReference:
-      m_KeyId: 5019525120
+      m_KeyId: 8784959009067008
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -11453,7 +11473,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:4925cd452dba94f00b65587788066f24
     m_TableEntryReference:
-      m_KeyId: 5019525120
+      m_KeyId: 8784959009067008
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -16903,7 +16923,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1563319891}
+    m_TransformParent: {fileID: 777332196}
     m_Modifications:
     - target: {fileID: 7021555844901189608, guid: 34a8c6bfaa41e8141b441afdaea3be49, type: 3}
       propertyPath: m_Pivot.x
@@ -16975,7 +16995,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7021555844901189608, guid: 34a8c6bfaa41e8141b441afdaea3be49, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 300.00003
       objectReference: {fileID: 0}
     - target: {fileID: 7021555844901189608, guid: 34a8c6bfaa41e8141b441afdaea3be49, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -17941,7 +17961,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.23529412}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0.0627451}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 0}
@@ -19479,7 +19499,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:4925cd452dba94f00b65587788066f24
     m_TableEntryReference:
-      m_KeyId: 5019525120
+      m_KeyId: 8784959009067008
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -28133,7 +28153,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:4925cd452dba94f00b65587788066f24
     m_TableEntryReference:
-      m_KeyId: 5019525120
+      m_KeyId: 8784959009067008
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
