@@ -27,6 +27,11 @@ public class StoreSlider : MonoBehaviour
     private StoreScript storeScript;
     private int firstTime = 0;
 
+    float xValueCan;
+    float yValueCan;
+
+    public GameObject openStoreRef;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +43,10 @@ public class StoreSlider : MonoBehaviour
         storeSlider = SS.GetComponent<StoreSlider>();
         storeScript = StoreScript.GetComponent<StoreScript>();
 
-        posOpen = canvas.transform;
+        //posOpen = canvas.transform;
+        posOpen = openStoreRef.transform;
+       
+
         posClose = posOpen;
         startPos = posClose;
         
@@ -54,8 +62,10 @@ public class StoreSlider : MonoBehaviour
     {
         //sätt timer som går ut och sen false och gör så rörelse
         if (openStore)
-        { 
+        {
             nextPos = posOpen.position;
+
+
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
         }
 
