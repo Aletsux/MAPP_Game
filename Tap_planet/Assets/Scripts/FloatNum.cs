@@ -67,8 +67,6 @@ public class FloatNum : MonoBehaviour
     {
         trans = transform;
         //bought = true;
-        
-
     }
 
     public void Clean()
@@ -154,6 +152,47 @@ public class FloatNum : MonoBehaviour
                 Clean();
             }
         }
+        else if (powerUpName.Equals("test"))
+        {
+            GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
+            Clean();
+        }
+        else if (powerUpName.Equals("party"))
+        {
+            GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
+            Clean();
+        }
+        else if (powerUpName.Equals("cow"))
+        {
+            GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
+            Clean();
+        }
+        else if (powerUpName.Equals("halo"))
+        {
+            GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
+            Clean();
+        }
+        else if (powerUpName.Equals("drip"))
+        {
+            GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
+            Clean();
+        }
+        else if (powerUpName.Equals("cookie"))
+        {
+            GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
+            Clean();
+        }
+        else if (powerUpName.Equals("candy"))
+        {
+            GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
+            Clean();
+        }
+        else if (powerUpName.Equals("melon"))
+        {
+            GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
+            Clean();
+        }
+
     }
 
     //Kopierrat från storeScript inte mitt

@@ -19,7 +19,7 @@ public class CutsceneController : MonoBehaviour
         } else
         {
             sceneChange.LoadMainMenu();
-            startMenuTransition.StartTransition();
+            //startMenuTransition.StartTransition();
         }
     }
 
@@ -27,6 +27,6 @@ public class CutsceneController : MonoBehaviour
     {
         PlayerPrefs.SetInt("PlayedCutscene", 1);
         sceneChange.LoadMainMenu();
-        startMenuTransition.StartTransition();
+        //startMenuTransition.StartTransition();
     }
 }
