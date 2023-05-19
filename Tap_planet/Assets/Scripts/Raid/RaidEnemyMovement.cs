@@ -69,6 +69,7 @@ public class RaidEnemyMovement : MonoBehaviour
                     PlanetState.DecreaseHP();
             Debug.Log("YOU WERE HIT");
             planet.GetComponent<PlanetHit>().StartBlinking();
+            gameObject.GetComponent<EnemyDeathSound>().PlayDeathSound();
             GameObject explosion = Instantiate(explosionPrefab, transform.position, transform.rotation, GameObject.FindAnyObjectByType<Canvas>().transform); // skapa explosion (viktigt: under canvas)
             explosion.transform.SetSiblingIndex(1);
 
