@@ -409,7 +409,14 @@ public class StoreScript : MonoBehaviour
             }
             return PlayerPrefs.GetInt("RaidWipeCost");
         }
-
+        else if (name.Equals("shield"))
+        {
+            if (PlayerPrefs.GetInt("RaidWipeCost") == 0)
+            {
+                PlayerPrefs.SetInt("RaidWipeCost", 10);
+            }
+            return PlayerPrefs.GetInt("RaidWipeCost");
+        }
 
         //Accessories
         else if (name.Equals("party"))
