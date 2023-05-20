@@ -8,12 +8,12 @@ public class UpgradeScript : ItemScript
     {
         base.Start();
         table = "ButtonsUpgrade";
-        priceKey += "Upgrade " + (index + 1);
+        descriptionPrice += "Upgrade " + (index + 1);
     }
 
     protected override void OnPanelClick()
     {
-        GetStringForUI();
+        SetDescriptionTranslations();
         desc.GetAllInformation(this, false);
     }
 }
