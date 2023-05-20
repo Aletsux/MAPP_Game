@@ -623,11 +623,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28830346}
   m_CullTransparentMesh: 1
---- !u!1 &41087744 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1671325780}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &41087752 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -970,6 +965,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1036,7 +1043,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -926
+      value: -852
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1063,6 +1070,11 @@ PrefabInstance:
 --- !u!224 &68198735 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 68198734}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &68198736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 68198734}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &77703215
@@ -1410,6 +1422,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1476,7 +1500,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 210
+      value: 178
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1503,6 +1527,11 @@ PrefabInstance:
 --- !u!224 &99335661 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 99335660}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &99335662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 99335660}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &118921908
@@ -1585,20 +1614,10 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118921908}
   m_CullTransparentMesh: 1
---- !u!1 &119721737 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1349893529}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &119721745 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
   m_PrefabInstance: {fileID: 1349893529}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &136205374 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 652174864}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &136205375 stripped
 RectTransform:
@@ -1612,6 +1631,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1678,7 +1709,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -59
+      value: -91
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1707,10 +1738,10 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 139234033}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &180169182 stripped
+--- !u!1 &139234035 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 338420493}
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 139234033}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &180169183 stripped
 RectTransform:
@@ -1724,6 +1755,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1790,7 +1833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -647
+      value: -578
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1817,6 +1860,11 @@ PrefabInstance:
 --- !u!224 &195564383 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 195564382}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &195564384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 195564382}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &205518975
@@ -2167,20 +2215,10 @@ MonoBehaviour:
   closedWidth: 0
   duration: 0.1
   delay: 0.1
---- !u!1 &220776958 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1909718441}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &220776966 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
   m_PrefabInstance: {fileID: 1909718441}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &227777602 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 986619443}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &227777603 stripped
 RectTransform:
@@ -2369,11 +2407,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
---- !u!1 &253930190 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 2007911077}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &253930198 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -2627,6 +2660,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2693,7 +2738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 210
+      value: 178
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2720,6 +2765,11 @@ PrefabInstance:
 --- !u!224 &294828978 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 294828977}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &294828979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 294828977}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &305287880
@@ -3124,11 +3174,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341038068}
   m_CullTransparentMesh: 1
---- !u!1 &354109088 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1969196821}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &354109089 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -3419,6 +3464,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3497,7 +3554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -500
+      value: -431
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3522,10 +3579,10 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 452688543}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &459130747 stripped
+--- !u!1 &452688545 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1524289891}
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 452688543}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &459130748 stripped
 RectTransform:
@@ -3778,6 +3835,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3873,10 +3942,10 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 469074762}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &474388307 stripped
+--- !u!1 &469074764 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 2023244603}
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 469074762}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &474388308 stripped
 RectTransform:
@@ -4035,6 +4104,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4101,7 +4182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -59
+      value: -91
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4130,6 +4211,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 513886614}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &513886616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 513886614}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &520722008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4141,6 +4227,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4219,7 +4317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -204
+      value: -236
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4244,6 +4342,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 520722008}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &520722010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 520722008}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &535385130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4251,6 +4354,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4317,7 +4432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 210
+      value: 178
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4346,6 +4461,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 535385130}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &535385132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 535385130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &552839598
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4357,6 +4477,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4435,7 +4567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 328
+      value: 296
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4458,6 +4590,11 @@ PrefabInstance:
 --- !u!224 &552839599 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 552839598}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &552839600 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 552839598}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &605490122
@@ -4692,6 +4829,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4770,7 +4919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -500
+      value: -431
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4795,6 +4944,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 622302439}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &622302441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 622302439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &623540976
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4802,6 +4956,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4895,6 +5061,11 @@ PrefabInstance:
 --- !u!224 &623540977 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 623540976}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &623540978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 623540976}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &630290607
@@ -5219,6 +5390,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5297,7 +5480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 71
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5322,10 +5505,10 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 690449958}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &691668279 stripped
+--- !u!1 &690449960 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1215263472}
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 690449958}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &691668287 stripped
 RectTransform:
@@ -5343,6 +5526,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5421,7 +5616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -204
+      value: -236
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5444,6 +5639,11 @@ PrefabInstance:
 --- !u!224 &694426560 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 694426559}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &694426561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 694426559}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &713081372
@@ -5682,11 +5882,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &758795190 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 50719910}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &758795198 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -5703,6 +5898,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5781,7 +5988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -785
+      value: -719
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5806,6 +6013,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 797567774}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &797567776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 797567774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &800134530 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6679302959241121029, guid: 586479dd732c04ba4abe31737eed4011, type: 3}
@@ -5822,6 +6034,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5900,7 +6124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -204
+      value: -236
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5923,6 +6147,11 @@ PrefabInstance:
 --- !u!224 &810357246 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 810357245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &810357247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 810357245}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &815364443
@@ -6226,11 +6455,6 @@ PrefabInstance:
       objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
---- !u!1 &834557675 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 2022445979}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &834557676 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -6342,11 +6566,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShowMaskGraphic: 1
---- !u!1 &870805448 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1803244891}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &870805456 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -6840,11 +7059,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1022460326 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 2120294278}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1022460334 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -7006,6 +7220,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7072,7 +7298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -59
+      value: -91
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7101,20 +7327,15 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 1058316682}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1068048940 stripped
+--- !u!1 &1058316684 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 833694333}
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 1058316682}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1068048941 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
   m_PrefabInstance: {fileID: 833694333}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1074084386 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1931285801}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1074084394 stripped
 RectTransform:
@@ -7128,6 +7349,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7194,7 +7427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -926
+      value: -852
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -7221,6 +7454,11 @@ PrefabInstance:
 --- !u!224 &1081276401 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 1081276400}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1081276402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 1081276400}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1110122666
@@ -7496,11 +7734,6 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
---- !u!1 &1134216735 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 8910365623679205200}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1134216736 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -7902,6 +8135,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7980,7 +8225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -500
+      value: -431
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8005,10 +8250,10 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 1168529984}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1172062319 stripped
+--- !u!1 &1168529986 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 486928826}
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 1168529984}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1172062320 stripped
 RectTransform:
@@ -8102,6 +8347,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8180,7 +8437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 71
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8203,6 +8460,11 @@ PrefabInstance:
 --- !u!224 &1192472254 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 1192472253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1192472255 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 1192472253}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1209293356
@@ -8534,20 +8796,10 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
---- !u!1 &1243941248 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 4611929}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1243941249 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
   m_PrefabInstance: {fileID: 4611929}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1250809875 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1487950927}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1250809883 stripped
 RectTransform:
@@ -8565,6 +8817,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8643,7 +8907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 71
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8666,6 +8930,11 @@ PrefabInstance:
 --- !u!224 &1319365636 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 1319365635}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1319365637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 1319365635}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1325428215
@@ -9268,47 +9537,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList:
-  - {fileID: 1134216735}
-  - {fileID: 834557675}
-  - {fileID: 1172062319}
-  - {fileID: 180169182}
-  - {fileID: 459130747}
-  - {fileID: 1829974199}
-  - {fileID: 354109088}
-  - {fileID: 227777602}
-  - {fileID: 1068048940}
-  - {fileID: 1951503392}
-  - {fileID: 1999669418}
-  - {fileID: 1597843946}
-  - {fileID: 474388307}
-  - {fileID: 1719894041}
-  - {fileID: 1792561064}
-  - {fileID: 1779770804}
-  - {fileID: 136205374}
-  - {fileID: 1866231167}
-  - {fileID: 1889409636}
-  - {fileID: 1243941248}
-  - {fileID: 1892249397}
-  - {fileID: 1074084386}
-  - {fileID: 1506664848}
-  - {fileID: 758795190}
-  - {fileID: 1022460326}
-  - {fileID: 2011021722}
-  - {fileID: 1646445613}
-  - {fileID: 119721737}
-  - {fileID: 220776958}
-  - {fileID: 41087744}
-  - {fileID: 1628475070}
-  - {fileID: 2080255957}
-  - {fileID: 1945077583}
-  - {fileID: 1460044028}
-  - {fileID: 253930190}
-  - {fileID: 870805448}
-  - {fileID: 1250809875}
-  - {fileID: 2055491345}
-  - {fileID: 1638640208}
-  - {fileID: 691668279}
-  shipParent: {fileID: 59546540}
+  - {fileID: 7488548686728330636}
+  - {fileID: 1663405061}
+  - {fileID: 1910606409}
+  - {fileID: 552839600}
+  - {fileID: 2060424718}
+  - {fileID: 690449960}
+  - {fileID: 1319365637}
+  - {fileID: 1192472255}
+  - {fileID: 520722010}
+  - {fileID: 1583820939}
+  - {fileID: 694426561}
+  - {fileID: 810357247}
+  - {fileID: 452688545}
+  - {fileID: 1168529986}
+  - {fileID: 622302441}
+  - {fileID: 2079993051}
+  - {fileID: 2056561347}
+  - {fileID: 797567776}
+  - {fileID: 2010463447}
+  - {fileID: 1939754534}
+  - {fileID: 8293660395223376871}
+  - {fileID: 535385132}
+  - {fileID: 99335662}
+  - {fileID: 294828979}
+  - {fileID: 139234035}
+  - {fileID: 1058316684}
+  - {fileID: 513886616}
+  - {fileID: 1837008704}
+  - {fileID: 469074764}
+  - {fileID: 1797871529}
+  - {fileID: 1850978282}
+  - {fileID: 623540978}
+  - {fileID: 1816370687}
+  - {fileID: 2062545425}
+  - {fileID: 195564384}
+  - {fileID: 1555214929}
+  - {fileID: 1562997367}
+  - {fileID: 2063681268}
+  - {fileID: 1081276402}
+  - {fileID: 68198736}
+  shipParent: {fileID: 630290607}
 --- !u!4 &1397023897
 Transform:
   m_ObjectHideFlags: 0
@@ -9324,11 +9593,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1460044028 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 77703215}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1460044036 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -9720,11 +9984,6 @@ MonoBehaviour:
   hitSprite: {fileID: 4340843050585764841, guid: eb52d75e4c42c41299bff278bf688a90, type: 3}
   blinkAmount: 8
   timeBetweenBlinks: 0.1
---- !u!1 &1506664848 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1870986147}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1506664856 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -10003,6 +10262,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10069,7 +10340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -647
+      value: -578
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -10098,6 +10369,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 1555214927}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1555214929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 1555214927}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1562997365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10105,6 +10381,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10171,7 +10459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -926
+      value: -852
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -10198,6 +10486,11 @@ PrefabInstance:
 --- !u!224 &1562997366 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 1562997365}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1562997367 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 1562997365}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1564840447
@@ -10347,6 +10640,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10425,7 +10730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -204
+      value: -236
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -10448,6 +10753,11 @@ PrefabInstance:
 --- !u!224 &1583820938 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 1583820937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1583820939 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 1583820937}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1583978200
@@ -10595,30 +10905,15 @@ PrefabInstance:
       objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
---- !u!1 &1597843946 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1713316940}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1597843947 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
   m_PrefabInstance: {fileID: 1713316940}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1628475070 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1786201573}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1628475078 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
   m_PrefabInstance: {fileID: 1786201573}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1638640208 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 605490122}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1638640216 stripped
 RectTransform:
@@ -10758,11 +11053,6 @@ PrefabInstance:
       objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
---- !u!1 &1646445613 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 8225311}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1646445621 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -10779,6 +11069,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10857,7 +11159,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 328
+      value: 296
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -10880,6 +11182,11 @@ PrefabInstance:
 --- !u!224 &1663405060 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 1663405059}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1663405061 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 1663405059}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1671325780
@@ -11199,11 +11506,6 @@ PrefabInstance:
       objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
---- !u!1 &1719894041 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 631918200}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1719894042 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -11459,11 +11761,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &1779770804 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 340871429}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1779770805 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -11761,11 +12058,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1792561064 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 465047286}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1792561065 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -11778,6 +12070,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -11871,6 +12175,11 @@ PrefabInstance:
 --- !u!224 &1797871528 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 1797871527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1797871529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 1797871527}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1803244891
@@ -12097,6 +12406,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12163,7 +12484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -647
+      value: -578
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -12190,6 +12511,11 @@ PrefabInstance:
 --- !u!224 &1816370686 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 1816370685}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1816370687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 1816370685}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1821681830
@@ -12257,11 +12583,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
---- !u!1 &1829974199 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1644232092}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1829974200 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -12274,6 +12595,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12340,7 +12673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -59
+      value: -91
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -12369,6 +12702,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 1837008702}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1837008704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 1837008702}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1850978280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12376,6 +12714,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12469,6 +12819,11 @@ PrefabInstance:
 --- !u!224 &1850978281 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 1850978280}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1850978282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 1850978280}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1855242159
@@ -12649,11 +13004,6 @@ PrefabInstance:
       objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
---- !u!1 &1866231167 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 416599814}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1866231168 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -12804,20 +13154,10 @@ PrefabInstance:
       objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
---- !u!1 &1889409636 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1761407834}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1889409637 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
   m_PrefabInstance: {fileID: 1761407834}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1892249397 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 91662819}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1892249405 stripped
 RectTransform:
@@ -13056,6 +13396,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13134,7 +13486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 328
+      value: 296
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -13157,6 +13509,11 @@ PrefabInstance:
 --- !u!224 &1910606408 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 1910606407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1910606409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 1910606407}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1931285801
@@ -13436,6 +13793,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -13514,7 +13883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -785
+      value: -719
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -13539,10 +13908,10 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 1939754532}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1945077583 stripped
+--- !u!1 &1939754534 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1583978200}
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 1939754532}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &1945077591 stripped
 RectTransform:
@@ -13625,11 +13994,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947003177}
   m_CullTransparentMesh: 1
---- !u!1 &1951503392 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1936495750}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1951503393 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -13780,11 +14144,6 @@ PrefabInstance:
       objectReference: {fileID: 80145814}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
---- !u!1 &1999669418 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1032542663}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1999669419 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -14067,6 +14426,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -14145,7 +14516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -785
+      value: -719
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -14170,10 +14541,10 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 2010463445}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2011021722 stripped
+--- !u!1 &2010463447 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 280073868}
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 2010463445}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &2011021730 stripped
 RectTransform:
@@ -14869,11 +15240,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2029893948}
   m_CullTransparentMesh: 1
---- !u!1 &2055491345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 205518975}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2055491353 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
@@ -14890,6 +15256,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -14968,7 +15346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -785
+      value: -719
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -14993,6 +15371,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 2056561345}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2056561347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 2056561345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2060424716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15004,6 +15387,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -15082,7 +15477,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 71
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15105,6 +15500,11 @@ PrefabInstance:
 --- !u!224 &2060424717 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 2060424716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2060424718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 2060424716}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2061935841
@@ -15150,6 +15550,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -15216,7 +15628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -647
+      value: -578
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15245,6 +15657,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 2062545423}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2062545425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 2062545423}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2063681266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15252,6 +15669,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -15318,7 +15747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -926
+      value: -852
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15345,6 +15774,11 @@ PrefabInstance:
 --- !u!224 &2063681267 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 2063681266}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2063681268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 2063681266}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2077754624
@@ -15459,6 +15893,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -15537,7 +15983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -500
+      value: -431
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15562,10 +16008,10 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 2079993049}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2080255957 stripped
+--- !u!1 &2079993051 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 8910365622598826319, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
-  m_PrefabInstance: {fileID: 1862914499}
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 2079993049}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &2080255965 stripped
 RectTransform:
@@ -15872,6 +16318,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV1
       objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996473, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -15909,6 +16367,18 @@ PrefabInstance:
       value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -15938,7 +16408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 328
+      value: 296
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15956,11 +16426,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6246590563285621735, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 80145816}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
 --- !u!224 &7488548686728330635 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+  m_PrefabInstance: {fileID: 7488548686728330634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7488548686728330636 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3249245246209996416, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
   m_PrefabInstance: {fileID: 7488548686728330634}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8293660395223376869
@@ -15970,6 +16449,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1708923294}
     m_Modifications:
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: planet
+      value: 
+      objectReference: {fileID: 1500350628}
+    - target: {fileID: 197514570775387080, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: raidMovement
+      value: 
+      objectReference: {fileID: 1500350633}
+    - target: {fileID: 197514570775387081, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: cameraShake
+      value: 
+      objectReference: {fileID: 80145814}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -16036,7 +16527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 210
+      value: 178
       objectReference: {fileID: 0}
     - target: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -16058,11 +16549,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShipV2
       objectReference: {fileID: 0}
+    - target: {fileID: 197514570775387095, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 80145816}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
 --- !u!224 &8293660395223376870 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 197514570775387092, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
+  m_PrefabInstance: {fileID: 8293660395223376869}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8293660395223376871 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 197514570775387093, guid: 52b9f52c8e124c340889a79a86184094, type: 3}
   m_PrefabInstance: {fileID: 8293660395223376869}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8910365623679205200
