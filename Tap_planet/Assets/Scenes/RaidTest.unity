@@ -2342,6 +2342,31 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1947544820213486684, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
   m_PrefabInstance: {fileID: 230112648}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &230112653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 729727809383781970, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
+  m_PrefabInstance: {fileID: 230112648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &230112654 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8631999457981156386, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
+  m_PrefabInstance: {fileID: 230112648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &230112655 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1028297342772444742, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
+  m_PrefabInstance: {fileID: 230112648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &230112656 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3261614764765623426, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
+  m_PrefabInstance: {fileID: 230112648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &230112657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 148475651987611876, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
+  m_PrefabInstance: {fileID: 230112648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &233689145
 GameObject:
   m_ObjectHideFlags: 0
@@ -8806,6 +8831,16 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8910365622598826352, guid: f15da2d0955cf90458b1d214b020af83, type: 3}
   m_PrefabInstance: {fileID: 1487950927}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1278001127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1200399816794189121, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
+  m_PrefabInstance: {fileID: 2019051933}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1278001128 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6004315692824123391, guid: d86696ac3ced44c60a3657fb0820eef3, type: 3}
+  m_PrefabInstance: {fileID: 2019051933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1319365635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9918,11 +9953,18 @@ MonoBehaviour:
   - {fileID: 2019051935}
   - {fileID: 2019051938}
   - {fileID: 2118211665}
+  - {fileID: 1278001128}
+  - {fileID: 1278001127}
   accessoryObjects:
   - {fileID: 230112652}
   - {fileID: 230112651}
   - {fileID: 230112650}
   - {fileID: 2108887400}
+  - {fileID: 230112657}
+  - {fileID: 230112656}
+  - {fileID: 230112655}
+  - {fileID: 230112654}
+  - {fileID: 230112653}
 --- !u!58 &1500350635
 CircleCollider2D:
   m_ObjectHideFlags: 0
