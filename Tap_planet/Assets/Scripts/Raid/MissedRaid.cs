@@ -21,7 +21,6 @@ public class MissedRaid : MonoBehaviour
             lostCrystals = rng * GameController.GetCrystals() / 10;
             //long lostCrystalsLong = Mathf.RoundToInt(lostCrystals);
             GameController.DecreaseCrystals((long)lostCrystals);
-            print(lostCrystals.ToString());
             crystalText.text = lostCrystals.ToString();
 
             lostStardust = rng * GameController.GetStardust() / 10;
@@ -74,4 +73,6 @@ public class MissedRaid : MonoBehaviour
         }
         PlayerPrefs.SetInt("RaidToggle", 0);
     }
+
+
 }

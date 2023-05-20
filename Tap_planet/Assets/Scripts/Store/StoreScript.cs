@@ -34,8 +34,6 @@ public class StoreScript : MonoBehaviour
 
     private ItemScript itemScript;
 
-    private int raidWipeCost;
-
 
     void Awake()
     {
@@ -409,7 +407,14 @@ public class StoreScript : MonoBehaviour
             }
             return PlayerPrefs.GetInt("RaidWipeCost");
         }
-
+        else if (name.Equals("shield"))
+        {
+            if (PlayerPrefs.GetInt("RaidWipeCost") == 0)
+            {
+                PlayerPrefs.SetInt("RaidWipeCost", 10);
+            }
+            return PlayerPrefs.GetInt("RaidWipeCost");
+        }
 
         //Accessories
         else if (name.Equals("party"))
@@ -423,6 +428,22 @@ public class StoreScript : MonoBehaviour
         else if (name.Equals("halo"))
         {
             return accessoryCosts[3];
+        }
+        else if (name.Equals("cap"))
+        {
+            return accessoryCosts[4];
+        }
+        else if (name.Equals("glasses"))
+        {
+            return accessoryCosts[5];
+        }
+        else if (name.Equals("orangeTie"))
+        {
+            return accessoryCosts[6];
+        }
+        else if (name.Equals("purpleTie"))
+        {
+            return accessoryCosts[7];
         }
 
         //Planets
@@ -441,6 +462,14 @@ public class StoreScript : MonoBehaviour
         else if (name.Equals("melon"))
         {
             return planetCosts[4];
+        }
+        else if (name.Equals("tomato"))
+        {
+            return planetCosts[5];
+        }
+        else if (name.Equals("swirl"))
+        {
+            return planetCosts[6];
         }
         return 0;
     }
