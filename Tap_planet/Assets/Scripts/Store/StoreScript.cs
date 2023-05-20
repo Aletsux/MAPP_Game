@@ -34,8 +34,6 @@ public class StoreScript : MonoBehaviour
 
     private ItemScript itemScript;
 
-    private int raidWipeCost;
-
 
     void Awake()
     {
