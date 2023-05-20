@@ -31,7 +31,7 @@ public class ItemScript : MonoBehaviour
     protected string table;
     protected string titleKey = "Title ";
     protected string descriptionKey = "Desc ";
-    protected string priceKey = "Price";
+    protected string descriptionPrice = "Price";
 
     protected int galaxyLvl = 1; //Same As ActivePlanetIndex, update value after store items have been updated (updates at TogglePlanet)
 
@@ -142,14 +142,14 @@ public class ItemScript : MonoBehaviour
         buyButtonText.text = ReturnPrice();
     }
 
-    public void GetStringForUI()
+    public void SetDescriptionTranslations()
     {
         itemName = LocalizationSettings.StringDatabase.GetLocalizedString(table, titleKey);
         description = LocalizationSettings.StringDatabase.GetLocalizedString(table, descriptionKey);
 
         if ((type == 1 && PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1) || (type == 2 && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1))
         {
-            price = LocalizationSettings.StringDatabase.GetLocalizedString(table, priceKey);
+            price = LocalizationSettings.StringDatabase.GetLocalizedString(table, descriptionPrice);
         }
         else
         {
