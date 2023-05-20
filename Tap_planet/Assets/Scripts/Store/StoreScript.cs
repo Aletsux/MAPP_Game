@@ -429,6 +429,22 @@ public class StoreScript : MonoBehaviour
         {
             return accessoryCosts[3];
         }
+        else if (name.Equals("cap"))
+        {
+            return accessoryCosts[4];
+        }
+        else if (name.Equals("glasses"))
+        {
+            return accessoryCosts[5];
+        }
+        else if (name.Equals("orangeTie"))
+        {
+            return accessoryCosts[6];
+        }
+        else if (name.Equals("purpleTie"))
+        {
+            return accessoryCosts[7];
+        }
 
         //Planets
         else if (name.Equals("drip"))
@@ -446,6 +462,14 @@ public class StoreScript : MonoBehaviour
         else if (name.Equals("melon"))
         {
             return planetCosts[4];
+        }
+        else if (name.Equals("tomato"))
+        {
+            return planetCosts[5];
+        }
+        else if (name.Equals("swirl"))
+        {
+            return planetCosts[6];
         }
         return 0;
     }
