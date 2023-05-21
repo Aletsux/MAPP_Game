@@ -50,4 +50,8 @@ public class AccessoryScript : ItemScript
             buyButtonText.text = LocalizationSettings.StringDatabase.GetLocalizedString(buyButtonTable, buyButtonKey);
         }
     }
+
+
+
+    
 }

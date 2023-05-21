@@ -189,4 +189,5 @@ public class ItemScript : MonoBehaviour
         //Debug.Log("Galaxy lvl: " + galaxyLvl + " " + this.itemName + " Differece: " + difference);
         return difference <= scope;
     }
+
 }

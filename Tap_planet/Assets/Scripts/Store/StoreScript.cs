@@ -473,4 +473,15 @@ public class StoreScript : MonoBehaviour
         }
         return 0;
     }
+
+
+
+    public List<int> GetAccessoryCost()
+    {
+        return accessoryCosts;
+    }
+    public List<int> GetPlanetCost()
+    {
+        return planetCosts;
+    }
 }
