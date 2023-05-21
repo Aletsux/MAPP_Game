@@ -1,10 +1,11 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Random = System.Random;
+
 
 public class RaidController : MonoBehaviour
 {
+    private static Random rnd = new Random();
     public SceneChange sceneChange;
     
     public GameObject raidPanel;
@@ -21,17 +22,28 @@ public class RaidController : MonoBehaviour
     public static bool raidToggle;
 
     private float autoRaidTimer;
-    public float raidTime = 10f;
+    public float raidTime = 100f;
+
+    private bool tutorialClear = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.GetInt("TutorialCleared") == 0)
+        {
+            raidTime = 60;
+        }
+        else
+        {
+            raidTime = rnd.Next(60, 180);
+        }
         autoRaidTimer = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         autoRaidTimer += Time.deltaTime;
 
         if (autoRaidTimer >= raidTime)
@@ -42,7 +54,7 @@ public class RaidController : MonoBehaviour
 
     void OnApplicationFocus(bool focus)
     {
-        if (focus) //if player enters game
+        if (focus && tutorialClear) //if player enters game
         {
             timeBeforeRaid = PlayerPrefs.GetInt("timeBeforeRaid");
 
