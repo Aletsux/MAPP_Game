@@ -11,11 +11,11 @@ public class CutsceneController : MonoBehaviour
 
     void Start()
     {
-        //PlayerPrefs.DeleteKey("PlayedCutscene"); //TILL Fï¿½R TESTNING AV CUTSCENEN
+        PlayerPrefs.DeleteKey("PlayedCutscene"); //TILL FÖR TESTNING AV CUTSCENEN
         if(PlayerPrefs.GetInt("PlayedCutscene") == 0)
         {
             timeline.Play();
-            timeline.stopped += PlayedCutscene; //lï¿½gger till hï¿½ndelsehanterare (metoden playedCutscene) som hanterar nï¿½r cutscenen spelat klart
+            timeline.stopped += PlayedCutscene; //lägger till händelsehanterare (metoden playedCutscene) som hanterar när cutscenen spelat klart
         } else
         {
             sceneChange.LoadMainMenu();
@@ -23,7 +23,7 @@ public class CutsceneController : MonoBehaviour
         }
     }
 
-    public void PlayedCutscene(PlayableDirector pd) //parametern gï¿½r att metoden fï¿½r tillgï¿½ng till infon om pb-objektet (timeline) som genererade hï¿½ndelsen (stopped)
+    public void PlayedCutscene(PlayableDirector pd) //parametern gör att metoden får tillgång till infon om pb-objektet (timeline) som genererade händelsen (stopped)
     {
         PlayerPrefs.SetInt("PlayedCutscene", 1);
         sceneChange.LoadMainMenu();
