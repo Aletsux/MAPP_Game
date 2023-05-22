@@ -251,6 +251,7 @@ public class StoreScript : MonoBehaviour
         {
             purchasePlanet(index);
             togglePlanet(index);
+            planetButtons[previousPlanet].GetComponentInParent<PlanetScript>().SetCompleted();
         }
     }
 

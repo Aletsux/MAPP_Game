@@ -11,8 +11,8 @@ public class PlanetScript : ItemScript
     public override void Start()
     {
         table = "ButtonsPlanet";
-        base.Start();
         descriptionPrice += "Planet " + (index + 1);
+        base.Start();
     }
 
     protected override void OnPanelClick()
@@ -25,7 +25,11 @@ public class PlanetScript : ItemScript
     {
         SetDescriptionTranslations();
         desc.GetAllInformation(this, true);
-        store.EquipPlanet(index);
+        if (GameController.GetStardust() >= store.GetPrice(title) || PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1)
+        {
+            store.EquipPlanet(index);
+            SetBuyButtonText();
+        }
     }
 
     protected override void SetBuyButtonText()
@@ -44,5 +48,10 @@ public class PlanetScript : ItemScript
             buyButtonKey = "Completed";
             buyButtonText.text = LocalizationSettings.StringDatabase.GetLocalizedString(buyButtonTable, buyButtonKey);
         }
+    }
+
+    public void SetCompleted()
+    {
+        SetBuyButtonText();
     }
 }
