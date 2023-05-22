@@ -43,8 +43,8 @@ public class StoreSlider : MonoBehaviour
         storeSlider = SS.GetComponent<StoreSlider>();
         storeScript = StoreScript.GetComponent<StoreScript>();
 
-        //posOpen = canvas.transform;
-        posOpen = openStoreRef.transform;
+        posOpen = canvas.transform;
+        //posOpen = openStoreRef.transform;
        
 
         posClose = posOpen;
