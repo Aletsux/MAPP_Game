@@ -11,9 +11,8 @@ public class AccessoryScript : ItemScript
     public override void Start()
     {
         table = "ButtonsAccessories";
-        base.Start();
         descriptionPrice += "Accessories " + (index + 1);
-        SetBuyButtonText();
+        base.Start();
     }
 
     protected override void OnPanelClick()
@@ -50,8 +49,4 @@ public class AccessoryScript : ItemScript
             buyButtonText.text = LocalizationSettings.StringDatabase.GetLocalizedString(buyButtonTable, buyButtonKey);
         }
     }
-
-
-
-    
 }
