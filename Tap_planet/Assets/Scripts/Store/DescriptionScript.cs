@@ -10,7 +10,6 @@ public class DescriptionScript : MonoBehaviour
     public TMP_Text itemName;
     public TMP_Text description;
     public TMP_Text price;
-    public GameObject buttonClose;
     private static ItemScript currentItem;
 
     private static bool active;
@@ -19,12 +18,11 @@ public class DescriptionScript : MonoBehaviour
     {
         active = true;
         Toggle(active);
-        buttonClose.GetComponent<Button>().onClick.AddListener(CloseButtonClicked);
     }
 
     public void GetAllInformation(ItemScript item, bool buy)
     {
-        if (item.Equals(currentItem) && active && !buy) 
+        if (item.Equals(currentItem) && active && !buy)
         {
             active = false;
         }
@@ -44,10 +42,5 @@ public class DescriptionScript : MonoBehaviour
     private void Toggle(bool b)
     {
         gameObject.SetActive(b);
-    }
-
-    private void CloseButtonClicked() {
-        active = false;
-        Toggle(active);
     }
 }
