@@ -358,7 +358,7 @@ public class StoreScript : MonoBehaviour
                 print(PlayerPrefs.GetInt("WipeEnemiesAmount"));
                 print(PlayerPrefs.GetInt("RaidWipeCost"));
             }
-        } 
+        }
         else if (powerUpName.Equals("doubletime"))
         {
             if (GameController.IsIdleTrue() && GameController.GetCrystals() >= GetPrice(powerUpName))
@@ -367,121 +367,141 @@ public class StoreScript : MonoBehaviour
                 DoubleTime.IncreaseCost();
                 GameController.DecreaseCrystals(GetPrice(powerUpName));
             }
-        } 
+        }
 
-        gameController.SaveGame();
+        else if (powerUpName.Equals("raidShield"))
+        {
+            if (GameController.GetCrystals() >= GetPrice(powerUpName))
+            {
+                int i = PlayerPrefs.GetInt("healthBoostAmount");
+
+                if (i < 1)
+                {
+                    PlayerPrefs.SetInt("healthBoostAmount", i + 1);
+
+                    GameController.DecreaseStardust(GetPrice(powerUpName));
+
+                    gameController.SaveGame();
+
+                }
+                else
+                {
+                    //Knapp inaktiverad.
+                }
+            }
+        }
     }
-    //Set updates time for all items in store
-    public int GetPrice(string name)
-    {
-        //Powerups / upgrades
-        if (name.Equals("idle"))
-        {
-            return gameController.GetIdleCost();
-        }
-        else if (name.Equals("perm"))
-        {
-            return GameController.GetClickLvl() * (5);
-        }
-        else if (name.Equals("temp"))
-        {
-            return gameController.GetTpuCost();
-        }
-        else if (name.Equals("dust"))
-        {
-            return (GameController.GetStardustMinerLevel() == 0) ? 50 : GameController.GetStardustMinerLevel() * 100;
-        }
-        else if (name.Equals("star"))
-        {
-            return PlayerPrefs.GetInt("IdleExtenderLvl") * PlayerPrefs.GetInt("IdleExtenderLvl") * 1000;
-        }
-        else if (name.Equals("doubletime"))
-        {
-            return (int) DoubleTime.GetCost();
-        }
-        else if (name.Equals("raidWipe"))
-        {
-            if (PlayerPrefs.GetInt("RaidWipeCost") == 0)
+            //Set updates time for all items in store
+            public int GetPrice(string name)
             {
-                PlayerPrefs.SetInt("RaidWipeCost", 10);
-            }
-            return PlayerPrefs.GetInt("RaidWipeCost");
-        }
-        else if (name.Equals("shield"))
-        {
-            if (PlayerPrefs.GetInt("RaidWipeCost") == 0)
+                //Powerups / upgrades
+                if (name.Equals("idle"))
+                {
+                    return gameController.GetIdleCost();
+                }
+                else if (name.Equals("perm"))
+                {
+                    return GameController.GetClickLvl() * (5);
+                }
+                else if (name.Equals("temp"))
+                {
+                    return gameController.GetTpuCost();
+                }
+                else if (name.Equals("dust"))
+                {
+                    return (GameController.GetStardustMinerLevel() == 0) ? 50 : GameController.GetStardustMinerLevel() * 100;
+                }
+                else if (name.Equals("star"))
+                {
+                    return PlayerPrefs.GetInt("IdleExtenderLvl") * PlayerPrefs.GetInt("IdleExtenderLvl") * 1000;
+                }
+                else if (name.Equals("doubletime"))
+                {
+                    return (int)DoubleTime.GetCost();
+                }
+                else if (name.Equals("raidWipe"))
+                {
+                    if (PlayerPrefs.GetInt("RaidWipeCost") == 0)
+                    {
+                        PlayerPrefs.SetInt("RaidWipeCost", 10);
+                    }
+                    return PlayerPrefs.GetInt("RaidWipeCost");
+                }
+            else if (name.Equals("raidShield"))
             {
-                PlayerPrefs.SetInt("RaidWipeCost", 10);
+                if (PlayerPrefs.GetInt("RaidShieldCost") == 0)
+                {
+                    PlayerPrefs.SetInt("RaidShieldCost", 12);
+                }
+            return PlayerPrefs.GetInt("RaidShieldCost");
             }
-            return PlayerPrefs.GetInt("RaidWipeCost");
-        }
 
         //Accessories
         else if (name.Equals("party"))
-        {
-            return accessoryCosts[1];
-        }
-        else if (name.Equals("cow"))
-        {
-            return accessoryCosts[2];
-        }
-        else if (name.Equals("halo"))
-        {
-            return accessoryCosts[3];
-        }
-        else if (name.Equals("cap"))
-        {
-            return accessoryCosts[4];
-        }
-        else if (name.Equals("glasses"))
-        {
-            return accessoryCosts[5];
-        }
-        else if (name.Equals("orangeTie"))
-        {
-            return accessoryCosts[6];
-        }
-        else if (name.Equals("purpleTie"))
-        {
-            return accessoryCosts[7];
-        }
+                {
+                    return accessoryCosts[1];
+                }
+                else if (name.Equals("cow"))
+                {
+                    return accessoryCosts[2];
+                }
+                else if (name.Equals("halo"))
+                {
+                    return accessoryCosts[3];
+                }
+                else if (name.Equals("cap"))
+                {
+                    return accessoryCosts[4];
+                }
+                else if (name.Equals("glasses"))
+                {
+                    return accessoryCosts[5];
+                }
+                else if (name.Equals("orangeTie"))
+                {
+                    return accessoryCosts[6];
+                }
+                else if (name.Equals("purpleTie"))
+                {
+                    return accessoryCosts[7];
+                }
 
-        //Planets
-        else if (name.Equals("drip"))
-        {
-            return planetCosts[1];
-        }
-        else if (name.Equals("cookie"))
-        {
-            return planetCosts[2];
-        }
-        else if (name.Equals("candy"))
-        {
-            return planetCosts[3];
-        }
-        else if (name.Equals("melon"))
-        {
-            return planetCosts[4];
-        }
-        else if (name.Equals("tomato"))
-        {
-            return planetCosts[5];
-        }
-        else if (name.Equals("swirl"))
-        {
-            return planetCosts[6];
-        }
-        return 0;
-    }
+                //Planets
+                else if (name.Equals("drip"))
+                {
+                    return planetCosts[1];
+                }
+                else if (name.Equals("cookie"))
+                {
+                    return planetCosts[2];
+                }
+                else if (name.Equals("candy"))
+                {
+                    return planetCosts[3];
+                }
+                else if (name.Equals("melon"))
+                {
+                    return planetCosts[4];
+                }
+                else if (name.Equals("tomato"))
+                {
+                    return planetCosts[5];
+                }
+                else if (name.Equals("swirl"))
+                {
+                    return planetCosts[6];
+                }
+                return 0;
+            }
 
+      
 
-
-    public List<int> GetAccessoryCost()
-    {
-        return accessoryCosts;
-    }
-    public List<int> GetPlanetCost()
-    {
-        return planetCosts;
-    }
-}
+            public List<int> GetAccessoryCost()
+            {
+                return accessoryCosts;
+            }
+            public List<int> GetPlanetCost()
+            {
+                return planetCosts;
+            }
+        }

@@ -14,17 +14,19 @@ public class RaidPowerup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetInt("healthBoostAmount", 1);
-        healthBoostAmount = PlayerPrefs.GetInt("healthBoostAmount");
+        //Avkommentera raden nedan för att prova Shield
+        //PlayerPrefs.SetInt("healthBoostAmount", 1); 
+        healthBoostAmount = PlayerPrefs.GetInt("healthBoostAmount");        
+        Debug.Log("HBA: " + healthBoostAmount);
         healthBar = gameObject.GetComponentInChildren<Slider>();
 
         if (healthBoostAmount <= 0)
         {
-            healthBoostButton.interactable = false;
+            healthBoostButton.gameObject.SetActive(false);
+            Debug.Log("Should be invisible");
         }
         else
         {
-            healthBoostButton.interactable = true;
             healthBoostButton.GetComponentInChildren<Text>().text = healthBoostAmount.ToString();
         }
     }
@@ -37,13 +39,11 @@ public class RaidPowerup : MonoBehaviour
 
     public void activateHealthBoost()
     {
-            healthBoostAmount--;
             planetState.maxHP = newHP;
             planetState.BoostHP(newHP);
             healthBar.maxValue = newHP;
             healthBoostButton.interactable = false;
             healthBoostAmount--;
             PlayerPrefs.SetInt("healthBoostAmount", healthBoostAmount);
-
     }
 }

@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
     private static int stardustMinerLevel;
     private static Random rnd = new Random();
 
+    [SerializeField] int shieldCost = 1;
     [SerializeField] int tpuCost = 1; //tpu = timedPowerUp
     [SerializeField] private float tpuTimeBeforeReset; // hur många sekunder som powerup ska hålla på
 
@@ -623,5 +624,10 @@ public class GameController : MonoBehaviour
     public void addDust()
     {
         stardust += 1000;
+    }
+
+    public int GetShieldCost()
+    {
+        return shieldCost;
     }
 }
