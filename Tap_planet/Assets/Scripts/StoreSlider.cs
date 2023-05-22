@@ -30,6 +30,8 @@ public class StoreSlider : MonoBehaviour
     float xValueCan;
     float yValueCan;
 
+    Transform temp;
+
     public GameObject openStoreRef;
 
     // Start is called before the first frame update
@@ -45,7 +47,8 @@ public class StoreSlider : MonoBehaviour
 
         posOpen = canvas.transform;
         //posOpen = openStoreRef.transform;
-       
+
+        
 
         posClose = posOpen;
         startPos = posClose;
@@ -63,6 +66,7 @@ public class StoreSlider : MonoBehaviour
         //sätt timer som går ut och sen false och gör så rörelse
         if (openStore)
         {
+            
             nextPos = posOpen.position;
 
 
