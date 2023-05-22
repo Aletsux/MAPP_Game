@@ -5,44 +5,53 @@ using UnityEngine.Localization.Settings;
 
 public class AccessoryScript : ItemScript
 {
+    private string buyButtonTable = "ButtonBuy";
+    private string buyButtonKey;
+
     public override void Start()
     {
         table = "ButtonsAccessories";
         base.Start();
-        priceKey += "Accessories " + (index + 1);
+        descriptionPrice += "Accessories " + (index + 1);
+        SetBuyButtonText();
     }
 
     protected override void OnPanelClick()
     {
-        GetStringForUI();
+        SetDescriptionTranslations();
         desc.GetAllInformation(this, false);
     }
 
     protected override void OnBuyClick()
     {
-        GetStringForUI();
+        SetDescriptionTranslations();
         desc.GetAllInformation(this, true);
-        store.EquipAccessory(index);
+        if (GameController.GetStardust() >= store.GetPrice(title) || PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1)
+        {
+            store.EquipAccessory(index);
+            SetBuyButtonText();
+        }
     }
 
-    public override string ReturnPrice()
+    protected override void SetBuyButtonText()
     {
-        double price = store.GetPrice(title);
-        if (price < 1000)
+        if (PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 0)
         {
-            return price.ToString();
+            buyButtonText.text = ReturnPrice();
         }
-        else if (price < 1000000)
+        if (PlayerPrefs.GetInt("AccessoryEquipped_" + index) == 1)
         {
-            return (price / 1000).ToString() + "k";
+            buyButtonKey = "Equipped";
+            buyButtonText.text = LocalizationSettings.StringDatabase.GetLocalizedString(buyButtonTable, buyButtonKey);
         }
-        else if (price < 1000000000)
+        else if (PlayerPrefs.GetInt("AccessoryEquipped_" + index) == 0 && PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1)
         {
-            return (price / 1000000).ToString() + "M";
-        }
-        else
-        {
-            return (price / 1000000000).ToString() + "B";
+            buyButtonKey = "Equip";
+            buyButtonText.text = LocalizationSettings.StringDatabase.GetLocalizedString(buyButtonTable, buyButtonKey);
         }
     }
+
+
+
+    
 }

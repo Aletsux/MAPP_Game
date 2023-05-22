@@ -17,6 +17,7 @@ public class RaidState : MonoBehaviour
 
     public GameObject raidOverPanel;
     public GameObject gameOverPanel;
+    public GameObject tutorialPanel;
     public EnemyAI enemyAI;
 
     public static bool beginRaid;
@@ -30,6 +31,7 @@ public class RaidState : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("TutorialCleared", 0);
         enemiesKilled = 0;
         beginRaid = false;
         raidOverPanel.SetActive(true);
@@ -67,7 +69,17 @@ public class RaidState : MonoBehaviour
         beginRaid = false; // timer slutar räkna
 
         enemiesKilledText.text = enemiesKilled.ToString();
+        if (PlayerPrefs.GetInt("TutorialCleared") == 0)
+        {
+            PanelManager.AddPanelToQueue(tutorialPanel);
+            PlayerPrefs.SetInt("TutorialCleared", 1);
 
+            raidOverPanel.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
+            gameOverPanel.transform.GetChild(0).GetChild(4).gameObject.SetActive(false);
+
+            raidOverPanel.transform.GetChild(0).GetChild(5).gameObject.SetActive(true);
+            gameOverPanel.transform.GetChild(0).GetChild(5).gameObject.SetActive(true);
+        }
 
         if (MotherShip.HP <= 0)
         {
@@ -77,16 +89,19 @@ public class RaidState : MonoBehaviour
             }
             enemiesKilled *= 100;
             motherShipBonusText.text = "x" + 100;
-            raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
+            //raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
+            PanelManager.AddPanelToQueue(raidOverPanel, true);
         }
         else if (PlanetState.HP <= 0)
         {
             enemiesKilled = -100;
-            gameOverPanel.GetComponent<PanelAnimation>().StretchPanel();
+            //gameOverPanel.GetComponent<PanelAnimation>().StretchPanel();
+            PanelManager.AddPanelToQueue(gameOverPanel, true);
         }
         else
         {
-            raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
+            //raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
+            PanelManager.AddPanelToQueue(raidOverPanel, true);
         }
         int crystals = enemiesKilled * 10 * GameController.GetClickLvl();
         int stardust = enemiesKilled;

@@ -31,9 +31,9 @@ public class ItemScript : MonoBehaviour
     protected string table;
     protected string titleKey = "Title ";
     protected string descriptionKey = "Desc ";
-    protected string priceKey = "Price";
+    protected string descriptionPrice = "Price";
 
-    protected int galaxyLvl = 1; //Same As ActivePlanetIndex, update value after store items have been updated (ToggleItemActive)
+    protected int galaxyLvl = 1; //Same As ActivePlanetIndex, update value after store items have been updated (updates at TogglePlanet)
 
     public virtual void Start()
     {
@@ -59,10 +59,11 @@ public class ItemScript : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (galaxyLvl != PlayerPrefs.GetInt("ActivePlanetIndex", 0)) {
-            ToggleItemActive();
-            galaxyLvl = PlayerPrefs.GetInt("ActivePlanetIndex", 0);
-        }
+        if (galaxyLvl != PlayerPrefs.GetInt("ActivePlanetIndex")) {
+            galaxyLvl = PlayerPrefs.GetInt("ActivePlanetIndex");
+            Debug.Log("galaxyLvl: " + galaxyLvl);
+        } 
+        ToggleItemActive();
         
         if (costsStardust)
         {   
@@ -141,14 +142,14 @@ public class ItemScript : MonoBehaviour
         buyButtonText.text = ReturnPrice();
     }
 
-    public void GetStringForUI()
+    public void SetDescriptionTranslations()
     {
         itemName = LocalizationSettings.StringDatabase.GetLocalizedString(table, titleKey);
         description = LocalizationSettings.StringDatabase.GetLocalizedString(table, descriptionKey);
 
         if ((type == 1 && PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1) || (type == 2 && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1))
         {
-            price = LocalizationSettings.StringDatabase.GetLocalizedString(table, priceKey);
+            price = LocalizationSettings.StringDatabase.GetLocalizedString(table, descriptionPrice);
         }
         else
         {
@@ -162,8 +163,15 @@ public class ItemScript : MonoBehaviour
         int scope = 2;
         
         if(!costsStardust) {
-            if (CheckItemActive(scope))
+            //First planet -> 3 items active, for each new planet + 1 new item
+            if (galaxyLvl == 0 && this.index <= scope)
+            { //exception for first planet
+                gameObject.GetComponent<Button>().image.color = defaultColor;
+                buyButton.interactable = true;
+            }
+            else if (CheckItemActive(scope))
             {
+                
                 gameObject.GetComponent<Button>().image.color = defaultColor;
                 buyButton.interactable = true;
             }
@@ -177,12 +185,9 @@ public class ItemScript : MonoBehaviour
 
     //Check If item is outside of scope
     private bool CheckItemActive(int scope) {
-        if(PlayerPrefs.GetInt("ActivePlanetIndex", 0) == 0) { //exception for first planet
-            return true;
-        }
-
-        int difference = this.index - PlayerPrefs.GetInt("ActivePlanetIndex", 0) + 1;
-        //Debug.Log(this.itemName + " Differece: " + difference);
+        int difference = this.index - galaxyLvl;
+        //Debug.Log("Galaxy lvl: " + galaxyLvl + " " + this.itemName + " Differece: " + difference);
         return difference <= scope;
     }
+
 }

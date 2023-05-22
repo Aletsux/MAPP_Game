@@ -57,7 +57,6 @@ public class GameController : MonoBehaviour
     public int lvlCounter = 5;
 
     public GameObject idleCollectedPanel;
-    public GameObject idleCollectedPanel2;
 
     public VolumeManager volumeManager;
 
@@ -408,7 +407,7 @@ public class GameController : MonoBehaviour
         numPerSec = PlayerPrefs.GetInt("numPerSec");
         secBeforeIdleClick = PlayerPrefs.GetInt("secBeforeIdleClick");
         lvlCounter = PlayerPrefs.GetInt("lvlCounter");
-        PlayerPrefs.SetFloat("Volume", volumeManager.getVolume());
+        AudioListener.volume = PlayerPrefs.GetFloat("Volume", volumeManager.getVolume());
         tpuCost = PlayerPrefs.GetInt("tpuCost");
         idleCost = PlayerPrefs.GetInt("idleCost");
         clickLvl = PlayerPrefs.GetInt("clickLvl");
@@ -424,7 +423,6 @@ public class GameController : MonoBehaviour
             {
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
                 PanelManager.AddPanelToQueue(idleCollectedPanel);
-                //PanelManager.AddPanelToQueue(idleCollectedPanel2);
             }
             else if (calculateSecondsSinceQuit() > 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // kommer in efter idle extenders gräns
             {
@@ -433,7 +431,6 @@ public class GameController : MonoBehaviour
 
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
                 PanelManager.AddPanelToQueue(idleCollectedPanel);
-                //PanelManager.AddPanelToQueue(idleCollectedPanel2);
 
 
             }

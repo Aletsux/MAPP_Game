@@ -8,12 +8,12 @@ public class PowerupScript : ItemScript
     {
         table = "ButtonsPowerup";
         base.Start();
-        priceKey += "Powerup " + (index + 1);
+        descriptionPrice += "Powerup " + (index + 1);
     }
 
     protected override void OnPanelClick()
     {
-        GetStringForUI();
+        SetDescriptionTranslations();
         desc.GetAllInformation(this, false);
     }
 }
