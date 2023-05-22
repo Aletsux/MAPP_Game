@@ -11,9 +11,8 @@ public class AccessoryScript : ItemScript
     public override void Start()
     {
         table = "ButtonsAccessories";
-        base.Start();
         descriptionPrice += "Accessories " + (index + 1);
-        SetBuyButtonText();
+        base.Start();
     }
 
     protected override void OnPanelClick()

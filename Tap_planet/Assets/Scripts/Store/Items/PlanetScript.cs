@@ -11,9 +11,8 @@ public class PlanetScript : ItemScript
     public override void Start()
     {
         table = "ButtonsPlanet";
-        base.Start();
         descriptionPrice += "Planet " + (index + 1);
-        SetBuyButtonText();
+        base.Start();
     }
 
     protected override void OnPanelClick()

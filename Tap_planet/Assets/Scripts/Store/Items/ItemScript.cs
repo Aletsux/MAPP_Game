@@ -35,7 +35,7 @@ public class ItemScript : MonoBehaviour
 
     protected int galaxyLvl = 1; //Same As ActivePlanetIndex, update value after store items have been updated (updates at TogglePlanet)
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         titleKey = "Title " + (index + 1);
         descriptionKey = "Desc " + (index + 1);
@@ -51,9 +51,12 @@ public class ItemScript : MonoBehaviour
         panelButton.onClick.AddListener(OnPanelClick);
         buyButton.onClick.AddListener(OnBuyClick);
         
-        SetBuyButtonText();
-
         defaultColor = gameObject.GetComponent<Image>().color;
+        ToggleItemActive();
+    }
+    public virtual void Start()
+    {
+        SetBuyButtonText();
         ToggleItemActive();
     }
 
