@@ -32,9 +32,6 @@ public class StoreScript : MonoBehaviour
     public List<Button> planetButtons;
     public List<int> planetCosts = new List<int>();
 
-    private ItemScript itemScript;
-
-
     void Awake()
     {
         gameObject.SetActive(true);

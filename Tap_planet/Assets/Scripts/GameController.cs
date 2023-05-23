@@ -76,7 +76,9 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("reset", 0);
         PlayerPrefs.SetInt("getMoney", 0);
         LoadGame();
-        DisableTPU(); //om spelaren inte har någon timed powerup
+
+        UpdateTPUText();
+        UpdateTPU(); //om spelaren inte har någon timed powerup
     }
 
     void Update()
@@ -271,12 +273,10 @@ public class GameController : MonoBehaviour
             {
                 TimedPowerUp();
                 TPUAmount--;
-                UpdateTPU();
-                print("Timed PowerUp activated!");
-            }
+                UpdateTPUText();
 
-            if (TPUAmount == 0)
-                TPU.SetActive(false);
+                Invoke("UpdateTPU", 5);
+            }
         }
         else
         {
@@ -299,6 +299,7 @@ public class GameController : MonoBehaviour
             TPU.SetActive(true);
         TPUAmount++;
         UpdateTPU();
+        UpdateTPUText();
 
         //double higherCost = clickLvl * 1.2;
         //clickLvl += (int)higherCost;
@@ -307,16 +308,22 @@ public class GameController : MonoBehaviour
         tpuCost += (int)higherCost;
     }
 
-    private void DisableTPU()
-    {
-        if (TPUAmount == 0)
-            TPU.SetActive(false);
-    }
-
     private void UpdateTPU() //om spelaren inte har någon timed powerup
     {
-        TPUText.text = "TPU: " + TPUAmount;
-        DisableTPU();
+        if (TPUAmount == 0 && !isUsingTPU)
+        {
+            TPU.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            TPU.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+        }
+        else
+        {
+            TPU.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            TPU.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        }
+    }
+    private void UpdateTPUText() //om spelaren inte har någon timed powerup
+    {
+        TPUText.text = TPUAmount.ToString();
     }
 
     public void SaveGame()
@@ -445,6 +452,7 @@ public class GameController : MonoBehaviour
             LoadIdleClicks(calculateSecondsSinceQuit());
         }
         UpdateTPU();
+        UpdateTPUText();
     }
 
     public static int calculateSecondsSinceQuit()

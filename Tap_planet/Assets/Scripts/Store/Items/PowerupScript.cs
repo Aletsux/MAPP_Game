@@ -32,7 +32,7 @@ public class PowerupScript : ItemScript
         desc.GetAllInformation(this, true);
     }
 
-    private void SetLevelText()
+    public void SetLevelText()
     {
         amountText.text = LocalizationSettings.StringDatabase.GetLocalizedString(table, amountKey) + GameController.GetPowerupAmount(title);
     }
