@@ -60,6 +60,8 @@ public class GameController : MonoBehaviour
 
     public VolumeManager volumeManager;
 
+    private int idleLvl = 0;
+
     void Awake()
     {
         if (PlayerPrefs.GetInt("getMoney") == 1)
@@ -335,6 +337,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("idleCost", GetIdleCost());
         PlayerPrefs.SetInt("clickLvl", GetClickLvl());
         PlayerPrefs.SetInt("doubletimeCost", DoubleTime.GetCost());
+        PlayerPrefs.SetInt("idleLvl", idleLvl);
         PlayerPrefs.Save();
     }
 
@@ -361,7 +364,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("RaidWipeCost", 10);
 
         PlayerPrefs.SetInt("PlayedCutscene", 0);
-
+        PlayerPrefs.SetInt("idleLvl", 0);
 
         PlayerPrefs.Save();
     }
@@ -414,6 +417,7 @@ public class GameController : MonoBehaviour
         idleCost = PlayerPrefs.GetInt("idleCost");
         clickLvl = PlayerPrefs.GetInt("clickLvl");
         DoubleTime.SetCost(PlayerPrefs.GetInt("doubletimeCost"));
+        idleLvl = PlayerPrefs.GetInt("idleLvl");
 
         if (PlayerPrefs.GetInt("IdleExtenderLvl") == 0) // ser till att level inte är 0
         {
@@ -462,6 +466,7 @@ public class GameController : MonoBehaviour
     {
         isUsingIdleClicker = true;
         UpdateIdleLevel();
+        IdleLevelController();
     }
 
     public void UpdateIdleLevel()
@@ -627,11 +632,20 @@ public class GameController : MonoBehaviour
         stardust += 1000;
     }
 
+    public int IdleLevelController()
+    {
+        idleLvl++;
+
+        SaveGame();
+
+        return idleLvl;
+    }
+
     public static int GetLevel(string name)
     {
         if (name.Equals("idle"))
         {
-            //return idle level here
+            return PlayerPrefs.GetInt("idleLvl");
         }
         else if (name.Equals("perm"))
         {
@@ -665,5 +679,7 @@ public class GameController : MonoBehaviour
         return 0;
     }
 
+
+    
     
 }
