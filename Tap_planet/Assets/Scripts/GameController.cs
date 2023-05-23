@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     public GameObject TPU; // timed powerup objekt med knapp som ligger på spelskärmen
     //public Image TPUImage;
     public Text TPUText;
-    private int TPUAmount = 0;
+    private static int TPUAmount = 0;
     
 
     [SerializeField] public int idleCost = 5;//the cost for the idle click powerup
@@ -624,4 +624,44 @@ public class GameController : MonoBehaviour
     {
         stardust += 1000;
     }
+
+    public static int GetLevel(string name)
+    {
+        if (name.Equals("idle"))
+        {
+            //return idle level here
+        }
+        else if (name.Equals("perm"))
+        {
+            return GetClickLvl();
+        }
+        else if (name.Equals("dust"))
+        {
+            return GetStardustMinerLevel();
+        }
+        else if (name.Equals("star"))
+        {
+            return PlayerPrefs.GetInt("IdleExtenderLvl");
+        }
+        return 0;
+    }
+
+    public static int GetPowerupAmount(string powerupMame)
+    {
+        if (powerupMame.Equals("raidWipe"))
+        {
+            return PlayerPrefs.GetInt("WipeEnemiesAmount");
+        }
+        else if (powerupMame.Equals("shield"))
+        {
+            return PlayerPrefs.GetInt("healthBoostAmount");
+        }
+        else if (powerupMame.Equals("temp"))
+        {
+            return TPUAmount;
+        }
+        return 0;
+    }
+
+    
 }
