@@ -360,6 +360,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("WipeEnemiesAmount", 0);
         PlayerPrefs.SetInt("RaidWipeCost", 10);
 
+        PlayerPrefs.SetInt("PlayedCutscene", 0);
+
 
         PlayerPrefs.Save();
     }
