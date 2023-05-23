@@ -162,8 +162,7 @@ public class GameController : MonoBehaviour
 
     public void ClickCrystal()
     {
-        crystals += (1 * clickLvl); // add crystals
-        //setSuffix();
+        crystals += clickLvl; // add crystals
         UpdateCrystals(); // update amount in UI
     }
 
@@ -186,6 +185,7 @@ public class GameController : MonoBehaviour
 
     public void ClickLevelUp()
     {
+        PlayerPrefs.SetInt("ClickLevelInStore", PlayerPrefs.GetInt("ClickLevelInStore") + 1);
         double toAdd = 1;
         if (clickLvl % 10 == 0) // every 10 upgrades varje gång klickar på knapp i store
             toAdd = clickLvl;  // the player gets a bonus
@@ -419,18 +419,20 @@ public class GameController : MonoBehaviour
         DoubleTime.SetCost(PlayerPrefs.GetInt("doubletimeCost"));
         idleLvl = PlayerPrefs.GetInt("idleLvl");
 
-        if (PlayerPrefs.GetInt("IdleExtenderLvl") == 0) // ser till att level inte är 0
-        {
-            PlayerPrefs.SetInt("IdleExtenderLvl", 1);
-        }
+        
         if (isUsingIdleClicker)
         {
-            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // om spelaren kommer in efter 30 min men innan idle extenders gräns
+            int timeLimitlevel = 1;
+            if (PlayerPrefs.GetInt("IdleExtenderLvl") != 0) // ser till att level inte är 0
+            {
+                timeLimitlevel = PlayerPrefs.GetInt("IdleExtenderLvl");
+            }
+            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * timeLimitlevel) // om spelaren kommer in efter 30 min men innan idle extenders gräns
             {
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
                 PanelManager.AddPanelToQueue(idleCollectedPanel);
             }
-            else if (calculateSecondsSinceQuit() > 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // kommer in efter idle extenders gräns
+            else if (calculateSecondsSinceQuit() > 1800 * timeLimitlevel) // kommer in efter idle extenders gräns
             {
                 idleCollectedPanel.transform.GetChild(0).GetChild(2).GetComponent<Text>().text = LocalizationSettings.StringDatabase.GetLocalizedString("IdleStartPanel", "FellAsleep"); // hämtar översättning
 
@@ -649,7 +651,7 @@ public class GameController : MonoBehaviour
         }
         else if (name.Equals("perm"))
         {
-            return GetClickLvl();
+            return PlayerPrefs.GetInt("ClickLevelInStore");
         }
         else if (name.Equals("dust"))
         {
@@ -678,8 +680,4 @@ public class GameController : MonoBehaviour
         }
         return 0;
     }
-
-
-    
-    
 }

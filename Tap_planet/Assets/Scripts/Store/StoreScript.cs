@@ -341,7 +341,7 @@ public class StoreScript : MonoBehaviour
                 int i = PlayerPrefs.GetInt("IdleExtenderLvl");
                 PlayerPrefs.SetInt("IdleExtenderLvl", i + 1);
                 GameController.DecreaseCrystals(GetPrice(powerUpName));
-                GameObject.FindGameObjectWithTag("twinky").SetActive(true);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<MrTwinky>().ActivateTwinky();
             }
         }
         else if (powerUpName.Equals("raidWipe"))
