@@ -15790,7 +15790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010891647529452890, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_Name
-      value: IdleExtender
+      value: CrystalMinerExtender
       objectReference: {fileID: 0}
     - target: {fileID: 9010891647529452891, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_AnchorMax.y
@@ -16262,7 +16262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9010891648561881383, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_Name
-      value: IdleButton
+      value: CrystalMiner
       objectReference: {fileID: 0}
     - target: {fileID: 9010891648561881401, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_Sprite
@@ -21916,7 +21916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14c9b9d8dc1d4e91b1a31711ddeb4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 083be69d8d40e4098a274f006be60363, type: 3}
   itemName: 
   description: 
   price: 
