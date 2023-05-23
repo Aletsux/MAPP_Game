@@ -204,7 +204,7 @@ public class GameController : MonoBehaviour
             if (rng == i)
             {
                 endMethod = true;
-                AddStardust(rng);
+                AddStardust(1);
             }
             if (endMethod)
                 return;

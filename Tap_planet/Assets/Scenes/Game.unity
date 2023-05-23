@@ -1225,7 +1225,7 @@ MonoBehaviour:
   floatingThing: {fileID: 204604271}
   parent: {fileID: 0}
   cryParent: {fileID: 0}
-  GC: {fileID: 0}
+  GC: {fileID: 205055364}
   accessoryCosts: 
   planetCosts: 
   crystalPos: {fileID: 0}
@@ -13810,7 +13810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298257, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: costsStardust
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298257, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: inactiveColor.a

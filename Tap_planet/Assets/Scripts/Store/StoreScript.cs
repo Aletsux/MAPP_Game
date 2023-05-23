@@ -327,11 +327,11 @@ public class StoreScript : MonoBehaviour
         }
         else if (powerUpName.Equals("dust"))
         {
-            int cost = (GameController.GetStardustMinerLevel() == 0) ? 20 : GameController.GetStardustMinerLevel() * 50;
-            if (GameController.GetStardust() >= cost)
+            int cost = GetPrice(powerUpName);
+            if (GameController.GetCrystals() >= cost)
             {
                 gameController.IncreaseStardustMinerLevel();
-                GameController.DecreaseStardust(cost);
+                GameController.DecreaseCrystals(cost);
             }
         }
         else if (powerUpName.Equals("star"))
@@ -390,7 +390,7 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("dust"))
         {
-            return (GameController.GetStardustMinerLevel() == 0) ? 50 : GameController.GetStardustMinerLevel() * 100;
+            return (GameController.GetStardustMinerLevel() == 0) ? 1000 : (GameController.GetStardustMinerLevel() * (1000 * 10)) * 130 / 100; //increase 30%
         }
         else if (name.Equals("star"))
         {
