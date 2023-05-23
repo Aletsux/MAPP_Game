@@ -11,6 +11,8 @@ public class StoreSlider : MonoBehaviour
     private Transform startPos;
     Vector3 nextPos;
 
+    Vector3 temp;
+
     private bool openStore = false;
     private bool closeStore = true;
 
@@ -27,6 +29,11 @@ public class StoreSlider : MonoBehaviour
     private StoreScript storeScript;
     private int firstTime = 0;
 
+    float xValueCan;
+    float yValueCan;
+
+    public GameObject openStoreRef;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +46,9 @@ public class StoreSlider : MonoBehaviour
         storeScript = StoreScript.GetComponent<StoreScript>();
 
         posOpen = canvas.transform;
+        //posOpen = openStoreRef.transform;
+       
+
         posClose = posOpen;
         startPos = posClose;
         
@@ -54,8 +64,10 @@ public class StoreSlider : MonoBehaviour
     {
         //sätt timer som går ut och sen false och gör så rörelse
         if (openStore)
-        { 
+        {
             nextPos = posOpen.position;
+
+
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
         }
 
@@ -64,17 +76,30 @@ public class StoreSlider : MonoBehaviour
             //nextPos = posClose.position;
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
 
-            
 
-            //timer += Time.deltaTime;
-            //if (timer >= timeBeforeReset)
-            //{
-            //    storeScript.CloseStore();
-            //    timer = 0f;
-            //    closeStore = false;
-            //}
 
-            if(transform.position.y <= nextPos.y)
+            if (!StoreScript.transform.hasChanged || StoreScript.activeInHierarchy)
+            {
+                //float xvalue = transform.position.x;
+                //float yvalue = transform.position.y;
+                //yvalue -= height;
+                //Vector3 temp;
+                //temp = new Vector3(xvalue, yvalue, 0);
+
+                ifStuck();
+
+                transform.position = Vector3.MoveTowards(transform.position, temp, speed * Time.deltaTime);
+
+                if (transform.position.y <= temp.y)
+                {
+                    storeScript.CloseStore();
+                    //Debug.Log("Close");
+                }
+
+                //Debug.Log("OHNO");
+            }
+
+            if (transform.position.y <= nextPos.y)
             {
                 storeScript.CloseStore();
                 //Debug.Log("Close");
@@ -82,6 +107,15 @@ public class StoreSlider : MonoBehaviour
         }
 
         
+    }
+
+    public void ifStuck()
+    {
+        float xvalue = transform.position.x;
+        float yvalue = transform.position.y;
+        yvalue -= height;
+        //Vector3 temp;
+        temp = new Vector3(xvalue, yvalue, 0);
     }
 
 

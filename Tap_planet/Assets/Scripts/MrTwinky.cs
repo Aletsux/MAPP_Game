@@ -9,7 +9,7 @@ public class MrTwinky : MonoBehaviour
         ActivateTwinky();
     }
 
-    private void ActivateTwinky()
+    public void ActivateTwinky()
     {
         if (PlayerPrefs.GetInt("IdleExtenderLvl") > 1)
         {

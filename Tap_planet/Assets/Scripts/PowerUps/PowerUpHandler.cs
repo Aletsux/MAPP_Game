@@ -61,8 +61,8 @@ public class PowerUpHandler : MonoBehaviour
         }
     }
     
-    private void UpdateText() { //TestPU Button
-        if (IPowerUp.isActive)
+    private void UpdateText() { //Update button text (TestPU)
+        if (IPowerUp.isActive) //Check if any powerup is active
         {
             buttonText.text = "Active";
             testButton.enabled = false;

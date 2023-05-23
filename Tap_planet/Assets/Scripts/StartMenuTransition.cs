@@ -9,7 +9,6 @@ public class StartMenuTransition : MonoBehaviour
     private float alpha = 0;
     private Image image;
     private bool startTransition;
-    private SceneChange sceneChange = new SceneChange();
 
     void Start()
     {
@@ -18,9 +17,6 @@ public class StartMenuTransition : MonoBehaviour
 
     void Update()
     {
-        Scene activeScene = SceneManager.GetActiveScene();
-        string sceneName = activeScene.name;
-
         if (startTransition)
         {
             var newColor = new Color(0, 0, 0, alpha);
@@ -29,15 +25,8 @@ public class StartMenuTransition : MonoBehaviour
 
             if (image.color == new Color(0, 0, 0, 1))
             {
-                if(sceneName == "Cutscene")
-                {
-                    startTransition = false;
-                    sceneChange.LoadMainMenu();
-                } else
-                {
                     startTransition = false;
                     SceneChange.LoadGame();
-                }
             }
         }
     }
