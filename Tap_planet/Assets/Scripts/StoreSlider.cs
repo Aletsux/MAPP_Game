@@ -30,7 +30,7 @@ public class StoreSlider : MonoBehaviour
     float xValueCan;
     float yValueCan;
 
-    Transform temp;
+    Vector3 temp;
 
     public GameObject openStoreRef;
 
@@ -78,17 +78,37 @@ public class StoreSlider : MonoBehaviour
             //nextPos = posClose.position;
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
 
-            
 
-            //timer += Time.deltaTime;
-            //if (timer >= timeBeforeReset)
-            //{
-            //    storeScript.CloseStore();
-            //    timer = 0f;
-            //    closeStore = false;
-            //}
+            if (!StoreScript.transform.hasChanged || StoreScript.activeInHierarchy)
+            {
+                //float xvalue = transform.position.x;
+                //float yvalue = transform.position.y;
+                //yvalue -= height;
+                //Vector3 temp;
+                //temp = new Vector3(xvalue, yvalue, 0);
 
-            if(transform.position.y <= nextPos.y)
+                ifStuck();
+
+                transform.position = Vector3.MoveTowards(transform.position, temp, speed * Time.deltaTime);
+
+                if (transform.position.y <= temp.y)
+                {
+                    storeScript.CloseStore();
+                    //Debug.Log("Close");
+                }
+
+                //Debug.Log("OHNO");
+            }
+
+            timer += Time.deltaTime;
+            if (timer >= timeBeforeReset)
+            {
+                storeScript.CloseStore();
+                timer = 0f;
+                closeStore = false;
+            }
+
+            if (transform.position.y <= nextPos.y)
             {
                 storeScript.CloseStore();
                 //Debug.Log("Close");
@@ -96,6 +116,15 @@ public class StoreSlider : MonoBehaviour
         }
 
         
+    }
+
+    public void ifStuck()
+    {
+        float xvalue = transform.position.x;
+        float yvalue = transform.position.y;
+        yvalue -= height;
+        //Vector3 temp;
+        temp = new Vector3(xvalue, yvalue, 0);
     }
 
 
