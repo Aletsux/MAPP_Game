@@ -11,6 +11,8 @@ public class StoreSlider : MonoBehaviour
     private Transform startPos;
     Vector3 nextPos;
 
+    Vector3 temp;
+
     private bool openStore = false;
     private bool closeStore = true;
 
@@ -30,8 +32,6 @@ public class StoreSlider : MonoBehaviour
     float xValueCan;
     float yValueCan;
 
-    Vector3 temp;
-
     public GameObject openStoreRef;
 
     // Start is called before the first frame update
@@ -47,8 +47,7 @@ public class StoreSlider : MonoBehaviour
 
         posOpen = canvas.transform;
         //posOpen = openStoreRef.transform;
-
-        
+       
 
         posClose = posOpen;
         startPos = posClose;
@@ -66,7 +65,6 @@ public class StoreSlider : MonoBehaviour
         //sätt timer som går ut och sen false och gör så rörelse
         if (openStore)
         {
-            
             nextPos = posOpen.position;
 
 
@@ -77,6 +75,7 @@ public class StoreSlider : MonoBehaviour
         {
             //nextPos = posClose.position;
             transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
+
 
 
             if (!StoreScript.transform.hasChanged || StoreScript.activeInHierarchy)
@@ -98,14 +97,6 @@ public class StoreSlider : MonoBehaviour
                 }
 
                 //Debug.Log("OHNO");
-            }
-
-            timer += Time.deltaTime;
-            if (timer >= timeBeforeReset)
-            {
-                storeScript.CloseStore();
-                timer = 0f;
-                closeStore = false;
             }
 
             if (transform.position.y <= nextPos.y)
