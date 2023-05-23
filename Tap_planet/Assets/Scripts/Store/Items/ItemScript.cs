@@ -43,7 +43,7 @@ public class ItemScript : MonoBehaviour
         store = GameObject.FindGameObjectWithTag("Store").GetComponent<StoreScript>();
         desc = GameObject.FindGameObjectWithTag("Description").GetComponent<DescriptionScript>();
 
-        buyButtonText = gameObject.GetComponentsInChildren<Text>()[1];
+        buyButtonText = transform.GetChild(2).GetComponentInChildren<Text>();
 
         panelButton = gameObject.GetComponent<Button>();
         buyButton = gameObject.GetComponentsInChildren<Button>()[1];
@@ -52,15 +52,15 @@ public class ItemScript : MonoBehaviour
         buyButton.onClick.AddListener(OnBuyClick);
         
         defaultColor = gameObject.GetComponent<Image>().color;
-        ToggleItemActive();
     }
     public virtual void Start()
     {
+        SetDescriptionTranslations();
         SetBuyButtonText();
         ToggleItemActive();
     }
 
-    protected virtual void Update()
+    protected virtual void Update() //Toggle items based on current planet
     {
         if (galaxyLvl != PlayerPrefs.GetInt("ActivePlanetIndex")) {
             galaxyLvl = PlayerPrefs.GetInt("ActivePlanetIndex");
@@ -145,7 +145,7 @@ public class ItemScript : MonoBehaviour
         buyButtonText.text = ReturnPrice();
     }
 
-    public void SetDescriptionTranslations()
+    public virtual void SetDescriptionTranslations()
     {
         itemName = LocalizationSettings.StringDatabase.GetLocalizedString(table, titleKey);
         description = LocalizationSettings.StringDatabase.GetLocalizedString(table, descriptionKey);
