@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TypeWriterEffect : MonoBehaviour
 {
-    public float delay = 0.08f; //tid innan nya bokstaven/tecknet visas
+    public float delay = 0.04f; //tid innan nya bokstaven/tecknet visas
     public string entireText; //hela texten som ska visas
     private string currentText = ""; //böjar alltid tom
 

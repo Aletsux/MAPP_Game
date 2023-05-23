@@ -60,7 +60,7 @@ public class ItemScript : MonoBehaviour
         ToggleItemActive();
     }
 
-    protected virtual void Update()
+    protected virtual void Update() //Toggle items based on current planet
     {
         if (galaxyLvl != PlayerPrefs.GetInt("ActivePlanetIndex")) {
             galaxyLvl = PlayerPrefs.GetInt("ActivePlanetIndex");

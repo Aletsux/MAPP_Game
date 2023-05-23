@@ -1305,7 +1305,7 @@ MonoBehaviour:
   floatingThing: {fileID: 204604271}
   parent: {fileID: 0}
   cryParent: {fileID: 0}
-  GC: {fileID: 0}
+  GC: {fileID: 205055364}
   accessoryCosts: 
   planetCosts: 
   crystalPos: {fileID: 0}
@@ -1781,7 +1781,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2, y: -49.99951}
+  m_AnchoredPosition: {x: 2, y: -49.999573}
   m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &232701619
@@ -14143,7 +14143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298257, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: costsStardust
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4709575009440298257, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: inactiveColor.a
@@ -31200,7 +31200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2057442604
 RectTransform:
   m_ObjectHideFlags: 0
