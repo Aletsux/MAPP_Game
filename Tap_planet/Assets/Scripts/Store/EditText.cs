@@ -124,37 +124,37 @@ public class EditText : MonoBehaviour
         {
             idleButton.GetComponent<ItemScript>().description = "Get 1 crystal each 60 sec! Every upgrade will decrease time 15 seconds.";
             idleButton.GetComponent<ItemScript>().price = "price: " + store.GetPrice("idle") + " crystals.";
-            idleButton.GetComponent<ItemScript>().itemName = "Idle Clicker!";
+            idleButton.GetComponent<ItemScript>().itemName = "Crystal Miner";
         }
         else if (GameController.IsIdleTrue() && gameController.IsIdleLvlTrue() == false && IsEngelska() == true)
         {
             idleButton.GetComponent<ItemScript>().description = "You get " + (gameController.ReturnClicksPerSec() + 1) + " crystal per " + (gameController.ReturnSecBeforeClick()) + " seconds";
             idleButton.GetComponent<ItemScript>().price = "price: " + store.GetPrice("idle") + " crystals.";
-            idleButton.GetComponent<ItemScript>().itemName = "Idle Clicker!";
+            idleButton.GetComponent<ItemScript>().itemName = "Crystal Miner";
         }
         else if (gameController.IsIdleLvlTrue() && GameController.IsIdleTrue() && IsEngelska() == true)
         {
             idleButton.GetComponent<ItemScript>().description = "You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every " + (gameController.ReturnSecBeforeClick()) + " seconds";
             idleButton.GetComponent<ItemScript>().price = "price: " + store.GetPrice("idle") + " crystals.";
-            idleButton.GetComponent<ItemScript>().itemName = "Idle Clicker!";
+            idleButton.GetComponent<ItemScript>().itemName = "Crystal Miner";
         }
         else if (GameController.IsIdleTrue() == false && IsSvenska() == true)
         {
             idleButton.GetComponent<ItemScript>().description = "Få 1 kristall varje sekund! Varje uppgradering tar bort 15 sekunder.";
             idleButton.GetComponent<ItemScript>().price = "pris: " + store.GetPrice("idle") + " Kristaller.";
-            idleButton.GetComponent<ItemScript>().itemName = "Automatiserade Klick!";
+            idleButton.GetComponent<ItemScript>().itemName = "Kristallgrävare";
         }
         else if (GameController.IsIdleTrue() && gameController.IsIdleLvlTrue() == false && IsSvenska() == true)
         {
             idleButton.GetComponent<ItemScript>().description = "Du får " + (gameController.ReturnClicksPerSec() + 1) + " kristaller för varje " + (gameController.ReturnSecBeforeClick()) + " sekunder.";
             idleButton.GetComponent<ItemScript>().price = "pris: " + store.GetPrice("idle") + " kristaller.";
-            idleButton.GetComponent<ItemScript>().itemName = "Automatiserade Klick!";
+            idleButton.GetComponent<ItemScript>().itemName = "Kristallgrävare";
         }
         else if (gameController.IsIdleLvlTrue() && GameController.IsIdleTrue() && IsSvenska() == true)
         {
             idleButton.GetComponent<ItemScript>().description = "Du får " + gameController.ReturnClicksPerSec() + " kristaller för varje sekund och " + gameController.ReturnClickPerTime() + " varje " + (gameController.ReturnSecBeforeClick()) + " sekunder.";
             idleButton.GetComponent<ItemScript>().price = "pris: " + store.GetPrice("idle") + " kristaller.";
-            idleButton.GetComponent<ItemScript>().itemName = "Automatiserade Klick!";
+            idleButton.GetComponent<ItemScript>().itemName = "Kristallgrävare";
         }
     }
 
@@ -183,7 +183,7 @@ public class EditText : MonoBehaviour
                 idleButton.GetComponent<ItemScript>().description = "You get " + gameController.ReturnClicksPerSec() + " crystals per second and " + gameController.ReturnClickPerTime() + " every " + (gameController.ReturnSecBeforeClick() - 15) + " seconds.";
             }
             idleButton.GetComponent<ItemScript>().price = "price: " + store.GetPrice("idle") + " crystals.";
-            idleButton.GetComponent<ItemScript>().itemName = "Idle Clicker!";
+            idleButton.GetComponent<ItemScript>().itemName = "Crystal Miner";
 
         }
         else if (IsSvenska() == true)
@@ -206,7 +206,7 @@ public class EditText : MonoBehaviour
             }
             //idlePurchaseButn.GetComponent<ItemScript>().description = "Du får " + gameController.ReturnClicksPerSec() + " kristaller varje sekund och " + gameController.ReturnClickPerTime() + " varje " + gameController.ReturnSecBeforeClick() + " sekunder.";
             idleButton.GetComponent<ItemScript>().price = "pris: " + store.GetPrice("idle") + " kristaller.";
-            idleButton.GetComponent<ItemScript>().itemName = "Automatiserade Klick!";
+            idleButton.GetComponent<ItemScript>().itemName = "Kristallgrävare";
         }
     }
 
