@@ -26,9 +26,6 @@ public class RaidState : MonoBehaviour
 
     public GameController gc;
 
-
-
-    // Start is called before the first frame update
     void Start()
     {
         PlayerPrefs.SetInt("TutorialCleared", 0);
@@ -36,11 +33,6 @@ public class RaidState : MonoBehaviour
         enemiesKilled = 0;
         beginRaid = false;
         raidOverPanel.SetActive(true);
-        PanelManager.AddPanelToQueue(raidOverPanel, true);
-        //raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
-
-        //gameOverPanel.SetActive(true);
-        //gameOverPanel.GetComponent<PanelAnimation>().StretchPanel();
     }
 
     // Update is called once per frame
