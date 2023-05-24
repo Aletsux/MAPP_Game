@@ -23,13 +23,15 @@ public class RaidState : MonoBehaviour
     public static bool beginRaid;
     private float raidTimer;
     public float raidTime = 15;
-
     public GameController gc;
+    private int clickLvl;
 
     void Start()
     {
-        PlayerPrefs.SetInt("TutorialCleared", 0);
-
+        if(PlayerPrefs.GetInt("TutorialCleared") == 0) {
+            PlayerPrefs.SetInt("TutorialCleared", 0);
+        }
+        clickLvl = PlayerPrefs.GetInt("clickLvl", 1);
         enemiesKilled = 0;
         beginRaid = false;
         raidOverPanel.SetActive(true);
@@ -97,16 +99,16 @@ public class RaidState : MonoBehaviour
             //raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
             PanelManager.AddPanelToQueue(raidOverPanel, true);
         }
-        int crystals = enemiesKilled * 10 * GameController.GetClickLvl();
+        int crystals = enemiesKilled * clickLvl;
         int stardust = enemiesKilled;
-
+        
         crystalsWon.text = crystalsLost.text = FormatNumbers.FormatInt(crystals);
-        stardustWon.text = crystalsLost.text = FormatNumbers.FormatInt(stardust);
+        stardustWon.text = stardustLost.text = FormatNumbers.FormatInt(stardust);
 
         //raidOverPanel.SetActive(true);zx
 
         GameController.AddCrystals(crystals);
-        Debug.Log("HERE HERE HERE " + crystals * 10 * GameController.GetClickLvl());
+        Debug.Log("HERE HERE HERE " + crystals * 10 * clickLvl);
         PlayerPrefs.SetString("crystals", GameController.GetCrystals().ToString());
         Debug.Log("HERE HERE HERE " + stardust);
         GameController.AddStardust(stardust);
@@ -114,5 +116,6 @@ public class RaidState : MonoBehaviour
 
         PlayerPrefs.SetInt("RaidToggle", 0);
         enemyAI.deactivate();
+        
     }
 }
