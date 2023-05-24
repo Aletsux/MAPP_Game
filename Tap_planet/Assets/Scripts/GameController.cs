@@ -112,7 +112,7 @@ public class GameController : MonoBehaviour
             tpuClock.SetActive(true);
             tpuTimer += Time.deltaTime;
             clockFill.fillAmount = tpuTimer/5;
-            if (tpuTimer >= tpuTimeBeforeReset)
+            if (tpuTimer >= 5)
             {
                 tpuClock.SetActive(false);
                 tpuTimer = 0f;
@@ -312,12 +312,10 @@ public class GameController : MonoBehaviour
     {
         if (TPUAmount == 0 && !isUsingTPU)
         {
-            TPU.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
             TPU.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
         }
         else
         {
-            TPU.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             TPU.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
         }
     }

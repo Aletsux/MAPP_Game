@@ -32,9 +32,11 @@ public class RaidState : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("TutorialCleared", 0);
+
         enemiesKilled = 0;
         beginRaid = false;
         raidOverPanel.SetActive(true);
+        PanelManager.AddPanelToQueue(raidOverPanel, true);
         //raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
 
         //gameOverPanel.SetActive(true);
