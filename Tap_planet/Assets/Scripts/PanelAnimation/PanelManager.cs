@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PanelManager : MonoBehaviour
 {
-    private static LinkedList<GameObject> panelQueue = new();
+    private static LinkedList<GameObject> panelQueue;
     private static bool currentIsOpen = false;
 
+    void Start()
+    {
+        panelQueue = new();
+    }
     void Update()
     {
         if (panelQueue.Count != 0)
