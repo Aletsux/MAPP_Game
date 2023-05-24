@@ -6,13 +6,31 @@ public class PanelManager : MonoBehaviour
 {
     private static LinkedList<GameObject> panelQueue = new();
     private static bool currentIsOpen = false;
+    private static PanelManager instance;
 
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+        panelQueue.Clear();
+        currentIsOpen = false;
+    }
     void Update()
     {
+        print("1");
         if (panelQueue.Count != 0)
         {
+            print(panelQueue.First.Value.name);
             if (!currentIsOpen )
             {
+                print("3");
                 foreach (GameObject g in panelQueue)
                 {
                     print(g.name);

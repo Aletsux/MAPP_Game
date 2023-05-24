@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     public GameObject TPU; // timed powerup objekt med knapp som ligger på spelskärmen
     //public Image TPUImage;
     public Text TPUText;
-    private int TPUAmount = 0;
+    private static int TPUAmount = 0;
     
 
     [SerializeField] public int idleCost = 5;//the cost for the idle click powerup
@@ -60,6 +60,8 @@ public class GameController : MonoBehaviour
 
     public VolumeManager volumeManager;
 
+    private int idleLvl = 0;
+
     void Awake()
     {
         if (PlayerPrefs.GetInt("getMoney") == 1)
@@ -74,7 +76,9 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("reset", 0);
         PlayerPrefs.SetInt("getMoney", 0);
         LoadGame();
-        DisableTPU(); //om spelaren inte har någon timed powerup
+
+        UpdateTPUText();
+        UpdateTPU(); //om spelaren inte har någon timed powerup
     }
 
     void Update()
@@ -108,7 +112,7 @@ public class GameController : MonoBehaviour
             tpuClock.SetActive(true);
             tpuTimer += Time.deltaTime;
             clockFill.fillAmount = tpuTimer/5;
-            if (tpuTimer >= tpuTimeBeforeReset)
+            if (tpuTimer >= 5)
             {
                 tpuClock.SetActive(false);
                 tpuTimer = 0f;
@@ -160,8 +164,7 @@ public class GameController : MonoBehaviour
 
     public void ClickCrystal()
     {
-        crystals += (1 * clickLvl); // add crystals
-        //setSuffix();
+        crystals += clickLvl; // add crystals
         UpdateCrystals(); // update amount in UI
     }
 
@@ -184,6 +187,7 @@ public class GameController : MonoBehaviour
 
     public void ClickLevelUp()
     {
+        PlayerPrefs.SetInt("ClickLevelInStore", PlayerPrefs.GetInt("ClickLevelInStore") + 1);
         double toAdd = 1;
         if (clickLvl % 10 == 0) // every 10 upgrades varje gång klickar på knapp i store
             toAdd = clickLvl;  // the player gets a bonus
@@ -269,12 +273,10 @@ public class GameController : MonoBehaviour
             {
                 TimedPowerUp();
                 TPUAmount--;
-                UpdateTPU();
-                print("Timed PowerUp activated!");
-            }
+                UpdateTPUText();
 
-            if (TPUAmount == 0)
-                TPU.SetActive(false);
+                Invoke("UpdateTPU", 5);
+            }
         }
         else
         {
@@ -297,6 +299,7 @@ public class GameController : MonoBehaviour
             TPU.SetActive(true);
         TPUAmount++;
         UpdateTPU();
+        UpdateTPUText();
 
         //double higherCost = clickLvl * 1.2;
         //clickLvl += (int)higherCost;
@@ -305,16 +308,20 @@ public class GameController : MonoBehaviour
         tpuCost += (int)higherCost;
     }
 
-    private void DisableTPU()
-    {
-        if (TPUAmount == 0)
-            TPU.SetActive(false);
-    }
-
     private void UpdateTPU() //om spelaren inte har någon timed powerup
     {
-        TPUText.text = "TPU: " + TPUAmount;
-        DisableTPU();
+        if (TPUAmount == 0 && !isUsingTPU)
+        {
+            TPU.transform.GetChild(0).GetChild(1).gameObject.SetActive(false);
+        }
+        else
+        {
+            TPU.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        }
+    }
+    private void UpdateTPUText() //om spelaren inte har någon timed powerup
+    {
+        TPUText.text = TPUAmount.ToString();
     }
 
     public void SaveGame()
@@ -335,6 +342,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("idleCost", GetIdleCost());
         PlayerPrefs.SetInt("clickLvl", GetClickLvl());
         PlayerPrefs.SetInt("doubletimeCost", DoubleTime.GetCost());
+        PlayerPrefs.SetInt("idleLvl", idleLvl);
         PlayerPrefs.Save();
     }
 
@@ -360,6 +368,8 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("WipeEnemiesAmount", 0);
         PlayerPrefs.SetInt("RaidWipeCost", 10);
 
+        PlayerPrefs.SetInt("PlayedCutscene", 0);
+        PlayerPrefs.SetInt("idleLvl", 0);
 
         PlayerPrefs.Save();
     }
@@ -412,19 +422,22 @@ public class GameController : MonoBehaviour
         idleCost = PlayerPrefs.GetInt("idleCost");
         clickLvl = PlayerPrefs.GetInt("clickLvl");
         DoubleTime.SetCost(PlayerPrefs.GetInt("doubletimeCost"));
+        idleLvl = PlayerPrefs.GetInt("idleLvl");
 
-        if (PlayerPrefs.GetInt("IdleExtenderLvl") == 0) // ser till att level inte är 0
-        {
-            PlayerPrefs.SetInt("IdleExtenderLvl", 1);
-        }
+        
         if (isUsingIdleClicker)
         {
-            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // om spelaren kommer in efter 30 min men innan idle extenders gräns
+            int timeLimitlevel = 1;
+            if (PlayerPrefs.GetInt("IdleExtenderLvl") != 0) // ser till att level inte är 0
+            {
+                timeLimitlevel = PlayerPrefs.GetInt("IdleExtenderLvl");
+            }
+            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * timeLimitlevel) // om spelaren kommer in efter 30 min men innan idle extenders gräns
             {
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
                 PanelManager.AddPanelToQueue(idleCollectedPanel);
             }
-            else if (calculateSecondsSinceQuit() > 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) // kommer in efter idle extenders gräns
+            else if (calculateSecondsSinceQuit() > 1800 * timeLimitlevel) // kommer in efter idle extenders gräns
             {
                 idleCollectedPanel.transform.GetChild(0).GetChild(2).GetComponent<Text>().text = LocalizationSettings.StringDatabase.GetLocalizedString("IdleStartPanel", "FellAsleep"); // hämtar översättning
 
@@ -437,6 +450,7 @@ public class GameController : MonoBehaviour
             LoadIdleClicks(calculateSecondsSinceQuit());
         }
         UpdateTPU();
+        UpdateTPUText();
     }
 
     public static int calculateSecondsSinceQuit()
@@ -460,6 +474,7 @@ public class GameController : MonoBehaviour
     {
         isUsingIdleClicker = true;
         UpdateIdleLevel();
+        IdleLevelController();
     }
 
     public void UpdateIdleLevel()
@@ -623,5 +638,52 @@ public class GameController : MonoBehaviour
     public void addDust()
     {
         stardust += 1000;
+    }
+
+    public int IdleLevelController()
+    {
+        idleLvl++;
+
+        SaveGame();
+
+        return idleLvl;
+    }
+
+    public static int GetLevel(string name)
+    {
+        if (name.Equals("idle"))
+        {
+            return PlayerPrefs.GetInt("idleLvl");
+        }
+        else if (name.Equals("perm"))
+        {
+            return PlayerPrefs.GetInt("ClickLevelInStore");
+        }
+        else if (name.Equals("dust"))
+        {
+            return GetStardustMinerLevel();
+        }
+        else if (name.Equals("star"))
+        {
+            return PlayerPrefs.GetInt("IdleExtenderLvl");
+        }
+        return 0;
+    }
+
+    public static int GetPowerupAmount(string powerupMame)
+    {
+        if (powerupMame.Equals("raidWipe"))
+        {
+            return PlayerPrefs.GetInt("WipeEnemiesAmount");
+        }
+        else if (powerupMame.Equals("shield"))
+        {
+            return PlayerPrefs.GetInt("healthBoostAmount");
+        }
+        else if (powerupMame.Equals("temp"))
+        {
+            return TPUAmount;
+        }
+        return 0;
     }
 }
