@@ -39,7 +39,8 @@ public class GameController : MonoBehaviour
     //public Image TPUImage;
     public Text TPUText;
     private static int TPUAmount = 0;
-    
+    [SerializeField] int shieldCost = 1;
+
 
     [SerializeField] public int idleCost = 5;//the cost for the idle click powerup
     public float clicksPerSecond = 1f;
@@ -685,5 +686,10 @@ public class GameController : MonoBehaviour
             return TPUAmount;
         }
         return 0;
+    }
+
+    public int GetShieldCost()
+    {
+        return shieldCost;
     }
 }

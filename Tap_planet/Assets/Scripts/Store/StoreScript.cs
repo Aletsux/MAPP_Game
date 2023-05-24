@@ -365,7 +365,29 @@ public class StoreScript : MonoBehaviour
                 DoubleTime.IncreaseCost();
                 GameController.DecreaseCrystals(GetPrice(powerUpName));
             }
-        } 
+        }
+
+        else if (powerUpName.Equals("shield"))
+        {
+            if (GameController.GetCrystals() >= GetPrice(powerUpName))
+            {
+                int i = PlayerPrefs.GetInt("healthBoostAmount");
+
+                if (i < 1)
+                {
+                    PlayerPrefs.SetInt("healthBoostAmount", i + 1);
+
+                    GameController.DecreaseStardust(GetPrice(powerUpName));
+
+                    gameController.SaveGame();
+
+                }
+                else
+                {
+                    //Knapp inaktiverad.
+                }
+            }
+        }
 
         gameController.SaveGame();
     }
@@ -407,11 +429,12 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("shield"))
         {
-            if (PlayerPrefs.GetInt("RaidWipeCost") == 0)
+            Debug.Log("SHIELDCOST " + PlayerPrefs.GetInt("RaidShieldCost"));
+            if (PlayerPrefs.GetInt("RaidShieldCost") == 0)
             {
-                PlayerPrefs.SetInt("RaidWipeCost", 10);
+                PlayerPrefs.SetInt("RaidShieldCost", 12);
             }
-            return PlayerPrefs.GetInt("RaidWipeCost");
+            return gameController.GetShieldCost();
         }
 
         //Accessories
