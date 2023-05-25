@@ -46,7 +46,6 @@ public class DontDestroyOnSelectedScenes : MonoBehaviour
         }
         else
         {
-            // unsubscribe to the scene load callback
             SceneManager.sceneLoaded -= OnSceneLoaded;
             DestroyImmediate(this.gameObject);
         }
