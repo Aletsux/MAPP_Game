@@ -1435,18 +1435,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2144268490}
-        m_TargetAssemblyTypeName: StartMenuTransition, Assembly-CSharp
-        m_MethodName: StartTransition
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1307121787}
         m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
         m_MethodName: PlaySound
@@ -1457,6 +1445,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2144268491}
+        m_TargetAssemblyTypeName: SceneTransitionFader, Assembly-CSharp
+        m_MethodName: FadeToScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Game
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1270251569
@@ -2077,7 +2077,7 @@ GameObject:
   - component: {fileID: 2144268487}
   - component: {fileID: 2144268489}
   - component: {fileID: 2144268488}
-  - component: {fileID: 2144268490}
+  - component: {fileID: 2144268491}
   m_Layer: 5
   m_Name: TransitionEffect
   m_TagString: Untagged
@@ -2102,8 +2102,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -49.21643, y: -113.92041}
+  m_SizeDelta: {x: 134.12256, y: 275.3042}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2144268488
 MonoBehaviour:
@@ -2143,7 +2143,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2144268486}
   m_CullTransparentMesh: 1
---- !u!114 &2144268490
+--- !u!114 &2144268491
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2152,6 +2152,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2144268486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e9caa0042b404f648651c9c421944f2, type: 3}
+  m_Script: {fileID: 11500000, guid: 18fd1d3e1c8ca46b28a5044cfc73a2ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeImage: {fileID: 2144268488}
+  fadeDuration: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
