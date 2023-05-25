@@ -14559,7 +14559,7 @@ PrefabInstance:
     - target: {fileID: 5039579259084854695, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
+      objectReference: {fileID: 21300000, guid: ae340f0d65e6a405f9bf3b2c270cec0c, type: 3}
     - target: {fileID: 5097798540996919269, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_Type
       value: 0
@@ -18307,7 +18307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b14c9b9d8dc1d4e91b1a31711ddeb4de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: ae340f0d65e6a405f9bf3b2c270cec0c, type: 3}
   itemName: 
   description: 
   price: 
