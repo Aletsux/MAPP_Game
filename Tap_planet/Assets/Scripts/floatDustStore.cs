@@ -335,6 +335,10 @@ public class floatDustStore : MonoBehaviour
         else if (name.Equals("light"))
         {
             return accessoryCosts[8];
+        } 
+        else if (name.Equals("leaf"))
+        {
+            return accessoryCosts[9];
         }
 
         //Planets

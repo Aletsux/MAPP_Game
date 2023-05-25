@@ -1266,6 +1266,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f949a61e2fc74737b3698b7ed488802, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &80461746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8055918785392836419, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
+  m_PrefabInstance: {fileID: 230112648}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &91662819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2704,6 +2709,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1947544821335205265, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413178729249728754, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413178729249728754, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413178729249728754, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3413178729249728754, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3436990143773668564, guid: 102528a81371743d89fa785ef5d526e8, type: 3}
@@ -10914,6 +10935,7 @@ MonoBehaviour:
   - {fileID: 230112655}
   - {fileID: 230112654}
   - {fileID: 230112653}
+  - {fileID: 80461746}
 --- !u!58 &1500350635
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -409,7 +409,7 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("dust"))
         {
-            return (GameController.GetStardustMinerLevel() == 0) ? 1000 : (GameController.GetStardustMinerLevel() * 1000 * 10) * (130 / 100); //increase 30%
+            return (GameController.GetStardustMinerLevel() == 0) ? 1000 : (GameController.GetStardustMinerLevel() * 10000 * (130 / 100)); //increase 30%
         }
         else if (name.Equals("star"))
         {
@@ -460,6 +460,14 @@ public class StoreScript : MonoBehaviour
         else if (name.Equals("purpleTie"))
         {
             return accessoryCosts[7];
+        }
+        else if (name.Equals("light"))
+        {
+            return accessoryCosts[8];
+        } 
+        else if (name.Equals("leaf"))
+        {
+            return accessoryCosts[9];
         }
 
         //Planets
