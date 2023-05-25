@@ -67,28 +67,14 @@ public class ItemScript : MonoBehaviour
             Debug.Log("galaxyLvl: " + galaxyLvl);
         } 
         ToggleItemActive();
-        
-        if (costsStardust)
-        {   
-            if ((type == 1 && PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1)  || (type == 2 && PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1)  || (GameController.GetStardust() >= store.GetPrice(title)))
-            {
-                buyButton.image.color = activeColor;
-            }
-            else
-            {
-                buyButton.image.color = inactiveColor;
-            }
+
+        if (ActiveCondition())
+        {
+            buyButton.image.color = activeColor;
         }
         else
         {
-            if (GameController.GetCrystals() >= store.GetPrice(title))
-            {
-                buyButton.image.color = activeColor;
-            }
-            else
-            {
-                buyButton.image.color = inactiveColor;
-            }
+            buyButton.image.color = inactiveColor;
         }
     }
 
@@ -193,4 +179,11 @@ public class ItemScript : MonoBehaviour
         return difference <= scope;
     }
 
+    public virtual bool ActiveCondition()
+    {
+        long inBank = (costsStardust) ? GameController.GetStardust()  : GameController.GetCrystals();
+        if (inBank >= store.GetPrice(title))
+            return true;
+        return false;
+    }
 }

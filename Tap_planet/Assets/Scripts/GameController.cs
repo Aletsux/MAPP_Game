@@ -433,7 +433,7 @@ public class GameController : MonoBehaviour
             {
                 timeLimitlevel = PlayerPrefs.GetInt("IdleExtenderLvl");
             }
-            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * timeLimitlevel) // om spelaren kommer in efter 30 min men innan idle extenders gräns
+            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 + 1800 * timeLimitlevel) // om spelaren kommer in efter 30 min men innan idle extenders gräns
             {
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
                 PanelManager.AddPanelToQueue(idleCollectedPanel);

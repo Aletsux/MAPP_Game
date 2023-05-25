@@ -11,7 +11,7 @@ public class MrTwinky : MonoBehaviour
 
     public void ActivateTwinky()
     {
-        if (PlayerPrefs.GetInt("IdleExtenderLvl") > 1)
+        if (GameController.IsIdleTrue())
         {
             transform.GetChild(2).gameObject.SetActive(true);
         }
