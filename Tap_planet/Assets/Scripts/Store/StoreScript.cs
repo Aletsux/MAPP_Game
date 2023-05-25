@@ -461,6 +461,18 @@ public class StoreScript : MonoBehaviour
         {
             return accessoryCosts[7];
         }
+        else if (name.Equals("purpleTie"))
+        {
+            return accessoryCosts[7];
+        }
+        else if (name.Equals("lights"))
+        {
+            return accessoryCosts[8];
+        }
+        else if (name.Equals("leaf"))
+        {
+            return accessoryCosts[9];
+        }
 
         //Planets
         else if (name.Equals("drip"))
