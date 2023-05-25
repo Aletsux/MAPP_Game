@@ -429,25 +429,19 @@ public class GameController : MonoBehaviour
         
         if (isUsingIdleClicker)
         {
-            int timeLimitlevel = 1;
-            if (PlayerPrefs.GetInt("IdleExtenderLvl") != 0) // ser till att level inte är 0
-            {
-                timeLimitlevel = PlayerPrefs.GetInt("IdleExtenderLvl");
-            }
-            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 + 1800 * timeLimitlevel) // om spelaren kommer in efter 30 min men innan idle extenders gräns
+            int timeLimitlevel = PlayerPrefs.GetInt("IdleExtenderLvl");
+            if (calculateSecondsSinceQuit() > 600 && calculateSecondsSinceQuit() <= 1800 + 1800 * timeLimitlevel) // om spelaren kommer in efter 10 min men innan idle extenders gräns
             {
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
                 PanelManager.AddPanelToQueue(idleCollectedPanel);
             }
-            else if (calculateSecondsSinceQuit() > 1800 * timeLimitlevel) // kommer in efter idle extenders gräns
+            else if (calculateSecondsSinceQuit() > 1800 + 1800 * timeLimitlevel) // kommer in efter idle extenders gräns
             {
                 idleCollectedPanel.transform.GetChild(0).GetChild(2).GetComponent<Text>().text = LocalizationSettings.StringDatabase.GetLocalizedString("IdleStartPanel", "FellAsleep"); // hämtar översättning
 
 
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
                 PanelManager.AddPanelToQueue(idleCollectedPanel);
-
-
             }
             LoadIdleClicks(calculateSecondsSinceQuit());
         }
