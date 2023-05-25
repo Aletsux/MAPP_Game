@@ -6,24 +6,50 @@ public class DontDestroyOnSelectedScenes : MonoBehaviour
 {
     public List<string> sceneNames;
 
-    private void Awake()
+    public string instanceName;
+
+    private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this.gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    { 
+        CheckForDuplicateInstances();
+        CheckIfSceneInList();
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    void CheckForDuplicateInstances()
     {
-        if (!sceneNames.Contains(scene.name))
+        DontDestroyOnSelectedScenes[] collection = FindObjectsOfType<DontDestroyOnSelectedScenes>();
+
+        foreach (DontDestroyOnSelectedScenes obj in collection)
         {
-            Destroy(gameObject);
+            if (obj != this)
+            {
+                if (obj.instanceName == instanceName)
+                {
+                    DestroyImmediate(obj.gameObject);
+                }
+            }
+        }
+    }
+
+    private void CheckIfSceneInList()
+    {
+        string currentScene = SceneManager.GetActiveScene().name;
+
+        if (sceneNames.Contains(currentScene))
+        {
+            
+        }
+        else
+        {
+            // unsubscribe to the scene load callback
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            DestroyImmediate(this.gameObject);
         }
     }
 }
-
 
