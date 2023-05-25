@@ -209,7 +209,7 @@ public class GameController : MonoBehaviour
             if (rng == i)
             {
                 endMethod = true;
-                AddStardust(1);
+                AddStardust((stardustMinerLevel*5) + rng);
             }
             if (endMethod)
                 return;
@@ -341,7 +341,7 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetFloat("Volume", volumeManager.getVolume());
         PlayerPrefs.SetInt("tpuCost", GetTpuCost());
         PlayerPrefs.SetInt("idleCost", GetIdleCost());
-        PlayerPrefs.SetInt("clickLvl", GetClickLvl());
+        //PlayerPrefs.SetInt("clickLvl", GetClickLvl());
         PlayerPrefs.SetInt("doubletimeCost", DoubleTime.GetCost());
         PlayerPrefs.SetInt("idleLvl", idleLvl);
         PlayerPrefs.Save();

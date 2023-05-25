@@ -23,13 +23,15 @@ public class RaidState : MonoBehaviour
     public static bool beginRaid;
     private float raidTimer;
     public float raidTime = 15;
-
     public GameController gc;
+    private int clickLvl;
 
     void Start()
     {
-        PlayerPrefs.SetInt("TutorialCleared", 0);
-
+        if(PlayerPrefs.GetInt("TutorialCleared") == 0) {
+            PlayerPrefs.SetInt("TutorialCleared", 0);
+        }
+        clickLvl = PlayerPrefs.GetInt("clickLvl", 1);
         enemiesKilled = 0;
         beginRaid = false;
         raidOverPanel.SetActive(true);
@@ -83,30 +85,27 @@ public class RaidState : MonoBehaviour
             }
             enemiesKilled *= 100;
             motherShipBonusText.text = "x" + 100;
-            //raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
             PanelManager.AddPanelToQueue(raidOverPanel, true);
         }
         else if (PlanetState.HP <= 0)
         {
             enemiesKilled = -100;
-            //gameOverPanel.GetComponent<PanelAnimation>().StretchPanel();
             PanelManager.AddPanelToQueue(gameOverPanel, true);
         }
         else
         {
-            //raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
             PanelManager.AddPanelToQueue(raidOverPanel, true);
         }
-        int crystals = enemiesKilled * 10 * GameController.GetClickLvl();
-        int stardust = enemiesKilled;
 
-        crystalsWon.text = crystalsLost.text = FormatNumbers.FormatInt(crystals);
-        stardustWon.text = crystalsLost.text = FormatNumbers.FormatInt(stardust);
+        
+        long crystals = (-enemiesKilled * clickLvl > long.Parse(PlayerPrefs.GetString("crystals"))) ? long.Parse(PlayerPrefs.GetString("crystals")) : enemiesKilled * clickLvl;
+        int stardust = (-enemiesKilled > PlayerPrefs.GetInt("stardust")) ? PlayerPrefs.GetInt("stardust") : enemiesKilled;
 
-        //raidOverPanel.SetActive(true);zx
+        crystalsWon.text = crystalsLost.text = crystals.ToString();
+        stardustWon.text = stardustLost.text = FormatNumbers.FormatInt(stardust);
 
         GameController.AddCrystals(crystals);
-        Debug.Log("HERE HERE HERE " + crystals * 10 * GameController.GetClickLvl());
+        Debug.Log("HERE HERE HERE " + crystals * 10 * clickLvl);
         PlayerPrefs.SetString("crystals", GameController.GetCrystals().ToString());
         Debug.Log("HERE HERE HERE " + stardust);
         GameController.AddStardust(stardust);
@@ -114,5 +113,6 @@ public class RaidState : MonoBehaviour
 
         PlayerPrefs.SetInt("RaidToggle", 0);
         enemyAI.deactivate();
+        
     }
 }
