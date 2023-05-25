@@ -7807,6 +7807,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1017224766}
   audioClip: {fileID: 8300000, guid: 7c5d2dc6aedaa4b8689b80ef06cfac0d, type: 3}
+  tapSound: {fileID: 0}
 --- !u!4 &1017224768
 Transform:
   m_ObjectHideFlags: 0
@@ -13189,6 +13190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1787489046}
   audioClip: {fileID: 8300000, guid: 7c5d2dc6aedaa4b8689b80ef06cfac0d, type: 3}
+  tapSound: {fileID: 0}
 --- !u!4 &1787489048
 Transform:
   m_ObjectHideFlags: 0
@@ -17768,6 +17770,14 @@ PrefabInstance:
       propertyPath: cameraShake
       value: 
       objectReference: {fileID: 80145814}
+    - target: {fileID: 3249245246209996475, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3249245246209996475, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996476, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: planet
       value: 
@@ -17813,18 +17823,6 @@ PrefabInstance:
       value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -17854,7 +17852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 296
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 3249245246209996479, guid: 5808f6407fc91384286a32dcd06c5de0, type: 3}
       propertyPath: m_AnchoredPosition.y
