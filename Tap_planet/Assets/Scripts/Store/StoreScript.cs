@@ -356,7 +356,7 @@ public class StoreScript : MonoBehaviour
                 print(PlayerPrefs.GetInt("WipeEnemiesAmount"));
                 print(PlayerPrefs.GetInt("RaidWipeCost"));
             }
-        } 
+        }
         else if (powerUpName.Equals("doubletime"))
         {
             if (GameController.IsIdleTrue() && GameController.GetCrystals() >= GetPrice(powerUpName))
@@ -372,24 +372,16 @@ public class StoreScript : MonoBehaviour
             if (GameController.GetCrystals() >= GetPrice(powerUpName))
             {
                 int i = PlayerPrefs.GetInt("healthBoostAmount");
-
-                if (i < 1)
-                {
-                    PlayerPrefs.SetInt("healthBoostAmount", i + 1);
-
-                    GameController.DecreaseStardust(GetPrice(powerUpName));
-
-                    gameController.SaveGame();
-
-                }
-                else
-                {
-                    //Knapp inaktiverad.
-                }
+                PlayerPrefs.SetInt("healthBoostAmount", i++);
+                Debug.Log("HBA: " + PlayerPrefs.GetInt("healthBoostAmount"));
+                GameController.DecreaseStardust(GetPrice(powerUpName));
+                gameController.SaveGame();
+            }
+            else
+            {
+                //Knapp inaktiverad.
             }
         }
-
-        gameController.SaveGame();
     }
     //Set updates time for all items in store
     public int GetPrice(string name)
