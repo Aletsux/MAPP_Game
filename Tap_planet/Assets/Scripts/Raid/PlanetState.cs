@@ -45,4 +45,10 @@ public class PlanetState : MonoBehaviour
     {
         healthBar.gameObject.SetActive(b);
     }
+
+    public void BoostHP(int newHP)
+    {
+        maxHP = newHP;
+        HP = newHP;
+    }
 }
