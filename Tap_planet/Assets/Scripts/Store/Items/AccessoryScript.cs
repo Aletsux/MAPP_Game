@@ -49,4 +49,11 @@ public class AccessoryScript : ItemScript
             buyButtonText.text = LocalizationSettings.StringDatabase.GetLocalizedString(buyButtonTable, buyButtonKey);
         }
     }
+
+    public override bool ActiveCondition()
+    {
+        if ((PlayerPrefs.GetInt("AccessoryPurchased_" + index) == 1) || base.ActiveCondition())
+            return true;
+        return false;
+    }
 }

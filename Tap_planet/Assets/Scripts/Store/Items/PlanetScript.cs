@@ -54,4 +54,11 @@ public class PlanetScript : ItemScript
     {
         SetBuyButtonText();
     }
+
+    public override bool ActiveCondition()
+    {
+        if ((PlayerPrefs.GetInt("PlanetPurchased_" + index) == 1) || base.ActiveCondition())
+            return true;
+        return false;
+    }
 }
