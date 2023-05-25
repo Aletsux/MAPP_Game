@@ -87,4 +87,9 @@ public class PowerUpHandler : MonoBehaviour
         return gc.ReturnClickPerTime();
     }
 
+
+    public void IncreaseShieldAmount()
+    {
+        PlayerPrefs.SetInt("healthBoostAmount", 1);
+    }
  }
