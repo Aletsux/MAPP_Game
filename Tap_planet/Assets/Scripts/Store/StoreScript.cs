@@ -362,8 +362,8 @@ public class StoreScript : MonoBehaviour
             if (GameController.IsIdleTrue() && GameController.GetCrystals() >= GetPrice(powerUpName))
             {
                 //PlayerPrefs.SetInt("DoubleTime", PlayerPrefs.GetInt("DoubleTime") + 1);
-                DoubleTime.IncreaseCost();
                 GameController.DecreaseCrystals(GetPrice(powerUpName));
+                DoubleTime.IncreaseCost();
             }
         } 
 
@@ -387,7 +387,7 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("dust"))
         {
-            return (GameController.GetStardustMinerLevel() == 0) ? 1000 : (GameController.GetStardustMinerLevel() * (1000 * 10)) * 130 / 100; //increase 30%
+            return (GameController.GetStardustMinerLevel() == 0) ? 1000 : (GameController.GetStardustMinerLevel() * 1000 * 10) * (130 / 100); //increase 30%
         }
         else if (name.Equals("star"))
         {
