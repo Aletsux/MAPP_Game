@@ -33,7 +33,10 @@ public class PowerupScript : ItemScript
         SetDescriptionTranslations();
         store.BuyPowerUp(title);
         SetBuyButtonText();
-        SetLevelText();
+        if (isUsingAmount)
+        {
+            SetLevelText();
+        }       
         desc.GetAllInformation(this, true);
     }
 

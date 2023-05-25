@@ -685,48 +685,20 @@ public class GameController : MonoBehaviour
 
     public int GetShieldCost()
     {
-        PlayerPrefs.GetInt("ShieldLevel");
-        PlayerPrefs.GetInt("ShieldCost");
         int shieldLevel = PlayerPrefs.GetInt("ShieldLevel");
         int shieldCost = PlayerPrefs.GetInt("ShieldCost");
 
-
         if (shieldLevel <= 0)
         {
-            PlayerPrefs.SetInt("ShieldLevel", shieldLevel++);
+            PlayerPrefs.SetInt("ShieldLevel", 1);
             PlayerPrefs.SetInt("ShieldCost", 10000);
             return PlayerPrefs.GetInt("ShieldCost");
         }
-
         else
-        {
-            
-            double num = Math.Ceiling(shieldCost * 1.2); // lägger till 20% på kostnad
-            shieldCost = (int)num;
-            PlayerPrefs.SetInt("ShieldCost", shieldCost);
-            PlayerPrefs.SetInt("ShieldLevel", shieldLevel++);
+        {          
+            PlayerPrefs.SetInt("ShieldCost", (int)(shieldCost * 1.2));
+            PlayerPrefs.SetInt("ShieldLevel", shieldLevel + 1);
             return PlayerPrefs.GetInt("ShieldCost");
-
         }
-
-        //int shieldLevel = PlayerPrefs.GetInt("ShieldLevel");
-        //Debug.Log("SHIELDCOST : " + shieldLevel);
-
-        //if (shieldLevel > 0) 
-        //{
-        //    double num = Math.Ceiling(shieldCost * 1.2); // lägger till 20% på kostnad
-        //    shieldCost = (int)num;
-        //    shieldLevel++;
-        //    PlayerPrefs.SetInt("ShieldLevel", shieldLevel);
-        //    return shieldCost;
-        //}
-        //else
-        //{
-        //    shieldLevel++;
-        //    PlayerPrefs.SetInt("ShieldLevel", shieldLevel);
-        //    Debug.Log(shieldCost);
-        //    return shieldCost;
-        //}
-
     }
 }

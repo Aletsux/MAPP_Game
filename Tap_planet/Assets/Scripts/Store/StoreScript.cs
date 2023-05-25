@@ -369,10 +369,11 @@ public class StoreScript : MonoBehaviour
 
         else if (powerUpName.Equals("shield"))
         {
-            if (GameController.GetCrystals() >= GetPrice(powerUpName))
+            if (GameController.GetStardust() >= GetPrice(powerUpName))
             {
+                Debug.Log("PRE: " + PlayerPrefs.GetInt("healthBoostAmount"));
                 int i = PlayerPrefs.GetInt("healthBoostAmount");
-                PlayerPrefs.SetInt("healthBoostAmount", i++);
+                PlayerPrefs.SetInt("healthBoostAmount", i + 1);
                 Debug.Log("HBA: " + PlayerPrefs.GetInt("healthBoostAmount"));
                 GameController.DecreaseStardust(GetPrice(powerUpName));
                 gameController.SaveGame();
