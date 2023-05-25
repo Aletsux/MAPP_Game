@@ -429,11 +429,6 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("shield"))
         {
-            Debug.Log("SHIELDCOST " + PlayerPrefs.GetInt("RaidShieldCost"));
-            if (PlayerPrefs.GetInt("RaidShieldCost") == 0)
-            {
-                PlayerPrefs.SetInt("RaidShieldCost", 12);
-            }
             return gameController.GetShieldCost();
         }
 

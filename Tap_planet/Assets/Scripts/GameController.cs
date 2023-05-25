@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
     //public Image TPUImage;
     public Text TPUText;
     private static int TPUAmount = 0;
-    [SerializeField] int shieldCost = 1;
+    int shieldCost = 10000;
 
 
     [SerializeField] public int idleCost = 5;//the cost for the idle click powerup
@@ -433,7 +433,7 @@ public class GameController : MonoBehaviour
             {
                 timeLimitlevel = PlayerPrefs.GetInt("IdleExtenderLvl");
             }
-            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * timeLimitlevel) // om spelaren kommer in efter 30 min men innan idle extenders gräns
+            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 + 1800 * timeLimitlevel) // om spelaren kommer in efter 30 min men innan idle extenders gräns
             {
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
                 PanelManager.AddPanelToQueue(idleCollectedPanel);
@@ -690,6 +690,22 @@ public class GameController : MonoBehaviour
 
     public int GetShieldCost()
     {
-        return shieldCost;
+        int shieldLevel = PlayerPrefs.GetInt("ShieldLevel");
+        Debug.Log("SHIELDCOST : " + shieldLevel);
+
+        if (shieldLevel > 0) 
+        {
+            double num = Math.Ceiling(shieldCost * 1.2); // lägger till 20% på kostnad
+            shieldCost = (int)num;
+            PlayerPrefs.SetInt("ShieldLevel", shieldLevel++);
+            return shieldCost;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("ShieldLevel", shieldLevel++);
+            Debug.Log(shieldCost);
+            return shieldCost;
+        }
+        
     }
 }
