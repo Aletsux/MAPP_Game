@@ -413,7 +413,7 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("star"))
         {
-            return PlayerPrefs.GetInt("IdleExtenderLvl") * PlayerPrefs.GetInt("IdleExtenderLvl") * 1000;
+            return (PlayerPrefs.GetInt("IdleExtenderLvl") == 0) ? 1000 : PlayerPrefs.GetInt("IdleExtenderLvl") * 10000;
         }
         else if (name.Equals("doubletime"))
         {
