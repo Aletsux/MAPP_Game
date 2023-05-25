@@ -209,7 +209,7 @@ public class GameController : MonoBehaviour
             if (rng == i)
             {
                 endMethod = true;
-                AddStardust((stardustMinerLevel*5) + rng);
+                AddStardust(1);
             }
             if (endMethod)
                 return;
