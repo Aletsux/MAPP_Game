@@ -39,7 +39,6 @@ public class AndroidNotifications : MonoBehaviour
         // enter and defend your planet!
     }
 
-
     void OnApplicationFocus(bool focus)
     {
         if (focus)
