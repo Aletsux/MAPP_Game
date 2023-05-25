@@ -5,14 +5,19 @@ public class PowerupScript : ItemScript
 {
     private Text amountText;
     private string amountKey = "powerupAmount";
+    public bool isUsingAmount;
 
     public override void Start()
     {
+        if(isUsingAmount) {
         amountText = transform.GetChild(3).GetComponent<Text>();
+        }
+        
         table = "ButtonsPowerup";
         
         if (amountText != null)
             SetLevelText();
+        
         base.Start();
         descriptionPrice += "Powerup " + (index + 1);
     }
