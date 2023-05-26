@@ -9,6 +9,12 @@ public class AndroidNotifications : MonoBehaviour
 
     void Awake()
     {
+        if (PlayerPrefs.GetInt("VacationMode") == 0)
+        {
+            AndroidNotificationCenter.CancelAllDisplayedNotifications();
+            Destroy(gameObject);
+        }
+
         if (instance == null)
         {
             instance = this;
@@ -39,9 +45,14 @@ public class AndroidNotifications : MonoBehaviour
         // enter and defend your planet!
     }
 
-
     void OnApplicationFocus(bool focus)
     {
+        if (PlayerPrefs.GetInt("VacationMode") == 0)
+        {
+            AndroidNotificationCenter.CancelAllDisplayedNotifications();
+            Destroy(gameObject);
+        }
+
         if (focus)
         {
             // removes displayed notifications
