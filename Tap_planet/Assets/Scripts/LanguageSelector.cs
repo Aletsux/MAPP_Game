@@ -22,10 +22,10 @@ public class LanguageSelector : MonoBehaviour
 
     IEnumerator SetLanguage(int languageID)
     {
+        PlayerPrefs.SetInt("LanguageKey", languageID);
         active = true;
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[languageID];
-        PlayerPrefs.SetInt("LanguageKey", languageID);
         active = false;
     }
 }
