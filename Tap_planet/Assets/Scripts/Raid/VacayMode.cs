@@ -1,31 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class VacayMode : MonoBehaviour
 {
-    private Text buttonText;
-    private string table = "UI Text";
-    private string key;
+    private Image button;
+    public Color selectedColor;
+    public Color deselectedColor;
     public GameObject raid;
 
     void Start()
     {
-        buttonText = transform.GetChild(0).GetComponent<Text>();
+        button = GetComponent<Image>();
         bool toggle = true;
-        if (PlayerPrefs.GetInt("VacationMode") == 1)
+        button.color = selectedColor;
+        if (PlayerPrefs.GetInt("VacationMode") == 0)
         {
             toggle = false;
-            key = "raidoff";
-        }
-        else
-        {
-            key = "raidon";
+            button.color = deselectedColor;
         }
         raid.SetActive(toggle);
-        UpdateText();
     }
 
     public void ToggleVacationMode()
@@ -35,19 +30,13 @@ public class VacayMode : MonoBehaviour
         {
             toggle = false;
             PlayerPrefs.SetInt("VacationMode", 0);
-            key = "raidoff";
+            button.color = deselectedColor;
         }
         else
         {
             PlayerPrefs.SetInt("VacationMode", 1);
-            key = "raidon";
+            button.color = selectedColor;
         }
-        UpdateText();
         raid.SetActive(toggle);
-    }
-
-    public void UpdateText()
-    {
-        buttonText.text = LocalizationSettings.StringDatabase.GetLocalizedString(table, key);
     }
 }
