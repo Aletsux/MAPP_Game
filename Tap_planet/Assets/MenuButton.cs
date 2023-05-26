@@ -9,34 +9,24 @@ public class MenuButton : MonoBehaviour
     public MenuButton otherButton;
     public Color selectedColor;
     public Color deselectedColor;
-    private bool selected;
-
+    private bool selected = false;
 
     void Start()
     {
-        selected = false;
         if (language == PlayerPrefs.GetInt("LanguageKey"))
-            selected = true;
-        SetColor();
+            SetActiveColor();
     }
 
-    public void SetColor()
+    public void SetActiveColor()
     {
-        if (selected)
-            gameObject.GetComponent<Image>().color = selectedColor;
-        else
-            gameObject.GetComponent<Image>().color = deselectedColor;
-        selected = !selected;
-        if (otherButton.Selected() == this.selected)
-            otherButton.DeselectMe();
+        gameObject.GetComponent<Image>().color = selectedColor;
+        selected = true;
+        otherButton.SetInactiveColor();
     }
 
-    private void DeselectMe()
+    private void SetInactiveColor()
     {
-        SetColor();
-    }
-    public bool Selected()
-    {
-        return selected;
+        gameObject.GetComponent<Image>().color = deselectedColor;
+        selected = false;
     }
 }

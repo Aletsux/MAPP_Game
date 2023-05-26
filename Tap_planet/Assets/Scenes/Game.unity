@@ -12023,6 +12023,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: b9c25bfcedbba0f489f9ad8d06271436, type: 3}
+    - target: {fileID: 8876684719516747724, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9c25bfcedbba0f489f9ad8d06271436, type: 3}
     - target: {fileID: 9010891646979362848, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -19250,7 +19254,7 @@ MonoBehaviour:
   title: raidWipe
   index: 2
   type: 1
-  costsStardust: 0
+  costsStardust: 1
   isUsingAmount: 1
 --- !u!224 &1082847704 stripped
 RectTransform:
@@ -20287,6 +20291,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1196916227}
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+        m_MethodName: SetActiveColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1776946433}
         m_TargetAssemblyTypeName: LanguageSelector, Assembly-CSharp
         m_MethodName: ChangeLanguage
@@ -20302,18 +20318,6 @@ MonoBehaviour:
       - m_Target: {fileID: 297811886}
         m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
         m_MethodName: PlaySound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1196916227}
-        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
-        m_MethodName: SetColor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20377,6 +20381,7 @@ MonoBehaviour:
   otherButton: {fileID: 2139461542}
   selectedColor: {r: 1, g: 1, b: 1, a: 1}
   deselectedColor: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
+  selected: 0
 --- !u!1 &1201789183
 GameObject:
   m_ObjectHideFlags: 0
@@ -31848,6 +31853,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2139461542}
+        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
+        m_MethodName: SetActiveColor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1776946433}
         m_TargetAssemblyTypeName: LanguageSelector, Assembly-CSharp
         m_MethodName: ChangeLanguage
@@ -31863,18 +31880,6 @@ MonoBehaviour:
       - m_Target: {fileID: 297811886}
         m_TargetAssemblyTypeName: ButtonSound, Assembly-CSharp
         m_MethodName: PlaySound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1196916227}
-        m_TargetAssemblyTypeName: MenuButton, Assembly-CSharp
-        m_MethodName: SetColor
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31938,6 +31943,7 @@ MonoBehaviour:
   otherButton: {fileID: 1196916227}
   selectedColor: {r: 1, g: 1, b: 1, a: 1}
   deselectedColor: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 1}
+  selected: 0
 --- !u!1 &330460794593082105
 GameObject:
   m_ObjectHideFlags: 0
