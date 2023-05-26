@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
     //public Image TPUImage;
     public Text TPUText;
     private static int TPUAmount = 0;
-    int shieldCost = 10000;
+    //int shieldCost = 10000;
 
 
     [SerializeField] public int idleCost = 5;//the cost for the idle click powerup
@@ -152,6 +152,7 @@ public class GameController : MonoBehaviour
 
         UpdateCrystals();
         UpdateStardust();
+
     }
 
     public bool getIsTpuActive() {
@@ -349,6 +350,7 @@ public class GameController : MonoBehaviour
 
     private void ResetForBuild()
     {
+        PlayerPrefs.SetInt("TutorialCleared", 0);
         PlayerPrefs.SetString("crystals", 0.ToString());
         PlayerPrefs.SetInt("clickLvl", 1);
         PlayerPrefs.SetInt("stardust", 0);
@@ -685,21 +687,18 @@ public class GameController : MonoBehaviour
     public int GetShieldCost()
     {
         int shieldLevel = PlayerPrefs.GetInt("ShieldLevel");
-        Debug.Log("SHIELDCOST : " + shieldLevel);
+        int shieldCost = PlayerPrefs.GetInt("ShieldCost");
+        Debug.Log("THIS IS SHIELDLEVEL: " + shieldLevel);
+        Debug.Log("THIS IS SHIELDAMOUNT: " + PlayerPrefs.GetInt("healthBoostAmount"));
 
-        if (shieldLevel > 0) 
+        if (shieldLevel <= 0)
         {
-            double num = Math.Ceiling(shieldCost * 1.2); // lägger till 20% på kostnad
-            shieldCost = (int)num;
-            PlayerPrefs.SetInt("ShieldLevel", shieldLevel++);
-            return shieldCost;
+            PlayerPrefs.SetInt("ShieldCost", 10000);
+            return PlayerPrefs.GetInt("ShieldCost");
         }
         else
         {
-            PlayerPrefs.SetInt("ShieldLevel", shieldLevel++);
-            Debug.Log(shieldCost);
-            return shieldCost;
+            return PlayerPrefs.GetInt("ShieldCost");
         }
-        
     }
 }

@@ -718,6 +718,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &71931376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 71931377}
+  - component: {fileID: 71931379}
+  - component: {fileID: 71931378}
+  m_Layer: 5
+  m_Name: AmountText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &71931377
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71931376}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1177730924}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: -2152}
+  m_SizeDelta: {x: 245, y: 52}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &71931378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71931376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 16b5a3aedd98d40edaed299d6af7077c, type: 3}
+    m_FontSize: 10
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 1
+    m_MaxSize: 25
+    m_Alignment: 4
+    m_AlignByGeometry: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Amount: 1000'
+--- !u!222 &71931379
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71931376}
+  m_CullTransparentMesh: 1
 --- !u!1 &86602647
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,7 +908,7 @@ RectTransform:
   m_Children:
   - {fileID: 334738924}
   m_Father: {fileID: 687961533}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -8910,8 +8990,8 @@ RectTransform:
   m_Children:
   - {fileID: 1196916223}
   - {fileID: 2139461538}
-  - {fileID: 849885106}
   - {fileID: 102289197}
+  - {fileID: 849885106}
   - {fileID: 1424978825}
   - {fileID: 671940178}
   m_Father: {fileID: 61063968}
@@ -9982,7 +10062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 205854124986323145, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 205854124986323145, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -13275,7 +13355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662aec260cde1406590dd1bc7eb92bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: eedd7e8a37094477eb25ddb47eeb88d7, type: 3}
   itemName: 
   description: 
   price: 
@@ -17585,7 +17665,7 @@ RectTransform:
   m_Children:
   - {fileID: 1499699323}
   m_Father: {fileID: 687961533}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -18957,7 +19037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662aec260cde1406590dd1bc7eb92bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 6b2f60f867c9abd428a16d1e296eaa0d, type: 3}
   itemName: 
   description: 
   price: 
@@ -19790,7 +19870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662aec260cde1406590dd1bc7eb92bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 5cad79c231adf3b459f5927839847a29, type: 3}
   itemName: 
   description: 
   price: 
@@ -19800,8 +19880,13 @@ MonoBehaviour:
   title: shield
   index: 3
   type: 0
-  costsStardust: 0
+  costsStardust: 1
   isUsingAmount: 0
+--- !u!224 &1177730924 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9010891647529452891, guid: 3ca84bf2213b74fcda38c73bd23c4f01, type: 3}
+  m_PrefabInstance: {fileID: 770331716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1185147012
 GameObject:
   m_ObjectHideFlags: 0
@@ -20022,21 +20107,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 205055365}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ENGTaskOnCLick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 205055365}
-        m_TargetAssemblyTypeName: GameController, Assembly-CSharp
-        m_MethodName: ENGTaskOnCLick
+      - m_Target: {fileID: 102289202}
+        m_TargetAssemblyTypeName: VacayMode, Assembly-CSharp
+        m_MethodName: UpdateText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20878,7 +20951,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: TestRaid
+          m_StringArgument: RaidTest
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1258612447
@@ -29551,7 +29624,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edd36c875e1647d3b8e1c657a74dd2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: 451560c161fed4f489b39fe56f9e6d06, type: 3}
   itemName: 
   description: 
   price: 
@@ -30035,7 +30108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662aec260cde1406590dd1bc7eb92bbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300000, guid: a6fbd5a181bc51e42a61a73fe8d727c8, type: 3}
+  itemSprite: {fileID: 21300000, guid: 6cf1a359ee32b0047a64a5f12d373544, type: 3}
   itemName: 
   description: 
   price: 
@@ -31256,7 +31329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8edd36c875e1647d3b8e1c657a74dd2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 21300000, guid: c10dafc8b6f78472cbaba02a780322f6, type: 3}
   itemName: 
   description: 
   price: 
@@ -31578,9 +31651,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1810921110}
-        m_TargetAssemblyTypeName: EditText, Assembly-CSharp
-        m_MethodName: CheckIfSvenska
+      - m_Target: {fileID: 102289202}
+        m_TargetAssemblyTypeName: VacayMode, Assembly-CSharp
+        m_MethodName: UpdateText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

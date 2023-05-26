@@ -90,7 +90,7 @@ public class PowerUpHandler : MonoBehaviour
 
     public void IncreaseShieldAmount()
     {
-        PlayerPrefs.SetInt("healthBoostAmount", 1);
-        Debug.Log("HBA: " + PlayerPrefs.GetInt("healthBoostAmount"));
+        //PlayerPrefs.SetInt("healthBoostAmount", 1);
+        //Debug.Log("HBA: " + PlayerPrefs.GetInt("healthBoostAmount"));
     }
  }
