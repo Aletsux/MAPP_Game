@@ -687,17 +687,16 @@ public class GameController : MonoBehaviour
     {
         int shieldLevel = PlayerPrefs.GetInt("ShieldLevel");
         int shieldCost = PlayerPrefs.GetInt("ShieldCost");
+        Debug.Log("THIS IS SHIELDLEVEL: " + shieldLevel);
+        Debug.Log("THIS IS SHIELDAMOUNT: " + PlayerPrefs.GetInt("healthBoostAmount"));
 
         if (shieldLevel <= 0)
         {
-            PlayerPrefs.SetInt("ShieldLevel", 1);
             PlayerPrefs.SetInt("ShieldCost", 10000);
             return PlayerPrefs.GetInt("ShieldCost");
         }
         else
-        {          
-            PlayerPrefs.SetInt("ShieldCost", (int)(shieldCost * 1.2));
-            PlayerPrefs.SetInt("ShieldLevel", shieldLevel + 1);
+        {
             return PlayerPrefs.GetInt("ShieldCost");
         }
     }

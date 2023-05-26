@@ -369,8 +369,22 @@ public class StoreScript : MonoBehaviour
 
         else if (powerUpName.Equals("shield"))
         {
+            int shieldLevel = PlayerPrefs.GetInt("ShieldLevel");
+            int shieldCost = PlayerPrefs.GetInt("ShieldCost");
+
             if (GameController.GetStardust() >= GetPrice(powerUpName))
             {
+
+                if (shieldLevel <= 0)
+                {
+                    PlayerPrefs.SetInt("ShieldLevel", 1);
+                    PlayerPrefs.SetInt("ShieldCost", 10000);
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("ShieldCost", (int)(shieldCost * 1.2));
+                    PlayerPrefs.SetInt("ShieldLevel", shieldLevel + 1);
+                }
                 Debug.Log("PRE: " + PlayerPrefs.GetInt("healthBoostAmount"));
                 int i = PlayerPrefs.GetInt("healthBoostAmount");
                 PlayerPrefs.SetInt("healthBoostAmount", i + 1);
