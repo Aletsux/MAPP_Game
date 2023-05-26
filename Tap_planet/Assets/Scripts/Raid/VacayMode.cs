@@ -5,23 +5,20 @@ using UnityEngine.UI;
 
 public class VacayMode : MonoBehaviour
 {
-    private Image crossedOut;
+    private Image button;
     public Color selectedColor;
     public Color deselectedColor;
     public GameObject raid;
 
     void Start()
     {
-        crossedOut = transform.GetChild(1).GetComponent<Image>();
+        button = GetComponent<Image>();
         bool toggle = true;
-        if (PlayerPrefs.GetInt("VacationMode") == 1)
+        button.color = selectedColor;
+        if (PlayerPrefs.GetInt("VacationMode") == 0)
         {
             toggle = false;
-            crossedOut.color = deselectedColor;
-        }
-        else
-        {
-            crossedOut.color = selectedColor;
+            button.color = deselectedColor;
         }
         raid.SetActive(toggle);
     }
@@ -33,12 +30,12 @@ public class VacayMode : MonoBehaviour
         {
             toggle = false;
             PlayerPrefs.SetInt("VacationMode", 0);
-            crossedOut.color = deselectedColor;
+            button.color = deselectedColor;
         }
         else
         {
             PlayerPrefs.SetInt("VacationMode", 1);
-            crossedOut.color = selectedColor;
+            button.color = selectedColor;
         }
         raid.SetActive(toggle);
     }
