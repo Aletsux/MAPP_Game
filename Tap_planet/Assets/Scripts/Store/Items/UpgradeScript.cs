@@ -12,6 +12,7 @@ public class UpgradeScript : ItemScript
 
     public override void Start()
     {
+        print("start!");
         levelText = transform.GetChild(3).GetComponent<Text>();
         table = "ButtonsUpgrade";
         if (!usingChangeText)

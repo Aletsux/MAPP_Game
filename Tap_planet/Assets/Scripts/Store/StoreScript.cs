@@ -107,18 +107,22 @@ public class StoreScript : MonoBehaviour
             PlayerPrefs.SetInt("PlanetPurchased_" + 0, 1);
             PlayerPrefs.Save();
         }
+    }
+    void Start()
+    {
+        StartCoroutine(InvokeMethodAfterStart());
+    }
 
+    private IEnumerator InvokeMethodAfterStart()
+    {
+        yield return null;
         CloseStore();
     }
+
     public void OpenStore()
     {
         gameObject.SetActive(true);
         CloseTabsExcept("upgrade");
-        UpgradeScript[] levels = GameObject.FindObjectsByType<UpgradeScript>(FindObjectsSortMode.None);
-        foreach (UpgradeScript level in levels)
-        {
-            level.SetLevelText();
-        }
     }
 
     public void CloseStore()
@@ -133,11 +137,29 @@ public class StoreScript : MonoBehaviour
         planetTabButton.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f);
         powerupTabButton.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f);
 
+        
         upgradeTab.SetActive(CorrectTab(tab, "upgrade")); // only true if method was called with upgrade as argument
         accessoryTab.SetActive(CorrectTab(tab, "accessory")); // false if called with upgrade
         planetTab.SetActive(CorrectTab(tab, "planet"));
         powerupTab.SetActive(CorrectTab(tab, "powerup"));
 
+        if (CorrectTab(tab, "upgrade"))
+        {
+            UpgradeScript[] levels = GameObject.FindObjectsByType<UpgradeScript>(FindObjectsSortMode.None);
+            foreach (UpgradeScript level in levels)
+            {
+                level.SetLevelText();
+            }
+        }
+        if (CorrectTab(tab, "powerup"))
+        {
+            PowerupScript[] amounts = GameObject.FindObjectsByType<PowerupScript>(FindObjectsSortMode.None);
+            foreach (PowerupScript amount in amounts)
+            {
+                if (amount.isUsingAmount)
+                    amount.SetAmountText();
+            }
+        }
         if (upgradeTab.activeSelf)
         {
             upgradeTabButton.GetComponent<Image>().color = Color.white;
