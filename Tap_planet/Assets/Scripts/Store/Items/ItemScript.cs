@@ -186,4 +186,6 @@ public class ItemScript : MonoBehaviour
             return true;
         return false;
     }
+
+
 }

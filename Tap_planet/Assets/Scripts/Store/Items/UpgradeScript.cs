@@ -40,10 +40,9 @@ public class UpgradeScript : ItemScript
         desc.GetAllInformation(this, true);
     }
 
-    private void SetLevelText()
+    public void SetLevelText()
     {
         string level = (GameController.GetLevel(title) == 0) ? "" : LocalizationSettings.StringDatabase.GetLocalizedString(table, levelKey) + GameController.GetLevel(title);
         levelText.text = level;
-        print(title + " "  + GameController.GetLevel(title));
     }
 }

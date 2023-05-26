@@ -114,6 +114,11 @@ public class StoreScript : MonoBehaviour
     {
         gameObject.SetActive(true);
         CloseTabsExcept("upgrade");
+        UpgradeScript[] levels = GameObject.FindObjectsByType<UpgradeScript>(FindObjectsSortMode.None);
+        foreach (UpgradeScript level in levels)
+        {
+            level.SetLevelText();
+        }
     }
 
     public void CloseStore()
