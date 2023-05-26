@@ -350,6 +350,7 @@ public class GameController : MonoBehaviour
 
     private void ResetForBuild()
     {
+        PlayerPrefs.SetInt("TutorialCleared", 0);
         PlayerPrefs.SetString("crystals", 0.ToString());
         PlayerPrefs.SetInt("clickLvl", 1);
         PlayerPrefs.SetInt("stardust", 0);
