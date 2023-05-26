@@ -114,6 +114,11 @@ public class StoreScript : MonoBehaviour
     {
         gameObject.SetActive(true);
         CloseTabsExcept("upgrade");
+        UpgradeScript[] levels = GameObject.FindObjectsByType<UpgradeScript>(FindObjectsSortMode.None);
+        foreach (UpgradeScript level in levels)
+        {
+            level.SetLevelText();
+        }
     }
 
     public void CloseStore()
@@ -356,7 +361,7 @@ public class StoreScript : MonoBehaviour
                 print(PlayerPrefs.GetInt("WipeEnemiesAmount"));
                 print(PlayerPrefs.GetInt("RaidWipeCost"));
             }
-        } 
+        }
         else if (powerUpName.Equals("doubletime"))
         {
             if (GameController.IsIdleTrue() && GameController.GetCrystals() >= GetPrice(powerUpName))
@@ -369,27 +374,34 @@ public class StoreScript : MonoBehaviour
 
         else if (powerUpName.Equals("shield"))
         {
-            if (GameController.GetCrystals() >= GetPrice(powerUpName))
+            int shieldLevel = PlayerPrefs.GetInt("ShieldLevel");
+            int shieldCost = PlayerPrefs.GetInt("ShieldCost");
+
+            if (GameController.GetStardust() >= GetPrice(powerUpName))
             {
-                int i = PlayerPrefs.GetInt("healthBoostAmount");
 
-                if (i < 1)
+                if (shieldLevel <= 0)
                 {
-                    PlayerPrefs.SetInt("healthBoostAmount", i + 1);
-
-                    GameController.DecreaseStardust(GetPrice(powerUpName));
-
-                    gameController.SaveGame();
-
+                    PlayerPrefs.SetInt("ShieldLevel", 1);
+                    PlayerPrefs.SetInt("ShieldCost", 10000);
                 }
                 else
                 {
-                    //Knapp inaktiverad.
+                    PlayerPrefs.SetInt("ShieldCost", (int)(shieldCost * 1.2));
+                    PlayerPrefs.SetInt("ShieldLevel", shieldLevel + 1);
                 }
+                Debug.Log("PRE: " + PlayerPrefs.GetInt("healthBoostAmount"));
+                int i = PlayerPrefs.GetInt("healthBoostAmount");
+                PlayerPrefs.SetInt("healthBoostAmount", i + 1);
+                Debug.Log("HBA: " + PlayerPrefs.GetInt("healthBoostAmount"));
+                GameController.DecreaseStardust(GetPrice(powerUpName));
+                gameController.SaveGame();
+            }
+            else
+            {
+                //Knapp inaktiverad.
             }
         }
-
-        gameController.SaveGame();
     }
     //Set updates time for all items in store
     public int GetPrice(string name)
