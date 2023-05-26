@@ -413,7 +413,7 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("perm"))
         {
-            return GameController.GetClickLvl() * (5);
+            return GameController.GetClickLvl() * (25);
         }
         else if (name.Equals("temp"))
         {
