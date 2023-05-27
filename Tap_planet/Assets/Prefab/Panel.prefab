@@ -145,6 +145,7 @@ MonoBehaviour:
   itemName: {fileID: 0}
   description: {fileID: 0}
   price: {fileID: 0}
+  buttonClose: {fileID: 0}
 --- !u!1001 &4709575008244657018
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1542,6 +1543,10 @@ PrefabInstance:
       propertyPath: m_Padding.m_Right
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4209621262645306910, guid: d2c02dd4cd7334b7aaa87179dba514d9, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9c25bfcedbba0f489f9ad8d06271436, type: 3}
     - target: {fileID: 4347904051842622600, guid: d2c02dd4cd7334b7aaa87179dba514d9, type: 3}
       propertyPath: m_Name
       value: Button 1

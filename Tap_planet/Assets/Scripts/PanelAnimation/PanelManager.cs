@@ -24,17 +24,10 @@ public class PanelManager : MonoBehaviour
     }
     void Update()
     {
-        print("1");
         if (panelQueue.Count != 0)
         {
-            print(panelQueue.First.Value.name);
             if (!currentIsOpen )
             {
-                print("3");
-                foreach (GameObject g in panelQueue)
-                {
-                    print(g.name);
-                }
                 OpenNextPanel();
             }
         }

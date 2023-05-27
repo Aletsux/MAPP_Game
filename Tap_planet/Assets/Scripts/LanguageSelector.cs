@@ -5,7 +5,6 @@ using UnityEngine.Localization.Settings;
 
 public class LanguageSelector : MonoBehaviour
 {
-
     private void Start()
     {
         int ID = PlayerPrefs.GetInt("LanguageKey", 0);
@@ -20,15 +19,13 @@ public class LanguageSelector : MonoBehaviour
             return;
         StartCoroutine(SetLanguage(languageID));
     }
-   IEnumerator SetLanguage(int languageID)
+
+    IEnumerator SetLanguage(int languageID)
     {
+        PlayerPrefs.SetInt("LanguageKey", languageID);
         active = true;
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[languageID];
-        PlayerPrefs.SetInt("LanguageKey", languageID);
         active = false;
     }
-
-
-
 }

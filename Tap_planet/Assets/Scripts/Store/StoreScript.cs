@@ -107,9 +107,18 @@ public class StoreScript : MonoBehaviour
             PlayerPrefs.SetInt("PlanetPurchased_" + 0, 1);
             PlayerPrefs.Save();
         }
+    }
+    void Start()
+    {
+        StartCoroutine(InvokeMethodAfterStart());
+    }
 
+    private IEnumerator InvokeMethodAfterStart()
+    {
+        yield return null;
         CloseStore();
     }
+
     public void OpenStore()
     {
         gameObject.SetActive(true);
@@ -128,11 +137,29 @@ public class StoreScript : MonoBehaviour
         planetTabButton.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f);
         powerupTabButton.GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f);
 
+        
         upgradeTab.SetActive(CorrectTab(tab, "upgrade")); // only true if method was called with upgrade as argument
         accessoryTab.SetActive(CorrectTab(tab, "accessory")); // false if called with upgrade
         planetTab.SetActive(CorrectTab(tab, "planet"));
         powerupTab.SetActive(CorrectTab(tab, "powerup"));
 
+        if (CorrectTab(tab, "upgrade"))
+        {
+            UpgradeScript[] levels = GameObject.FindObjectsByType<UpgradeScript>(FindObjectsSortMode.None);
+            foreach (UpgradeScript level in levels)
+            {
+                level.SetLevelText();
+            }
+        }
+        if (CorrectTab(tab, "powerup"))
+        {
+            PowerupScript[] amounts = GameObject.FindObjectsByType<PowerupScript>(FindObjectsSortMode.None);
+            foreach (PowerupScript amount in amounts)
+            {
+                if (amount.isUsingAmount)
+                    amount.SetAmountText();
+            }
+        }
         if (upgradeTab.activeSelf)
         {
             upgradeTabButton.GetComponent<Image>().color = Color.white;
@@ -356,18 +383,47 @@ public class StoreScript : MonoBehaviour
                 print(PlayerPrefs.GetInt("WipeEnemiesAmount"));
                 print(PlayerPrefs.GetInt("RaidWipeCost"));
             }
-        } 
+        }
         else if (powerUpName.Equals("doubletime"))
         {
             if (GameController.IsIdleTrue() && GameController.GetCrystals() >= GetPrice(powerUpName))
             {
                 //PlayerPrefs.SetInt("DoubleTime", PlayerPrefs.GetInt("DoubleTime") + 1);
-                DoubleTime.IncreaseCost();
                 GameController.DecreaseCrystals(GetPrice(powerUpName));
+                DoubleTime.IncreaseCost();
             }
-        } 
+        }
 
-        gameController.SaveGame();
+        else if (powerUpName.Equals("shield"))
+        {
+            int shieldLevel = PlayerPrefs.GetInt("ShieldLevel");
+            int shieldCost = PlayerPrefs.GetInt("ShieldCost");
+
+            if (GameController.GetStardust() >= GetPrice(powerUpName))
+            {
+
+                if (shieldLevel <= 0)
+                {
+                    PlayerPrefs.SetInt("ShieldLevel", 1);
+                    PlayerPrefs.SetInt("ShieldCost", 10000);
+                }
+                else
+                {
+                    PlayerPrefs.SetInt("ShieldCost", (int)(shieldCost * 1.2));
+                    PlayerPrefs.SetInt("ShieldLevel", shieldLevel + 1);
+                }
+                Debug.Log("PRE: " + PlayerPrefs.GetInt("healthBoostAmount"));
+                int i = PlayerPrefs.GetInt("healthBoostAmount");
+                PlayerPrefs.SetInt("healthBoostAmount", i + 1);
+                Debug.Log("HBA: " + PlayerPrefs.GetInt("healthBoostAmount"));
+                GameController.DecreaseStardust(GetPrice(powerUpName));
+                gameController.SaveGame();
+            }
+            else
+            {
+                //Knapp inaktiverad.
+            }
+        }
     }
     //Set updates time for all items in store
     public int GetPrice(string name)
@@ -379,7 +435,7 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("perm"))
         {
-            return GameController.GetClickLvl() * (5);
+            return GameController.GetClickLvl() * (25);
         }
         else if (name.Equals("temp"))
         {
@@ -387,11 +443,13 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("dust"))
         {
-            return (GameController.GetStardustMinerLevel() == 0) ? 1000 : (GameController.GetStardustMinerLevel() * (1000 * 10)) * 130 / 100; //increase 30%
+            if (GameController.GetStardustMinerLevel() == 20)
+                return -1;
+            return (GameController.GetStardustMinerLevel() == 0) ? 1000 : (GameController.GetStardustMinerLevel() * 10000 * (130 / 100)); //increase 30%
         }
         else if (name.Equals("star"))
         {
-            return PlayerPrefs.GetInt("IdleExtenderLvl") * PlayerPrefs.GetInt("IdleExtenderLvl") * 1000;
+            return (PlayerPrefs.GetInt("IdleExtenderLvl") == 0) ? 1000 : PlayerPrefs.GetInt("IdleExtenderLvl") * 10000;
         }
         else if (name.Equals("doubletime"))
         {
@@ -407,11 +465,7 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("shield"))
         {
-            if (PlayerPrefs.GetInt("RaidWipeCost") == 0)
-            {
-                PlayerPrefs.SetInt("RaidWipeCost", 10);
-            }
-            return PlayerPrefs.GetInt("RaidWipeCost");
+            return gameController.GetShieldCost();
         }
 
         //Accessories
@@ -442,6 +496,18 @@ public class StoreScript : MonoBehaviour
         else if (name.Equals("purpleTie"))
         {
             return accessoryCosts[7];
+        }
+        else if (name.Equals("purpleTie"))
+        {
+            return accessoryCosts[7];
+        }
+        else if (name.Equals("lights"))
+        {
+            return accessoryCosts[8];
+        }
+        else if (name.Equals("leaf"))
+        {
+            return accessoryCosts[9];
         }
 
         //Planets

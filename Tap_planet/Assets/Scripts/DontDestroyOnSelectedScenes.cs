@@ -4,10 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class DontDestroyOnSelectedScenes : MonoBehaviour
 {
-    [Tooltip("Names of the scenes this object should stay alive in when transitioning into")]
     public List<string> sceneNames;
 
-    [Tooltip("A unique string identifier for this object, must be shared across scenes to work correctly")]
     public string instanceName;
 
     private void Start()
@@ -16,46 +14,38 @@ public class DontDestroyOnSelectedScenes : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // delete duplictes
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    { 
         CheckForDuplicateInstances();
-
-        // checks if object should be deleted based on the input scene names given 
         CheckIfSceneInList();
     }
 
     void CheckForDuplicateInstances()
     {
-        // cache all objects containing this component
         DontDestroyOnSelectedScenes[] collection = FindObjectsOfType<DontDestroyOnSelectedScenes>();
 
-        // iterate through the objects with this component, deleting those with matching identifiers
         foreach (DontDestroyOnSelectedScenes obj in collection)
         {
-            if (obj != this) // avoid deleting the object running this check
+            if (obj != this)
             {
                 if (obj.instanceName == instanceName)
                 {
-                    Debug.Log("Duplicate object in loaded scene, deleting now...");
                     DestroyImmediate(obj.gameObject);
                 }
             }
         }
     }
 
-    void CheckIfSceneInList()
+    private void CheckIfSceneInList()
     {
-        // check what scene we are in and compare it to the list of strings 
         string currentScene = SceneManager.GetActiveScene().name;
 
         if (sceneNames.Contains(currentScene))
         {
-            // keep the object alive 
+            
         }
         else
         {
-            // unsubscribe to the scene load callback
             SceneManager.sceneLoaded -= OnSceneLoaded;
             DestroyImmediate(this.gameObject);
         }

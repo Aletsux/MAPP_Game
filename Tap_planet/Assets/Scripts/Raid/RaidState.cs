@@ -85,27 +85,25 @@ public class RaidState : MonoBehaviour
             }
             enemiesKilled *= 100;
             motherShipBonusText.text = "x" + 100;
-            //raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
             PanelManager.AddPanelToQueue(raidOverPanel, true);
         }
         else if (PlanetState.HP <= 0)
         {
             enemiesKilled = -100;
-            //gameOverPanel.GetComponent<PanelAnimation>().StretchPanel();
             PanelManager.AddPanelToQueue(gameOverPanel, true);
         }
         else
         {
-            //raidOverPanel.GetComponent<PanelAnimation>().StretchPanel();
             PanelManager.AddPanelToQueue(raidOverPanel, true);
         }
-        int crystals = enemiesKilled * clickLvl;
-        int stardust = enemiesKilled;
-        
-        crystalsWon.text = crystalsLost.text = FormatNumbers.FormatInt(crystals);
-        stardustWon.text = stardustLost.text = FormatNumbers.FormatInt(stardust);
 
-        //raidOverPanel.SetActive(true);zx
+        
+        int rng = Random.Range(3,8);
+        long crystals = (PlanetState.HP > 0) ? enemiesKilled * 10 : ((long.Parse(PlayerPrefs.GetString("crystals")) * rng) / 10) * (-1);
+        int stardust =  (PlanetState.HP > 0) ? enemiesKilled : ((PlayerPrefs.GetInt("stardust") * rng) / 10) * (-1);
+
+        crystalsWon.text = crystalsLost.text = crystals.ToString();
+        stardustWon.text = stardustLost.text = FormatNumbers.FormatInt(stardust);
 
         GameController.AddCrystals(crystals);
         Debug.Log("HERE HERE HERE " + crystals * 10 * clickLvl);

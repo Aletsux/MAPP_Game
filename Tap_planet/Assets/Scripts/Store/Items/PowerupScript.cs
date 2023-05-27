@@ -3,16 +3,21 @@ using UnityEngine.UI;
 
 public class PowerupScript : ItemScript
 {
-    private Text amountText;
-    private string amountKey = "powerupAmount";
+    protected Text amountText;
+    protected string amountKey = "powerupAmount";
+    public bool isUsingAmount;
 
     public override void Start()
     {
+        if(isUsingAmount) {
         amountText = transform.GetChild(3).GetComponent<Text>();
+        }
+        
         table = "ButtonsPowerup";
         
         if (amountText != null)
-            SetLevelText();
+            SetAmountText();
+        
         base.Start();
         descriptionPrice += "Powerup " + (index + 1);
     }
@@ -28,12 +33,16 @@ public class PowerupScript : ItemScript
         SetDescriptionTranslations();
         store.BuyPowerUp(title);
         SetBuyButtonText();
-        SetLevelText();
+        if (isUsingAmount)
+        {
+            SetAmountText();
+        }       
         desc.GetAllInformation(this, true);
     }
 
-    public void SetLevelText()
+    public virtual void SetAmountText()
     {
-        amountText.text = LocalizationSettings.StringDatabase.GetLocalizedString(table, amountKey) + GameController.GetPowerupAmount(title);
+        string amount = (GameController.GetPowerupAmount(title) == 0) ? "" : LocalizationSettings.StringDatabase.GetLocalizedString(table, amountKey) + GameController.GetPowerupAmount(title);
+        amountText.text = amount;
     }
 }

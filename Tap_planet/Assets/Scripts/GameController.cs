@@ -39,7 +39,8 @@ public class GameController : MonoBehaviour
     //public Image TPUImage;
     public Text TPUText;
     private static int TPUAmount = 0;
-    
+    //int shieldCost = 10000;
+
 
     [SerializeField] public int idleCost = 5;//the cost for the idle click powerup
     public float clicksPerSecond = 1f;
@@ -151,6 +152,7 @@ public class GameController : MonoBehaviour
 
         UpdateCrystals();
         UpdateStardust();
+
     }
 
     public void resetBuild() {
@@ -194,11 +196,11 @@ public class GameController : MonoBehaviour
 
     public void ClickLevelUp()
     {
-        PlayerPrefs.SetInt("ClickLevelInStore", PlayerPrefs.GetInt("ClickLevelInStore") + 1);
         double toAdd = 1;
         if (clickLvl % 10 == 0) // every 10 upgrades varje gång klickar på knapp i store
             toAdd = clickLvl;  // the player gets a bonus
-        clickLvl += 1 + (int)(clickLvl * 0.1);
+        clickLvl += 1 + (int)(PlayerPrefs.GetInt("ClickLevelInStore"));
+        PlayerPrefs.SetInt("ClickLevelInStore", PlayerPrefs.GetInt("ClickLevelInStore") + 1);
     }
 
     public static int ReturnClickLvl()
@@ -208,14 +210,14 @@ public class GameController : MonoBehaviour
 
     public void ClickStardust()
     {
-        int rng = rnd.Next(1, 100);
+        int rng = rnd.Next(1, 200);
         bool endMethod = false;
         for (int i = 1; i <= stardustMinerLevel; i++)
         {
             if (rng == i)
             {
                 endMethod = true;
-                AddStardust((stardustMinerLevel*5) + rng);
+                AddStardust(1 + (PlayerPrefs.GetInt("ClickLevelInStore") - 1));
             }
             if (endMethod)
                 return;
@@ -242,7 +244,8 @@ public class GameController : MonoBehaviour
 
     public void IncreaseStardustMinerLevel()
     {
-        stardustMinerLevel += 1;
+        if (stardustMinerLevel < 20)
+            stardustMinerLevel ++;
     }
 
     public static int GetStardustMinerLevel()
@@ -355,6 +358,7 @@ public class GameController : MonoBehaviour
 
     private void ResetForBuild()
     {
+        PlayerPrefs.SetInt("TutorialCleared", 0);
         PlayerPrefs.SetString("crystals", 0.ToString());
         PlayerPrefs.SetInt("clickLvl", 1);
         PlayerPrefs.SetInt("stardust", 0);
@@ -383,7 +387,7 @@ public class GameController : MonoBehaviour
 
     private void GetMoney()
     {
-        PlayerPrefs.SetString("crystals", 1000000.ToString());
+        PlayerPrefs.SetString("crystals", 100000000.ToString());
         PlayerPrefs.SetInt("clickLvl", 1);
         PlayerPrefs.SetInt("stardust", 1000000);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
@@ -406,12 +410,10 @@ public class GameController : MonoBehaviour
         if (long.TryParse(PlayerPrefs.GetString("crystals"), out long getCrystals))
         {
             crystals = getCrystals;
-            print("yes");
         }
         else
         {
             crystals = 0;
-            print("no");
         }
         clickLvl = PlayerPrefs.GetInt("clickLvl");
         TPUAmount = PlayerPrefs.GetInt("tpu");
@@ -434,25 +436,19 @@ public class GameController : MonoBehaviour
         
         if (isUsingIdleClicker)
         {
-            int timeLimitlevel = 1;
-            if (PlayerPrefs.GetInt("IdleExtenderLvl") != 0) // ser till att level inte är 0
-            {
-                timeLimitlevel = PlayerPrefs.GetInt("IdleExtenderLvl");
-            }
-            if (calculateSecondsSinceQuit() > 1800 && calculateSecondsSinceQuit() <= 1800 * timeLimitlevel) // om spelaren kommer in efter 30 min men innan idle extenders gräns
+            int timeLimitlevel = PlayerPrefs.GetInt("IdleExtenderLvl");
+            if (calculateSecondsSinceQuit() > 600 && calculateSecondsSinceQuit() <= 1800 + 1800 * timeLimitlevel) // om spelaren kommer in efter 10 min men innan idle extenders gräns
             {
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
                 PanelManager.AddPanelToQueue(idleCollectedPanel);
             }
-            else if (calculateSecondsSinceQuit() > 1800 * timeLimitlevel) // kommer in efter idle extenders gräns
+            else if (calculateSecondsSinceQuit() > 1800 + 1800 * timeLimitlevel) // kommer in efter idle extenders gräns
             {
                 idleCollectedPanel.transform.GetChild(0).GetChild(2).GetComponent<Text>().text = LocalizationSettings.StringDatabase.GetLocalizedString("IdleStartPanel", "FellAsleep"); // hämtar översättning
 
 
                 idleCollectedPanel.transform.GetChild(0).GetChild(1).GetChild(1).GetComponent<Text>().text = FormatNumbers.FormatInt(ReturnIdleClicks(calculateSecondsSinceQuit()));
                 PanelManager.AddPanelToQueue(idleCollectedPanel);
-
-
             }
             LoadIdleClicks(calculateSecondsSinceQuit());
         }
@@ -462,6 +458,7 @@ public class GameController : MonoBehaviour
 
     public static int calculateSecondsSinceQuit()
     {
+        return 18010000;
         return (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds - PlayerPrefs.GetInt("quitTime");
     }
 
@@ -561,9 +558,9 @@ public class GameController : MonoBehaviour
 
     private void LoadIdleClicks(int secondsPassed)
     {
-        if (secondsPassed > PlayerPrefs.GetInt("IdleExtenderLvl") * 1800) 
+        if (secondsPassed >= 1800 + 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) 
         {
-            secondsPassed = PlayerPrefs.GetInt("IdleExtenderLvl") * 1800; // maxgräns för vad spelaren kan tjäna
+            secondsPassed = 1800 + 1800 * PlayerPrefs.GetInt("IdleExtenderLvl"); // maxgräns för vad spelaren kan tjäna
         }
 
         if (isAtLevel) //varje sek
@@ -578,6 +575,8 @@ public class GameController : MonoBehaviour
                 int result = secondsPassed * numPerSec;
                 crystals += result;
                 crystalAmount.text = crystals + ""/*suffix*/;
+
+                print("hello " + result);
             }           
         }
 
@@ -589,6 +588,8 @@ public class GameController : MonoBehaviour
                 int result = (int)dResult;
                 crystals += result;
                 crystalAmount.text = crystals + ""/*suffix*/;
+
+                print("hello " + result);
             }
         }
     }
@@ -596,9 +597,9 @@ public class GameController : MonoBehaviour
     private int ReturnIdleClicks(int secondsPassed) // returnerar det LoadIdleClicks adderar till spelarens total
     {
         int idleClicks = 0;
-        if (secondsPassed > PlayerPrefs.GetInt("IdleExtenderLvl") * 1800)
+        if (secondsPassed >= 1800 + 1800 * PlayerPrefs.GetInt("IdleExtenderLvl"))
         {
-            secondsPassed = PlayerPrefs.GetInt("IdleExtenderLvl") * 1800;
+            secondsPassed = 1800 + 1800 * PlayerPrefs.GetInt("IdleExtenderLvl"); // maxgräns för vad spelaren kan tjäna
         }
 
         if (isAtLevel) //varje sek
@@ -624,6 +625,7 @@ public class GameController : MonoBehaviour
                 crystalAmount.text = crystals + ""/*suffix*/;
             }
         }
+        
         return idleClicks;
     }
 
@@ -692,5 +694,23 @@ public class GameController : MonoBehaviour
             return TPUAmount;
         }
         return 0;
+    }
+
+    public int GetShieldCost()
+    {
+        int shieldLevel = PlayerPrefs.GetInt("ShieldLevel");
+        int shieldCost = PlayerPrefs.GetInt("ShieldCost");
+        Debug.Log("THIS IS SHIELDLEVEL: " + shieldLevel);
+        Debug.Log("THIS IS SHIELDAMOUNT: " + PlayerPrefs.GetInt("healthBoostAmount"));
+
+        if (shieldLevel <= 0)
+        {
+            PlayerPrefs.SetInt("ShieldCost", 10000);
+            return PlayerPrefs.GetInt("ShieldCost");
+        }
+        else
+        {
+            return PlayerPrefs.GetInt("ShieldCost");
+        }
     }
 }
