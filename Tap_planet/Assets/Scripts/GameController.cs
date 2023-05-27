@@ -189,11 +189,11 @@ public class GameController : MonoBehaviour
 
     public void ClickLevelUp()
     {
-        PlayerPrefs.SetInt("ClickLevelInStore", PlayerPrefs.GetInt("ClickLevelInStore") + 1);
         double toAdd = 1;
         if (clickLvl % 10 == 0) // every 10 upgrades varje gång klickar på knapp i store
             toAdd = clickLvl;  // the player gets a bonus
-        clickLvl += 1 + (int)(clickLvl * 0.1);
+        clickLvl += 1 + (int)(PlayerPrefs.GetInt("ClickLevelInStore"));
+        PlayerPrefs.SetInt("ClickLevelInStore", PlayerPrefs.GetInt("ClickLevelInStore") + 1);
     }
 
     public static int ReturnClickLvl()
@@ -403,12 +403,10 @@ public class GameController : MonoBehaviour
         if (long.TryParse(PlayerPrefs.GetString("crystals"), out long getCrystals))
         {
             crystals = getCrystals;
-            print("yes");
         }
         else
         {
             crystals = 0;
-            print("no");
         }
         clickLvl = PlayerPrefs.GetInt("clickLvl");
         TPUAmount = PlayerPrefs.GetInt("tpu");
@@ -453,6 +451,7 @@ public class GameController : MonoBehaviour
 
     public static int calculateSecondsSinceQuit()
     {
+        return 18010000;
         return (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds - PlayerPrefs.GetInt("quitTime");
     }
 
@@ -552,9 +551,9 @@ public class GameController : MonoBehaviour
 
     private void LoadIdleClicks(int secondsPassed)
     {
-        if (secondsPassed > PlayerPrefs.GetInt("IdleExtenderLvl") * 1800) 
+        if (secondsPassed >= 1800 + 1800 * PlayerPrefs.GetInt("IdleExtenderLvl")) 
         {
-            secondsPassed = PlayerPrefs.GetInt("IdleExtenderLvl") * 1800; // maxgräns för vad spelaren kan tjäna
+            secondsPassed = 1800 + 1800 * PlayerPrefs.GetInt("IdleExtenderLvl"); // maxgräns för vad spelaren kan tjäna
         }
 
         if (isAtLevel) //varje sek
@@ -569,6 +568,8 @@ public class GameController : MonoBehaviour
                 int result = secondsPassed * numPerSec;
                 crystals += result;
                 crystalAmount.text = crystals + ""/*suffix*/;
+
+                print("hello " + result);
             }           
         }
 
@@ -580,6 +581,8 @@ public class GameController : MonoBehaviour
                 int result = (int)dResult;
                 crystals += result;
                 crystalAmount.text = crystals + ""/*suffix*/;
+
+                print("hello " + result);
             }
         }
     }
@@ -587,9 +590,9 @@ public class GameController : MonoBehaviour
     private int ReturnIdleClicks(int secondsPassed) // returnerar det LoadIdleClicks adderar till spelarens total
     {
         int idleClicks = 0;
-        if (secondsPassed > PlayerPrefs.GetInt("IdleExtenderLvl") * 1800)
+        if (secondsPassed >= 1800 + 1800 * PlayerPrefs.GetInt("IdleExtenderLvl"))
         {
-            secondsPassed = PlayerPrefs.GetInt("IdleExtenderLvl") * 1800;
+            secondsPassed = 1800 + 1800 * PlayerPrefs.GetInt("IdleExtenderLvl"); // maxgräns för vad spelaren kan tjäna
         }
 
         if (isAtLevel) //varje sek
@@ -615,6 +618,7 @@ public class GameController : MonoBehaviour
                 crystalAmount.text = crystals + ""/*suffix*/;
             }
         }
+        
         return idleClicks;
     }
 
