@@ -24,4 +24,11 @@ public class StardustMinerUpgrade : UpgradeScript
             return true;
         return false;
     }
+
+    public override string ReturnPrice()
+    {
+        if (GameController.GetStardustMinerLevel() == 20)
+            return "MAX";
+        return base.ReturnPrice();
+    }
 }
