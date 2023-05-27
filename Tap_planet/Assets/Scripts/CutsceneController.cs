@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 public class CutsceneController : MonoBehaviour
 {
     private SceneChange sceneChange = new SceneChange();
-    private StartMenuTransition startMenuTransition= new StartMenuTransition();
+    private StartMenuTransition startMenuTransition  = new StartMenuTransition();
     public PlayableDirector timeline;
 
     void Start()

@@ -237,7 +237,8 @@ public class GameController : MonoBehaviour
 
     public void IncreaseStardustMinerLevel()
     {
-        stardustMinerLevel += 1;
+        if (stardustMinerLevel < 20)
+            stardustMinerLevel ++;
     }
 
     public static int GetStardustMinerLevel()
@@ -379,7 +380,7 @@ public class GameController : MonoBehaviour
 
     private void GetMoney()
     {
-        PlayerPrefs.SetString("crystals", 1000000.ToString());
+        PlayerPrefs.SetString("crystals", 100000000.ToString());
         PlayerPrefs.SetInt("clickLvl", 1);
         PlayerPrefs.SetInt("stardust", 1000000);
         PlayerPrefs.SetInt("stardustMinerLevel", 0);
