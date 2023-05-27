@@ -8,10 +8,16 @@ public class SkipCutscene : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.GetInt("PlayedCutscene") == 1)
+        //PlayerPrefs.DeleteKey("PlayedCutscene"); //TILL FR TESTNING AV CUTSCENEN
+        //PlayerPrefs.DeleteAll();
+        if (PlayerPrefs.GetInt("PlayedCutscene") != 1)
+        {
+            gameObject.SetActive(false);
+        } else if (PlayerPrefs.GetInt("PlayedCutscene") == 1)
         {
             gameObject.SetActive(true);
         }
+        Debug.Log(PlayerPrefs.GetInt("PlayedCutscene"));
     }
 
     // Update is called once per frame

@@ -15,6 +15,7 @@ public class TriggerCutscene : MonoBehaviour
     private IEnumerator Fade()
     {
         yield return new WaitForSeconds(5);
+        PlayerPrefs.SetInt("FromStartMenu", 1);
         transitionEffect.FadeToScene("Cutscene");
     }
 }
