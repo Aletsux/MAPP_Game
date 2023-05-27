@@ -16,7 +16,7 @@ public class PowerupScript : ItemScript
         table = "ButtonsPowerup";
         
         if (amountText != null)
-            SetLevelText();
+            SetAmountText();
         
         base.Start();
         descriptionPrice += "Powerup " + (index + 1);
@@ -35,13 +35,14 @@ public class PowerupScript : ItemScript
         SetBuyButtonText();
         if (isUsingAmount)
         {
-            SetLevelText();
+            SetAmountText();
         }       
         desc.GetAllInformation(this, true);
     }
 
-    public void SetLevelText()
+    public void SetAmountText()
     {
-        amountText.text = LocalizationSettings.StringDatabase.GetLocalizedString(table, amountKey) + GameController.GetPowerupAmount(title);
+        string amount = (GameController.GetPowerupAmount(title) == 0) ? "" : LocalizationSettings.StringDatabase.GetLocalizedString(table, amountKey) + GameController.GetPowerupAmount(title);
+        amountText.text = amount;
     }
 }

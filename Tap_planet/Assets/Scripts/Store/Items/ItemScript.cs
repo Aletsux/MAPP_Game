@@ -120,9 +120,21 @@ public class ItemScript : MonoBehaviour
         {
             return (price / 1000000).ToString("F1") + "M";
         }
-        else
+        else if (price < 1000000000000)
         {
             return (price / 1000000000).ToString("F1") + "B";
+        }
+        else if (price < 1000000000000000)
+        {
+            return (price / 1000000000000).ToString("F1") + "T";
+        }
+        else if (price < 1000000000000000000)
+        {
+            return (price / 1000000000000000).ToString("F1") + "Q";
+        }
+        else
+        {
+            return (price / 1000000000000000000).ToString("F1") + "P";
         }
     }
 
@@ -186,6 +198,4 @@ public class ItemScript : MonoBehaviour
             return true;
         return false;
     }
-
-
 }
