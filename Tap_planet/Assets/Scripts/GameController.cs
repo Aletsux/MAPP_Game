@@ -149,10 +149,8 @@ public class GameController : MonoBehaviour
                 //Debug.Log("crystal: " + 1);
             } 
         }
-
         UpdateCrystals();
         UpdateStardust();
-
     }
 
     public bool getIsTpuActive() {
@@ -278,7 +276,7 @@ public class GameController : MonoBehaviour
                 TPUAmount--;
                 UpdateTPUText();
 
-                Invoke("UpdateTPU", 5);
+                Invoke("UpdateTPU", 5.1f);
             }
         }
         else
@@ -451,7 +449,6 @@ public class GameController : MonoBehaviour
 
     public static int calculateSecondsSinceQuit()
     {
-        return 601;
         return (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds - PlayerPrefs.GetInt("quitTime");
     }
 
