@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SkipCutscene : MonoBehaviour
 {
-    private SceneChange sceneChange = new SceneChange();
+    private SceneChange sceneChange;
 
-    void Start()
+    void Awake()
     {
+        sceneChange = FindObjectOfType<SceneChange>();
         //PlayerPrefs.DeleteKey("PlayedCutscene"); //TILL FR TESTNING AV CUTSCENEN
         //PlayerPrefs.DeleteAll();
         if (PlayerPrefs.GetInt("PlayedCutscene") != 1)
@@ -20,14 +22,9 @@ public class SkipCutscene : MonoBehaviour
         Debug.Log(PlayerPrefs.GetInt("PlayedCutscene"));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Skip()
     {
-        
-    }
-
-    public void skip()
-    {
-        sceneChange.LoadMainMenu();
+        //sceneChange.LoadMainMenu();
+        SceneManager.LoadScene("StartMenu");
     }
 }
