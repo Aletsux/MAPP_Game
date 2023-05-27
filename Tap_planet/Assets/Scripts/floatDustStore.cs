@@ -214,6 +214,14 @@ public class floatDustStore : MonoBehaviour
                 Clean();
             }
         }
+        else if (powerUpName.Equals("leaf") && PlayerPrefs.GetInt("AccessoryPurchased_" + 9) == 0)
+        {
+            if (GameController.GetStardust() >= GetPrice(powerUpName))
+            {
+                GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
+                Clean();
+            }
+        }
         else if (powerUpName.Equals("drip") && PlayerPrefs.GetInt("PlanetPurchased_" + 1) == 0)
         {
             if (GameController.GetStardust() >= GetPrice(powerUpName))
