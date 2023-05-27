@@ -98,8 +98,9 @@ public class RaidState : MonoBehaviour
         }
 
         
-        long crystals = (-enemiesKilled * clickLvl > long.Parse(PlayerPrefs.GetString("crystals"))) ? long.Parse(PlayerPrefs.GetString("crystals")) * (-1)  : enemiesKilled * clickLvl;
-        int stardust = (-enemiesKilled > PlayerPrefs.GetInt("stardust")) ? PlayerPrefs.GetInt("stardust") : enemiesKilled;
+        int rng = Random.Range(3,8);
+        long crystals = (PlanetState.HP > 0) ? enemiesKilled * 10 : ((long.Parse(PlayerPrefs.GetString("crystals")) * rng) / 10) * (-1);
+        int stardust =  (PlanetState.HP > 0) ? enemiesKilled : ((PlayerPrefs.GetInt("stardust") * rng) / 10) * (-1);
 
         crystalsWon.text = crystalsLost.text = crystals.ToString();
         stardustWon.text = stardustLost.text = FormatNumbers.FormatInt(stardust);
