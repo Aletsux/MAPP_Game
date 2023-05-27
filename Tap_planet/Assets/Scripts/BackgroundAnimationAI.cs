@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class BackgroundAnimationAI : MonoBehaviour
 {
-
     private float timer;
     public float timeBetweenAnimation;
 

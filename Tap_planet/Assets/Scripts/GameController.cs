@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour
 
     private int idleLvl = 0;
 
-    void Awake()
+    void Start()
     {
         if (PlayerPrefs.GetInt("getMoney") == 1)
         {
@@ -451,7 +451,7 @@ public class GameController : MonoBehaviour
 
     public static int calculateSecondsSinceQuit()
     {
-        return 18010000;
+        return 601;
         return (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds - PlayerPrefs.GetInt("quitTime");
     }
 
@@ -567,9 +567,6 @@ public class GameController : MonoBehaviour
             {
                 int result = secondsPassed * numPerSec;
                 crystals += result;
-                crystalAmount.text = crystals + ""/*suffix*/;
-
-                print("hello " + result);
             }           
         }
 
@@ -580,9 +577,6 @@ public class GameController : MonoBehaviour
                 double dResult = secondsPassed / secBeforeIdleClick;
                 int result = (int)dResult;
                 crystals += result;
-                crystalAmount.text = crystals + ""/*suffix*/;
-
-                print("hello " + result);
             }
         }
     }
@@ -614,8 +608,7 @@ public class GameController : MonoBehaviour
             {
                 double dResult = secondsPassed / secBeforeIdleClick;
                 int result = (int)dResult;
-                crystals += result;
-                crystalAmount.text = crystals + ""/*suffix*/;
+                idleClicks += result;
             }
         }
         
