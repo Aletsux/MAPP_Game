@@ -203,14 +203,14 @@ public class GameController : MonoBehaviour
 
     public void ClickStardust()
     {
-        int rng = rnd.Next(1, 100);
+        int rng = rnd.Next(1, 200);
         bool endMethod = false;
         for (int i = 1; i <= stardustMinerLevel; i++)
         {
             if (rng == i)
             {
                 endMethod = true;
-                AddStardust(1);
+                AddStardust(1 + (PlayerPrefs.GetInt("ClickLevelInStore") - 1));
             }
             if (endMethod)
                 return;
