@@ -22,17 +22,22 @@ public class FloatNum : MonoBehaviour
     public GameObject crystalPos;
     private int nextUpdate = 1;
 
+    private StoreScript storeScript;
+    public GameObject SS;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         gameController = GC.GetComponent<GameController>();
+        storeScript = SS.GetComponent<StoreScript>();
     }
 
     private void OnEnable()
     {
         gameController = GC.GetComponent<GameController>();
+        storeScript = SS.GetComponent<StoreScript>();
     }
 
     // Update is called once per frame
@@ -121,11 +126,16 @@ public class FloatNum : MonoBehaviour
         }
         else if (powerUpName.Equals("dust"))
         {
-            int cost = (GameController.GetStardustMinerLevel() == 0) ? 20 : GameController.GetStardustMinerLevel() * 50;
-            if (GameController.GetStardust() >= cost)
+            int cost = storeScript.GetPrice("dust");
+            Debug.Log("Yes");
+            
+             
+            //int cost = (GameController.GetStardustMinerLevel() == 0) ? 20 : GameController.GetStardustMinerLevel() * 50;
+            if (GameController.GetCrystals() >= cost)
             {
                 GameObject newFlot = GameObject.Instantiate(floatingThing, trans.position, Quaternion.identity, GameObject.FindGameObjectWithTag("parent").transform);
                 Clean();
+                
             }
         }
         else if (powerUpName.Equals("star"))
