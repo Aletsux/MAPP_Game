@@ -443,6 +443,8 @@ public class StoreScript : MonoBehaviour
         }
         else if (name.Equals("dust"))
         {
+            if (GameController.GetStardustMinerLevel() == 20)
+                return -1;
             return (GameController.GetStardustMinerLevel() == 0) ? 1000 : (GameController.GetStardustMinerLevel() * 10000 * (130 / 100)); //increase 30%
         }
         else if (name.Equals("star"))
