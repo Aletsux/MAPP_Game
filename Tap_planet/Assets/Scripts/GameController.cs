@@ -210,7 +210,7 @@ public class GameController : MonoBehaviour
             if (rng == i)
             {
                 endMethod = true;
-                AddStardust(1);
+                AddStardust(1 + (PlayerPrefs.GetInt("ClickLevelInStore") - 1));
             }
             if (endMethod)
                 return;
