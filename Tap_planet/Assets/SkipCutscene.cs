@@ -10,8 +10,6 @@ public class SkipCutscene : MonoBehaviour
     void Awake()
     {
         sceneChange = FindObjectOfType<SceneChange>();
-        //PlayerPrefs.DeleteKey("PlayedCutscene"); //TILL FR TESTNING AV CUTSCENEN
-        //PlayerPrefs.DeleteAll();
         if (PlayerPrefs.GetInt("PlayedCutscene") != 1)
         {
             gameObject.SetActive(false);
@@ -24,7 +22,6 @@ public class SkipCutscene : MonoBehaviour
 
     public void Skip()
     {
-        //sceneChange.LoadMainMenu();
         SceneManager.LoadScene("StartMenu");
     }
 }

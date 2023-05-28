@@ -345,7 +345,6 @@ public class GameController : MonoBehaviour
         PlayerPrefs.SetInt("doubletimeCost", DoubleTime.GetCost());
         PlayerPrefs.SetInt("idleLvl", idleLvl);
         PlayerPrefs.Save();
-        PlayerPrefs.DeleteAll();
     }
 
     private void ResetForBuild()
