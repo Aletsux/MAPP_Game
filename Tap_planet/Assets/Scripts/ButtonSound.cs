@@ -16,6 +16,7 @@ public class ButtonSound : MonoBehaviour
 
     public void PlayTapSound() {
         audioSource.pitch = Random.Range(0.9f,1.05f);
+        audioSource.volume = 0.08f;
         audioSource.PlayOneShot(tapSound);
     }
 }
