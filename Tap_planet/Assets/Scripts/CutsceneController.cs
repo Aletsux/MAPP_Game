@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class CutsceneController : MonoBehaviour
 {
     public PlayableDirector timeline;
-
+    public SceneTransitionFader transition;
     void Start()
     {
         if (PlayerPrefs.GetInt("PlayedCutscene") == 0 || PlayerPrefs.GetInt("FromStartMenu") == 1)
@@ -24,6 +24,6 @@ public class CutsceneController : MonoBehaviour
     public void PlayedCutscene(PlayableDirector pd) //parametern gör att metoden får tillg�ng till infon om pb-objektet (timeline) som genererade händelsen (stopped)
     {
         PlayerPrefs.SetInt("PlayedCutscene", 1);
-        GetComponent<SceneTransitionFader>().FadeToScene("StartMenu");
+        transition.FadeToScene("StartMenu");
     }
 }
