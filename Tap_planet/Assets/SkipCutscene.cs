@@ -19,9 +19,4 @@ public class SkipCutscene : MonoBehaviour
         }
         Debug.Log(PlayerPrefs.GetInt("PlayedCutscene"));
     }
-
-    public void Skip()
-    {
-        SceneManager.LoadScene("StartMenu");
-    }
 }

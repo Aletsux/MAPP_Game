@@ -24,6 +24,6 @@ public class CutsceneController : MonoBehaviour
     public void PlayedCutscene(PlayableDirector pd) //parametern gör att metoden får tillg�ng till infon om pb-objektet (timeline) som genererade händelsen (stopped)
     {
         PlayerPrefs.SetInt("PlayedCutscene", 1);
-        SceneManager.LoadScene("StartMenu");
+        GetComponent<SceneTransitionFader>().FadeToScene("StartMenu");
     }
 }
