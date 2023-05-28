@@ -15,7 +15,7 @@ public class SceneTransitionFader : MonoBehaviour
     private void Start()
     {
         gameObject.SetActive(true);
-        // Start the fade-in effect when the scene loads
+        
         StartCoroutine(Fade(1f, 0f, fadeDurationIn, () =>
         {
             gameObject.SetActive(false);
