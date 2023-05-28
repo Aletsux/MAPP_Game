@@ -153,6 +153,13 @@ public class GameController : MonoBehaviour
         UpdateStardust();
     }
 
+    public void resetBuild() {
+        PlayerPrefs.SetInt("reset", 1);
+        PlayerPrefs.SetInt("getMoney", 0);
+        print("getmoney " + PlayerPrefs.GetInt("getMoney"));
+        print("reset " + PlayerPrefs.GetInt("reset"));
+    }
+
     public bool getIsTpuActive() {
         return isUsingTPU;
     }
