@@ -630,7 +630,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.227
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -743,6 +743,7 @@ MonoBehaviour:
   sceneNames:
   - StartMenu
   - Game
+  - Cutscene
   instanceName: 
 --- !u!4 &795436859
 Transform:
