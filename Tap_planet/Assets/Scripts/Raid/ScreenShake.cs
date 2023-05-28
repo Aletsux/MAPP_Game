@@ -7,7 +7,7 @@ public class ScreenShake : MonoBehaviour
     private float shakeTime;
     private float shakeMagnitude;
 
-    private Transform shakeTransform; // Reference to the Shake object's transform
+    private Transform shakeTransform;
 
     private void Start()
     {
@@ -17,8 +17,7 @@ public class ScreenShake : MonoBehaviour
     private void Update()
     {
         Vector3 newPosition = (Vector3)(Random.insideUnitCircle * shakeTime * shakeMagnitude);
-        newPosition.z = shakeTransform.localPosition.z; // Maintain the original z position of Shake
-
+        newPosition.z = shakeTransform.localPosition.z; 
         shakeTransform.localPosition = newPosition;
 
         if (shakeTime > 0)
@@ -27,37 +26,9 @@ public class ScreenShake : MonoBehaviour
             shakeTime = 0f;
     }
 
-    public void Shake() {
+    public void Shake()
+    {
         shakeTime = 0.7f;
         shakeMagnitude = 5f;
     }
-
-
-
-    //public bool start = false;
-    //public AnimationCurve curve;
-    //public float duration = 1f;
-
-    //void Update()
-    //{
-    //    if (start) {
-    //        start = false;
-    //        StartCoroutine(Shake());
-    //    }
-
-    //}
-
-    //IEnumerator Shake() {
-    //    Vector3 startPosition = transform.position;
-    //    float elapsedTime = 0f;
-
-    //    while(elapsedTime < duration) {
-    //        elapsedTime += Time.deltaTime;
-    //        float strength = curve.Evaluate(elapsedTime / duration);
-    //        transform.position = startPosition + Random.insideUnitSphere * strength;
-    //        yield return null;
-    //    }
-
-    //    transform.position = startPosition;
-    //}
 }

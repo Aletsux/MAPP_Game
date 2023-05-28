@@ -12,7 +12,6 @@ public class TiltController : MonoBehaviour
     public float maxX = 20f;
     private Vector3 startingPosition;
 
-    // Start is called before the first frame update
     void Start()
     {
         startingPosition = transform.position;
@@ -21,7 +20,6 @@ public class TiltController : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         dx = Input.acceleration.x * moveSpeed;
