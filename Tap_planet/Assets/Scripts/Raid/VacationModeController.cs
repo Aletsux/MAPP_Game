@@ -12,7 +12,7 @@ public class VacationModeController : MonoBehaviour
             toggle = false;
         }
         GameObject.FindAnyObjectByType<RaidController>().gameObject.SetActive(toggle);
-        //GameObject.FindAnyObjectByType<AndroidNotifications>().gameObject.SetActive(toggle);
+        GameObject.FindAnyObjectByType<AndroidNotifications>().gameObject.SetActive(toggle);
     }
 
     public void ToggleVacationMode()
@@ -28,6 +28,6 @@ public class VacationModeController : MonoBehaviour
             PlayerPrefs.SetInt("VacationMode", 1);
         }
         GameObject.FindAnyObjectByType<RaidController>().gameObject.SetActive(toggle);
-        //GameObject.FindAnyObjectByType<AndroidNotifications>().gameObject.SetActive(toggle);
+        GameObject.FindAnyObjectByType<AndroidNotifications>().gameObject.SetActive(toggle);
     }
 }

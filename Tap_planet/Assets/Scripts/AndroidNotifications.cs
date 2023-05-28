@@ -1,4 +1,4 @@
-/* using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Notifications.Android;
 using UnityEngine;
@@ -76,4 +76,3 @@ public class AndroidNotifications : MonoBehaviour
         }
     }
 }
- */
