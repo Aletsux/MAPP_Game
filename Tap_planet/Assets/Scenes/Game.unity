@@ -6546,7 +6546,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 0.134
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15163,7 +15163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeImage: {fileID: 1090031425}
-  fadeDurationIn: 0.4
+  fadeDurationIn: 1
   fadeDurationOut: 0.4
   fadeColor: {r: 0.11372549, g: 0.11372549, b: 0.11372549, a: 1}
 --- !u!114 &1090031425
