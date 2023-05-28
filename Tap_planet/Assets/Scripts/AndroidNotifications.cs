@@ -63,10 +63,8 @@ public class AndroidNotifications : MonoBehaviour
             var notification = new AndroidNotification();   // create new notification
             notification.Title = "Raid Alert!";     // Header
             notification.Text = "Quick! You have 15 minutes to enter and defend your planet!";     // text
-
-            int rnd = Random.Range(30, 35);
-            PlayerPrefs.SetInt("timeBeforeRaid", rnd);
-            notification.FireTime = System.DateTime.Now.AddSeconds(rnd);
+            print("notification");
+            notification.FireTime = System.DateTime.Now.AddSeconds(RaidController.timeBeforeRaid);
             
             var id = AndroidNotificationCenter.SendNotification(notification, "channel_id");     // sends notification and stores it 
 

@@ -21,7 +21,7 @@ public class PlanetScript : ItemScript
         desc.GetAllInformation(this, false);
     }
 
-    protected override void OnBuyClick()
+    public override void OnBuyClick()
     {
         SetDescriptionTranslations();
         desc.GetAllInformation(this, true);

@@ -36,6 +36,7 @@ public class RaidController : MonoBehaviour
         else
         {
             raidTime = rnd.Next(60, 180);
+            timeBeforeRaid = rnd.Next(3600, 10800);
         }
         autoRaidTimer = 0;
     }
@@ -109,6 +110,7 @@ public class RaidController : MonoBehaviour
         }
         else
         {
+            print("raidcontroller");
             lastSaveTime = System.DateTime.Now;
             Debug.Log(lastSaveTime.ToString());
         }

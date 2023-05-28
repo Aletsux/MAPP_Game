@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour
 
     private int idleLvl = 0;
 
-    void Awake()
+    void Start()
     {
         if (PlayerPrefs.GetInt("getMoney") == 1)
         {
@@ -149,10 +149,8 @@ public class GameController : MonoBehaviour
                 //Debug.Log("crystal: " + 1);
             } 
         }
-
         UpdateCrystals();
         UpdateStardust();
-
     }
 
     public void resetBuild() {
@@ -285,7 +283,7 @@ public class GameController : MonoBehaviour
                 TPUAmount--;
                 UpdateTPUText();
 
-                Invoke("UpdateTPU", 5);
+                Invoke("UpdateTPU", 5.1f);
             }
         }
         else
@@ -458,7 +456,6 @@ public class GameController : MonoBehaviour
 
     public static int calculateSecondsSinceQuit()
     {
-        return 18010000;
         return (int)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds - PlayerPrefs.GetInt("quitTime");
     }
 
@@ -574,9 +571,6 @@ public class GameController : MonoBehaviour
             {
                 int result = secondsPassed * numPerSec;
                 crystals += result;
-                crystalAmount.text = crystals + ""/*suffix*/;
-
-                print("hello " + result);
             }           
         }
 
@@ -587,9 +581,6 @@ public class GameController : MonoBehaviour
                 double dResult = secondsPassed / secBeforeIdleClick;
                 int result = (int)dResult;
                 crystals += result;
-                crystalAmount.text = crystals + ""/*suffix*/;
-
-                print("hello " + result);
             }
         }
     }
@@ -621,8 +612,7 @@ public class GameController : MonoBehaviour
             {
                 double dResult = secondsPassed / secBeforeIdleClick;
                 int result = (int)dResult;
-                crystals += result;
-                crystalAmount.text = crystals + ""/*suffix*/;
+                idleClicks += result;
             }
         }
         
@@ -700,12 +690,10 @@ public class GameController : MonoBehaviour
     {
         int shieldLevel = PlayerPrefs.GetInt("ShieldLevel");
         int shieldCost = PlayerPrefs.GetInt("ShieldCost");
-        Debug.Log("THIS IS SHIELDLEVEL: " + shieldLevel);
-        Debug.Log("THIS IS SHIELDAMOUNT: " + PlayerPrefs.GetInt("healthBoostAmount"));
 
         if (shieldLevel <= 0)
         {
-            PlayerPrefs.SetInt("ShieldCost", 10000);
+            PlayerPrefs.SetInt("ShieldCost", 10);
             return PlayerPrefs.GetInt("ShieldCost");
         }
         else
