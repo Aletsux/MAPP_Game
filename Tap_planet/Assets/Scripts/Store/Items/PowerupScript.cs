@@ -28,7 +28,7 @@ public class PowerupScript : ItemScript
         desc.GetAllInformation(this, false);
     }
 
-    protected override void OnBuyClick()
+    public override void OnBuyClick()
     {
         SetDescriptionTranslations();
         store.BuyPowerUp(title);

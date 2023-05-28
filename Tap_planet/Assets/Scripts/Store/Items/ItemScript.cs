@@ -83,7 +83,7 @@ public class ItemScript : MonoBehaviour
         desc.GetAllInformation(this, false);
     }
 
-    protected virtual void OnBuyClick()
+    public virtual void OnBuyClick()
     {
         store.BuyPowerUp(title);
         SetBuyButtonText();

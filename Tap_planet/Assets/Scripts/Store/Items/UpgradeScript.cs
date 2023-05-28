@@ -30,7 +30,7 @@ public class UpgradeScript : ItemScript
         desc.GetAllInformation(this, false);
     }
 
-    protected override void OnBuyClick()
+    public override void OnBuyClick()
     {
         if (!usingChangeText)
             SetDescriptionTranslations();
