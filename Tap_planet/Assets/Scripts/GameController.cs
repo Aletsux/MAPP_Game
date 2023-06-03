@@ -72,7 +72,6 @@ public class GameController : MonoBehaviour
         else if (PlayerPrefs.GetInt("reset") == 1)
         {
             PlayerPrefs.DeleteAll();
-            ResetForBuild();
         }
         PlayerPrefs.SetInt("reset", 0);
         PlayerPrefs.SetInt("getMoney", 0);
@@ -425,9 +424,9 @@ public class GameController : MonoBehaviour
         secBeforeIdleClick = PlayerPrefs.GetInt("secBeforeIdleClick");
         lvlCounter = PlayerPrefs.GetInt("lvlCounter");
         AudioListener.volume = PlayerPrefs.GetFloat("Volume", volumeManager.getVolume());
-        tpuCost = PlayerPrefs.GetInt("tpuCost");
-        idleCost = PlayerPrefs.GetInt("idleCost");
-        clickLvl = PlayerPrefs.GetInt("clickLvl");
+        tpuCost =  (PlayerPrefs.GetInt("tpuCost") == 0) ? 100 : PlayerPrefs.GetInt("tpuCost");
+        idleCost = (PlayerPrefs.GetInt("idleCost") == 0) ? 100 : PlayerPrefs.GetInt("idleCost");
+        clickLvl = (PlayerPrefs.GetInt("clickLvl") == 0) ? 1 : PlayerPrefs.GetInt("clickLvl");
         DoubleTime.SetCost(PlayerPrefs.GetInt("doubletimeCost"));
         idleLvl = PlayerPrefs.GetInt("idleLvl");
 
