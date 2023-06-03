@@ -153,6 +153,13 @@ public class GameController : MonoBehaviour
         UpdateStardust();
     }
 
+    public void resetBuild() {
+        PlayerPrefs.SetInt("reset", 1);
+        PlayerPrefs.SetInt("getMoney", 0);
+        print("getmoney " + PlayerPrefs.GetInt("getMoney"));
+        print("reset " + PlayerPrefs.GetInt("reset"));
+    }
+
     public bool getIsTpuActive() {
         return isUsingTPU;
     }
@@ -406,12 +413,12 @@ public class GameController : MonoBehaviour
         {
             crystals = 0;
         }
-        clickLvl = PlayerPrefs.GetInt("clickLvl");
+
+        clickLvl = (PlayerPrefs.GetInt("clickLvl") == 0) ? 1 : PlayerPrefs.GetInt("clickLvl");
         TPUAmount = PlayerPrefs.GetInt("tpu");
         isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
         stardust = PlayerPrefs.GetInt("stardust");
         stardustMinerLevel = PlayerPrefs.GetInt("stardustMinerLevel");
-
         isUsingIdleClicker = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfUsingIdle"));
         isAtLevel = Convert.ToBoolean(PlayerPrefs.GetInt("saveIfLvlOne"));
         numPerSec = PlayerPrefs.GetInt("numPerSec");
@@ -424,7 +431,6 @@ public class GameController : MonoBehaviour
         DoubleTime.SetCost(PlayerPrefs.GetInt("doubletimeCost"));
         idleLvl = PlayerPrefs.GetInt("idleLvl");
 
-        
         if (isUsingIdleClicker)
         {
             int timeLimitlevel = PlayerPrefs.GetInt("IdleExtenderLvl");
